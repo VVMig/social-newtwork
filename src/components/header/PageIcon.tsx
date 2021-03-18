@@ -3,11 +3,12 @@ import React from 'react';
 import './PageIcon.css';
 
 interface Props {
-  icon: any;
+  title: string,
+  icon: any
 }
 
-const PageIcon: React.FC<Props> = ({ icon }) => {
-  return <div className="page-icon">{icon}</div>;
+const PageIcon: React.FC<Props> = ({ icon, title }) => {
+  return <div className="page-icon" title={title}>{icon}</div>;
 };
 
 export default PageIcon;

@@ -45,7 +45,7 @@ const Navbar: React.FC = () => {
     <div className="pages-container">
       {icons.map((e, i) => (
           <Link to="#" className="page-link">
-              <PageIcon icon={e.iconComponent} key={i}/>
+              <PageIcon icon={e.iconComponent} title={e.title} key={i}/>
           </Link>
       ))}
     </div>
