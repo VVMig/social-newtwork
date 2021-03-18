@@ -1,11 +1,15 @@
 .pages-container {
-    max-width: 465px;
-    width: 100%;
-    background-color: #F2F7FB;
-    border-radius: 0  0 25px 25px;
-    display: flex;
-    padding: 0 40px;
-    justify-content: space-between;
-    align-items: center;
-    color: #919497;
+  max-width: 465px;
+  width: 100%;
+  background-color: #f2f7fb;
+  border-radius: 0 0 25px 25px;
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+  color: #919497;
+}
+
+.page-link {
+  color: inherit;
 }

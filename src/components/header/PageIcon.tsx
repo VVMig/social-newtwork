@@ -1,16 +1,13 @@
-import React from 'react'
+import React from 'react';
 
-import './PageIcon.css'
+import './PageIcon.css';
 
 interface Props {
-    icon: any
+  icon: any;
 }
 
 const PageIcon: React.FC<Props> = ({ icon }) => {
-
-    return <div className="page-icon"> 
-       {icon}         
-    </div>
-}
+  return <div className="page-icon">{icon}</div>;
+};
 
 export default PageIcon;
