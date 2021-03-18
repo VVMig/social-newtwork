@@ -7,17 +7,17 @@ import {
   SettingsRounded,
 } from '@material-ui/icons';
 
-import PageIcon from './PageIcon';
+import { PageIcon } from './PageIcon';
 import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
 interface Icon {
   title: string;
-  iconComponent: any;
+  iconComponent: JSX.Element;
 }
 
-const icons: Icon[] = [
+export const icons: Icon[] = [
   {
     title: 'Home',
     iconComponent: <HomeRounded />,
@@ -40,16 +40,14 @@ const icons: Icon[] = [
   },
 ];
 
-const Navbar: React.FC = () => {
+export const Navbar: React.FC = () => {
   return (
     <div className="pages-container">
-      {icons.map((e, i) => (
-          <Link to="#" className="page-link">
-              <PageIcon icon={e.iconComponent} title={e.title} key={i}/>
-          </Link>
+      {icons.map((x, i) => (
+        <Link to="#" className="page-link" key={i}>
+          <PageIcon icon={x.iconComponent} title={x.title} />
+        </Link>
       ))}
     </div>
   );
 };
-
-export default Navbar;
