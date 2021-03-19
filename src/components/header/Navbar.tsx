@@ -1,51 +1,59 @@
 import React from 'react';
 import { Icon } from '../Icon';
-import { IconType } from '../IconEnum';
+import { IconType, TabRoutes } from '../IconEnum';
 import { PageIcon } from './PageIcon';
 import { Link } from 'react-router-dom';
 
 import './Navbar.css';
 
 interface IconPage {
-  iconComponent: JSX.Element;
+  component: (arg0?: string) => JSX.Element;
   title: string;
-  link: string;
+  route: TabRoutes;
 }
 
-const icons: IconPage[] = [
+const tabs: IconPage[] = [
   {
-    iconComponent: <Icon title={IconType.Home} />,
-    title: IconType.Home,
-    link: '#',
+    route: TabRoutes.Home,
+    title: 'Home page',
+    component: (title?: string): JSX.Element => (
+      <Icon type={IconType.Home} title={title} />
+    ),
   },
   {
-    iconComponent: <Icon title={IconType.Groups} />,
-    title: IconType.Groups,
-    link: '#',
+    route: TabRoutes.Groups,
+    title: 'Groups',
+    component: (title?: string) => (
+      <Icon type={IconType.Groups} title={title} />
+    ),
   },
   {
-    iconComponent: <Icon title={IconType.Messager} />,
-    title: IconType.Messager,
-    link: '#',
+    route: TabRoutes.Messager,
+    title: 'Messager',
+    component: (title?: string) => (
+      <Icon type={IconType.Messager} title={title} />
+    ),
   },
   {
-    iconComponent: <Icon title={IconType.Help} />,
-    title: IconType.Help,
-    link: '#',
+    route: TabRoutes.Help,
+    title: 'Help',
+    component: (title?: string) => <Icon type={IconType.Help} title={title} />,
   },
   {
-    iconComponent: <Icon title={IconType.Settings} />,
-    title: IconType.Settings,
-    link: '#',
+    route: TabRoutes.Settings,
+    title: 'Settings',
+    component: (title?: string) => (
+      <Icon type={IconType.Settings} title={title} />
+    ),
   },
 ];
 
 export const Navbar = () => {
   return (
     <div className="pages-container">
-      {icons.map((x, i) => (
-        <Link to={x.link} key={i} className="page-link">
-          <PageIcon icon={x.iconComponent} title={x.title} />
+      {tabs.map((x, i) => (
+        <Link to={x.route} key={i} title={x.title} className="page-link">
+          <PageIcon icon={x.component(x.title)} />
         </Link>
       ))}
     </div>

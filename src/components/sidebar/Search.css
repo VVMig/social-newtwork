@@ -33,6 +33,10 @@
   background-color: #e8f0f4;
 }
 
+.sidebar-search input:focus {
+  box-shadow: 0 0 0 0.15rem #00339352;
+}
+
 .sidebar-search input::placeholder {
   color: #949597;
 }

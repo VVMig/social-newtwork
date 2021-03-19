@@ -1,13 +1,13 @@
 import React from 'react';
 import { Group } from './Group';
-import { GroupView } from '../Interfaces';
+import { GroupView } from './interfaces';
 import './YourGroups.css';
 
 interface Props {
   groups: GroupView[];
 }
 
-export const YourGroups: React.FC<Props> = ({ groups }) => {
+export const YourGroups = ({ groups }: Props) => {
   return (
     <div className="sidebar-groups">
       <div className="groups-title">

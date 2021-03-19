@@ -2,7 +2,7 @@ export interface FriendFields {
   firstName: string;
   lastName: string;
   online: boolean;
-  imageSrc: string;
+  src: string;
   link: string;
   lastVisit: number;
 }

@@ -4,7 +4,7 @@ import { Header } from './components/header/Header';
 import { Sidebar } from './components/sidebar/Sidebar';
 import './App.css';
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <BrowserRouter>
       <Header />

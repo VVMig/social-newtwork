@@ -1,6 +1,6 @@
 import React from 'react';
 import { Friend } from './Friend';
-import { FriendsListProps } from './Interfaces';
+import { FriendsListProps } from './interfaces';
 import './FriendsList.css';
 
 export const FriendsList = (props: FriendsListProps) => {

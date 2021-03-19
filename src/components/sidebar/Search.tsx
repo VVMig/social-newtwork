@@ -2,7 +2,7 @@ import React from 'react';
 import { Search as SearchIcon } from '@material-ui/icons';
 import './Search.css';
 
-export const Search: React.FC = () => {
+export const Search = () => {
   return (
     <form className="sidebar-search">
       <input

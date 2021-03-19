@@ -4,7 +4,7 @@ import { Navbar } from './Navbar';
 
 import './Header.css';
 
-export const Header: React.FC = () => {
+export const Header = () => {
   return (
     <header className="header">
       <Navbar />

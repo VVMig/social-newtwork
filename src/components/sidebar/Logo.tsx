@@ -1,6 +1,6 @@
 import React from 'react';
 import './Logo.css';
 
-export const Logo: React.FC = () => {
+export const Logo = () => {
   return <div className="logo"></div>;
 };

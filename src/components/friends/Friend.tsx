@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FriendFields } from './Interfaces';
+import { FriendFields } from './interfaces';
 import './Friend.css';
 
 export const Friend = (props: FriendFields) => {
-  const { firstName, lastVisit, lastName, online, imageSrc, link } = props;
+  const { firstName, lastVisit, lastName, online, src, link } = props;
 
   return (
     <Link to={link}>
       <div className="friend-item">
         <div className="friend-info">
-          <div
-            className="friend-avatar"
-            style={{ backgroundImage: `url(${imageSrc})` }}
-          ></div>
+          <div className="friend-avatar">
+            <img src={src} alt={`${firstName} ${lastName}`} />
+          </div>
           <div className="friend-name">
             <h3>
               {firstName} {lastName}

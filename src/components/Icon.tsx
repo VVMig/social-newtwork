@@ -9,19 +9,24 @@ import {
 } from '@material-ui/icons';
 
 interface IconProps {
-  title: IconType;
+  type: IconType;
+  title?: string;
 }
 
-const icons: Record<IconType, () => JSX.Element> = {
-  [IconType.Groups]: () => <PeopleAltRounded />,
-  [IconType.Home]: () => <HomeRounded />,
-  [IconType.Help]: () => <FlagRounded />,
-  [IconType.Messager]: () => <ForumRounded />,
-  [IconType.Settings]: () => <SettingsRounded />,
+const icons: Record<IconType, JSX.Element> = {
+  [IconType.Groups]: <PeopleAltRounded />,
+  [IconType.Home]: <HomeRounded />,
+  [IconType.Help]: <FlagRounded />,
+  [IconType.Messager]: <ForumRounded />,
+  [IconType.Settings]: <SettingsRounded />,
 };
 
-export const Icon = ({ title }: IconProps) => {
-  const Icon = icons[IconType[title]];
+export const Icon = ({ type, title }: IconProps) => {
+  const Icon = () => icons[IconType[type]];
 
-  return <Icon></Icon>;
+  return (
+    <div title={title}>
+      <Icon></Icon>
+    </div>
+  );
 };

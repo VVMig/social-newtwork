@@ -1,40 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { Search } from './Search';
 import { Logo } from './Logo';
-import { YourGroups } from './groups/YourGroups';
-import { FriendsList } from './friends/FriendsList';
-import { GroupView } from './Interfaces';
-import { FriendFields } from './friends/Interfaces';
+import { YourGroups } from '../groups/YourGroups';
+import { FriendsList } from '../friends/FriendsList';
+import { GroupView } from '../groups/interfaces';
+import { FriendFields } from '../friends/interfaces';
+import friend from './../../icons/friend.jpg';
+import group from './../../icons/group.jpeg';
 import './Sidebar.css';
 
-export const Sidebar: React.FC = () => {
+export const Sidebar = () => {
   const [groups, setGroups] = useState<GroupView[]>([]);
   const [friends, setFriends] = useState<FriendFields[]>([]);
 
   useEffect(() => {
     setGroups([
       {
-        title: 'Figma Community',
-        imageSrc:
-          'https://media-exp1.licdn.com/dms/image/C560BAQGvV_5x3UBMJA/company-logo_200_200/0/1571158216754?e=2159024400&v=beta&t=FNtl7xIQWKxcVVqON99w2TgHZ1coVC3kevZEHi0z6lI',
+        title: 'Sketch Comunnity',
+        src: group,
         link: '#',
       },
       {
         title: 'Sketch Comunnity',
-        imageSrc:
-          'https://media-exp1.licdn.com/dms/image/C560BAQGvV_5x3UBMJA/company-logo_200_200/0/1571158216754?e=2159024400&v=beta&t=FNtl7xIQWKxcVVqON99w2TgHZ1coVC3kevZEHi0z6lI',
+        src: group,
         link: '#',
       },
       {
         title: 'Sketch Comunnity',
-        imageSrc:
-          'https://media-exp1.licdn.com/dms/image/C560BAQGvV_5x3UBMJA/company-logo_200_200/0/1571158216754?e=2159024400&v=beta&t=FNtl7xIQWKxcVVqON99w2TgHZ1coVC3kevZEHi0z6lI',
+        src: group,
         link: '#',
       },
       {
         title: 'Sketch Comunnity',
-        imageSrc:
-          'https://media-exp1.licdn.com/dms/image/C560BAQGvV_5x3UBMJA/company-logo_200_200/0/1571158216754?e=2159024400&v=beta&t=FNtl7xIQWKxcVVqON99w2TgHZ1coVC3kevZEHi0z6lI',
+        src: group,
         link: '#',
       },
     ]);
@@ -46,8 +44,7 @@ export const Sidebar: React.FC = () => {
         lastVisit: 0,
         online: true,
         link: '#',
-        imageSrc:
-          'https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg',
+        src: friend,
       },
       {
         firstName: 'Eleanor',
@@ -55,8 +52,7 @@ export const Sidebar: React.FC = () => {
         lastVisit: 0,
         online: true,
         link: '#',
-        imageSrc:
-          'https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg',
+        src: friend,
       },
       {
         firstName: 'Eleanor',
@@ -64,8 +60,7 @@ export const Sidebar: React.FC = () => {
         lastVisit: 11,
         online: false,
         link: '#',
-        imageSrc:
-          'https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg',
+        src: friend,
       },
       {
         firstName: 'Eleanor',
@@ -73,8 +68,7 @@ export const Sidebar: React.FC = () => {
         lastVisit: 0,
         online: true,
         link: '#',
-        imageSrc:
-          'https://static01.nyt.com/images/2019/11/17/books/review/17Salam/Salam1-superJumbo.jpg',
+        src: friend,
       },
     ]);
   }, []);
