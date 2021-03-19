@@ -1,0 +1,23 @@
+.page-icon {
+  border-radius: 7px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.page-icon svg {
+  --size: 25px;
+  width: var(--size);
+  height: var(--size);
+}
+
+.page-active {
+  background-color: #003393;
+  color: #00f8ea;
+}
+
+.page-icon:hover {
+  background-color: #003393;
+  color: #00f8ea;
+  transition: 0.2s linear;
+}
