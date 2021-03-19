@@ -1,13 +1,33 @@
 import React from 'react';
 import { Group } from './Group';
 import { GroupView } from './interfaces';
+import group from './../../icons/group.jpeg';
 import './YourGroups.css';
 
-interface Props {
-  groups: GroupView[];
-}
+const groups: GroupView[] = [
+  {
+    title: 'Sketch Comunnity',
+    src: group,
+    link: '#',
+  },
+  {
+    title: 'Sketch Comunnity',
+    src: group,
+    link: '#',
+  },
+  {
+    title: 'Sketch Comunnity',
+    src: group,
+    link: '#',
+  },
+  {
+    title: 'Sketch Comunnity',
+    src: group,
+    link: '#',
+  },
+];
 
-export const YourGroups = ({ groups }: Props) => {
+export const YourGroups = () => {
   return (
     <div className="sidebar-groups">
       <div className="groups-title">

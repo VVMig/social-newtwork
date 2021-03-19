@@ -6,7 +6,3 @@ export interface FriendFields {
   link: string;
   lastVisit: number;
 }
-
-export interface FriendsListProps {
-  friends: FriendFields[];
-}

@@ -1,11 +1,45 @@
 import React from 'react';
 import { Friend } from './Friend';
-import { FriendsListProps } from './interfaces';
+import { FriendFields } from './interfaces';
+import friend from './../../icons/friend.jpg';
 import './FriendsList.css';
 
-export const FriendsList = (props: FriendsListProps) => {
-  const { friends } = props;
+const friends: FriendFields[] = [
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    link: '#',
+    src: friend,
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    link: '#',
+    src: friend,
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 11,
+    online: false,
+    link: '#',
+    src: friend,
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    link: '#',
+    src: friend,
+  },
+];
 
+export const FriendsList = () => {
   return (
     <div className="sidebar-groups">
       <div className="friends-title">

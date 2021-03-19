@@ -33,7 +33,12 @@
   height: 30px;
   background-position: center;
   background-size: cover;
+}
+
+.group-image img {
+  width: 100%;
   border-radius: 50%;
+  height: 30px;
 }
 
 .group-title {
