@@ -1,11 +1,5 @@
-import { IconType, TabRoutes } from '../IconEnum';
-import { Icon } from '../Icon';
-
-export interface Tab {
-  component: (title: string) => JSX.Element;
-  title: string;
-  route: TabRoutes;
-}
+import { Tab, Icon } from '../packages/components';
+import { TabRoutes, IconType } from './interfaces';
 
 export const tabs: Tab[] = [
   {
