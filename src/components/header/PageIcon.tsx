@@ -1,10 +1,6 @@
 import React from 'react';
 import './PageIcon.css';
 
-interface Props {
-  children: JSX.Element;
-}
-
-export const PageIcon: React.FC<Props> = ({ children }) => {
+export const PageIcon: React.FC = ({ children }) => {
   return <div className="page-icon">{children}</div>;
 };
