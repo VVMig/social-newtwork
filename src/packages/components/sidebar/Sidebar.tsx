@@ -1,11 +1,13 @@
 import React from 'react';
 import { Search } from './Search';
 import { Logo } from './Logo';
-import { YourGroups } from '../groups/YourGroups';
-import { FriendsList } from '../friends/FriendsList';
+import { Widget } from '../sidebar-widget/Widget'
 import './Sidebar.css';
 
 export const Sidebar = () => {
+
+  console.log('rerender')
+
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -13,8 +15,8 @@ export const Sidebar = () => {
         <Search />
       </div>
       <div className="sidebar-content">
-        <YourGroups />
-        <FriendsList />
+        <Widget />
+        <Widget />
       </div>
     </aside>
   );

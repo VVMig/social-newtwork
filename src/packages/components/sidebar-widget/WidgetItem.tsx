@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FriendFields } from './interfaces';
 import './Friend.css';
 
-export const Friend = (props: FriendFields) => {
+export const WidgetItem = (props: ) => {
   const { firstName, lastVisit, lastName, online, src, link } = props;
 
   return (

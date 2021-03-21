@@ -1,10 +1,10 @@
 import React from 'react';
 import { PageIcon } from './PageIcon';
 import { Link } from 'react-router-dom';
-import { tabs } from './tabs';
+import { TabProps } from './interfaces'
 import './Navbar.css';
 
-export const Navbar = () => {
+export const Navbar = ({ tabs }: TabProps) => {
   return (
     <div className="pages-container">
       {tabs.map((x, i) => (

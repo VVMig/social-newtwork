@@ -1,5 +1,6 @@
-import { Tab, Icon } from '../packages/components';
-import { TabRoutes, IconType } from './interfaces';
+import { Icon } from './Icon';
+import { Tab } from '../packages/components'
+import { TabRoutes, IconType } from './IconEnum';
 
 export const tabs: Tab[] = [
   {
