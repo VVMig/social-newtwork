@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search } from './Search';
 import { Logo } from './Logo';
-import { Widget } from '../sidebar-widget/Widget'
+import { Widget } from '../sidebar-widget/Widget';
 import './Sidebar.css';
 import { WidgetItemFields } from '../sidebar-widget/interfaces';
 
@@ -56,7 +56,6 @@ const friends: WidgetItemFields[] = [
 ];
 
 export const Sidebar = () => {
-
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
@@ -64,8 +63,8 @@ export const Sidebar = () => {
         <Search />
       </div>
       <div className="sidebar-content">
-        <Widget title={'Groups'} items={groups}/>
-        <Widget title={'Friends'} items={friends}/>
+        <Widget title={'Groups'} items={groups} />
+        <Widget title={'Friends'} items={friends} />
       </div>
     </aside>
   );

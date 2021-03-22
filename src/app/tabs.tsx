@@ -1,5 +1,5 @@
 import { Icon } from './Icon';
-import { Tab } from '../packages/components'
+import { Tab } from '../packages/components';
 import { TabRoutes, IconType } from './IconEnum';
 
 export const tabs: Tab[] = [

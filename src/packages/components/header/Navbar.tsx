@@ -1,7 +1,7 @@
 import React from 'react';
 import { PageIcon } from './PageIcon';
 import { Link } from 'react-router-dom';
-import { TabProps } from './interfaces'
+import { TabProps } from './interfaces';
 import './Navbar.css';
 
 export const Navbar = ({ tabs }: TabProps) => {

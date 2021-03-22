@@ -11,7 +11,7 @@ export const Widget = ({ title, items }: WidgetProps) => {
       </div>
       <div className="widget-list">
         {items.map((x, i) => (
-            <WidgetItem {...x} key={i} />
+          <WidgetItem {...x} key={i} />
         ))}
       </div>
     </div>

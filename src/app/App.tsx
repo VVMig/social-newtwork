@@ -8,7 +8,7 @@ import './App.css';
 export const App = () => {
   return (
     <BrowserRouter>
-        <Header tabs={tabs} />
+      <Header tabs={tabs} />
       <Sidebar />
     </BrowserRouter>
   );
