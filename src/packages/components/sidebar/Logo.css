@@ -1,7 +1,0 @@
-.logo {
-  --logo-size: 30px;
-  width: var(--logo-size);
-  height: var(--logo-size);
-  background-color: rgb(71, 105, 255);
-  border-radius: 50%;
-}
