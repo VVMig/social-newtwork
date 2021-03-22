@@ -1,14 +1,20 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import { Navbar } from './Navbar';
 import { TabProps } from './interfaces';
 
-import './Header.css';
+const StyledHeader = styled.header`
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+`;
 
 export const Header = ({ tabs }: TabProps) => {
   return (
-    <header className="header">
+    <StyledHeader>
       <Navbar tabs={tabs} />
-    </header>
+    </StyledHeader>
   );
 };
