@@ -1,30 +1,38 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Friend.css';
+import { WidgetItemFields } from './interfaces';
+import './WidgetItem.css';
 
-export const WidgetItem = (props: ) => {
-  const { firstName, lastVisit, lastName, online, src, link } = props;
+export const WidgetItem = (props: WidgetItemFields) => {
+  const {
+    firstName,
+    lastVisit,
+    lastName,
+    online,
+    route,
+    communityName,
+  } = props;
 
   return (
-    <Link to={link}>
-      <div className="friend-item">
-        <div className="friend-info">
-          <div className="friend-avatar">
-            <img src={src} alt={`${firstName} ${lastName}`} />
-          </div>
-          <div className="friend-name">
+    <Link to={route}>
+      <div className="widget-item">
+        <div className="widget-info">
+          <div className="widget-img"></div>
+          <div className="widget-name">
             <h3>
-              {firstName} {lastName}
+              {communityName ? communityName : `${firstName} ${lastName}`}
             </h3>
           </div>
         </div>
-        <div className="friend-status">
-          {online ? (
-            <span className="friend-online">&bull;</span>
-          ) : (
-            <span className="friend-offline">{lastVisit} min</span>
-          )}
-        </div>
+        {online !== undefined && (
+          <div className="widget-status">
+            {online ? (
+              <span className="widget-online">&bull;</span>
+            ) : (
+              <span className="widget-offline">{lastVisit} min</span>
+            )}
+          </div>
+        )}
       </div>
     </Link>
   );

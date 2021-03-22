@@ -3,10 +3,59 @@ import { Search } from './Search';
 import { Logo } from './Logo';
 import { Widget } from '../sidebar-widget/Widget'
 import './Sidebar.css';
+import { WidgetItemFields } from '../sidebar-widget/interfaces';
+
+const groups: WidgetItemFields[] = [
+  {
+    communityName: 'Sketch Comunnity',
+    route: '#',
+  },
+  {
+    communityName: 'Sketch Comunnity',
+    route: '#',
+  },
+  {
+    communityName: 'Sketch Comunnity',
+    route: '#',
+  },
+  {
+    communityName: 'Sketch Comunnity',
+    route: '#',
+  },
+];
+
+const friends: WidgetItemFields[] = [
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    route: '#',
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    route: '#',
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 11,
+    online: false,
+    route: '#',
+  },
+  {
+    firstName: 'Eleanor',
+    lastName: 'Pena',
+    lastVisit: 0,
+    online: true,
+    route: '#',
+  },
+];
 
 export const Sidebar = () => {
-
-  console.log('rerender')
 
   return (
     <aside className="sidebar">
@@ -15,8 +64,8 @@ export const Sidebar = () => {
         <Search />
       </div>
       <div className="sidebar-content">
-        <Widget />
-        <Widget />
+        <Widget title={'Groups'} items={groups}/>
+        <Widget title={'Friends'} items={friends}/>
       </div>
     </aside>
   );

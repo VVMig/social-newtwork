@@ -1,8 +1,13 @@
+export interface WidgetItemFields {
+  route: string;
+  firstName?: string;
+  lastName?: string;
+  online?: boolean;
+  lastVisit?: number;
+  communityName?: string;
+}
+
 export interface WidgetProps {
-  // route: string;
-  // firstName?: string;
-  // lastName?: string;
-  // online?: boolean;
-  // lastVisit?: number;
-  // title?: string;
+  title: string;
+  items: WidgetItemFields[];
 }

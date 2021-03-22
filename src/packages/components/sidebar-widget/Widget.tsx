@@ -1,77 +1,18 @@
 import React from 'react';
 import { WidgetItem } from './WidgetItem';
 import { WidgetProps } from './interfaces';
-import friend from '../icons/friend.jpg';
-import './FriendsList.css';
+import './Widget.css';
 
-// const groups: GroupView[] = [
-//   {
-//     title: 'Sketch Comunnity',
-//     src: group,
-//     link: '#',
-//   },
-//   {
-//     title: 'Sketch Comunnity',
-//     src: group,
-//     link: '#',
-//   },
-//   {
-//     title: 'Sketch Comunnity',
-//     src: group,
-//     link: '#',
-//   },
-//   {
-//     title: 'Sketch Comunnity',
-//     src: group,
-//     link: '#',
-//   },
-// ];
-
-// const friends: FriendFields[] = [
-//   {
-//     firstName: 'Eleanor',
-//     lastName: 'Pena',
-//     lastVisit: 0,
-//     online: true,
-//     link: '#',
-//     src: friend,
-//   },
-//   {
-//     firstName: 'Eleanor',
-//     lastName: 'Pena',
-//     lastVisit: 0,
-//     online: true,
-//     link: '#',
-//     src: friend,
-//   },
-//   {
-//     firstName: 'Eleanor',
-//     lastName: 'Pena',
-//     lastVisit: 11,
-//     online: false,
-//     link: '#',
-//     src: friend,
-//   },
-//   {
-//     firstName: 'Eleanor',
-//     lastName: 'Pena',
-//     lastVisit: 0,
-//     online: true,
-//     link: '#',
-//     src: friend,
-//   },
-// ];
-
-export const Widget = ({}: WidgetProps) => {
+export const Widget = ({ title, items }: WidgetProps) => {
   return (
-    <div className="sidebar-groups">
-      <div className="friends-title">
-        <h2>Friends</h2>
+    <div className="sidebar-widget">
+      <div className="widget-title">
+        <h2>{title}</h2>
       </div>
-      <div className="friends-list">
-        {/* {friends.map((x, i) => (
-          <Friend {...x} key={i} />
-        ))} */}
+      <div className="widget-list">
+        {items.map((x, i) => (
+            <WidgetItem {...x} key={i} />
+        ))}
       </div>
     </div>
   );

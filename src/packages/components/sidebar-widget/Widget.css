@@ -1,19 +1,19 @@
-.sidebar-friends {
-  padding: 25px 0 0 0;
+.sidebar-widget {
+  padding: 35px 0 0 0;
 }
 
-.friends-title {
+.widget-title {
   color: #91929d;
   font-size: 12px;
   text-transform: uppercase;
   padding: 0 0 0 28px;
 }
 
-.friends-list {
+.widget-list {
   padding: 25px 0 0 0;
 }
 
-.friends-list a {
+.widget-list a {
   color: inherit;
   text-decoration: none;
 }

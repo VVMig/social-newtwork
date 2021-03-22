@@ -1,4 +1,4 @@
-.friend-item {
+.widget-item {
   display: inline-flex;
   align-items: center;
   width: 100%;
@@ -8,7 +8,7 @@
   justify-content: space-between;
 }
 
-.friend-item:after {
+.widget-item:after {
   content: '';
   position: absolute;
   width: 100%;
@@ -20,35 +20,30 @@
   opacity: 0;
 }
 
-.friend-item:hover::after {
+.widget-item:hover::after {
   transition: 0.5s linear;
   opacity: 1;
 }
 
-.friend-item:last-child {
+.widget-item:last-child {
   margin: 0;
 }
 
-.friend-info {
+.widget-info {
   display: flex;
   align-items: center;
 }
 
-.friend-avatar {
+.widget-img {
   width: 30px;
   height: 30px;
   background-position: center;
   background-size: cover;
-}
-
-.friend-avatar img {
-  width: 100%;
-  height: 32px;
+  background-color: rgb(71, 105, 255);
   border-radius: 50%;
-  vertical-align: top;
 }
 
-.friend-name {
+.widget-name {
   padding: 0 0 0 15px;
   font-size: 13px;
   font-weight: lighter;
@@ -57,17 +52,17 @@
   text-overflow: ellipsis;
 }
 
-.friend-status {
+.widget-status {
   display: flex;
   align-items: center;
 }
 
-.friend-online {
+.widget-online {
   color: #00f8ea;
   font-size: 24px;
 }
 
-.friend-offline {
+.widget-offline {
   color: #91929d;
   font-size: 12px;
 }
