@@ -6,32 +6,26 @@ export const tabs: Tab[] = [
   {
     route: TabRoutes.Home,
     title: 'Home page',
-    component: (title: string): JSX.Element => (
-      <Icon type={IconType.Home} title={title} />
-    ),
+    component: (): JSX.Element => <Icon type={IconType.Home} />,
   },
   {
     route: TabRoutes.Groups,
     title: 'Groups',
-    component: (title: string) => <Icon type={IconType.Groups} title={title} />,
+    component: () => <Icon type={IconType.Groups} />,
   },
   {
     route: TabRoutes.Messager,
     title: 'Messager',
-    component: (title: string) => (
-      <Icon type={IconType.Messager} title={title} />
-    ),
+    component: () => <Icon type={IconType.Messager} />,
   },
   {
     route: TabRoutes.Help,
     title: 'Help',
-    component: (title: string) => <Icon type={IconType.Help} title={title} />,
+    component: () => <Icon type={IconType.Help} />,
   },
   {
     route: TabRoutes.Settings,
     title: 'Settings',
-    component: (title: string) => (
-      <Icon type={IconType.Settings} title={title} />
-    ),
+    component: () => <Icon type={IconType.Settings} />,
   },
 ];

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { WidgetItemFields } from './interfaces';
+import { WidgetFields } from './interfaces';
 import './WidgetItem.css';
 
-export const WidgetItem = (props: WidgetItemFields) => {
+export const WidgetItem = (props: WidgetFields) => {
   const {
     firstName,
     lastVisit,
@@ -19,9 +19,7 @@ export const WidgetItem = (props: WidgetItemFields) => {
         <div className="widget-info">
           <div className="widget-img"></div>
           <div className="widget-name">
-            <h3>
-              {communityName ? communityName : `${firstName} ${lastName}`}
-            </h3>
+            <h3>{communityName || `${firstName} ${lastName}`}</h3>
           </div>
         </div>
         {online !== undefined && (

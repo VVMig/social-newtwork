@@ -9,7 +9,7 @@ export const Navbar = ({ tabs }: TabProps) => {
     <div className="pages-container">
       {tabs.map((x, i) => (
         <Link to={x.route} key={i} title={x.title} className="page-link">
-          <PageIcon>{x.component(x.title)}</PageIcon>
+          <PageIcon>{x.component()}</PageIcon>
         </Link>
       ))}
     </div>

@@ -1,4 +1,4 @@
-export interface WidgetItemFields {
+export interface WidgetFields {
   route: string;
   firstName?: string;
   lastName?: string;
@@ -9,5 +9,5 @@ export interface WidgetItemFields {
 
 export interface WidgetProps {
   title: string;
-  items: WidgetItemFields[];
+  items: WidgetFields[];
 }

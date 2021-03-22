@@ -3,59 +3,14 @@ import { Search } from './Search';
 import { Logo } from './Logo';
 import { Widget } from '../sidebar-widget/Widget';
 import './Sidebar.css';
-import { WidgetItemFields } from '../sidebar-widget/interfaces';
+import { WidgetFields } from '../sidebar-widget/interfaces';
 
-const groups: WidgetItemFields[] = [
-  {
-    communityName: 'Sketch Comunnity',
-    route: '#',
-  },
-  {
-    communityName: 'Sketch Comunnity',
-    route: '#',
-  },
-  {
-    communityName: 'Sketch Comunnity',
-    route: '#',
-  },
-  {
-    communityName: 'Sketch Comunnity',
-    route: '#',
-  },
-];
+interface Props {
+  friends: WidgetFields[];
+  groups: WidgetFields[];
+}
 
-const friends: WidgetItemFields[] = [
-  {
-    firstName: 'Eleanor',
-    lastName: 'Pena',
-    lastVisit: 0,
-    online: true,
-    route: '#',
-  },
-  {
-    firstName: 'Eleanor',
-    lastName: 'Pena',
-    lastVisit: 0,
-    online: true,
-    route: '#',
-  },
-  {
-    firstName: 'Eleanor',
-    lastName: 'Pena',
-    lastVisit: 11,
-    online: false,
-    route: '#',
-  },
-  {
-    firstName: 'Eleanor',
-    lastName: 'Pena',
-    lastVisit: 0,
-    online: true,
-    route: '#',
-  },
-];
-
-export const Sidebar = () => {
+export const Sidebar = ({ friends, groups }: Props) => {
   return (
     <aside className="sidebar">
       <div className="sidebar-header">
