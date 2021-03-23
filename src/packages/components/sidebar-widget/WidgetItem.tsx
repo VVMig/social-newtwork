@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { WidgetFields } from './interfaces';
-import './WidgetItem.css';
+import { Img, Info, Item, Name, Online, Status } from './Styled';
 
 export const WidgetItem = (props: WidgetFields) => {
   const {
@@ -15,23 +15,27 @@ export const WidgetItem = (props: WidgetFields) => {
 
   return (
     <Link to={route}>
-      <div className="widget-item">
-        <div className="widget-info">
-          <div className="widget-img"></div>
-          <div className="widget-name">
+      <Item>
+        <Info>
+          <Img />
+          <Name className="widget-name">
             <h3>{communityName || `${firstName} ${lastName}`}</h3>
-          </div>
-        </div>
+          </Name>
+        </Info>
         {online !== undefined && (
-          <div className="widget-status">
+          <Status className="widget-status">
             {online ? (
-              <span className="widget-online">&bull;</span>
+              <Online color="#00f8ea" fontSize={24}>
+                &bull;
+              </Online>
             ) : (
-              <span className="widget-offline">{lastVisit} min</span>
+              <Online color="#91929d" fontSize={12}>
+                {lastVisit} min
+              </Online>
             )}
-          </div>
+          </Status>
         )}
-      </div>
+      </Item>
     </Link>
   );
 };

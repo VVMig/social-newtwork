@@ -1,19 +1,19 @@
 import React from 'react';
 import { WidgetItem } from './WidgetItem';
 import { WidgetProps } from './interfaces';
-import './Widget.css';
+import { List, SidebarWidget, Title } from './Styled';
 
 export const Widget = ({ title, items }: WidgetProps) => {
   return (
-    <div className="sidebar-widget">
-      <div className="widget-title">
+    <SidebarWidget>
+      <Title>
         <h2>{title}</h2>
-      </div>
-      <div className="widget-list">
+      </Title>
+      <List>
         {items.map((x, i) => (
           <WidgetItem {...x} key={i} />
         ))}
-      </div>
-    </div>
+      </List>
+    </SidebarWidget>
   );
 };

@@ -5,7 +5,6 @@ import { Sidebar } from '../packages/components/sidebar/Sidebar';
 import { tabs } from './tabs';
 import { friends } from './friends';
 import { groups } from './groups';
-import './App.css';
 
 export const App = () => {
   return (
