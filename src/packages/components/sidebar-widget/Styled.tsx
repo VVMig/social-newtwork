@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { OnlineProps } from './interfaces';
 
 export const SidebarWidget = styled.div`
@@ -20,6 +20,17 @@ export const List = styled.div`
   }
 `;
 
+const underlineAppear = keyframes`
+    0% {
+    width: 0;
+    opacity: 0.2;
+    }
+    100% {
+    width: 100%;
+    opacity: 0.5;
+    }
+`;
+
 export const Item = styled.div`
   display: inline-flex;
   align-items: center;
@@ -33,17 +44,19 @@ export const Item = styled.div`
     content: '';
     position: absolute;
     width: 100%;
-    height: 1px;
+    height: 2px;
     display: block;
-    background-color: #003393;
+    background-color: rgb(71, 105, 255);
     bottom: 0;
-    left: 0;
     opacity: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 5px;
   }
 
   &:hover::after {
-    transition: 0.5s linear;
-    opacity: 1;
+    animation: ${underlineAppear} 0.2s ease-in-out;
+    opacity: 0.5;
   }
 
   &:last-child {
