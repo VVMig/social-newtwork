@@ -11,6 +11,17 @@ export const Aside = styled.aside`
   background-color: #f6f9fb;
   z-index: 1;
   padding: 20px 0 0 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #91929d;
+    border-radius: 20px;
+  }
 `;
 
 export const Form = styled.form`

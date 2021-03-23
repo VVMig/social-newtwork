@@ -25,6 +25,8 @@ export const StyledLink = styled(Link)`
   color: inherit;
 `;
 
+const size = '25px';
+
 export const Div = styled.div`
   border-radius: 7px;
   padding: 5px;
@@ -32,9 +34,8 @@ export const Div = styled.div`
   align-items: center;
 
   & svg {
-    --size: 25px;
-    width: var(--size);
-    height: var(--size);
+    width: ${size};
+    height: ${size};
   }
 
   &:hover {
