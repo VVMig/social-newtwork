@@ -7,7 +7,7 @@ export enum IconType {
 }
 
 export enum TabRoutes {
-  Home = 'Home',
+  Home = '/',
   Groups = 'Groups',
   Messager = 'Messager',
   Help = 'Help',

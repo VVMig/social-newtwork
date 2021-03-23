@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
+  max-width: 465px;
   width: 100%;
   height: 70px;
-  background: #fff;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
 `;
 
 export const Nav = styled.nav`
-  max-width: 465px;
   width: 100%;
   background-color: #f2f7fb;
   border-radius: 0 0 25px 25px;
