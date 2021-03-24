@@ -13,14 +13,13 @@ export interface Post {
 }
 
 export interface PostsListProps {
-  posts: Post;
+  posts: Post[];
 }
 
 export interface HeaderProps {
   title: string;
   subtitle: string;
-  month: string;
-  day: number;
+  date: number;
 }
 
 export interface ImgProps {
@@ -35,4 +34,15 @@ export interface SpanProps {
 
 export interface AvatarProps {
   imgSrc?: string;
+}
+
+export interface BodyProps {
+  text: string;
+  firstName: string;
+  lastName: string;
+  subname?: string;
+}
+
+export interface FooterProps {
+  likes: number;
 }

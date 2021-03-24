@@ -1,31 +1,27 @@
 import { MoreHoriz } from '@material-ui/icons';
 import React from 'react';
 import { HeaderProps } from './interfaces';
-import {
-  Header as StyledHeader,
-  Date,
-  DateSpan,
-  Title,
-  Subtitle,
-  More,
-} from './Styled';
+import { Styled } from './styled';
 
-export const Header = ({ title, subtitle, day, month }: HeaderProps) => {
+export const Header = ({ title, subtitle, date }: HeaderProps) => {
+  const day = new Date(date).toDateString().split(' ')[2];
+  const month = new Date(date).toDateString().split(' ')[1];
+
   return (
-    <StyledHeader>
-      <Date>
-        <DateSpan>{month}</DateSpan>
-        <DateSpan color="#003393" fontSize="26px" weight="bold">
+    <Styled.Header>
+      <Styled.Date>
+        <Styled.DateSpan>{month}</Styled.DateSpan>
+        <Styled.DateSpan color="#003393" fontSize="26px" weight="bold">
           {day}
-        </DateSpan>
-      </Date>
-      <Title>
+        </Styled.DateSpan>
+      </Styled.Date>
+      <Styled.Title>
         <h2>{title}</h2>
-        <Subtitle>{subtitle}</Subtitle>
-      </Title>
-      <More>
+        <Styled.Subtitle>{subtitle}</Styled.Subtitle>
+      </Styled.Title>
+      <Styled.More>
         <MoreHoriz />
-      </More>
-    </StyledHeader>
+      </Styled.More>
+    </Styled.Header>
   );
 };
