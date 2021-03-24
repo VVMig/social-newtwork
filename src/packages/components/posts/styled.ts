@@ -81,6 +81,10 @@ const More = styled.div`
     width: ${moreSize};
     height: ${moreSize};
   }
+
+  &:hover {
+    color: #a9a9af;
+  }
 `;
 
 const Body = styled.div`
