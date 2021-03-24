@@ -1,6 +1,7 @@
 interface Author {
   firstName: string;
   lastName: string;
+  status?: string;
 }
 
 export interface Post {
@@ -36,11 +37,8 @@ export interface AvatarProps {
   imgSrc?: string;
 }
 
-export interface BodyProps {
+export interface BodyProps extends Author {
   text: string;
-  firstName: string;
-  lastName: string;
-  subname?: string;
 }
 
 export interface FooterProps {

@@ -22,6 +22,7 @@ export const Post = ({
           text={text}
           firstName={author.firstName}
           lastName={author.lastName}
+          status={author.status}
         />
         <Footer likes={likes} />
       </Styled.Content>
