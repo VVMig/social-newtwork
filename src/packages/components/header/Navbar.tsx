@@ -1,16 +1,16 @@
 import React from 'react';
 import { PageIcon } from './PageIcon';
 import { TabProps } from './interfaces';
-import { StyledLink, Nav } from './Styled';
+import { Styled } from './styled';
 
 export const Navbar = ({ tabs }: TabProps) => {
   return (
-    <Nav>
+    <Styled.Nav>
       {tabs.map((x, i) => (
-        <StyledLink to={x.route} key={i} title={x.title}>
+        <Styled.StyledLink to={x.route} key={i} title={x.title}>
           <PageIcon>{x.component()}</PageIcon>
-        </StyledLink>
+        </Styled.StyledLink>
       ))}
-    </Nav>
+    </Styled.Nav>
   );
 };

@@ -3,7 +3,7 @@ import { Search } from './Search';
 import { Logo } from './Logo';
 import { Widget } from '../sidebar-widget/Widget';
 import { WidgetFields } from '../sidebar-widget/interfaces';
-import { Aside, SidebarContent, SidebarHeader } from './Styled';
+import { Styled } from './styled';
 
 interface Props {
   friends: WidgetFields[];
@@ -12,15 +12,15 @@ interface Props {
 
 export const Sidebar = ({ friends, groups }: Props) => {
   return (
-    <Aside>
-      <SidebarHeader>
+    <Styled.Aside>
+      <Styled.SidebarHeader>
         <Logo />
         <Search />
-      </SidebarHeader>
-      <SidebarContent>
+      </Styled.SidebarHeader>
+      <Styled.SidebarContent>
         <Widget title={'Groups'} items={groups} />
         <Widget title={'Friends'} items={friends} />
-      </SidebarContent>
-    </Aside>
+      </Styled.SidebarContent>
+    </Styled.Aside>
   );
 };

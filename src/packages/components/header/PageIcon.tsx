@@ -1,6 +1,6 @@
 import React from 'react';
-import { Div } from './Styled';
+import { Styled } from './styled';
 
 export const PageIcon: React.FC = ({ children }) => {
-  return <Div className="page-icon">{children}</Div>;
+  return <Styled.PageIcon>{children}</Styled.PageIcon>;
 };

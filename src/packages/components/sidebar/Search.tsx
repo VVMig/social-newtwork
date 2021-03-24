@@ -1,14 +1,14 @@
 import React from 'react';
 import { Search as SearchIcon } from '@material-ui/icons';
-import { Button, Form, Input } from './Styled';
+import { Styled } from './styled';
 
 export const Search = () => {
   return (
-    <Form>
-      <Input type="text" placeholder="Search" />
-      <Button type="submit">
+    <Styled.Form>
+      <Styled.Input type="text" placeholder="Search" />
+      <Styled.Button type="submit">
         <SearchIcon />
-      </Button>
-    </Form>
+      </Styled.Button>
+    </Styled.Form>
   );
 };

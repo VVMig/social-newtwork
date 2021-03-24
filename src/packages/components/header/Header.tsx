@@ -1,12 +1,12 @@
 import React from 'react';
 import { Navbar } from './Navbar';
 import { TabProps } from './interfaces';
-import { StyledHeader } from './Styled';
+import { Styled } from './styled';
 
 export const Header = ({ tabs }: TabProps) => {
   return (
-    <StyledHeader>
+    <Styled.Header>
       <Navbar tabs={tabs} />
-    </StyledHeader>
+    </Styled.Header>
   );
 };
