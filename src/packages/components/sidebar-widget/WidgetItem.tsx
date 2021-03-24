@@ -16,7 +16,7 @@ export const WidgetItem = (props: WidgetFields) => {
 
   return (
     <Link to={route}>
-      <Styled.Item className="underline-container">
+      <Styled.Item>
         <Styled.Info>
           <Styled.Img />
           <Styled.Name>
@@ -36,7 +36,7 @@ export const WidgetItem = (props: WidgetFields) => {
             )}
           </Styled.Status>
         )}
-        <Underline />
+        <Underline parentClass={Styled.Item.styledComponentId} />
       </Styled.Item>
     </Link>
   );

@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { Props } from './interfaces';
 
 const underlineAppear = keyframes`
     0% {
@@ -11,7 +12,7 @@ const underlineAppear = keyframes`
     }
 `;
 
-export const StyledUnderline = styled.div`
+export const StyledUnderline = styled.div<Props>`
   position: absolute;
   width: 100%;
   height: 2px;
@@ -22,7 +23,7 @@ export const StyledUnderline = styled.div`
   transform: translateX(-50%);
   border-radius: 5px;
 
-  .underline-container:hover & {
+  ${(props) => `.${props.parentClass}`}:hover & {
     animation: ${underlineAppear} 0.2s ease-in-out;
     opacity: 0.5;
   }

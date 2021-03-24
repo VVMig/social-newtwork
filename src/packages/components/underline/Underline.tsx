@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledUnderline } from './styled';
+import { Props } from './interfaces';
 
-export const Underline = () => {
-  return <StyledUnderline></StyledUnderline>;
+export const Underline = ({ parentClass }: Props) => {
+  return <StyledUnderline parentClass={parentClass}></StyledUnderline>;
 };
