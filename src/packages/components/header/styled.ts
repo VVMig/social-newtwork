@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export const StyledHeader = styled.header`
   max-width: 465px;
@@ -23,13 +23,21 @@ export const Nav = styled.nav`
   color: #919497;
 `;
 
-export const StyledLink = styled(Link)`
+interface Link {
+  activeClassName: string;
+}
+
+const StyledLink = styled(NavLink)<Link>`
   color: inherit;
+
+  &.active > * {
+    background-color: #003393;
+    color: #00f8ea;
+    transition: 0.2s linear;
+  }
 `;
 
-const size = '25px';
-
-export const Div = styled.div`
+const PageIcon = styled.div`
   border-radius: 7px;
   padding: 5px;
   display: flex;
@@ -46,3 +54,10 @@ export const Div = styled.div`
     transition: 0.2s linear;
   }
 `;
+
+export const Styled = {
+  PageIcon,
+  StyledLink,
+  StyledHeader,
+  Nav,
+};

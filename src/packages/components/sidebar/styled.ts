@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Aside = styled.aside`
+const logoSize = '30px';
+
+const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -11,7 +13,7 @@ export const Aside = styled.aside`
   height: 100vh;
   background-color: #f6f9fb;
   z-index: 1;
-  padding: 20px 0 0 0;
+  padding-top: 20px;
   overflow-x: hidden;
   overflow-y: auto;
 
@@ -25,20 +27,20 @@ export const Aside = styled.aside`
   }
 `;
 
-export const Form = styled.form`
+const Form = styled.form`
   position: relative;
 `;
 
-export const SidebarHeader = styled.div`
+const SidebarHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 24px 0 28px;
 `;
 
-export const SidebarContent = styled.div``;
+const SidebarContent = styled.div``;
 
-export const Input = styled.input`
+const Input = styled.input`
   color: #555657;
   font-size: 14px;
   outline: 0;
@@ -61,7 +63,7 @@ export const Input = styled.input`
   }
 `;
 
-export const Button = styled.button`
+const Button = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
@@ -79,11 +81,19 @@ export const Button = styled.button`
   }
 `;
 
-const logoSize = '30px';
-
-export const Div = styled.div`
+const StyledLogo = styled.div`
   width: ${logoSize};
   height: ${logoSize};
   background-color: rgb(71, 105, 255);
   border-radius: 50%;
 `;
+
+export const Styled = {
+  StyledLogo,
+  Button,
+  Input,
+  SidebarContent,
+  SidebarHeader,
+  Form,
+  Aside,
+};
