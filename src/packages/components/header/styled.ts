@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const size = '25px';
 
@@ -23,8 +23,18 @@ const Nav = styled.nav`
   color: #919497;
 `;
 
-const StyledLink = styled(Link)`
+interface Link {
+  activeClassName: string;
+}
+
+const StyledLink = styled(NavLink)<Link>`
   color: inherit;
+
+  &.active > * {
+    background-color: #003393;
+    color: #00f8ea;
+    transition: 0.2s linear;
+  }
 `;
 
 const PageIcon = styled.div`
