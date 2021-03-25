@@ -3,6 +3,15 @@ import { AvatarProps, ImgProps, SpanProps } from './interfaces';
 
 const avatarSize = '29px';
 const moreSize = '30px';
+const gaps = '30px';
+
+const PostContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  gap: ${gaps};
+`;
 
 const Wrapper = styled.div`
   display: flex;
@@ -13,7 +22,6 @@ const Wrapper = styled.div`
   height: 315px;
   padding: 10px 22px 10px 10px;
   justify-content: space-between;
-  margin-bottom: 30px;
 `;
 
 const Img = styled.div<ImgProps>`
@@ -162,6 +170,7 @@ const Like = styled.span.attrs({
 `;
 
 export const Styled = {
+  PostContainer,
   Like,
   Subtitle,
   Footer,

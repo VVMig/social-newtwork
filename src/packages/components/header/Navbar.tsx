@@ -7,12 +7,7 @@ export const Navbar = ({ tabs }: TabProps) => {
   return (
     <Styled.Nav>
       {tabs.map((x, i) => (
-        <Styled.StyledLink
-          activeClassName="active"
-          to={x.route}
-          key={i}
-          title={x.title}
-        >
+        <Styled.StyledLink to={x.route} key={i} title={x.title}>
           <PageIcon>{x.component()}</PageIcon>
         </Styled.StyledLink>
       ))}

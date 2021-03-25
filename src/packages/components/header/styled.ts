@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-export const StyledHeader = styled.header`
+const size = '25px';
+export const headerHeight = 70;
+
+const StyledHeader = styled.header`
   max-width: 465px;
   width: 100%;
-  height: 70px;
+  height: ${headerHeight}px;
   display: inline-flex;
   justify-content: center;
   left: 50%;
@@ -12,7 +15,7 @@ export const StyledHeader = styled.header`
   transform: translateX(-50%);
 `;
 
-export const Nav = styled.nav`
+const Nav = styled.nav`
   width: 100%;
   background-color: #f2f7fb;
   border-radius: 0 0 25px 25px;
@@ -23,11 +26,7 @@ export const Nav = styled.nav`
   color: #919497;
 `;
 
-interface Link {
-  activeClassName: string;
-}
-
-const StyledLink = styled(NavLink)<Link>`
+const StyledLink = styled(NavLink)`
   color: inherit;
 
   &.active > * {
