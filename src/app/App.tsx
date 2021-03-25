@@ -7,6 +7,7 @@ import { Wrapper } from './Styled';
 import { tabs } from './tabs';
 import { friends } from './friends';
 import { groups } from './groups';
+import { posts } from './posts';
 
 export const App = () => {
   return (
@@ -15,7 +16,9 @@ export const App = () => {
       <Sidebar friends={friends} groups={groups} />
       <Wrapper width="100%">
         <Switch>
-          <Route exact path="/" component={PostsList} />
+          <Route exact path="/">
+            <PostsList posts={posts} />
+          </Route>
         </Switch>
       </Wrapper>
     </BrowserRouter>
