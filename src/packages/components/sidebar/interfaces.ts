@@ -1,6 +1,9 @@
-import { WidgetFields } from '../sidebar-widget/interfaces';
+export enum Align {
+  'left',
+  'right',
+}
 
 export interface SidebarProps {
-  friends?: WidgetFields[];
-  groups?: WidgetFields[];
+  maxWidth: number;
+  align: Align;
 }

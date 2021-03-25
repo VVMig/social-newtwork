@@ -1,15 +1,23 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { SidebarProps, Align } from './interfaces';
 
 const logoSize = '30px';
 
-const Aside = styled.aside`
+const Aside = styled.aside<SidebarProps>`
   display: flex;
   flex-direction: column;
   position: fixed;
-  left: 0;
+  ${(props) =>
+    props.align === Align.left
+      ? css`
+          left: 0;
+        `
+      : css`
+          right: 0;
+        `};
   top: 0;
-  max-width: 320px;
-  width: calc(100% / 4);
+  max-width: ${(props) => props.maxWidth}px;
+  width: 100%;
   height: 100vh;
   background-color: #f6f9fb;
   z-index: 1;
