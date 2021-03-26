@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header } from '../packages/components';
-import { PostsList } from '../packages/components';
+import { Header, PostsList, headerHeight } from '../packages/components';
 import { Wrapper } from './styled';
 import { tabs } from './tabs';
 import { friends } from './friends';
 import { groups } from './groups';
 import { posts } from './posts';
 import { TabRoutes } from './IconEnum';
-import { headerHeight } from '../packages/components';
 import { SidebarInfo } from './sidebar-info/SidebarInfo';
 
 export const App = () => {
