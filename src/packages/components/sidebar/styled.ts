@@ -19,15 +19,6 @@ const Form = styled.form`
   position: relative;
 `;
 
-const SidebarHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px 0 28px;
-`;
-
-const SidebarContent = styled.div``;
-
 const Input = styled.input`
   color: #555657;
   font-size: 14px;
@@ -69,7 +60,7 @@ const Button = styled.button`
   }
 `;
 
-const StyledLogo = styled.div`
+const Logo = styled.div`
   width: ${logoSize};
   height: ${logoSize};
   background-color: rgb(71, 105, 255);
@@ -77,11 +68,9 @@ const StyledLogo = styled.div`
 `;
 
 export const Styled = {
-  StyledLogo,
+  Logo,
   Button,
   Input,
-  SidebarContent,
-  SidebarHeader,
   Form,
   Aside,
 };

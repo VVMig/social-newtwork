@@ -5,7 +5,7 @@ import { Styled } from './styled';
 export const Logo = () => {
   return (
     <Link to="#">
-      <Styled.StyledLogo></Styled.StyledLogo>
+      <Styled.Logo></Styled.Logo>
     </Link>
   );
 };
