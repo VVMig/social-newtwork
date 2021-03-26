@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { SidebarProps, Align } from './interfaces';
+import { zIndex } from '../zIndex';
 
 const logoSize = '30px';
 
@@ -16,11 +17,11 @@ const Aside = styled.aside<SidebarProps>`
           right: 0;
         `};
   top: 0;
-  max-width: ${(props) => props.maxWidth}px;
+  max-width: 320px;
   width: 100%;
   height: 100vh;
   background-color: #f6f9fb;
-  z-index: 1;
+  z-index: ${zIndex.sideBarInfo};
   padding-top: 20px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -81,7 +82,7 @@ const Button = styled.button`
   transform: translateY(-50%);
   left: 10px;
   padding: 0;
-  z-index: 2;
+  z-index: ${zIndex.searchBtn};
   color: #949597;
 
   &:focus {

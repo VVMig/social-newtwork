@@ -4,6 +4,15 @@
     "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
     "rules": {
         "@typescript-eslint/no-explicit-any": "error",
-        "@typescript-eslint/explicit-module-boundary-types": 0
+        "@typescript-eslint/explicit-module-boundary-types": 0,
+        "@typescript-eslint/no-magic-numbers": [
+			"error",
+			{
+				"ignore": [2, 1, 0, -1],
+				"ignoreArrayIndexes": true,
+				"ignoreEnums": true,
+				"detectObjects": false
+			}
+		]
     }
 }

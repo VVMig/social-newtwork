@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AvatarProps, ImgProps, SpanProps } from './interfaces';
 
 const avatarSize = '29px';
@@ -63,9 +63,18 @@ const Date = styled.div`
 `;
 
 const DateSpan = styled.span<SpanProps>`
-  color: ${(props) => props.color || '#006CB0'};
-  font-size: ${(props) => props.fontSize || '18px'};
-  font-weight: ${(props) => props.weight || 'normal'};
+  ${(props) =>
+    props.day
+      ? css`
+          color: #003393;
+          font-size: 26px;
+          font-weight: bold;
+        `
+      : css`
+          color: #006cb0;
+          font-size: 18px;
+          font-weight: normal;
+        `};
 `;
 
 const Title = styled.div`
