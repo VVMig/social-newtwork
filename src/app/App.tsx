@@ -16,7 +16,7 @@ export const App = () => {
     <BrowserRouter>
       <Header tabs={tabs} />
       <Sidebar friends={friends} groups={groups} />
-      <Wrapper width="100%" headerHeight={headerHeight}>
+      <Wrapper headerHeight={headerHeight}>
         <Switch>
           <Route path={TabRoutes.Home}>
             <PostsList posts={posts} />

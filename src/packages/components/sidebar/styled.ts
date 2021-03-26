@@ -10,7 +10,7 @@ const Aside = styled.aside`
   left: 0;
   top: 0;
   max-width: 320px;
-  width: calc(100% / 4);
+  width: 100%;
   height: 100vh;
   background-color: #f6f9fb;
   z-index: ${zIndex.sideBarInfo};

@@ -28,9 +28,7 @@ export interface ImgProps {
 }
 
 export interface SpanProps {
-  color?: string;
-  fontSize?: string;
-  weight?: string;
+  day?: boolean;
 }
 
 export interface AvatarProps {
