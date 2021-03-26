@@ -17,7 +17,7 @@ const Aside = styled.aside`
   overflow-x: hidden;
   overflow-y: auto;
 
-  &::scrollbar-width {
+  &::-webkit-scrollbar {
     width: 3px;
   }
 
