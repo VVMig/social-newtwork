@@ -1,6 +1,6 @@
 import React from 'react';
-import { Styled, SidebarProps } from './styled';
+import { Styled } from './styled';
 
-export const Sidebar: React.FC<SidebarProps> = ({ children, maxWidth }) => {
-  return <Styled.Aside maxWidth={maxWidth}>{children}</Styled.Aside>;
+export const Sidebar: React.FC = ({ children }) => {
+  return <Styled.Aside>{children}</Styled.Aside>;
 };

@@ -1,4 +1,4 @@
 export const zIndex = {
-  sideBarInfo: 1,
-  searchBtn: 2,
+  sideBarInfo: 100,
+  searchBtn: 200,
 };

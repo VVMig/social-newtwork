@@ -1,16 +1,11 @@
 import styled from 'styled-components';
 import { zIndex } from '../zIndex';
 
-export interface SidebarProps {
-  maxWidth: number;
-}
-
 const logoSize = '30px';
 
-const Aside = styled.aside<SidebarProps>`
+const Aside = styled.aside`
   display: flex;
   flex-direction: column;
-  max-width: 320px;
   width: 100%;
   height: 100vh;
   background-color: #f6f9fb;
@@ -18,15 +13,6 @@ const Aside = styled.aside<SidebarProps>`
   padding-top: 20px;
   overflow-x: hidden;
   overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #91929d;
-    border-radius: 20px;
-  }
 `;
 
 const Form = styled.form`

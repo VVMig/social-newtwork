@@ -10,9 +10,9 @@ const Header = styled.header`
   height: ${headerHeight}px;
   display: inline-flex;
   justify-content: center;
-  left: 50%;
   position: fixed;
-  transform: translateX(-50%);
+  top: 0;
+  left: auto;
 `;
 
 const Nav = styled.nav`
