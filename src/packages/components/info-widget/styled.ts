@@ -57,13 +57,13 @@ const Status = styled.div`
   align-items: center;
 `;
 
-const Online = styled.span<OnlineProps>`
-  color: ${(props) => props.color};
-  font-size: ${(props) => props.fontSize}px;
+const Offline = styled.span<OnlineProps>`
+  color: #91929d;
+  font-size: 12px;
 `;
 
 export const Styled = {
-  Online,
+  Offline,
   Status,
   Name,
   Img,

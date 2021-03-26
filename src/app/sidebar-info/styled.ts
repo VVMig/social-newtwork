@@ -13,7 +13,6 @@ const Header = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 0 24px 0 28px;
-  background: red;
 `;
 
 export const Styled = {

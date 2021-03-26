@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { zIndex } from '../zIndex';
 
 const logoSize = '30px';
+const notificationsSize = '25px';
+const avatarSize = '30px';
+const arrowSize = '25px';
 
 const Aside = styled.aside`
   display: flex;
@@ -67,10 +70,58 @@ const Logo = styled.div`
   border-radius: 50%;
 `;
 
+const Notifications = styled.div`
+  color: #97989a;
+  position: relative;
+  z-index: ${zIndex.notifications};
+  padding-right: 22px;
+  cursor: pointer;
+
+  & svg {
+    width: ${notificationsSize};
+    height: ${notificationsSize};
+  }
+`;
+
+const Notify = styled.div`
+  position: absolute;
+  top: 3px;
+  left: 13px;
+`;
+
+const Avatar = styled.div`
+  background-position: center;
+  background-size: cover;
+  background-color: rgb(71, 105, 255);
+  border-radius: 50%;
+  height: ${avatarSize};
+  width: ${avatarSize};
+`;
+
+const Name = styled.div`
+  color: #1d1e2b;
+  font-size: 12px;
+  font-weight: bolder;
+  padding-left: 8px;
+`;
+
+const Arrow = styled.div`
+  color: #959698;
+  & svg {
+    width: ${arrowSize};
+    height: ${arrowSize};
+  }
+`;
+
 export const Styled = {
   Logo,
   Button,
   Input,
   Form,
   Aside,
+  Notifications,
+  Notify,
+  Avatar,
+  Name,
+  Arrow,
 };

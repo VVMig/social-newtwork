@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { WidgetFields } from './interfaces';
 import { Styled } from './styled';
 import { Underline } from '../underline/Underline';
+import { Dot } from '../dot/Dot';
 
 export const WidgetItem = (props: WidgetFields) => {
   const {
@@ -26,13 +27,11 @@ export const WidgetItem = (props: WidgetFields) => {
         {online !== undefined && (
           <Styled.Status>
             {online ? (
-              <Styled.Online color="#00f8ea" fontSize={24}>
-                &bull;
-              </Styled.Online>
+              <Dot fontSize={24} />
             ) : (
-              <Styled.Online color="#91929d" fontSize={12}>
+              <Styled.Offline color="#91929d" fontSize={12}>
                 {lastVisit} min
-              </Styled.Online>
+              </Styled.Offline>
             )}
           </Styled.Status>
         )}

@@ -11,10 +11,9 @@ const SidebarContainer = styled.div`
 
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0 24px 0 28px;
-  background: red;
+  padding: 0 28px 0 24px;
 `;
 
 export const Styled = {
