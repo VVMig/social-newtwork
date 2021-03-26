@@ -6,6 +6,7 @@ import {
   ForumRounded,
   FlagRounded,
   SettingsRounded,
+  Notifications,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -14,4 +15,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Help]: <FlagRounded />,
   [IconType.Messager]: <ForumRounded />,
   [IconType.Settings]: <SettingsRounded />,
+  [IconType.Notifications]: <Notifications />,
 };

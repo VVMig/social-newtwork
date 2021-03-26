@@ -5,9 +5,7 @@ interface Props {
   icon: JSX.Element;
 }
 
-const Notification = styled.div`
-  align-self: end;
-`;
+const Notification = styled.div``;
 
 export const Notifications = ({ icon }: Props) => {
   return <Notification>{icon}</Notification>;

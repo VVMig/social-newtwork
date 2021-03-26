@@ -8,6 +8,15 @@ const SidebarContainer = styled.div`
   height: 100vh;
 `;
 
+const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 24px 0 28px;
+  background: red;
+`;
+
 export const Styled = {
   SidebarContainer,
+  Header,
 };

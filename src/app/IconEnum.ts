@@ -4,6 +4,7 @@ export enum IconType {
   Messager = 'Messager',
   Help = 'Help',
   Settings = 'Settings',
+  Notifications = 'Notifications',
 }
 
 export enum TabRoutes {

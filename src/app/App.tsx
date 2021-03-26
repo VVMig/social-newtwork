@@ -7,10 +7,11 @@ import { tabs } from './tabs';
 import { friends } from './friends';
 import { groups } from './groups';
 import { posts } from './posts';
-import { TabRoutes } from './IconEnum';
+import { IconType, TabRoutes } from './IconEnum';
 import { headerHeight } from '../packages/components';
 import { SidebarInfo } from './sidebar-info/SidebarInfo';
 import { SidebarLive } from './sidebar-live/SidebarLive';
+import { Icon } from './Icon';
 
 export const App = () => {
   return (
@@ -25,7 +26,7 @@ export const App = () => {
             </Route>
           </Switch>
         </Styled.Content>
-        <SidebarLive />
+        <SidebarLive icon={<Icon type={IconType.Notifications} />} />
       </Styled.Wrapper>
     </BrowserRouter>
   );
