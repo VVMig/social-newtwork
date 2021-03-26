@@ -5,8 +5,8 @@ import { Styled } from './styled';
 
 export const Header = ({ tabs }: TabProps) => {
   return (
-    <Styled.StyledHeader>
+    <Styled.Header>
       <Navbar tabs={tabs} />
-    </Styled.StyledHeader>
+    </Styled.Header>
   );
 };

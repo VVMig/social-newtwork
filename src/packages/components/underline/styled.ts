@@ -1,5 +1,8 @@
 import styled, { keyframes } from 'styled-components';
-import { Props } from './interfaces';
+
+export interface UnderlineProps {
+  parentClass: string;
+}
 
 const underlineAppear = keyframes`
     0% {
@@ -12,7 +15,7 @@ const underlineAppear = keyframes`
     }
 `;
 
-export const StyledUnderline = styled.div<Props>`
+const Underline = styled.div<UnderlineProps>`
   position: absolute;
   width: 100%;
   height: 2px;
@@ -28,3 +31,7 @@ export const StyledUnderline = styled.div<Props>`
     opacity: 0.5;
   }
 `;
+
+export const Styled = {
+  Underline,
+};

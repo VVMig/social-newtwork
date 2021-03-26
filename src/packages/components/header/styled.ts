@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { NavLink } from 'react-router-dom';
+import { Link as StyledLink } from 'react-router-dom';
 
 const size = '25px';
 export const headerHeight = 70;
 
-const StyledHeader = styled.header`
+const Header = styled.header`
   max-width: 465px;
   width: 100%;
   height: ${headerHeight}px;
@@ -26,7 +26,7 @@ const Nav = styled.nav`
   color: #919497;
 `;
 
-const StyledLink = styled(NavLink)`
+const Link = styled(StyledLink)`
   color: inherit;
 
   &.active > * {
@@ -36,7 +36,7 @@ const StyledLink = styled(NavLink)`
   }
 `;
 
-const PageIcon = styled.div`
+const NavTab = styled.div`
   border-radius: 7px;
   padding: 5px;
   display: flex;
@@ -55,8 +55,8 @@ const PageIcon = styled.div`
 `;
 
 export const Styled = {
-  PageIcon,
-  StyledLink,
-  StyledHeader,
+  NavTab,
+  Link,
+  Header,
   Nav,
 };

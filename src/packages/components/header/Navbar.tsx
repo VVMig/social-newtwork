@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageIcon } from './PageIcon';
+import { NavTab } from './NavTab';
 import { TabProps } from './interfaces';
 import { Styled } from './styled';
 
@@ -7,9 +7,9 @@ export const Navbar = ({ tabs }: TabProps) => {
   return (
     <Styled.Nav>
       {tabs.map((x, i) => (
-        <Styled.StyledLink to={x.route} key={i} title={x.title}>
-          <PageIcon>{x.component()}</PageIcon>
-        </Styled.StyledLink>
+        <Styled.Link to={x.route} key={i} title={x.title}>
+          <NavTab>{x.component()}</NavTab>
+        </Styled.Link>
       ))}
     </Styled.Nav>
   );
