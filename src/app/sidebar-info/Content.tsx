@@ -1,7 +1,7 @@
 import React from 'react';
-import { Widget } from '../../packages/components/sidebar-widget/Widget';
+import { Widget } from '../../packages/components';
 import { SidebarItems } from './interfaces';
-import { Content as SidebarContent } from '../../packages/components/sidebar/Content';
+import { SidebarContent } from '../../packages/components';
 
 export const Content = ({ friends, groups }: SidebarItems) => {
   return (

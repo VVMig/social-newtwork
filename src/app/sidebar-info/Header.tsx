@@ -1,6 +1,6 @@
-import { Header as SidebarHeader } from '../../packages/components/sidebar/Header';
-import { Logo } from '../../packages/components/sidebar/Logo';
-import { Search } from '../../packages/components/sidebar/Search';
+import { SidebarHeader } from '../../packages/components';
+import { Logo } from '../../packages/components';
+import { Search } from '../../packages/components';
 
 export const Header = () => {
   return (

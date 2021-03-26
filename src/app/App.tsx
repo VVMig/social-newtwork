@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header } from '../packages/components/header/Header';
-import { PostsList } from '../packages/components/posts/PostsList';
+import { Header } from '../packages/components';
+import { PostsList } from '../packages/components';
 import { Wrapper } from './styled';
 import { tabs } from './tabs';
 import { friends } from './friends';
