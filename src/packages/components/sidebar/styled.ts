@@ -70,23 +70,19 @@ const Logo = styled.div`
   border-radius: 50%;
 `;
 
-const Notifications = styled.div`
+const NotificationsWrapper = styled.div`
   color: #97989a;
-  position: relative;
   z-index: ${zIndex.notifications};
   padding-right: 22px;
-  cursor: pointer;
-
-  & svg {
-    width: ${notificationsSize};
-    height: ${notificationsSize};
-  }
 `;
 
 const Notify = styled.div`
   position: absolute;
   top: 3px;
   left: 13px;
+  & span {
+    font-size: 24px;
+  }
 `;
 
 const Avatar = styled.div`
@@ -113,15 +109,26 @@ const Arrow = styled.div`
   }
 `;
 
+const Notifications = styled.div`
+  cursor: pointer;
+  position: relative;
+
+  & svg {
+    width: ${notificationsSize};
+    height: ${notificationsSize};
+  }
+`;
+
 export const Styled = {
   Logo,
   Button,
   Input,
   Form,
   Aside,
-  Notifications,
+  NotificationsWrapper,
   Notify,
   Avatar,
   Name,
   Arrow,
+  Notifications,
 };

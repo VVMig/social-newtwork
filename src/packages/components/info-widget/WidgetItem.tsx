@@ -27,11 +27,11 @@ export const WidgetItem = (props: WidgetFields) => {
         {online !== undefined && (
           <Styled.Status>
             {online ? (
-              <Dot fontSize={24} />
+              <Styled.Online>
+                <Dot />
+              </Styled.Online>
             ) : (
-              <Styled.Offline color="#91929d" fontSize={12}>
-                {lastVisit} min
-              </Styled.Offline>
+              <Styled.Offline>{lastVisit} min</Styled.Offline>
             )}
           </Styled.Status>
         )}

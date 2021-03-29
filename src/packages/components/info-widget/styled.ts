@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { OnlineProps } from './interfaces';
 
 const SidebarWidget = styled.div`
   padding-top: 35px;
@@ -57,13 +56,18 @@ const Status = styled.div`
   align-items: center;
 `;
 
-const Offline = styled.span<OnlineProps>`
+const Online = styled.div`
+  font-size: 18px;
+`;
+
+const Offline = styled.span`
   color: #91929d;
   font-size: 12px;
 `;
 
 export const Styled = {
   Offline,
+  Online,
   Status,
   Name,
   Img,

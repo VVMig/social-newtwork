@@ -9,13 +9,15 @@ interface Props {
 
 export const Notifications = ({ icon, notify }: Props) => {
   return (
-    <Styled.Notifications>
-      {icon}
-      {notify && (
-        <Styled.Notify>
-          <Dot fontSize={24} />
-        </Styled.Notify>
-      )}
-    </Styled.Notifications>
+    <Styled.NotificationsWrapper>
+      <Styled.Notifications>
+        {icon}
+        {notify && (
+          <Styled.Notify>
+            <Dot />
+          </Styled.Notify>
+        )}
+      </Styled.Notifications>
+    </Styled.NotificationsWrapper>
   );
 };
