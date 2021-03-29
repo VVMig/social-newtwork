@@ -2,17 +2,20 @@ import styled from 'styled-components';
 import { Link as StyledLink } from 'react-router-dom';
 
 const size = '25px';
+export const headerHeight = 70;
 
 const Header = styled.header`
+  max-width: 465px;
   width: 100%;
-  height: 70px;
-  background: #fff;
-  display: flex;
+  height: ${headerHeight}px;
+  display: inline-flex;
   justify-content: center;
+  left: 50%;
+  position: fixed;
+  transform: translateX(-50%);
 `;
 
 const Nav = styled.nav`
-  max-width: 465px;
   width: 100%;
   background-color: #f2f7fb;
   border-radius: 0 0 25px 25px;
@@ -25,6 +28,12 @@ const Nav = styled.nav`
 
 const Link = styled(StyledLink)`
   color: inherit;
+
+  &.active > * {
+    background-color: #003393;
+    color: #00f8ea;
+    transition: 0.2s linear;
+  }
 `;
 
 const NavTab = styled.div`
