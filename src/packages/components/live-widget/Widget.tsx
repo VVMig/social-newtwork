@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Widget = () => {
+export const Widget = () => {
   return <div></div>;
 };
-
-export default Widget;

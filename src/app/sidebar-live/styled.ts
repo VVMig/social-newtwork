@@ -16,7 +16,10 @@ const Header = styled.div`
   padding: 0 28px 0 24px;
 `;
 
+const Content = styled.div``;
+
 export const Styled = {
   SidebarContainer,
   Header,
+  Content,
 };
