@@ -1,14 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header } from '../packages/components';
-import { PostsList } from '../packages/components';
+import { Header, PostsList, headerHeight } from '../packages/components';
 import { Styled } from './styled';
 import { tabs } from './tabs';
 import { friends } from './friends';
 import { groups } from './groups';
 import { posts } from './posts';
 import { IconType, TabRoutes } from './IconEnum';
-import { headerHeight } from '../packages/components';
 import { SidebarInfo } from './sidebar-info/SidebarInfo';
 import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
@@ -26,7 +24,10 @@ export const App = () => {
             </Route>
           </Switch>
         </Styled.Content>
-        <SidebarLive icon={<Icon type={IconType.Notifications} />} />
+        <SidebarLive
+          viewIcon={<Icon type={IconType.Views} />}
+          notifyIcon={<Icon type={IconType.Notifications} />}
+        />
       </Styled.Wrapper>
     </BrowserRouter>
   );

@@ -6,6 +6,7 @@ export enum IconType {
   Settings = 'Settings',
   Notifications = 'Notifications',
   Arrow = 'Arrow',
+  Views = 'Views',
 }
 
 export enum TabRoutes {

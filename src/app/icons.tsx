@@ -8,6 +8,7 @@ import {
   SettingsRounded,
   NotificationsNone,
   ArrowDropDown,
+  VisibilityOutlined,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -18,4 +19,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Settings]: <SettingsRounded />,
   [IconType.Notifications]: <NotificationsNone />,
   [IconType.Arrow]: <ArrowDropDown />,
+  [IconType.Views]: <VisibilityOutlined />,
 };
