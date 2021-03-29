@@ -31,10 +31,6 @@ export interface SpanProps {
   day?: boolean;
 }
 
-export interface AvatarProps {
-  imgSrc?: string;
-}
-
 export interface BodyProps extends Author {
   text: string;
 }

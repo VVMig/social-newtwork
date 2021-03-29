@@ -85,15 +85,6 @@ const Notify = styled.div`
   }
 `;
 
-const Avatar = styled.div`
-  background-position: center;
-  background-size: cover;
-  background-color: rgb(71, 105, 255);
-  border-radius: 50%;
-  height: ${avatarSize};
-  width: ${avatarSize};
-`;
-
 const Name = styled.div`
   color: #1d1e2b;
   font-size: 12px;
@@ -127,7 +118,6 @@ export const Styled = {
   Aside,
   NotificationsWrapper,
   Notify,
-  Avatar,
   Name,
   Arrow,
   Notifications,

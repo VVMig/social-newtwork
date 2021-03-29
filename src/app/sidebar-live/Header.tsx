@@ -11,7 +11,7 @@ export const Header = ({ icon }: Props) => {
   return (
     <Styled.Header>
       <Notifications icon={icon} notify />
-      <Avatar />
+      <Avatar size={30} route="#" />
       <Name name={'Alisher Morgenshern'} />
       <Arrow icon={<Icon type={IconType.Arrow} />} />
     </Styled.Header>

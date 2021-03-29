@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { AvatarProps, ImgProps, SpanProps } from './interfaces';
+import { ImgProps, SpanProps } from './interfaces';
 
-const avatarSize = '29px';
 const moreSize = '30px';
 const gaps = '30px';
 
@@ -128,15 +127,6 @@ const Author = styled.div`
   width: 100%;
 `;
 
-const Avatar = styled.div<AvatarProps>`
-  background: ${(props) => props.imgSrc || 'rgb(71, 105, 255)'};
-  width: ${avatarSize};
-  height: ${avatarSize};
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  box-shadow: 1px 1px 4px #d8d8d8;
-`;
-
 const AuthorInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -194,7 +184,6 @@ export const Styled = {
   Body,
   Text,
   Author,
-  Avatar,
   AuthorInfo,
   Subname,
   Name,

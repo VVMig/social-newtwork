@@ -4,6 +4,7 @@ import { WidgetFields } from './interfaces';
 import { Styled } from './styled';
 import { Underline } from '../underline/Underline';
 import { Dot } from '../dot/Dot';
+import { Avatar } from '../avatar/Avatar';
 
 export const WidgetItem = (props: WidgetFields) => {
   const {
@@ -19,7 +20,7 @@ export const WidgetItem = (props: WidgetFields) => {
     <Link to={route}>
       <Styled.Item>
         <Styled.Info>
-          <Styled.Img />
+          <Avatar route={route} size={30} />
           <Styled.Name>
             <h3>{communityName || `${firstName} ${lastName}`}</h3>
           </Styled.Name>
