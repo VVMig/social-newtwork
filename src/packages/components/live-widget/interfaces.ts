@@ -15,4 +15,5 @@ export interface MessageProps {
   text: string;
   displayName: string;
   date: number;
+  route: string;
 }

@@ -43,6 +43,7 @@ const LiveStatus = styled.div`
 const Views = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-around;
   height: 16px;
   border-radius: 3px;
   color: #fff;
@@ -50,6 +51,11 @@ const Views = styled.div`
   min-width: 46px;
   background-color: rgba(158, 151, 157, 0.7);
   margin-left: 3px;
+  padding-right: 1px;
+
+  & div {
+    height: 16px;
+  }
 
   & svg {
     width: ${viewSize};
@@ -104,7 +110,7 @@ const Button = styled.button`
 const MessagesContainer = styled.div`
   width: 100%;
   height: 100%;
-  padding: 40px 19px 27px;
+  padding: 40px 19px 15px;
   overflow-x: hidden;
   overflow-y: auto;
 `;
@@ -112,13 +118,35 @@ const MessagesContainer = styled.div`
 const Message = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
+  padding: 5px 0;
 `;
 
 const MainInfo = styled.div`
   display: flex;
 `;
 
-const Time = styled.div``;
+const Content = styled.div`
+  padding: 0 5px;
+`;
+
+const Time = styled.div`
+  font-size: 12px;
+  color: #bebec4;
+`;
+
+const Name = styled.div`
+  font-size: 14px;
+  color: #000;
+`;
+
+const Text = styled.p`
+  font-size: 14px;
+  color: #8f8f8f;
+  word-break: break-all;
+  margin-block-start: 0;
+  margin-block-end: 0;
+`;
 
 export const Styled = {
   Container,
@@ -134,4 +162,7 @@ export const Styled = {
   Message,
   MainInfo,
   Time,
+  Name,
+  Text,
+  Content,
 };

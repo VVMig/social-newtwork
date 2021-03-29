@@ -1,15 +1,16 @@
 import React from 'react';
-import { Styled } from './styled';
+import { Styled, AvatarProps } from './styled';
 
-interface Props {
-  size: number;
-  route: string;
-}
-
-export const Avatar = ({ route, size }: Props) => {
+export const Avatar = ({ route, size }: AvatarProps) => {
   return (
-    <Styled.Link to={route}>
-      <Styled.Avatar size={size}></Styled.Avatar>
-    </Styled.Link>
+    <>
+      {route ? (
+        <Styled.Link to={route}>
+          <Styled.Avatar size={size} />
+        </Styled.Link>
+      ) : (
+        <Styled.Avatar size={size} />
+      )}
+    </>
   );
 };

@@ -3,7 +3,6 @@ import { zIndex } from '../zIndex';
 
 const logoSize = '30px';
 const notificationsSize = '25px';
-const avatarSize = '30px';
 const arrowSize = '25px';
 
 const Aside = styled.aside`

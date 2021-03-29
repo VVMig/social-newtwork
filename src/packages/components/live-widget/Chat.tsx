@@ -11,6 +11,7 @@ export const Chat = ({ sendIcon }: ChatProps) => {
           text="asdasdasdasd"
           displayName="Vova Migay"
           date={Date.now()}
+          route="#"
         />
       </Styled.MessagesContainer>
       <Styled.Form>

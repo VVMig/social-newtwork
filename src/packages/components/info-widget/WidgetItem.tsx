@@ -20,7 +20,7 @@ export const WidgetItem = (props: WidgetFields) => {
     <Link to={route}>
       <Styled.Item>
         <Styled.Info>
-          <Avatar route={route} size={30} />
+          <Avatar size={30} />
           <Styled.Name>
             <h3>{communityName || `${firstName} ${lastName}`}</h3>
           </Styled.Name>
