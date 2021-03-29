@@ -7,14 +7,15 @@ import { Styled } from './styled';
 interface Props {
   viewIcon: JSX.Element;
   notifyIcon: JSX.Element;
+  sendIcon: JSX.Element;
 }
 
-export const SidebarLive = ({ viewIcon, notifyIcon }: Props) => {
+export const SidebarLive = ({ viewIcon, notifyIcon, sendIcon }: Props) => {
   return (
     <Styled.SidebarContainer>
       <Sidebar>
         <Header icon={notifyIcon} />
-        <Content icon={viewIcon} />
+        <Content viewIcon={viewIcon} sendIcon={sendIcon} />
       </Sidebar>
     </Styled.SidebarContainer>
   );

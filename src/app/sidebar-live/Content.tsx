@@ -3,13 +3,14 @@ import { Styled } from './styled';
 import { WidgetLive } from '../../packages/components';
 
 interface Props {
-  icon: JSX.Element;
+  viewIcon: JSX.Element;
+  sendIcon: JSX.Element;
 }
 
-export const Content = ({ icon }: Props) => {
+export const Content = ({ viewIcon, sendIcon }: Props) => {
   return (
     <Styled.Content>
-      <WidgetLive viewIcon={icon} />
+      <WidgetLive viewIcon={viewIcon} sendIcon={sendIcon} />
     </Styled.Content>
   );
 };

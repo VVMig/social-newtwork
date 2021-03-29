@@ -18,10 +18,13 @@ const Stream = styled.div`
 `;
 
 const Chat = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   height: 390px;
   border-radius: 0 0 25px 25px;
   width: 100%;
-  background: red;
+  background-color: #fff;
 `;
 
 const LiveStatus = styled.div`
@@ -45,7 +48,7 @@ const Views = styled.div`
   color: #fff;
   font-size: 10px;
   min-width: 46px;
-  background-color: #9f989e;
+  background-color: rgba(158, 151, 157, 0.7);
   margin-left: 3px;
 
   & svg {
@@ -61,6 +64,62 @@ const StreamHeader = styled.div`
   top: 16px;
 `;
 
+const Form = styled.form`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background-color: #00f5f6;
+  height: 45px;
+  border-radius: 0 0 25px 25px;
+  padding: 0 10px 0 50px;
+`;
+
+const Input = styled.input`
+  outline: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  color: #003393;
+  font-size: 14px;
+  width: 100%;
+
+  &::placeholder {
+    color: #003393;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const Button = styled.button`
+  outline: 0;
+  border: 0;
+  background-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const MessagesContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 40px 19px 27px;
+  overflow-x: hidden;
+  overflow-y: auto;
+`;
+
+const Message = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const MainInfo = styled.div`
+  display: flex;
+`;
+
+const Time = styled.div``;
+
 export const Styled = {
   Container,
   Stream,
@@ -68,4 +127,11 @@ export const Styled = {
   LiveStatus,
   StreamHeader,
   Views,
+  Form,
+  Input,
+  Button,
+  MessagesContainer,
+  Message,
+  MainInfo,
+  Time,
 };

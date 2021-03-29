@@ -1,8 +1,8 @@
 import React from 'react';
-import { WidgetProps } from './interfaces';
+import { StreamHeaderProps } from './interfaces';
 import { Styled } from './styled';
 
-export const StreamHeader = ({ viewIcon }: WidgetProps) => {
+export const StreamHeader = ({ viewIcon }: StreamHeaderProps) => {
   return (
     <Styled.StreamHeader>
       <Styled.LiveStatus>Live</Styled.LiveStatus>

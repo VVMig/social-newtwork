@@ -4,11 +4,11 @@ import { Stream } from './Stream';
 import { Chat } from './Chat';
 import { WidgetProps } from './interfaces';
 
-export const Widget = ({ viewIcon }: WidgetProps) => {
+export const Widget = ({ viewIcon, sendIcon }: WidgetProps) => {
   return (
     <Styled.Container>
       <Stream viewIcon={viewIcon} />
-      <Chat />
+      <Chat sendIcon={sendIcon} />
     </Styled.Container>
   );
 };

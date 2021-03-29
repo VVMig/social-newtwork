@@ -9,6 +9,7 @@ import {
   NotificationsNone,
   ArrowDropDown,
   VisibilityOutlined,
+  Send,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -20,4 +21,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Notifications]: <NotificationsNone />,
   [IconType.Arrow]: <ArrowDropDown />,
   [IconType.Views]: <VisibilityOutlined />,
+  [IconType.Send]: <Send />,
 };

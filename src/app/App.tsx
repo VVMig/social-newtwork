@@ -27,6 +27,7 @@ export const App = () => {
         <SidebarLive
           viewIcon={<Icon type={IconType.Views} />}
           notifyIcon={<Icon type={IconType.Notifications} />}
+          sendIcon={<Icon type={IconType.Send} />}
         />
       </Styled.Wrapper>
     </BrowserRouter>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Styled } from './styled';
 import { StreamHeader } from './StreamHeader';
-import { WidgetProps } from './interfaces';
+import { StreamHeaderProps } from './interfaces';
 
-export const Stream = ({ viewIcon }: WidgetProps) => {
+export const Stream = ({ viewIcon }: StreamHeaderProps) => {
   return (
     <Styled.Stream>
       <StreamHeader viewIcon={viewIcon} />
