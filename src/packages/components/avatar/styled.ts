@@ -11,7 +11,7 @@ const Avatar = styled.div<AvatarProps>`
   height: ${(props) => props.size}px;
   background-position: center;
   background-size: cover;
-  background-color: rgb(71, 105, 255);
+  background-color: ${(props) => props.theme.primary};
   border-radius: 50%;
 `;
 

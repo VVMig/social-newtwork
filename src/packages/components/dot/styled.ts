@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Dot = styled.span`
-  color: #00f8ea;
+  color: ${(props) => props.theme.additional};
   user-select: none;
   line-height: 0;
 `;

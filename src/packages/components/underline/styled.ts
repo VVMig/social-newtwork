@@ -19,7 +19,7 @@ const Underline = styled.div<UnderlineProps>`
   position: absolute;
   width: 100%;
   height: 2px;
-  background-color: rgb(71, 105, 255);
+  background-color: ${(props) => props.theme.primary};
   bottom: 0;
   opacity: 0;
   left: 50%;
