@@ -10,26 +10,30 @@ import { IconType, TabRoutes } from './IconEnum';
 import { SidebarInfo } from './sidebar-info/SidebarInfo';
 import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './theme';
 
 export const App = () => {
   return (
     <BrowserRouter>
-      <Styled.Wrapper headerHeight={headerHeight}>
-        <SidebarInfo friends={friends} groups={groups} />
-        <Styled.Content>
-          <Header tabs={tabs} />
-          <Switch>
-            <Route path={TabRoutes.Home}>
-              <PostsList posts={posts} />
-            </Route>
-          </Switch>
-        </Styled.Content>
-        <SidebarLive
-          viewIcon={<Icon type={IconType.Views} />}
-          notifyIcon={<Icon type={IconType.Notifications} />}
-          sendIcon={<Icon type={IconType.Send} />}
-        />
-      </Styled.Wrapper>
+      <ThemeProvider theme={theme}>
+        <Styled.Wrapper headerHeight={headerHeight}>
+          <SidebarInfo friends={friends} groups={groups} />
+          <Styled.Content>
+            <Header tabs={tabs} />
+            <Switch>
+              <Route path={TabRoutes.Home}>
+                <PostsList posts={posts} />
+              </Route>
+            </Switch>
+          </Styled.Content>
+          <SidebarLive
+            viewIcon={<Icon type={IconType.Views} />}
+            notifyIcon={<Icon type={IconType.Notifications} />}
+            sendIcon={<Icon type={IconType.Send} />}
+          />
+        </Styled.Wrapper>
+      </ThemeProvider>
     </BrowserRouter>
   );
 };

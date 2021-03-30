@@ -1,0 +1,18 @@
+export const theme = {
+  primary: 'rgb(71, 105, 255)',
+  mainBackground: '#f6f9fb',
+  additional: '#00f8ea',
+  textDark: '#91929d',
+  textLight: '#bebec4',
+  textMain: '#8f8f8f',
+  tabColor: '#003393',
+  light: '#ffffff',
+  pink: '#ff567f',
+  views: 'rgba(158, 151, 157, 0.7)',
+  black: '#000000',
+  inputText: '#555657',
+  inputBackground: '#e8f0f4',
+  inputShadow: '#00339352',
+  blueText: '#006cb0',
+  backgroundBlue: '#00f5f6',
+};
