@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link as StyledLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const size = '25px';
 export const headerHeight = 70;
@@ -26,7 +26,7 @@ const Nav = styled.nav`
   color: #919497;
 `;
 
-const Link = styled(StyledLink)`
+const Link = styled(NavLink)`
   color: inherit;
 
   &.active > * {
