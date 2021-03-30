@@ -4,3 +4,4 @@ export * from './posts';
 export * from './sidebar';
 export * from './live-widget';
 export * from './avatar/';
+export * from './input/';
