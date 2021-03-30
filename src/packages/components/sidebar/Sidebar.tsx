@@ -2,8 +2,8 @@ import React from 'react';
 import { Search } from './Search';
 import { Logo } from './Logo';
 import { Widget } from '../sidebar-widget/Widget';
-import './Sidebar.css';
 import { WidgetFields } from '../sidebar-widget/interfaces';
+import { Styled } from './styled';
 
 interface Props {
   friends: WidgetFields[];
@@ -12,15 +12,15 @@ interface Props {
 
 export const Sidebar = ({ friends, groups }: Props) => {
   return (
-    <aside className="sidebar">
-      <div className="sidebar-header">
+    <Styled.Aside>
+      <Styled.SidebarHeader>
         <Logo />
         <Search />
-      </div>
-      <div className="sidebar-content">
+      </Styled.SidebarHeader>
+      <Styled.SidebarContent>
         <Widget title={'Groups'} items={groups} />
         <Widget title={'Friends'} items={friends} />
-      </div>
-    </aside>
+      </Styled.SidebarContent>
+    </Styled.Aside>
   );
 };

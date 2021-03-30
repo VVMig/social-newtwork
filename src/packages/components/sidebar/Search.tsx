@@ -1,18 +1,14 @@
 import React from 'react';
 import { Search as SearchIcon } from '@material-ui/icons';
-import './Search.css';
+import { Styled } from './styled';
 
 export const Search = () => {
   return (
-    <form className="sidebar-search">
-      <input
-        type="text"
-        className="sidebar-search-input"
-        placeholder="Search"
-      />
-      <button type="submit">
+    <Styled.Form>
+      <Styled.Input type="text" placeholder="Search" />
+      <Styled.Button type="submit">
         <SearchIcon />
-      </button>
-    </form>
+      </Styled.Button>
+    </Styled.Form>
   );
 };

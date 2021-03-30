@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Logo.css';
+import { Styled } from './styled';
 
 export const Logo = () => {
   return (
     <Link to="#">
-      <div className="logo"></div>
+      <Styled.StyledLogo></Styled.StyledLogo>
     </Link>
   );
 };

@@ -1,17 +1,16 @@
 import React from 'react';
-import { PageIcon } from './PageIcon';
-import { Link } from 'react-router-dom';
+import { NavTab } from './NavTab';
 import { TabProps } from './interfaces';
-import './Navbar.css';
+import { Styled } from './styled';
 
 export const Navbar = ({ tabs }: TabProps) => {
   return (
-    <div className="pages-container">
+    <Styled.Nav>
       {tabs.map((x, i) => (
-        <Link to={x.route} key={i} title={x.title} className="page-link">
-          <PageIcon>{x.component()}</PageIcon>
-        </Link>
+        <Styled.Link to={x.route} key={i} title={x.title}>
+          <NavTab>{x.component()}</NavTab>
+        </Styled.Link>
       ))}
-    </div>
+    </Styled.Nav>
   );
 };

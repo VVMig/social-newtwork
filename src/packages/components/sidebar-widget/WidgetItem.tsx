@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { WidgetFields } from './interfaces';
-import './WidgetItem.css';
+import { Styled } from './styled';
+import { Underline } from '../underline/Underline';
 
 export const WidgetItem = (props: WidgetFields) => {
   const {
@@ -15,23 +16,28 @@ export const WidgetItem = (props: WidgetFields) => {
 
   return (
     <Link to={route}>
-      <div className="widget-item">
-        <div className="widget-info">
-          <div className="widget-img"></div>
-          <div className="widget-name">
+      <Styled.Item>
+        <Styled.Info>
+          <Styled.Img />
+          <Styled.Name>
             <h3>{communityName || `${firstName} ${lastName}`}</h3>
-          </div>
-        </div>
+          </Styled.Name>
+        </Styled.Info>
         {online !== undefined && (
-          <div className="widget-status">
+          <Styled.Status>
             {online ? (
-              <span className="widget-online">&bull;</span>
+              <Styled.Online color="#00f8ea" fontSize={24}>
+                &bull;
+              </Styled.Online>
             ) : (
-              <span className="widget-offline">{lastVisit} min</span>
+              <Styled.Online color="#91929d" fontSize={12}>
+                {lastVisit} min
+              </Styled.Online>
             )}
-          </div>
+          </Styled.Status>
         )}
-      </div>
+        <Underline parentClass={Styled.Item.styledComponentId} />
+      </Styled.Item>
     </Link>
   );
 };
