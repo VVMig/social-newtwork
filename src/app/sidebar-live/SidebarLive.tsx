@@ -2,15 +2,20 @@ import React from 'react';
 import { Sidebar } from '../../packages/components';
 import { Content } from './Content';
 import { Header } from './Header';
-import { SidebarItems } from './interfaces';
 import { Styled } from './styled';
 
-export const SidebarInfo = ({ friends, groups }: SidebarItems) => {
+interface Props {
+  viewIcon: JSX.Element;
+  notifyIcon: JSX.Element;
+  sendIcon: JSX.Element;
+}
+
+export const SidebarLive = ({ viewIcon, notifyIcon, sendIcon }: Props) => {
   return (
     <Styled.SidebarContainer>
       <Sidebar>
-        <Header />
-        <Content friends={friends} groups={groups} />
+        <Header icon={notifyIcon} />
+        <Content viewIcon={viewIcon} sendIcon={sendIcon} />
       </Sidebar>
     </Styled.SidebarContainer>
   );

@@ -1,49 +1,28 @@
 import styled from 'styled-components';
 import { zIndex } from '../zIndex';
 
-export interface SidebarProps {
-  maxWidth: number;
-}
-
 const logoSize = '30px';
+const notificationsSize = '25px';
+const arrowSize = '25px';
 
-const Aside = styled.aside<SidebarProps>`
+const Aside = styled.aside`
   display: flex;
   flex-direction: column;
-  max-width: 320px;
   width: 100%;
   height: 100vh;
-  background-color: #f6f9fb;
+  background-color: ${(props) => props.theme.mainBackground};
   z-index: ${zIndex.sideBarInfo};
   padding-top: 20px;
   overflow-x: hidden;
   overflow-y: auto;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: #91929d;
-    border-radius: 20px;
-  }
 `;
 
 const Form = styled.form`
   position: relative;
 `;
 
-const SidebarHeader = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 24px 0 28px;
-`;
-
-const SidebarContent = styled.div``;
-
 const Input = styled.input`
-  color: #555657;
+  color: ${(props) => props.theme.inputText};
   font-size: 14px;
   outline: 0;
   border: 0;
@@ -52,15 +31,15 @@ const Input = styled.input`
   height: 47px;
   padding: 0 40px;
   border-radius: 15px;
-  background-color: #e8f0f4;
+  background-color: ${(props) => props.theme.inputBackground};
   transition: 0.1s linear box-shadow;
 
   &::placeholder {
-    color: #949597;
+    color: ${(props) => props.theme.textDark};
   }
 
   &:focus {
-    box-shadow: 0 0 0 0.15rem #00339352;
+    box-shadow: 0 0 0 0.15rem ${(props) => props.theme.inputShadow};
     transition: 0.1s linear box-shadow;
   }
 `;
@@ -76,26 +55,69 @@ const Button = styled.button`
   left: 10px;
   padding: 0;
   z-index: ${zIndex.searchBtn};
-  color: #949597;
+  color: ${(props) => props.theme.textDark};
 
   &:focus {
     outline: 0;
   }
 `;
 
-const StyledLogo = styled.div`
+const Logo = styled.div`
   width: ${logoSize};
   height: ${logoSize};
-  background-color: rgb(71, 105, 255);
+  background-color: ${(props) => props.theme.primary};
   border-radius: 50%;
 `;
 
+const NotificationsWrapper = styled.div`
+  color: ${(props) => props.theme.textDark};
+  z-index: ${zIndex.notifications};
+  padding-right: 22px;
+`;
+
+const Notify = styled.div`
+  position: absolute;
+  top: 3px;
+  left: 13px;
+  & span {
+    font-size: 24px;
+  }
+`;
+
+const Name = styled.div`
+  color: ${(props) => props.theme.black};
+  font-size: 12px;
+  font-weight: bolder;
+  padding-left: 8px;
+`;
+
+const Arrow = styled.div`
+  color: ${(props) => props.theme.textDark};
+  & svg {
+    width: ${arrowSize};
+    height: ${arrowSize};
+  }
+`;
+
+const Notifications = styled.div`
+  cursor: pointer;
+  position: relative;
+
+  & svg {
+    width: ${notificationsSize};
+    height: ${notificationsSize};
+  }
+`;
+
 export const Styled = {
-  StyledLogo,
+  Logo,
   Button,
   Input,
-  SidebarContent,
-  SidebarHeader,
   Form,
   Aside,
+  NotificationsWrapper,
+  Notify,
+  Name,
+  Arrow,
+  Notifications,
 };

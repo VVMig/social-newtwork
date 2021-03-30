@@ -1,21 +1,25 @@
 import styled from 'styled-components';
 
-export const sidebarInfoWidth = 320;
+export const sidebarLiveWidth = 390;
 
 const SidebarContainer = styled.div`
-  max-width: ${sidebarInfoWidth}px;
+  justify-self: end;
+  max-width: ${sidebarLiveWidth}px;
   width: 100%;
   height: 100vh;
 `;
 
 const Header = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
-  padding: 0 24px 0 28px;
+  padding: 0 28px 0 24px;
 `;
+
+const Content = styled.div``;
 
 export const Styled = {
   SidebarContainer,
   Header,
+  Content,
 };

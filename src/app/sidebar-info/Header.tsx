@@ -1,10 +1,11 @@
-import { SidebarHeader, Logo, Search } from '../../packages/components';
+import { Logo, Search } from '../../packages/components';
+import { Styled } from './styled';
 
 export const Header = () => {
   return (
-    <SidebarHeader>
+    <Styled.Header>
       <Logo />
       <Search />
-    </SidebarHeader>
+    </Styled.Header>
   );
 };

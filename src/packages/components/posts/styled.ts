@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { AvatarProps, ImgProps, SpanProps } from './interfaces';
+import { ImgProps, SpanProps } from './interfaces';
 
-const avatarSize = '29px';
 const moreSize = '30px';
 const gaps = '30px';
 
@@ -17,7 +16,7 @@ const Wrapper = styled.div`
   display: flex;
   max-width: 660px;
   width: 100%;
-  background-color: #f8f8f9;
+  background-color: ${(props) => props.theme.mainBackground};
   border-radius: 25px;
   height: 315px;
   padding: 10px 22px 10px 10px;
@@ -28,7 +27,7 @@ const Img = styled.div<ImgProps>`
   max-width: 300px;
   width: 100%;
   height: 100%;
-  background: ${(props) => props.imgSrc || 'rgb(71, 105, 255)'};
+  background: ${(props) => props.imgSrc || props.theme.primary};
   border-radius: 25px;
   background-position: center;
   background-size: cover;
@@ -54,8 +53,8 @@ const Date = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 8px 0 15px 0;
-  background-color: #00f5f6;
-  color: #006cb0;
+  background-color: ${(props) => props.theme.backgroundBlue};
+  color: ${(props) => props.theme.blueText};
   border-radius: 10px;
   height: 72px;
   max-width: 52px;
@@ -66,12 +65,12 @@ const DateSpan = styled.span<SpanProps>`
   ${(props) =>
     props.day
       ? css`
-          color: #003393;
+          color: ${(props) => props.theme.tabColor};
           font-size: 26px;
           font-weight: bold;
         `
       : css`
-          color: #006cb0;
+          color: ${(props) => props.theme.blueText};
           font-size: 18px;
           font-weight: normal;
         `};
@@ -90,7 +89,7 @@ const Title = styled.div`
 `;
 
 const More = styled.div`
-  color: #bebec4;
+  color: ${(props) => props.theme.textLight};
   cursor: pointer;
   margin-left: auto;
 
@@ -100,7 +99,7 @@ const More = styled.div`
   }
 
   &:hover {
-    color: #a9a9af;
+    color: ${(props) => props.theme.textDark};
   }
 `;
 
@@ -112,7 +111,7 @@ const Body = styled.div`
 `;
 
 const Text = styled.div`
-  color: #8f8f8f;
+  color: ${(props) => props.theme.textMain};
   font-size: 12px;
   font-weight: lighter;
   line-height: 20px;
@@ -128,15 +127,6 @@ const Author = styled.div`
   width: 100%;
 `;
 
-const Avatar = styled.div<AvatarProps>`
-  background: ${(props) => props.imgSrc || 'rgb(71, 105, 255)'};
-  width: ${avatarSize};
-  height: ${avatarSize};
-  border-radius: 50%;
-  border: 1px solid #ffffff;
-  box-shadow: 1px 1px 4px #d8d8d8;
-`;
-
 const AuthorInfo = styled.div`
   display: flex;
   flex-direction: column;
@@ -146,12 +136,12 @@ const AuthorInfo = styled.div`
 `;
 
 const Name = styled.span`
-  color: #000;
+  color: ${(props) => props.theme.black};
   font-size: 12px;
 `;
 
 const Subname = styled.span`
-  color: #8f8f8f;
+  color: ${(props) => props.theme.textMain};
   font-size: 8px;
 `;
 
@@ -163,7 +153,7 @@ const Footer = styled.div`
 `;
 
 const Subtitle = styled.span`
-  color: #8f8f8f;
+  color: ${(props) => props.theme.textMain};
   font-size: 12px;
   font-weight: lighter;
   line-height: 25px;
@@ -174,7 +164,7 @@ const Like = styled.span.attrs({
   role: 'img',
 })`
   font-size: 14px;
-  color: #000;
+  color: ${(props) => props.theme.black};
   cursor: pointer;
 `;
 
@@ -194,7 +184,6 @@ export const Styled = {
   Body,
   Text,
   Author,
-  Avatar,
   AuthorInfo,
   Subname,
   Name,

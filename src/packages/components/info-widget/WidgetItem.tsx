@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { WidgetFields } from './interfaces';
 import { Styled } from './styled';
 import { Underline } from '../underline/Underline';
+import { Dot } from '../dot/Dot';
+import { Avatar } from '../avatar/Avatar';
 
 export const WidgetItem = (props: WidgetFields) => {
   const {
@@ -18,7 +20,7 @@ export const WidgetItem = (props: WidgetFields) => {
     <Link to={route}>
       <Styled.Item>
         <Styled.Info>
-          <Styled.Img />
+          <Avatar size={30} />
           <Styled.Name>
             <h3>{communityName || `${firstName} ${lastName}`}</h3>
           </Styled.Name>
@@ -26,13 +28,11 @@ export const WidgetItem = (props: WidgetFields) => {
         {online !== undefined && (
           <Styled.Status>
             {online ? (
-              <Styled.Online color="#00f8ea" fontSize={24}>
-                &bull;
+              <Styled.Online>
+                <Dot />
               </Styled.Online>
             ) : (
-              <Styled.Online color="#91929d" fontSize={12}>
-                {lastVisit} min
-              </Styled.Online>
+              <Styled.Offline>{lastVisit} min</Styled.Offline>
             )}
           </Styled.Status>
         )}

@@ -11,8 +11,3 @@ export interface WidgetProps {
   title: string;
   items: WidgetFields[];
 }
-
-export interface OnlineProps {
-  color: string;
-  fontSize: number;
-}
