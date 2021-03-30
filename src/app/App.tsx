@@ -8,7 +8,6 @@ import { friends } from './friends';
 import { groups } from './groups';
 import { posts } from './posts';
 import { TabRoutes } from './IconEnum';
-import { headerHeight } from '../packages/components';
 import { SidebarInfo } from './sidebar-info/SidebarInfo';
 import { SidebarLive } from './sidebar-live/SidebarLive';
 
