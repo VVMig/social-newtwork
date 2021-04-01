@@ -3,5 +3,6 @@ export * from './info-widget';
 export * from './posts';
 export * from './sidebar';
 export * from './live-widget';
-export * from './avatar/';
-export * from './input/';
+export * from './avatar';
+export * from './input-group';
+export * from './zIndex';

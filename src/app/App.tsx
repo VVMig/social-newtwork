@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header, PostsList, headerHeight } from '../packages/components';
+import { Header, PostsList } from '../packages/components';
 import { Styled } from './styled';
 import { tabs } from './tabs';
 import { friends } from './friends';
@@ -12,27 +12,33 @@ import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
+import { Login } from './login/Login';
 
 export const App = () => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
-        <Styled.Wrapper headerHeight={headerHeight}>
-          <SidebarInfo friends={friends} groups={groups} />
-          <Styled.Content>
-            <Header tabs={tabs} />
-            <Switch>
-              <Route path={TabRoutes.Home}>
+        <Switch>
+          <Route path="/register">
+            <Styled.Wrapper>
+              <Login />
+            </Styled.Wrapper>
+          </Route>
+          <Route path={TabRoutes.Home}>
+            <Styled.Wrapper auth>
+              <SidebarInfo friends={friends} groups={groups} />
+              <Styled.Content>
+                <Header tabs={tabs} />
                 <PostsList posts={posts} />
-              </Route>
-            </Switch>
-          </Styled.Content>
-          <SidebarLive
-            viewIcon={<Icon type={IconType.Views} />}
-            notifyIcon={<Icon type={IconType.Notifications} />}
-            sendIcon={<Icon type={IconType.Send} />}
-          />
-        </Styled.Wrapper>
+              </Styled.Content>
+              <SidebarLive
+                viewIcon={<Icon type={IconType.Views} />}
+                notifyIcon={<Icon type={IconType.Notifications} />}
+                sendIcon={<Icon type={IconType.Send} />}
+              />
+            </Styled.Wrapper>
+          </Route>
+        </Switch>
       </ThemeProvider>
     </BrowserRouter>
   );

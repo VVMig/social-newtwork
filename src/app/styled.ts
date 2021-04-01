@@ -1,9 +1,9 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { sidebarInfoWidth } from './sidebar-info/styled';
 import { sidebarLiveWidth } from './sidebar-live/styled';
 import { headerHeight } from '../packages/components';
 interface WrapperProps {
-  headerHeight: number;
+  auth?: boolean;
 }
 
 const paddingTop = 30;
@@ -31,7 +31,16 @@ const Wrapper = styled.div<WrapperProps>`
       border-radius: 20px;
     }
   }
-  grid-template-columns: ${sidebarInfoWidth}px 1fr ${sidebarLiveWidth}px;
+  ${(props) =>
+    props.auth
+      ? css`
+          grid-template-columns: ${sidebarInfoWidth}px 1fr ${sidebarLiveWidth}px;
+        `
+      : css`
+          grid-template-columns: 1fr;
+          justify-items: center;
+          align-items: center;
+        `}
   width: 100%;
   height: 100vh;
 `;
