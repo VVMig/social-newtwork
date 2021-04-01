@@ -1,24 +1,40 @@
 import { Formik, FormikHelpers } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Styled } from './styled';
 import { InputGroup } from '../../packages/components';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
+import * as yup from 'yup';
+
+const passwordMinLength = 3;
 
 interface Values {
   firstName: string;
   lastName: string;
   email: string;
   password: string;
-  birthDate: string;
 }
+
+const shema = yup.object().shape({
+  firstName: yup.string().required('First name is required'),
+  lastName: yup.string().required('Second name is required'),
+  email: yup
+    .string()
+    .email('Please enter correct email')
+    .required('Email is required'),
+  password: yup
+    .string()
+    .min(passwordMinLength, 'Must be at least 6 or more characters')
+    .required('Password is required'),
+  birthDate: yup.date().required(),
+});
 
 export const Welcome = () => {
   const [signIn, setSignIn] = useState<boolean>(true);
   const [switchToSignIn, setSwitchToSignIn] = useState<boolean>(true);
   const delay = 400;
 
-  const handleSwitch = () => {
+  const handleSwitch: React.MouseEventHandler = () => {
     setSignIn(!signIn);
     setTimeout(() => {
       setSwitchToSignIn(!signIn);
@@ -34,14 +50,13 @@ export const Welcome = () => {
             lastName: '',
             email: '',
             password: '',
-            birthDate: '',
           }}
+          validationSchema={shema}
           onSubmit={(
             values: Values,
             { setSubmitting }: FormikHelpers<Values>
           ) => {
             setSubmitting(false);
-            console.log(values);
           }}
         >
           <Styled.Form>
@@ -90,7 +105,9 @@ export const Welcome = () => {
               )}
             </Styled.InputsContainer>
             <Styled.SwitchBtn>
-              {switchToSignIn ? 'Sign in' : 'Sign up'}
+              <Styled.BtnText>
+                {switchToSignIn ? 'Sign in' : 'Sign up'}
+              </Styled.BtnText>
             </Styled.SwitchBtn>
           </Styled.Form>
         </Formik>
@@ -104,12 +121,10 @@ export const Welcome = () => {
             Enter your personal details and start journey us
           </Styled.CornerText>
         </Styled.LeftContent>
-        <Styled.switchBtnContainer>
-          <Styled.SwitchBtn onClick={handleSwitch}>
-            <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
-            <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
-          </Styled.SwitchBtn>
-        </Styled.switchBtnContainer>
+        <Styled.SwitchBtn onClick={handleSwitch}>
+          <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
+          <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
+        </Styled.SwitchBtn>
         <Styled.RightContent signIn={signIn}>
           <Styled.CornerTitle>
             <h2>Hello, Friend!</h2>

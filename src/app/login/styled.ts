@@ -76,17 +76,24 @@ const switchToRight = keyframes`
     transform: translateX(0);
     width: ${cornerWidth}px;
     border-radius: 10px 0 0 10px;
-
+    & button {
+      transform: scale(1);
+    }
   }
   50%{
     width: ${cornerWidth + additionalWidthForSwitch}px;
+    & button {
+      transform: scale(1.5);
+    }
   }
   100%{
     width: ${cornerWidth}px;
     left: 100%;
     transform: translateX(-100%);
     border-radius: 0 10px 10px;
-
+    & button {
+      transform: scale(1);
+    }
   }
 `;
 
@@ -96,19 +103,15 @@ const switchToLeft = keyframes`
     transform: translateX(-100%);
     width: ${cornerWidth}px;
     border-radius: 0 10px 10px;
-
   }
   50%{
     width: ${cornerWidth + additionalWidthForSwitch}px;
-
   }
   100%{
     width: ${cornerWidth}px;
-
     left: 0;
     transform: translateX(0);
     border-radius: 10px 0 0 10px;
-
   }
 `;
 
@@ -228,7 +231,7 @@ const signUpSwitch = css`
 `;
 
 interface SwitchState {
-  signIn: boolean;
+  signIn?: boolean;
 }
 
 const Login = styled.div`
@@ -321,7 +324,6 @@ const SwitchBtn = styled.button`
   z-index: ${zIndex.switchBtn};
   background-color: transparent;
   cursor: pointer;
-  order: 2;
   overflow: hidden;
   color: ${(props) => props.theme.light};
   position: relative;
@@ -352,6 +354,13 @@ const SignInBtnText = styled.span<SwitchState>`
           right: 50%;
           opacity: 1;
         `}
+`;
+
+const BtnText = styled.span`
+  position: absolute;
+  transition: 0.8s ease-in-out;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
 `;
 
 const SignUpBtnText = styled.span<SwitchState>`
@@ -388,4 +397,5 @@ export const Styled = {
   FormContainer,
   FormTitle,
   InputsContainer,
+  BtnText,
 };

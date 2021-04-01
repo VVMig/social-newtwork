@@ -16,6 +16,7 @@ const Input = styled.input<InputProps>`
   padding: 10px 15px 10px ${paddingLeft}px;
   color: ${(props) => props.theme.textMain};
   font-size: 18px;
+  transition: 0.2s linear;
 
   &::placeholder {
     color: ${(props) => props.theme.textMain};
@@ -24,8 +25,7 @@ const Input = styled.input<InputProps>`
 
   &:focus {
     outline: 0;
-    border-color: ${(props) =>
-      props.success ? props.theme.success : props.theme.primary};
+    box-shadow: 0 0 10px ${(props) => props.theme.inputShadow};
     border-radius: 5px;
     transition: 0.2s linear;
   }
