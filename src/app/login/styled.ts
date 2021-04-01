@@ -194,7 +194,7 @@ const Form = styled(FormikForm)`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 50px 150px 150px;
+  padding: 100px 150px 150px;
   justify-content: space-between;
   align-items: center;
 
@@ -236,7 +236,7 @@ const Login = styled.div`
   width: 100%;
   height: 700px;
   box-shadow: 2px 2px 10px ${(props) => props.theme.views};
-  background-color: ${(props) => props.theme.mainBackground};
+  background-color: ${(props) => props.theme.light};
   border-radius: 10px;
 `;
 

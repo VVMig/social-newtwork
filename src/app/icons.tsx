@@ -10,6 +10,9 @@ import {
   ArrowDropDown,
   VisibilityOutlined,
   Send,
+  EmailOutlined,
+  LockOutlined,
+  PersonOutline,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -22,4 +25,7 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Arrow]: <ArrowDropDown />,
   [IconType.Views]: <VisibilityOutlined />,
   [IconType.Send]: <Send />,
+  [IconType.Email]: <EmailOutlined />,
+  [IconType.Lock]: <LockOutlined />,
+  [IconType.User]: <PersonOutline />,
 };

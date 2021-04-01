@@ -16,4 +16,5 @@ export const theme = {
   blueText: '#006cb0',
   backgroundBlue: '#00f5f6',
   success: '#7FD66B',
+  additionalBackground: '#F4F8F7',
 };

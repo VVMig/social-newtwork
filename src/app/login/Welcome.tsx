@@ -2,6 +2,8 @@ import { Formik, FormikHelpers } from 'formik';
 import React, { useEffect, useState } from 'react';
 import { Styled } from './styled';
 import { InputGroup } from '../../packages/components';
+import { Icon } from '../Icon';
+import { IconType } from '../IconEnum';
 
 interface Values {
   firstName: string;
@@ -13,13 +15,13 @@ interface Values {
 
 export const Welcome = () => {
   const [signIn, setSignIn] = useState<boolean>(true);
-  const [switchToSignIn, setSwitchToSignIn] = useState<boolean>(signIn);
+  const [switchToSignIn, setSwitchToSignIn] = useState<boolean>(true);
   const delay = 400;
 
   const handleSwitch = () => {
     setSignIn(!signIn);
     setTimeout(() => {
-      setSwitchToSignIn(signIn);
+      setSwitchToSignIn(!signIn);
     }, delay);
   };
 
@@ -51,15 +53,39 @@ export const Welcome = () => {
             <Styled.InputsContainer>
               {switchToSignIn ? (
                 <>
-                  <InputGroup name="email" placeholder="email" />
-                  <InputGroup name="password" placeholder="password" />
+                  <InputGroup
+                    icon={<Icon type={IconType.Email} />}
+                    name="email"
+                    placeholder="email"
+                  />
+                  <InputGroup
+                    icon={<Icon type={IconType.Lock} />}
+                    name="password"
+                    placeholder="password"
+                  />
                 </>
               ) : (
                 <>
-                  <InputGroup name="firstName" placeholder="firstName" />
-                  <InputGroup name="lastName" placeholder="lastName" />
-                  <InputGroup name="password" placeholder="password" />
-                  <InputGroup name="email" placeholder="email" />
+                  <InputGroup
+                    icon={<Icon type={IconType.User} />}
+                    name="firstName"
+                    placeholder="First name"
+                  />
+                  <InputGroup
+                    icon={<Icon type={IconType.User} />}
+                    name="lastName"
+                    placeholder="Last name"
+                  />
+                  <InputGroup
+                    icon={<Icon type={IconType.Email} />}
+                    name="email"
+                    placeholder="email"
+                  />
+                  <InputGroup
+                    icon={<Icon type={IconType.Lock} />}
+                    name="password"
+                    placeholder="password"
+                  />
                 </>
               )}
             </Styled.InputsContainer>

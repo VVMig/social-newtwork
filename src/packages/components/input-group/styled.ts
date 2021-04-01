@@ -1,46 +1,25 @@
 import styled from 'styled-components';
 
 interface InputProps {
-  error: boolean;
-  success: boolean;
+  error?: boolean;
+  success?: boolean;
 }
 
-const Label = styled.label`
-  color: ${(props) => props.theme.textMain};
-  position: absolute;
-  top: 6px;
-  display: block;
-  transition: 0.2s;
-  font-size: 12px;
-  padding-bottom: 6px;
-  font-weight: 700;
-  border-width: 3px;
-  text-transform: capitalize;
-`;
+const iconSize = 20;
+const paddingLeft = 40;
+const paddingTopContainer = 10;
 
 const Input = styled.input<InputProps>`
-  background-color: transparent;
+  background-color: ${(props) => props.theme.additionalBackground};
   border: 0;
-  border-bottom: 2px solid
-    ${(props) =>
-      props.error
-        ? props.theme.pink
-        : props.success
-        ? props.theme.success
-        : props.theme.textDark};
   width: 100%;
-  padding: 15px 0 2px;
-  color: ${(props) => props.theme.black};
+  padding: 10px 15px 10px ${paddingLeft}px;
+  color: ${(props) => props.theme.textMain};
   font-size: 18px;
 
   &::placeholder {
-    color: transparent;
-  }
-
-  &:placeholder-shown ~ ${Label} {
-    font-size: 20px;
-    cursor: text;
-    top: 18px;
+    color: ${(props) => props.theme.textMain};
+    text-transform: capitalize;
   }
 
   &:focus {
@@ -50,32 +29,40 @@ const Input = styled.input<InputProps>`
     border-radius: 5px;
     transition: 0.2s linear;
   }
+`;
 
-  &:focus ~ ${Label} {
-    position: absolute;
-    top: 6px;
-    display: block;
-    transition: 0.2s;
-    font-size: 12px;
-    color: rgb(71, 105, 255);
-    font-weight: 700;
+const IconContainer = styled.label`
+  max-width: ${paddingLeft}px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 41px;
+  top: ${paddingTopContainer}px;
+  left: 0;
+  color: ${(props) => props.theme.textMain};
+  padding-bottom: 3px;
+
+  & div {
+    width: ${iconSize}px;
+    height: ${iconSize}px;
+  }
+
+  & svg {
+    height: ${iconSize}px;
+    width: ${iconSize}px;
   }
 `;
 
-const Error = styled.div`
-  font-size: 15px;
-  color: ${(props) => props.theme.pink};
-`;
-
 const InputGroup = styled.div`
-  padding-top: 5px;
+  padding-top: ${paddingTopContainer}px;
   position: relative;
   width: 100%;
 `;
 
 export const Styled = {
   Input,
-  Label,
   InputGroup,
-  Error,
+  IconContainer,
 };
