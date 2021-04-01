@@ -15,12 +15,12 @@ const appearRight = keyframes`
     right: -100%;
   }
   40%{
-    right: -70%;
+    right: -90%;
   }
   70%{
-    right: -10%;
+    right: -60%;
   }
-  100%{
+  90%{
     right: 0;
   }
 `;
@@ -30,12 +30,12 @@ const appearLeft = keyframes`
     left: -100%;
   }
   40%{
-    left: -70%;
+    left: -90%;
   }
   70%{
-    left: -10%;
+    left: -60%;
   }
-  95%{
+  90%{
     left: 0;
   }
 `;
@@ -45,12 +45,12 @@ const disappearLeft = keyframes`
     left: 0;
   }
   40%{
+    left: -20%;
+  }
+  60%{
     left: -70%;
   }
-  80%{
-    left: -90%;
-  }
-  95%{
+  100%{
     left: -100%;
   }
 `;
@@ -60,10 +60,10 @@ const disappearRight = keyframes`
     right: 0;
   }
   40%{
-    right: -70%;
+    right: -20%;
   }
-  80%{
-    right: -90%;
+  60%{
+    right: -70%;
   }
   100%{
     right: -100%;
@@ -79,6 +79,10 @@ const switchToRight = keyframes`
     & button {
       transform: scale(1);
     }
+  }
+  30%{
+    transform: translateX(0);
+    left: 0;
   }
   50%{
     width: ${cornerWidth + additionalWidthForSwitch}px;
@@ -103,19 +107,27 @@ const switchToLeft = keyframes`
     transform: translateX(-100%);
     width: ${cornerWidth}px;
     border-radius: 0 10px 10px;
+
+  }
+  30%{
+    transform: translateX(-100%);
+    left: 100%;
   }
   50%{
     width: ${cornerWidth + additionalWidthForSwitch}px;
+    background-position: 100% 50%;
+
   }
   100%{
     width: ${cornerWidth}px;
     left: 0;
     transform: translateX(0);
     border-radius: 10px 0 0 10px;
+
   }
 `;
 
-const WelcomeContainer = styled.div`
+const AuthContainer = styled.div`
   overflow: hidden;
   display: flex;
   width: 100%;
@@ -208,14 +220,6 @@ const Form = styled(FormikForm)`
   }
 `;
 
-const cornerStyles = css<SwitchState>`
-  position: fixed;
-  background-color: transparent;
-  width: ${cornerWidth}px;
-  top: 40%;
-  text-align: center;
-`;
-
 const signInSwitch = css`
   left: 0;
   animation: ${switchToLeft} ${switchDuration}s ${animationType};
@@ -230,7 +234,7 @@ const signUpSwitch = css`
   border-radius: 0 10px 10px 0;
 `;
 
-interface SwitchState {
+export interface SwitchState {
   signIn?: boolean;
 }
 
@@ -244,32 +248,41 @@ const Login = styled.div`
 `;
 
 const LeftContent = styled.div<SwitchState>`
-  ${cornerStyles}
-  ${(props) =>
-    props.signIn
-      ? css`
-          left: 0;
-          animation: ${appearLeft} 0.8s linear;
-        `
-      : css`
-          left: -100%;
-          animation: ${disappearLeft} 0.8s linear;
-        `}
+  & div {
+    ${(props) =>
+      props.signIn
+        ? css`
+            left: 0;
+            animation: ${appearLeft} 0.8s linear;
+          `
+        : css`
+            left: -100%;
+            animation: ${disappearLeft} 0.8s linear;
+          `}
+  }
 `;
 
 const RightContent = styled.div<SwitchState>`
-  ${cornerStyles};
+  & div {
+    ${(props) =>
+      props.signIn
+        ? css`
+            right: -100%;
+            animation: ${disappearRight} 0.8s linear;
+          `
+        : css`
+            right: 0;
+            animation: ${appearRight} 0.8s linear;
+          `}
+  }
+`;
 
-  ${(props) =>
-    props.signIn
-      ? css`
-          right: -100%;
-          animation: ${disappearRight} 0.8s linear;
-        `
-      : css`
-          right: 0;
-          animation: ${appearRight} 0.8s linear;
-        `}
+const WelcomeContent = styled.div`
+  position: fixed;
+  background-color: transparent;
+  width: ${cornerWidth}px;
+  top: 40%;
+  text-align: center;
 `;
 
 const SwitchContent = styled.div<SwitchState>`
@@ -278,16 +291,16 @@ const SwitchContent = styled.div<SwitchState>`
   align-items: flex-end;
   padding-bottom: 250px;
   width: ${cornerWidth}px;
-  background: ${(props) => props.theme.primary};
   position: absolute;
   height: 100%;
   top: 0;
   z-index: ${zIndex.switchContent};
   ${(props) => (props.signIn ? signInSwitch : signUpSwitch)};
   overflow: hidden;
+  background: ${(props) => props.theme.gradientMain};
 `;
 
-const CornerTitle = styled.div`
+const WelcomeContentTitle = styled.div`
   color: ${(props) => props.theme.light};
   font-size: 24px;
   text-align: center;
@@ -298,7 +311,7 @@ const CornerTitle = styled.div`
   }
 `;
 
-const CornerText = styled.div`
+const WelcomeContentText = styled.div`
   display: flex;
   padding: 0 20px;
   width: 100%;
@@ -384,12 +397,12 @@ const SignUpBtnText = styled.span<SwitchState>`
 export const Styled = {
   Login,
   Form,
-  WelcomeContainer,
+  AuthContainer,
   LeftContent,
   RightContent,
   SwitchContent,
-  CornerTitle,
-  CornerText,
+  WelcomeContentTitle,
+  WelcomeContentText,
   SwitchBtn,
   SignInBtnText,
   SignUpBtnText,
@@ -398,4 +411,5 @@ export const Styled = {
   FormTitle,
   InputsContainer,
   BtnText,
+  WelcomeContent,
 };

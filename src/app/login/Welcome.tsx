@@ -1,139 +1,27 @@
-import { Formik, FormikHelpers } from 'formik';
-import React, { useState } from 'react';
+import React from 'react';
+import { WelcomeProps } from './interfaces';
 import { Styled } from './styled';
-import { InputGroup } from '../../packages/components';
-import { Icon } from '../Icon';
-import { IconType } from '../IconEnum';
-import * as yup from 'yup';
+import { WelcomeContent } from './WelcomeContent';
+import { Button } from './Button';
 
-const passwordMinLength = 3;
-
-interface Values {
-  firstName: string;
-  lastName: string;
-  email: string;
-  password: string;
-}
-
-const shema = yup.object().shape({
-  firstName: yup.string().required('First name is required'),
-  lastName: yup.string().required('Second name is required'),
-  email: yup
-    .string()
-    .email('Please enter correct email')
-    .required('Email is required'),
-  password: yup
-    .string()
-    .min(passwordMinLength, 'Must be at least 6 or more characters')
-    .required('Password is required'),
-  birthDate: yup.date().required(),
-});
-
-export const Welcome = () => {
-  const [signIn, setSignIn] = useState<boolean>(true);
-  const [switchToSignIn, setSwitchToSignIn] = useState<boolean>(true);
-  const delay = 400;
-
-  const handleSwitch: React.MouseEventHandler = () => {
-    setSignIn(!signIn);
-    setTimeout(() => {
-      setSwitchToSignIn(!signIn);
-    }, delay);
-  };
-
+export const Welcome = ({ signIn, handler }: WelcomeProps) => {
   return (
-    <Styled.WelcomeContainer>
-      <Styled.FormContainer signIn={signIn}>
-        <Formik
-          initialValues={{
-            firstName: '',
-            lastName: '',
-            email: '',
-            password: '',
-          }}
-          validationSchema={shema}
-          onSubmit={(
-            values: Values,
-            { setSubmitting }: FormikHelpers<Values>
-          ) => {
-            setSubmitting(false);
-          }}
-        >
-          <Styled.Form>
-            <Styled.FormTitle>
-              <h2>
-                {switchToSignIn ? 'Sign in to account' : 'Create account'}
-              </h2>
-            </Styled.FormTitle>
-            <Styled.InputsContainer>
-              {switchToSignIn ? (
-                <>
-                  <InputGroup
-                    icon={<Icon type={IconType.Email} />}
-                    name="email"
-                    placeholder="email"
-                  />
-                  <InputGroup
-                    icon={<Icon type={IconType.Lock} />}
-                    name="password"
-                    placeholder="password"
-                  />
-                </>
-              ) : (
-                <>
-                  <InputGroup
-                    icon={<Icon type={IconType.User} />}
-                    name="firstName"
-                    placeholder="First name"
-                  />
-                  <InputGroup
-                    icon={<Icon type={IconType.User} />}
-                    name="lastName"
-                    placeholder="Last name"
-                  />
-                  <InputGroup
-                    icon={<Icon type={IconType.Email} />}
-                    name="email"
-                    placeholder="email"
-                  />
-                  <InputGroup
-                    icon={<Icon type={IconType.Lock} />}
-                    name="password"
-                    placeholder="password"
-                  />
-                </>
-              )}
-            </Styled.InputsContainer>
-            <Styled.SwitchBtn>
-              <Styled.BtnText>
-                {switchToSignIn ? 'Sign in' : 'Sign up'}
-              </Styled.BtnText>
-            </Styled.SwitchBtn>
-          </Styled.Form>
-        </Formik>
-      </Styled.FormContainer>
+    <>
       <Styled.SwitchContent signIn={signIn}>
         <Styled.LeftContent signIn={signIn}>
-          <Styled.CornerTitle>
-            <h2>Welcome back!</h2>
-          </Styled.CornerTitle>
-          <Styled.CornerText>
-            Enter your personal details and start journey us
-          </Styled.CornerText>
+          <WelcomeContent
+            title="Welcome back!"
+            subtitle="Enter your personal details and start journey us"
+          />
         </Styled.LeftContent>
-        <Styled.SwitchBtn onClick={handleSwitch}>
-          <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
-          <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
-        </Styled.SwitchBtn>
+        <Button signIn={signIn} handler={handler} />
         <Styled.RightContent signIn={signIn}>
-          <Styled.CornerTitle>
-            <h2>Hello, Friend!</h2>
-          </Styled.CornerTitle>
-          <Styled.CornerText>
-            Enter your personal details and start journey us
-          </Styled.CornerText>
+          <WelcomeContent
+            title="Hello, friend!"
+            subtitle="Enter your personal details and start journey us"
+          />
         </Styled.RightContent>
       </Styled.SwitchContent>
-    </Styled.WelcomeContainer>
+    </>
   );
 };

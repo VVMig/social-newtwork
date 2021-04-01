@@ -17,4 +17,6 @@ export const theme = {
   backgroundBlue: '#00f5f6',
   success: '#7FD66B',
   additionalBackground: '#F4F8F7',
+  gradientMain:
+    'linear-gradient(90deg,rgba(9, 9, 121, 1) 10%,rgba(0, 212, 255, 1) 100%)',
 };
