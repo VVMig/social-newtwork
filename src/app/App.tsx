@@ -12,7 +12,7 @@ import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import { Auth } from './login/Auth';
+import { Auth } from './auth/Auth';
 
 export const App = () => {
   return (
