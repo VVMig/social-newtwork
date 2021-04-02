@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Header, PostsList } from '../packages/components';
 import { Styled } from './styled';
 import { tabs } from './tabs';
@@ -12,7 +12,7 @@ import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
-import { Login } from './login/Login';
+import { Auth } from './login/Auth';
 
 export const App = () => {
   return (
@@ -21,15 +21,17 @@ export const App = () => {
         <Switch>
           <Route path="/register">
             <Styled.Wrapper>
-              <Login />
+              <Auth />
             </Styled.Wrapper>
           </Route>
-          <Route path={TabRoutes.Home}>
+          <Route path="/">
             <Styled.Wrapper auth>
               <SidebarInfo friends={friends} groups={groups} />
               <Styled.Content>
                 <Header tabs={tabs} />
-                <PostsList posts={posts} />
+                <Route path={TabRoutes.Home}>
+                  <PostsList posts={posts} />
+                </Route>
               </Styled.Content>
               <SidebarLive
                 viewIcon={<Icon type={IconType.Views} />}
@@ -38,6 +40,7 @@ export const App = () => {
               />
             </Styled.Wrapper>
           </Route>
+          <Redirect to={TabRoutes.Home} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
