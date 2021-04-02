@@ -3,7 +3,7 @@ import { Form } from './Form';
 import { Styled } from './styled';
 import { Welcome } from './Welcome';
 
-export const Login = () => {
+export const Auth = () => {
   const [signIn, setSignIn] = useState<boolean>(true);
   const [signInDelayed, setSignInDelayed] = useState<boolean>(true);
   const delay = 500;
@@ -16,11 +16,11 @@ export const Login = () => {
   };
 
   return (
-    <Styled.Login>
+    <Styled.Auth>
       <Styled.AuthContainer>
         <Form signIn={signIn} signInDelayed={signInDelayed} />
         <Welcome signIn={signIn} handler={handleSwitch} />
       </Styled.AuthContainer>
-    </Styled.Login>
+    </Styled.Auth>
   );
 };

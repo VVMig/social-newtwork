@@ -1,11 +1,11 @@
-import { Formik, FormikHelpers } from 'formik';
 import React from 'react';
+import { Formik, FormikHelpers } from 'formik';
 import { Styled } from './styled';
-import { InputGroup } from '../../packages/components';
-import { Icon } from '../Icon';
-import { IconType } from '../IconEnum';
 import * as yup from 'yup';
 import { Values, FormProps } from './interfaces';
+import { Button } from '../../packages/components';
+import { SignInInputs } from './SignInInputs';
+import { SignUpInputs } from './SignUpInputs';
 
 const passwordMinLength = 3;
 
@@ -46,49 +46,13 @@ export const Form = ({ signIn, signInDelayed }: FormProps) => {
             <h2>{signInDelayed ? 'Sign in to account' : 'Create account'}</h2>
           </Styled.FormTitle>
           <Styled.InputsContainer>
-            {signInDelayed ? (
-              <>
-                <InputGroup
-                  icon={<Icon type={IconType.Email} />}
-                  name="email"
-                  placeholder="email"
-                />
-                <InputGroup
-                  icon={<Icon type={IconType.Lock} />}
-                  name="password"
-                  placeholder="password"
-                />
-              </>
-            ) : (
-              <>
-                <InputGroup
-                  icon={<Icon type={IconType.User} />}
-                  name="firstName"
-                  placeholder="First name"
-                />
-                <InputGroup
-                  icon={<Icon type={IconType.User} />}
-                  name="lastName"
-                  placeholder="Last name"
-                />
-                <InputGroup
-                  icon={<Icon type={IconType.Email} />}
-                  name="email"
-                  placeholder="email"
-                />
-                <InputGroup
-                  icon={<Icon type={IconType.Lock} />}
-                  name="password"
-                  placeholder="password"
-                />
-              </>
-            )}
+            {signInDelayed ? <SignInInputs /> : <SignUpInputs />}
           </Styled.InputsContainer>
-          <Styled.SwitchBtn>
+          <Button>
             <Styled.BtnText>
               {signInDelayed ? 'Sign in' : 'Sign up'}
             </Styled.BtnText>
-          </Styled.SwitchBtn>
+          </Button>
         </Styled.Form>
       </Formik>
     </Styled.FormContainer>

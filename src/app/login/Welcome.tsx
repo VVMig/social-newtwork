@@ -1,26 +1,20 @@
 import React from 'react';
 import { WelcomeProps } from './interfaces';
 import { Styled } from './styled';
-import { WelcomeContent } from './WelcomeContent';
-import { Button } from './Button';
+import { Button } from '../../packages/components';
+import { LeftText } from './LeftText';
+import { RightText } from './RightText';
 
 export const Welcome = ({ signIn, handler }: WelcomeProps) => {
   return (
     <>
       <Styled.SwitchContent signIn={signIn}>
-        <Styled.LeftContent signIn={signIn}>
-          <WelcomeContent
-            title="Welcome back!"
-            subtitle="Enter your personal details and start journey us"
-          />
-        </Styled.LeftContent>
-        <Button signIn={signIn} handler={handler} />
-        <Styled.RightContent signIn={signIn}>
-          <WelcomeContent
-            title="Hello, friend!"
-            subtitle="Enter your personal details and start journey us"
-          />
-        </Styled.RightContent>
+        <LeftText signIn={signIn} />
+        <Button handler={handler}>
+          <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
+          <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
+        </Button>
+        <RightText signIn={signIn} />
       </Styled.SwitchContent>
     </>
   );

@@ -18,8 +18,3 @@ export interface WelcomeProps extends SwitchState {
 export interface FormProps extends SwitchState {
   signInDelayed: boolean;
 }
-
-export interface WelcomeContentProps {
-  title: string;
-  subtitle: string;
-}
