@@ -41,7 +41,7 @@ export const Form = ({ signIn, signInDelayed }: FormProps) => {
           setSubmitting(false);
         }}
       >
-        <Styled.Form>
+        <Styled.Form signIn={signInDelayed}>
           <Styled.FormTitle>
             <h2>{signInDelayed ? 'Sign in to account' : 'Create account'}</h2>
           </Styled.FormTitle>

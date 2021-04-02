@@ -18,5 +18,6 @@ export const theme = {
   success: '#7FD66B',
   additionalBackground: '#F4F8F7',
   gradientMain:
-    'linear-gradient(90deg,rgba(9, 9, 121, 1) 10%,rgba(0, 212, 255, 1) 100%)',
+    'linear-gradient(90deg,rgba(9, 9, 121, 1),rgba(0, 212, 255, 1))',
+  lightBlue: '#00B1E4',
 };

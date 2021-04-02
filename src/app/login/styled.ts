@@ -50,7 +50,6 @@ const FormContainer = styled.div<SwitchState>`
 `;
 
 const FormTitle = styled.div`
-  color: ${(props) => props.theme.primary};
   font-size: 24px;
   text-align: center;
   background-color: transparent;
@@ -67,7 +66,7 @@ const InputsContainer = styled.div`
   width: 100%;
 `;
 
-const Form = styled(FormikForm)`
+const Form = styled(FormikForm)<SwitchState>`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -75,10 +74,16 @@ const Form = styled(FormikForm)`
   justify-content: space-between;
   align-items: center;
 
+  ${FormTitle} {
+    color: ${(props) =>
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
+  }
+
   & button {
     margin-top: 10px;
     border: 0;
-    background-color: ${(props) => props.theme.primary};
+    background-color: ${(props) =>
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
   }
 `;
 
