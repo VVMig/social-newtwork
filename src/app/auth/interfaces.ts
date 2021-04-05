@@ -1,11 +1,13 @@
 import React from 'react';
 import { IconType } from '../IconEnum';
 
-export interface Values {
-  firstName: string;
-  lastName: string;
+export interface SignInValues {
   email: string;
   password: string;
+}
+export interface SignUpValues extends SignInValues {
+  firstName: string;
+  lastName: string;
 }
 
 export enum NameValues {
@@ -29,5 +31,10 @@ export interface WelcomeProps extends SwitchState {
 }
 
 export interface FormProps extends SwitchState {
-  signInDelayed: boolean;
+  signin: boolean;
+  fields: InputFields[];
+}
+
+export interface FormContainerProps extends SwitchState {
+  signinDelayed: boolean;
 }
