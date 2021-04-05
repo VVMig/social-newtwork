@@ -2,19 +2,19 @@ import React from 'react';
 import { WelcomeProps } from './interfaces';
 import { Styled } from './styled';
 import { Button } from '../../packages/components';
-import { LeftText } from './LeftText';
-import { RightText } from './RightText';
+import { SignInText } from './SignInText';
+import { SignUpText } from './SignUpText';
 
-export const Welcome = ({ signIn, handler }: WelcomeProps) => {
+export const Welcome = ({ signin, handler }: WelcomeProps) => {
   return (
     <>
-      <Styled.SwitchContent signIn={signIn}>
-        <LeftText signIn={signIn} />
+      <Styled.SwitchContent signin={signin}>
+        <SignInText signin={signin} />
         <Button handler={handler}>
-          <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
-          <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
+          <Styled.SignUpBtnText signin={signin}>Sign up</Styled.SignUpBtnText>
+          <Styled.SignInBtnText signin={signin}>Sign in</Styled.SignInBtnText>
         </Button>
-        <RightText signIn={signIn} />
+        <SignUpText signin={signin} />
       </Styled.SwitchContent>
     </>
   );

@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 import { Styled } from './styled';
 
-interface Props {
+interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   handler?: React.MouseEventHandler;
 }
 
-export const Button: React.FC<Props> = ({ handler, children }) => {
-  return <Styled.Btn onClick={handler}>{children}</Styled.Btn>;
+export const Button: React.FC<Props> = ({ handler, children, type }) => {
+  return (
+    <Styled.Btn onClick={handler} type={type}>
+      {children}
+    </Styled.Btn>
+  );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { IconType } from '../IconEnum';
 
 export interface Values {
   firstName: string;
@@ -7,8 +8,20 @@ export interface Values {
   password: string;
 }
 
+export enum NameValues {
+  FirstName = 'firstName',
+  LastName = 'lastName',
+  Email = 'email',
+  Password = 'password',
+}
+
+export interface InputFields {
+  name: NameValues;
+  placeholder: string;
+  icon: IconType;
+}
 export interface SwitchState {
-  signIn?: boolean;
+  signin?: boolean;
 }
 
 export interface WelcomeProps extends SwitchState {

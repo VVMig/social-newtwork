@@ -4,22 +4,22 @@ import { Styled } from './styled';
 import { Welcome } from './Welcome';
 
 export const Auth = () => {
-  const [signIn, setSignIn] = useState<boolean>(true);
-  const [signInDelayed, setSignInDelayed] = useState<boolean>(true);
+  const [signin, setSignin] = useState(true);
+  const [signInDelayed, setSignInDelayed] = useState(true);
   const delay = 500;
 
   const handleSwitch: React.MouseEventHandler = () => {
-    setSignIn(!signIn);
+    setSignin(!signin);
     setTimeout(() => {
-      setSignInDelayed(!signIn);
+      setSignInDelayed(!signin);
     }, delay);
   };
 
   return (
     <Styled.Auth>
       <Styled.AuthContainer>
-        <Form signIn={signIn} signInDelayed={signInDelayed} />
-        <Welcome signIn={signIn} handler={handleSwitch} />
+        <Form signin={signin} signInDelayed={signInDelayed} />
+        <Welcome signin={signin} handler={handleSwitch} />
       </Styled.AuthContainer>
     </Styled.Auth>
   );

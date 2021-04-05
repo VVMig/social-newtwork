@@ -3,13 +3,13 @@ import { WelcomeProps } from './interfaces';
 import { Styled } from './styled';
 import { AuthText } from './AuthText';
 
-export const RightText = ({ signIn }: WelcomeProps) => {
+export const SignUpText = ({ signin }: WelcomeProps) => {
   return (
-    <Styled.RightText signIn={signIn}>
+    <Styled.SignUpText signin={signin}>
       <AuthText
         title="Hello, friend!"
         subtitle="Enter your personal details and start journey us"
       />
-    </Styled.RightText>
+    </Styled.SignUpText>
   );
 };

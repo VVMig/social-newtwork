@@ -1,12 +1,16 @@
 import React from 'react';
 import { InputGroup } from '../../packages/components';
 import { Icon } from '../Icon';
-import { signUpFields } from './inputFields';
+import { InputFields } from './interfaces';
 
-export const SignUpInputs = () => {
+interface Props {
+  fields: InputFields[];
+}
+
+export const FormInputs = ({ fields }: Props) => {
   return (
     <>
-      {signUpFields.map((x, i) => (
+      {fields.map((x, i) => (
         <InputGroup {...x} key={i} icon={<Icon type={x.icon} />} />
       ))}
     </>

@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-const Btn = styled.button`
+const Btn = styled.button.attrs((props) => ({
+  type: props.type,
+}))`
   border: 2px solid ${(props) => props.theme.light};
   width: 60%;
   border-radius: 25px;
