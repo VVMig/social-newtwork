@@ -1,5 +1,5 @@
-import { IconType } from '../IconEnum';
-import { InputFields, NameValues } from './interfaces';
+import { IconType } from '../../IconEnum';
+import { InputFields, NameValues } from '../interfaces';
 
 export const signInFields: InputFields[] = [
   {

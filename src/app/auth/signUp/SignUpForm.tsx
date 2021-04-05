@@ -1,11 +1,11 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { Styled } from './styled';
-import { SignUpValues } from './interfaces';
-import { Button } from '../../packages/components';
-import { signUpShema } from './validationSchema';
-import { signUpFields } from './inputFields';
-import { FormInputs } from './FormInputs';
+import { Styled } from '../styled';
+import { SignUpValues } from '../interfaces';
+import { Button } from '../../../packages/components';
+import { signUpShema } from '../configs/validationSchema';
+import { signUpFields } from '../configs/inputFields';
+import { FormInputs } from '../FormInputs';
 
 const initialValues: SignUpValues = {
   firstName: '',

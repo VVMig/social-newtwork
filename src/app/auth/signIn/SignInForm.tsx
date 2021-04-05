@@ -1,9 +1,9 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { SignInValues } from './interfaces';
-import { signInShema } from './validationSchema';
-import { signInFields } from './inputFields';
-import { Form } from './Form';
+import { SignInValues } from '../interfaces';
+import { signInShema } from '../configs/validationSchema';
+import { signInFields } from '../configs/inputFields';
+import { Form } from '../Form';
 
 const initialValues: SignInValues = {
   email: '',

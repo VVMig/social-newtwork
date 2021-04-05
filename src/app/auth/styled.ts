@@ -12,7 +12,7 @@ import {
   switchToLeftForm,
   switchToRight,
   switchToRightForm,
-} from './animations';
+} from './configs/animations';
 
 const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
