@@ -5,12 +5,12 @@ import { SignUpForm } from './signUp/SignUpForm';
 import { SignInForm } from './signIn/SignInForm';
 
 export const FormContainer = ({
-  signin,
-  signinDelayed,
+  signIn,
+  signInDelayed,
 }: FormContainerProps) => {
   return (
-    <Styled.FormContainer signin={signin}>
-      {signinDelayed ? <SignInForm /> : <SignUpForm />}
+    <Styled.FormContainer signIn={signIn}>
+      {signInDelayed ? <SignInForm /> : <SignUpForm />}
     </Styled.FormContainer>
   );
 };

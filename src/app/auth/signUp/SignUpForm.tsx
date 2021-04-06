@@ -26,7 +26,7 @@ export const SignUpForm = () => {
         setSubmitting(false);
       }}
     >
-      <Styled.Form signin={false}>
+      <Styled.Form signIn={false}>
         <Styled.FormTitle>
           <h2>Create account</h2>
         </Styled.FormTitle>

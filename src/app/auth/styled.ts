@@ -35,7 +35,7 @@ const FormContainer = styled.div<SwitchState>`
   justify-content: center;
 
   ${(props) =>
-    props.signin
+    props.signIn
       ? css`
           left: 100%;
           border-radius: 0 10px 10px 0;
@@ -76,14 +76,14 @@ const Form = styled(FormikForm)<SwitchState>`
 
   ${FormTitle} {
     color: ${(props) =>
-      props.signin ? props.theme.primary : props.theme.lightBlue};
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
   }
 
   & button {
     margin-top: 10px;
     border: 0;
     background-color: ${(props) =>
-      props.signin ? props.theme.primary : props.theme.lightBlue};
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
   }
 `;
 
@@ -115,7 +115,7 @@ const Auth = styled.div`
 const SignInText = styled.div<SwitchState>`
   & div {
     ${(props) =>
-      props.signin
+      props.signIn
         ? css`
             left: 0;
             animation: ${appearLeft} ${animationDuration}s
@@ -132,7 +132,7 @@ const SignInText = styled.div<SwitchState>`
 const SignUpText = styled.div<SwitchState>`
   & div {
     ${(props) =>
-      props.signin
+      props.signIn
         ? css`
             right: -100%;
             animation: ${disappearRight} ${animationDuration}s
@@ -194,14 +194,14 @@ const SwitchContent = styled.div<SwitchState>`
   overflow: hidden;
   background: ${(props) => props.theme.gradientMain};
   background-size: 400% 400%;
-  ${(props) => (props.signin ? leftContent : rightContent)};
+  ${(props) => (props.signIn ? leftContent : rightContent)};
 `;
 
 const SignInBtnText = styled(BtnText)<SwitchState>`
   transform: translateX(50%) translateY(-50%);
 
   ${(props) =>
-    props.signin
+    props.signIn
       ? css`
           opacity: 0;
           right: -60%;
@@ -216,7 +216,7 @@ const SignUpBtnText = styled(BtnText)<SwitchState>`
   transform: translateX(-50%) translateY(-50%);
 
   ${(props) =>
-    props.signin
+    props.signIn
       ? css`
           left: 50%;
           opacity: 1;

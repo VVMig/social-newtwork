@@ -22,7 +22,7 @@ export const SignInForm = () => {
         setSubmitting(false);
       }}
     >
-      <Form signin={true} fields={signInFields} />
+      <Form signIn={true} fields={signInFields} />
     </Formik>
   );
 };

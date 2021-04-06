@@ -23,7 +23,7 @@ export interface InputFields {
   icon: IconType;
 }
 export interface SwitchState {
-  signin?: boolean;
+  signIn?: boolean;
 }
 
 export interface WelcomeProps extends SwitchState {
@@ -31,10 +31,10 @@ export interface WelcomeProps extends SwitchState {
 }
 
 export interface FormProps extends SwitchState {
-  signin: boolean;
+  signIn: boolean;
   fields: InputFields[];
 }
 
 export interface FormContainerProps extends SwitchState {
-  signinDelayed: boolean;
+  signInDelayed: boolean;
 }
