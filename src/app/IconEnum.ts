@@ -8,6 +8,9 @@ export enum IconType {
   Arrow = 'Arrow',
   Views = 'Views',
   Send = 'Send',
+  Email = 'Email',
+  User = 'User',
+  Lock = 'Lock',
 }
 
 export enum TabRoutes {
