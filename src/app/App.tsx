@@ -13,8 +13,9 @@ import { Icon } from './Icon';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
+import { observer } from 'mobx-react-lite';
 
-export const App = () => {
+export const App = observer(() => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -45,4 +46,4 @@ export const App = () => {
       </ThemeProvider>
     </BrowserRouter>
   );
-};
+});
