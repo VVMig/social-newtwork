@@ -5,9 +5,9 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   handler?: React.MouseEventHandler;
 }
 
-export const Button: React.FC<Props> = ({ handler, children, type }) => {
+export const Button: React.FC<Props> = ({ handler, children, ...props }) => {
   return (
-    <Styled.Btn onClick={handler} type={type}>
+    <Styled.Btn onClick={handler} {...props}>
       {children}
     </Styled.Btn>
   );

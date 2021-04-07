@@ -6,6 +6,9 @@ import { Button } from '../../../packages/components';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
 import { FormInputs } from '../FormInputs';
+import { user } from '../../store/User';
+import { useHistory } from 'react-router';
+import { observer } from 'mobx-react-lite';
 
 const initialValues: SignUpValues = {
   firstName: '',
@@ -14,7 +17,15 @@ const initialValues: SignUpValues = {
   password: '',
 };
 
-export const SignUpForm = () => {
+export const SignUpForm = observer(() => {
+  const history = useHistory();
+
+  const toVerify = async (values: SignUpValues) => {
+    const redirect = await user.signUp(values);
+
+    redirect && history.push('/verify');
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -23,6 +34,7 @@ export const SignUpForm = () => {
         values: SignUpValues,
         { setSubmitting }: FormikHelpers<SignUpValues>
       ) => {
+        toVerify(values);
         setSubmitting(false);
       }}
     >
@@ -33,10 +45,10 @@ export const SignUpForm = () => {
         <Styled.InputsContainer>
           <FormInputs fields={signUpFields} />
         </Styled.InputsContainer>
-        <Button type="submit">
+        <Button type="submit" disabled={user.loading}>
           <Styled.BtnText>Sign up</Styled.BtnText>
         </Button>
       </Styled.Form>
     </Formik>
   );
-};
+});
