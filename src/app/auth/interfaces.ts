@@ -20,6 +20,7 @@ export enum NameValues {
 export interface InputFields {
   name: NameValues;
   placeholder: string;
+  type: string;
   icon: IconType;
 }
 export interface SwitchState {
