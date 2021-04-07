@@ -34,6 +34,13 @@ const FormContainer = styled.div<SwitchState>`
   position: absolute;
   justify-content: center;
 
+  & .spinner {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   ${(props) =>
     props.signIn
       ? css`
@@ -41,11 +48,18 @@ const FormContainer = styled.div<SwitchState>`
           border-radius: 0 10px 10px 0;
           transform: translateX(-100%);
           animation: ${switchToRightForm} 0.8s ${animationTypeMain};
+
+          & .spinner > div {
+            background-color: ${props.theme.primary};
+          }
         `
       : css`
           left: 0;
           border-radius: 10px 0 0 10px;
           animation: ${switchToLeftForm} 0.8s ${animationTypeMain};
+          & .spinner > div {
+            background-color: ${props.theme.lightBlue};
+          }
         `}
 `;
 

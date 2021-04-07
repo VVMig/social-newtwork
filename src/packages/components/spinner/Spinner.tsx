@@ -3,7 +3,7 @@ import { Styled } from './styled';
 
 export const Spinner = () => {
   return (
-    <Styled.Spinner>
+    <Styled.Spinner className="spinner">
       <Styled.Bounce1 />
       <Styled.Bounce2 />
       <Styled.Bounce3 />

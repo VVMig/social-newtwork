@@ -1,14 +1,12 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { Styled } from '../styled';
 import { SignUpValues } from '../interfaces';
-import { Button } from '../../../packages/components';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
-import { FormInputs } from '../FormInputs';
 import { user } from '../../store/User';
 import { useHistory } from 'react-router';
 import { observer } from 'mobx-react-lite';
+import { Form } from '../Form';
 
 const initialValues: SignUpValues = {
   firstName: '',
@@ -38,17 +36,7 @@ export const SignUpForm = observer(() => {
         setSubmitting(false);
       }}
     >
-      <Styled.Form signIn={false}>
-        <Styled.FormTitle>
-          <h2>Create account</h2>
-        </Styled.FormTitle>
-        <Styled.InputsContainer>
-          <FormInputs fields={signUpFields} />
-        </Styled.InputsContainer>
-        <Button type="submit" disabled={user.loading}>
-          <Styled.BtnText>Sign up</Styled.BtnText>
-        </Button>
-      </Styled.Form>
+      <Form signIn={false} fields={signUpFields} />
     </Formik>
   );
 });
