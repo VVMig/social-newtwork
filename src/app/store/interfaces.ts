@@ -9,7 +9,8 @@ interface User {
 
 export interface UserClass {
   current: User;
-  error: null | string;
+  error: string;
   loading: boolean;
   signUp(values: SignUpValues): Promise<boolean>;
+  reset(): void;
 }

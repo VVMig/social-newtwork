@@ -10,7 +10,7 @@ class User implements UserClass {
     email: '',
     verified: false,
   };
-  error = null;
+  error = '';
   loading = false;
 
   constructor() {
@@ -31,6 +31,11 @@ class User implements UserClass {
     }
 
     return false;
+  }
+
+  reset() {
+    this.loading = false;
+    this.error = '';
   }
 }
 
