@@ -1,60 +1,48 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const load7 = keyframes`
-  0%,
-  80%,
-  100% {
-    box-shadow: 0 2.5em 0 -1.3em;
-  }
-  40% {
-    box-shadow: 0 2.5em 0 0;
+const skBounceDelay = keyframes`
+  0%, 
+  80%, 
+  100% { 
+    transform: scale(0);
+  } 
+  40% { 
+    transform: scale(1.0);
   }
 `;
 
-const commonCss = css`
-  border-radius: 50%;
-  width: 2.5em;
-  height: 2.5em;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  animation: ${load7} 1.8s infinite ease-in-out;
+const generalCss = css`
+  width: 18px;
+  height: 18px;
+  background-color: ${(props) => props.theme.primary};
+
+  border-radius: 100%;
+  display: inline-block;
+  animation: ${skBounceDelay} 1.4s infinite ease-in-out both;
 `;
 
 const Spinner = styled.div`
-  color: #ffffff;
-  font-size: 10px;
-  margin: 80px auto;
-  position: relative;
-  text-indent: -9999em;
-  -webkit-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  transform: translateZ(0);
-  -webkit-animation-delay: -0.16s;
-  animation-delay: -0.16s;
+  width: 70px;
+  text-align: center;
+`;
 
-  &::after,
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-  }
+const Bounce1 = styled.div`
+  ${generalCss}
+`;
 
-  &::before {
-    left: -3.5em;
-    animation-delay: -0.32s;
-  }
+const Bounce2 = styled.div`
+  ${generalCss}
+  animation-delay: 0.16s;
+`;
 
-  &::after {
-    left: 3.5em;
-  }
-
-  &,
-  &::after,
-  &::before {
-    ${commonCss}
-  }
+const Bounce3 = styled.div`
+  ${generalCss}
+  animation-delay: 0.32s;
 `;
 
 export const Styled = {
   Spinner,
+  Bounce1,
+  Bounce2,
+  Bounce3,
 };

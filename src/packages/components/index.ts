@@ -7,3 +7,4 @@ export * from './avatar';
 export * from './input-group';
 export * from './zIndex';
 export * from './button';
+export * from './spinner';
