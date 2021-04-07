@@ -12,5 +12,5 @@ export interface UserClass {
   error: string;
   loading: boolean;
   signUp(values: SignUpValues): Promise<boolean>;
-  reset(): void;
+  resetError(): void;
 }

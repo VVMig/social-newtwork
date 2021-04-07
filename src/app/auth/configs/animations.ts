@@ -2,6 +2,17 @@ import { keyframes } from 'styled-components';
 
 export const cornerWidth = 400;
 
+export const appearTop = keyframes`
+  0%{
+    transform: translate(-50%, -100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(-50%, 0);
+    opacity: 1;
+  }
+`;
+
 export const additionalWidthForSwitch = 100;
 
 export const appearRight = keyframes`

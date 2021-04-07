@@ -5,6 +5,7 @@ import { SwitchState } from './interfaces';
 import {
   appearLeft,
   appearRight,
+  appearTop,
   cornerWidth,
   disappearLeft,
   disappearRight,
@@ -17,6 +18,15 @@ import {
 const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
 const animationTypeSecondary = 'linear';
+
+const inputsGap = 90;
+const formPaddingTop = 100;
+
+const centralize = css`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+`;
 
 const AuthContainer = styled.div`
   overflow: hidden;
@@ -35,10 +45,16 @@ const FormContainer = styled.div<SwitchState>`
   justify-content: center;
 
   & .spinner {
-    position: absolute;
-    top: 50px;
-    left: 50%;
-    transform: translateX(-50%);
+    ${centralize};
+    top: ${inputsGap + formPaddingTop}px;
+    transform: translate(-50%, -50%);
+  }
+
+  & .alert {
+    ${centralize};
+    top: 10px;
+    background-color: ${(props) => props.theme.additionalBackground};
+    animation: ${appearTop} 0.5s linear;
   }
 
   ${(props) =>
@@ -84,8 +100,8 @@ const Form = styled(FormikForm)<SwitchState>`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 100px 150px 150px;
-  justify-content: space-between;
+  padding: ${formPaddingTop}px 150px 150px;
+  gap: ${inputsGap}px;
   align-items: center;
 
   ${FormTitle} {

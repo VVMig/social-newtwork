@@ -19,6 +19,8 @@ class User implements UserClass {
 
   async signUp(values: SignUpValues) {
     try {
+      this.resetError();
+
       this.loading = true;
 
       await axios.post(`${url}api/auth/registration`, values);
@@ -33,8 +35,7 @@ class User implements UserClass {
     return false;
   }
 
-  reset() {
-    this.loading = false;
+  resetError() {
     this.error = '';
   }
 }
