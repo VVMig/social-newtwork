@@ -5,4 +5,5 @@ export const zIndex = {
   cornerWelcome: 166,
   switchContent: 155,
   switchBtn: 200,
+  Alert: 500,
 };
