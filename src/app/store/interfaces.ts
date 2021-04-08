@@ -1,4 +1,4 @@
-import { SignUpValues } from '../auth/interfaces';
+import { SignInValues, SignUpValues } from '../auth/interfaces';
 
 interface User {
   firstName: string;
@@ -12,5 +12,6 @@ export interface UserClass {
   error: string;
   loading: boolean;
   signUp(values: SignUpValues): Promise<boolean>;
+  signIn(values: SignInValues): Promise<void>;
   resetError(): void;
 }

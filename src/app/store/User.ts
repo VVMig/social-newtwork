@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import { SignUpValues } from '../auth/interfaces';
+import { SignInValues, SignUpValues } from '../auth/interfaces';
 import { UserClass } from './interfaces';
 import axios from 'axios';
 import { url } from '../url';
@@ -33,6 +33,21 @@ class User implements UserClass {
     }
 
     return false;
+  }
+
+  async signIn(values: SignInValues) {
+    try {
+      this.resetError();
+
+      this.loading = true;
+
+      axios.defaults.withCredentials = true;
+      await axios.post(`${url}api/auth/login`, values);
+    } catch (error) {
+      this.error = error.response.data.message;
+    } finally {
+      this.loading = false;
+    }
   }
 
   resetError() {
