@@ -5,7 +5,11 @@ import { Alert, Button, Spinner } from '../../../packages/components';
 import { observer } from 'mobx-react-lite';
 import { VerifyInfo } from './VerifyInfo';
 
-export const Verify = observer(() => {
+interface Props {
+  className: string;
+}
+
+export const Verify = observer(({ className }: Props) => {
   const [resent, setResent] = useState(false);
 
   const signOut: React.MouseEventHandler = () => {
@@ -18,7 +22,7 @@ export const Verify = observer(() => {
   };
 
   return (
-    <Styled.Verify>
+    <Styled.Verify className={className}>
       {user.loading && <Spinner />}
       {resent && <Alert text="Email succesfully resent" />}
       <Styled.VerifyContainer>

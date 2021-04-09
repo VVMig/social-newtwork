@@ -30,6 +30,24 @@ export const appearRight = keyframes`
   }
 `;
 
+export const appearRightLinear = keyframes`
+  0%{
+    right: -100%;
+  }
+  100%{
+    right: 0;
+  }
+`;
+
+export const appearLeftLinear = keyframes`
+  0%{
+    left: -100%;
+  }
+  100%{
+    left: 0;
+  }
+`;
+
 export const appearLeft = keyframes`
   0%{
     left: -100%;
@@ -60,6 +78,15 @@ export const disappearLeft = keyframes`
   }
 `;
 
+export const disappearLeftLinear = keyframes`
+  0%{
+    left: 0;
+  }
+  100%{
+    left: -100%;
+  }
+`;
+
 export const disappearRight = keyframes`
   0%{
     right: 0;
@@ -69,6 +96,15 @@ export const disappearRight = keyframes`
   }
   60%{
     right: -70%;
+  }
+  100%{
+    right: -100%;
+  }
+`;
+
+export const disappearRightLinear = keyframes`
+  0%{
+    right: 0;
   }
   100%{
     right: -100%;

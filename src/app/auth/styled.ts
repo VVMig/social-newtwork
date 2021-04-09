@@ -4,17 +4,22 @@ import { zIndex } from '../../packages/components';
 import { SwitchState, ResentState } from './interfaces';
 import {
   appearLeft,
+  appearLeftLinear,
   appearRight,
+  appearRightLinear,
   appearTop,
   cornerWidth,
   disappearLeft,
+  disappearLeftLinear,
   disappearRight,
+  disappearRightLinear,
   switchToLeft,
   switchToLeftForm,
   switchToRight,
   switchToRightForm,
 } from './configs/animations';
 
+export const switchVerifyDuration = 500;
 const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
 const animationTypeSecondary = 'linear';
@@ -42,6 +47,18 @@ const Main = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+
+  &.entering {
+    animation: ${appearLeftLinear} ${switchVerifyDuration}ms linear;
+  }
+
+  &.exiting {
+    animation: ${disappearLeftLinear} ${switchVerifyDuration}ms linear;
+  }
+
+  &.exited {
+    left: -100%;
+  }
 `;
 
 const FormContainer = styled.div<SwitchState>`
@@ -269,6 +286,14 @@ const Verify = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+
+  &.entering {
+    animation: ${appearRightLinear} ${switchVerifyDuration}ms linear;
+  }
+
+  &.exiting {
+    animation: ${disappearRightLinear} ${switchVerifyDuration}ms linear;
+  }
 
   & .spinner {
     ${centralize};
