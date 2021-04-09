@@ -4,15 +4,17 @@ import { Styled } from './styled';
 interface Props {
   text: string;
   closeSign?: JSX.Element;
-  closeFunc: VoidFunction;
+  closeFunc?: VoidFunction;
 }
 
 export const Alert = ({ text, closeSign, closeFunc }: Props) => {
   return (
     <Styled.Alert className="alert">
-      <Styled.Close onClick={() => closeFunc()}>
-        {closeSign || <>&times;</>}
-      </Styled.Close>
+      {closeFunc && (
+        <Styled.Close onClick={() => closeFunc()}>
+          {closeSign || <>&times;</>}
+        </Styled.Close>
+      )}
       {text}
     </Styled.Alert>
   );
