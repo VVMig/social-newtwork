@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormContainer } from './FormContainer';
 import { Styled } from './styled';
 import { Welcome } from './Welcome';
-import { Verify } from './Verify';
+import { Verify } from './verify/Verify';
 import { observer } from 'mobx-react-lite';
 import { user } from '../store/User';
 
@@ -24,10 +24,10 @@ export const Auth = observer(() => {
         {user.isUserSet && !user.current.verified ? (
           <Verify />
         ) : (
-          <>
+          <Styled.Main>
             <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
-            <Welcome signIn={signIn} handler={handleSwitch} />{' '}
-          </>
+            <Welcome signIn={signIn} handler={handleSwitch} />
+          </Styled.Main>
         )}
       </Styled.AuthContainer>
     </Styled.Auth>

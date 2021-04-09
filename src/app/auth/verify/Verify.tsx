@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { Styled } from './styled';
-import { user } from '../store/User';
-import { Icon } from '../Icon';
-import { IconType } from '../IconEnum';
-import { Alert, Button, Spinner } from '../../packages/components';
+import { Styled } from '../styled';
+import { user } from '../../store/User';
+import { Alert, Button, Spinner } from '../../../packages/components';
 import { observer } from 'mobx-react-lite';
+import { VerifyInfo } from './VerifyInfo';
 
 export const Verify = observer(() => {
   const [resent, setResent] = useState(false);
@@ -23,13 +22,7 @@ export const Verify = observer(() => {
       {user.loading && <Spinner />}
       {resent && <Alert text="Email succesfully resent" />}
       <Styled.VerifyContainer>
-        <Styled.VerifyTitle>
-          <Icon type={IconType.Email} />
-        </Styled.VerifyTitle>
-        <Styled.VerifyText>
-          <p>Thanks for signing up. Confirm your email address</p>
-          <p>{user.current.email} to activate your account.</p>
-        </Styled.VerifyText>
+        <VerifyInfo email={user.current.email} />
         <Styled.ResendBtn resent={resent} disabled={resent} onClick={sendEmail}>
           Resend email
         </Styled.ResendBtn>

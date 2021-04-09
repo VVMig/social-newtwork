@@ -38,6 +38,12 @@ const AuthContainer = styled.div`
   position: relative;
 `;
 
+const Main = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`;
+
 const FormContainer = styled.div<SwitchState>`
   display: flex;
   max-width: calc(100% - ${cornerWidth}px);
@@ -382,4 +388,5 @@ export const Styled = {
   VerifyText,
   ResendBtn,
   SignOut,
+  Main,
 };
