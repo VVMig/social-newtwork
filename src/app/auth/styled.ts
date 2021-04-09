@@ -330,6 +330,18 @@ const ResendBtn = styled.button<ResentState>`
     `};
   font-size: 18px;
 
+  &:hover {
+    transition: 0.2s linear;
+    color: ${(props) =>
+      props.resent ? props.theme.success : props.theme.lightBlue};
+  }
+
+  &:active {
+    transform: scale(1.1);
+    color: ${(props) =>
+      props.resent ? props.theme.success : props.theme.lightBlue};
+  }
+
   &:focus {
     outline: 0;
   }
