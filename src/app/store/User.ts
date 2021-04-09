@@ -1,11 +1,10 @@
-import { makeAutoObservable } from 'mobx';
+import { types } from 'mobx-state-tree';
 
-class User {
-  current = {};
-
-  constructor() {
-    makeAutoObservable(this);
-  }
-}
-
-export const user = new User();
+export const User = types
+  .model('User', {
+    firstName: types.optional(types.string, ''),
+    lastName: types.optional(types.string, ''),
+    email: types.optional(types.string, ''),
+    verified: types.optional(types.boolean, false),
+  })
+  .actions((self) => ({}));
