@@ -1,17 +1,20 @@
 import { SignInValues, SignUpValues } from '../auth/interfaces';
 
-interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  verified: boolean;
+export interface UserFields {
+  firstName: string | null;
+  lastName: string | null;
+  email: string | null;
+  verified: boolean | null;
 }
 
 export interface UserClass {
-  current: User;
+  current: UserFields;
   error: string;
   loading: boolean;
-  signUp(values: SignUpValues): Promise<boolean>;
+  signUp(values: SignUpValues): Promise<void>;
   signIn(values: SignInValues): Promise<void>;
+  authorizeUser(): Promise<void>;
   resetError(): void;
+  isUserSet: boolean;
+  resetUser(): void;
 }
