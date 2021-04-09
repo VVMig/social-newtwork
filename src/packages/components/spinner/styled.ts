@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { zIndex } from '../zIndex';
 
 const skBounceDelay = keyframes`
   0%, 
@@ -24,6 +25,7 @@ const generalCss = css`
 const Spinner = styled.div`
   width: 70px;
   text-align: center;
+  z-index: ${zIndex.spinner};
 `;
 
 const Bounce1 = styled.div`
