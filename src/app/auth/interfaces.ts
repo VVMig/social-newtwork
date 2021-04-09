@@ -39,3 +39,7 @@ export interface FormProps extends SwitchState {
 export interface FormContainerProps extends SwitchState {
   signInDelayed: boolean;
 }
+
+export interface ResentState {
+  resent: boolean;
+}

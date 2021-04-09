@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Form as FormikForm } from 'formik';
 import { zIndex } from '../../packages/components';
-import { SwitchState } from './interfaces';
+import { SwitchState, ResentState } from './interfaces';
 import {
   appearLeft,
   appearRight,
@@ -21,6 +21,8 @@ const animationTypeSecondary = 'linear';
 
 const inputsGap = 90;
 const formPaddingTop = 100;
+
+const svgSize = 180;
 
 const centralize = css`
   position: absolute;
@@ -257,6 +259,95 @@ const SignUpBtnText = styled(BtnText)<SwitchState>`
         `}
 `;
 
+const Verify = styled.div`
+  display: flex;
+  width: 100%;
+  position: relative;
+
+  & .spinner {
+    ${centralize};
+    top: 60px;
+    transform: translateY(-50%, -50%);
+  }
+
+  & .alert {
+    ${centralize};
+    top: 10px;
+    background-color: ${(props) => props.theme.additionalBackground};
+    animation: ${appearTop} 0.5s linear;
+  }
+`;
+
+const VerifyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  padding: 120px 0;
+  height: inherit;
+`;
+
+const VerifyTitle = styled.div`
+  width: min-content;
+  height: min-content;
+  border-radius: 50%;
+  color: ${(props) => props.theme.light};
+  background-color: ${(props) => props.theme.primary};
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+  }
+
+  & svg {
+    width: ${svgSize}px;
+    height: ${svgSize}px;
+  }
+`;
+
+const VerifyText = styled.div`
+  color: ${(props) => props.theme.primary};
+  font-size: 24px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+`;
+
+const ResendBtn = styled.button<ResentState>`
+  border: 0;
+  color: ${(props) =>
+    props.resent ? props.theme.success : props.theme.primary};
+  background: transparent;
+  ${(props) =>
+    !props.resent &&
+    css`
+      cursor: pointer;
+    `};
+  font-size: 18px;
+
+  &:focus {
+    outline: 0;
+  }
+`;
+
+const SignOut = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  & button {
+    background-color: ${(props) => props.theme.primary};
+    max-width: 300px;
+    width: 100%;
+  }
+`;
+
 export const Styled = {
   Auth,
   Form,
@@ -273,4 +364,10 @@ export const Styled = {
   InputsContainer,
   BtnText,
   AuthText,
+  Verify,
+  VerifyContainer,
+  VerifyTitle,
+  VerifyText,
+  ResendBtn,
+  SignOut,
 };

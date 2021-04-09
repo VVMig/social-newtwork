@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { FormContainer } from './FormContainer';
 import { Styled } from './styled';
 import { Welcome } from './Welcome';
+import { Verify } from './Verify';
+import { observer } from 'mobx-react-lite';
+import { user } from '../store/User';
 
-export const Auth = () => {
+export const Auth = observer(() => {
   const [signIn, setsignIn] = useState(true);
   const [signInDelayed, setsignInDelayed] = useState(true);
   const delay = 500;
@@ -18,9 +21,15 @@ export const Auth = () => {
   return (
     <Styled.Auth>
       <Styled.AuthContainer>
-        <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
-        <Welcome signIn={signIn} handler={handleSwitch} />
+        {user.isUserSet && !user.current.verified ? (
+          <Verify />
+        ) : (
+          <>
+            <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
+            <Welcome signIn={signIn} handler={handleSwitch} />{' '}
+          </>
+        )}
       </Styled.AuthContainer>
     </Styled.Auth>
   );
-};
+});
