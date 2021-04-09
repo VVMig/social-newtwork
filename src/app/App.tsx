@@ -14,34 +14,38 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
+import { user } from './store/User';
 
 export const App = observer(() => {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Switch>
-          <Route path="/register">
-            <Styled.Wrapper>
+          <Styled.Wrapper>
+            <Route path="/authorization">
               <Auth />
-            </Styled.Wrapper>
-          </Route>
-          <Route path="/">
-            <Styled.Wrapper auth>
-              <SidebarInfo friends={friends} groups={groups} />
-              <Styled.Content>
-                <Header tabs={tabs} />
-                <Route path={TabRoutes.Home}>
-                  <PostsList posts={posts} />
-                </Route>
-              </Styled.Content>
-              <SidebarLive
-                viewIcon={<Icon type={IconType.Views} />}
-                notifyIcon={<Icon type={IconType.Notifications} />}
-                sendIcon={<Icon type={IconType.Send} />}
-              />
-            </Styled.Wrapper>
-          </Route>
-          <Redirect to={TabRoutes.Home} />
+            </Route>
+          </Styled.Wrapper>
+
+          {user.current.verified && (
+            <Route path="/">
+              <Styled.Wrapper auth>
+                <SidebarInfo friends={friends} groups={groups} />
+                <Styled.Content>
+                  <Header tabs={tabs} />
+                  <Route path={TabRoutes.Home}>
+                    <PostsList posts={posts} />
+                  </Route>
+                </Styled.Content>
+                <SidebarLive
+                  viewIcon={<Icon type={IconType.Views} />}
+                  notifyIcon={<Icon type={IconType.Notifications} />}
+                  sendIcon={<Icon type={IconType.Send} />}
+                />
+              </Styled.Wrapper>
+            </Route>
+          )}
+          <Redirect to={'/authorization'} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
