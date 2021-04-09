@@ -4,13 +4,15 @@ import { SignInValues } from '../interfaces';
 import { signInShema } from '../configs/validationSchema';
 import { signInFields } from '../configs/inputFields';
 import { Form } from '../Form';
+import { observer } from 'mobx-react-lite';
+import { user } from '../../store/User';
 
 const initialValues: SignInValues = {
   email: '',
   password: '',
 };
 
-export const SignInForm = () => {
+export const SignInForm = observer(() => {
   return (
     <Formik
       initialValues={initialValues}
@@ -19,10 +21,11 @@ export const SignInForm = () => {
         values: SignInValues,
         { setSubmitting }: FormikHelpers<SignInValues>
       ) => {
+        user.signIn(values);
         setSubmitting(false);
       }}
     >
       <Form signIn={true} fields={signInFields} />
     </Formik>
   );
-};
+});
