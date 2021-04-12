@@ -25,7 +25,7 @@ export const SignInForm = observer(() => {
         setSubmitting(false);
       }}
     >
-      <Form signIn={true} fields={signInFields} />
+      <Form signIn fields={signInFields} />
     </Formik>
   );
 });

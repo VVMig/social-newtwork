@@ -8,7 +8,7 @@ import { store } from '../store';
 
 export const Form = observer(({ fields, signIn }: FormProps) => {
   return (
-    <Styled.Form signIn={signIn}>
+    <Styled.Form signin={signIn ? 1 : 0}>
       <Styled.FormTitle>
         <h2>{signIn ? 'Sign in to account' : 'Create account'}</h2>
       </Styled.FormTitle>

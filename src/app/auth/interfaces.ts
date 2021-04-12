@@ -32,12 +32,16 @@ export interface WelcomeProps extends SwitchState {
 }
 
 export interface FormProps extends SwitchState {
-  signIn: boolean;
+  signIn?: boolean;
   fields: InputFields[];
 }
 
 export interface FormContainerProps extends SwitchState {
   signInDelayed: boolean;
+}
+
+export interface FormikProps {
+  signin: number;
 }
 
 export interface ResentState {
