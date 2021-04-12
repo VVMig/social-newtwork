@@ -4,7 +4,7 @@ import { Button } from '../../packages/components';
 import { FormInputs } from './FormInputs';
 import { FormProps } from './interfaces';
 import { observer } from 'mobx-react-lite';
-import { user } from '../store/User';
+import { store } from '../store';
 
 export const Form = observer(({ fields, signIn }: FormProps) => {
   return (
@@ -15,7 +15,7 @@ export const Form = observer(({ fields, signIn }: FormProps) => {
       <Styled.InputsContainer>
         <FormInputs fields={fields} />
       </Styled.InputsContainer>
-      <Button type="submit" disabled={user.loading}>
+      <Button type="submit" disabled={store.user.loading}>
         <Styled.BtnText>{signIn ? 'Sign in' : 'Sign up'}</Styled.BtnText>
       </Button>
     </Styled.Form>

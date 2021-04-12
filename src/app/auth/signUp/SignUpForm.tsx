@@ -3,7 +3,7 @@ import { Formik, FormikHelpers } from 'formik';
 import { SignUpValues } from '../interfaces';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
-import { user } from '../../store/User';
+import { store } from '../../store';
 import { observer } from 'mobx-react-lite';
 import { Form } from '../Form';
 
@@ -23,7 +23,7 @@ export const SignUpForm = observer(() => {
         values: SignUpValues,
         { setSubmitting }: FormikHelpers<SignUpValues>
       ) => {
-        user.signUp(values);
+        store.user.signUp(values);
         setSubmitting(false);
       }}
     >

@@ -14,7 +14,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
-import { user } from './store/User';
+import { store } from './store';
 
 export const App = observer(() => {
   return (
@@ -27,7 +27,7 @@ export const App = observer(() => {
             </Route>
           </Styled.Wrapper>
 
-          {user.current.verified && (
+          {store.user.current.verified && (
             <Route path="/">
               <Styled.Wrapper auth>
                 <SidebarInfo friends={friends} groups={groups} />

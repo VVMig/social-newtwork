@@ -5,7 +5,7 @@ import { signInShema } from '../configs/validationSchema';
 import { signInFields } from '../configs/inputFields';
 import { Form } from '../Form';
 import { observer } from 'mobx-react-lite';
-import { user } from '../../store/User';
+import { store } from '../../store';
 
 const initialValues: SignInValues = {
   email: '',
@@ -21,7 +21,7 @@ export const SignInForm = observer(() => {
         values: SignInValues,
         { setSubmitting }: FormikHelpers<SignInValues>
       ) => {
-        user.signIn(values);
+        store.user.signIn(values);
         setSubmitting(false);
       }}
     >

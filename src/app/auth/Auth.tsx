@@ -4,7 +4,7 @@ import { Styled, switchVerifyDuration } from './styled';
 import { Welcome } from './Welcome';
 import { Verify } from './verify/Verify';
 import { observer } from 'mobx-react-lite';
-import { user } from '../store/User';
+import { store } from '../store';
 import { Transition } from 'react-transition-group';
 
 export const Auth = observer(() => {
@@ -23,7 +23,7 @@ export const Auth = observer(() => {
     <Styled.Auth>
       <Styled.AuthContainer>
         <Transition
-          in={user.isUserSet && !user.current.verified}
+          in={store.user.isUserSet && !store.user.current.verified}
           timeout={switchVerifyDuration}
           mountOnEnter
           unmountOnExit
@@ -31,7 +31,7 @@ export const Auth = observer(() => {
           {(state) => <Verify className={state} />}
         </Transition>
 
-        <Transition in={!user.isUserSet} timeout={switchVerifyDuration}>
+        <Transition in={!store.user.isUserSet} timeout={switchVerifyDuration}>
           {(state) => (
             <Styled.Main className={`${state}`}>
               <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
