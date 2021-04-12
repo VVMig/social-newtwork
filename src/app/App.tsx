@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Header, PostsList } from '../packages/components';
 import { Styled } from './styled';
 import { tabs } from './tabs';
@@ -15,6 +15,7 @@ import { theme } from './theme';
 import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
 import { store } from './store';
+import { RedirectRoute } from './routes/RedirectRoute';
 
 export const App = observer(() => {
   useEffect(() => {
@@ -25,30 +26,26 @@ export const App = observer(() => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Switch>
-          <Styled.Wrapper>
-            <Route path="/authorization">
+          <Route path="/authorization">
+            <Styled.Wrapper>
               <Auth />
-            </Route>
-          </Styled.Wrapper>
-
-          <Route path="/">
-            <Styled.Wrapper auth>
-              <SidebarInfo friends={friends} groups={groups} />
-              <Styled.Content>
-                <Header tabs={tabs} />
-                <Route path={TabRoutes.Home}>
-                  <PostsList posts={posts} />
-                </Route>
-              </Styled.Content>
-              <SidebarLive
-                viewIcon={<Icon type={IconType.Views} />}
-                notifyIcon={<Icon type={IconType.Notifications} />}
-                sendIcon={<Icon type={IconType.Send} />}
-              />
             </Styled.Wrapper>
           </Route>
 
-          <Redirect to={'/authorization'} />
+          <Styled.Wrapper auth>
+            <SidebarInfo friends={friends} groups={groups} />
+            <Styled.Content>
+              <Header tabs={tabs} />
+              <RedirectRoute exact path={TabRoutes.Home}>
+                <PostsList posts={posts} />
+              </RedirectRoute>
+            </Styled.Content>
+            <SidebarLive
+              viewIcon={<Icon type={IconType.Views} />}
+              notifyIcon={<Icon type={IconType.Notifications} />}
+              sendIcon={<Icon type={IconType.Send} />}
+            />
+          </Styled.Wrapper>
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
