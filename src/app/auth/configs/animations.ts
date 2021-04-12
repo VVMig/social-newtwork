@@ -33,18 +33,22 @@ export const appearRight = keyframes`
 export const appearRightLinear = keyframes`
   0%{
     right: -100%;
+    opacity: 0;
   }
   100%{
     right: 0;
+    opacity: 1;
   }
 `;
 
 export const appearLeftLinear = keyframes`
   0%{
     left: -100%;
+    opacity: 0;
   }
   100%{
     left: 0;
+    opacity: 1;
   }
 `;
 
@@ -81,9 +85,11 @@ export const disappearLeft = keyframes`
 export const disappearLeftLinear = keyframes`
   0%{
     left: 0;
+    opacity 1;
   }
   100%{
     left: -100%;
+    opacity: 0;
   }
 `;
 
@@ -105,9 +111,11 @@ export const disappearRight = keyframes`
 export const disappearRightLinear = keyframes`
   0%{
     right: 0;
+    opacity: 1;
   }
   100%{
     right: -100%;
+    opacity: 0;
   }
 `;
 

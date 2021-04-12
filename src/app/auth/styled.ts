@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { Form as FormikForm } from 'formik';
 import { zIndex } from '../../packages/components';
-import { SwitchState, ResentState } from './interfaces';
+import { SwitchState, ResentState, FormikProps } from './interfaces';
 import {
   appearLeft,
   appearLeftLinear,
@@ -19,7 +19,7 @@ import {
   switchToRightForm,
 } from './configs/animations';
 
-export const switchVerifyDuration = 500;
+export const switchVerifyDuration = 400;
 const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
 const animationTypeSecondary = 'linear';
@@ -47,6 +47,11 @@ const Main = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+  left: -100%;
+
+  &.entered {
+    left: 0;
+  }
 
   &.entering {
     animation: ${appearLeftLinear} ${switchVerifyDuration}ms linear;
@@ -54,10 +59,6 @@ const Main = styled.div`
 
   &.exiting {
     animation: ${disappearLeftLinear} ${switchVerifyDuration}ms linear;
-  }
-
-  &.exited {
-    left: -100%;
   }
 `;
 
@@ -121,7 +122,7 @@ const InputsContainer = styled.div`
   width: 100%;
 `;
 
-const Form = styled(FormikForm)<SwitchState>`
+const Form = styled(FormikForm)<FormikProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -131,14 +132,14 @@ const Form = styled(FormikForm)<SwitchState>`
 
   ${FormTitle} {
     color: ${(props) =>
-      props.signIn ? props.theme.primary : props.theme.lightBlue};
+      props.signin ? props.theme.primary : props.theme.lightBlue};
   }
 
   & button {
     margin-top: 10px;
     border: 0;
     background-color: ${(props) =>
-      props.signIn ? props.theme.primary : props.theme.lightBlue};
+      props.signin ? props.theme.primary : props.theme.lightBlue};
   }
 `;
 
@@ -286,9 +287,14 @@ const Verify = styled.div`
   display: flex;
   width: 100%;
   position: relative;
+  right: -100%;
 
   &.entering {
     animation: ${appearRightLinear} ${switchVerifyDuration}ms linear;
+  }
+
+  &.entered {
+    right: 0;
   }
 
   &.exiting {
