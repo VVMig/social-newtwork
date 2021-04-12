@@ -18,12 +18,18 @@ export const InputGroup = (props: Props) => {
 
   const { icon } = props;
 
-  const [field] = useField({ ...inputAttrs });
+  const [field, meta] = useField({ ...inputAttrs });
 
   return (
     <Styled.InputGroup>
       <Styled.IconContainer>{icon}</Styled.IconContainer>
-      <Styled.Input {...field} {...inputAttrs} />
+      <Styled.Input
+        {...field}
+        {...inputAttrs}
+        success={meta.touched && !meta.error}
+        error={meta.touched && !!meta.error}
+      />
+      {meta.touched && meta.error && <Styled.Error>{meta.error}</Styled.Error>}
     </Styled.InputGroup>
   );
 };

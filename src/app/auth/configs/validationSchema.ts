@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const passwordMinLength = 3;
+const passwordMinLength = 6;
 
 export const signUpShema = yup.object().shape({
   firstName: yup.string().required('First name is required'),

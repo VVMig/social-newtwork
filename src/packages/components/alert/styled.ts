@@ -5,7 +5,7 @@ const Alert = styled.div`
   max-width: 600px;
   width: 100%;
   text-align: center;
-  z-index: ${zIndex.Alert};
+  z-index: ${zIndex.alert};
   padding: 20px 10px;
   font-size: 20px;
   border-radius: 10px;

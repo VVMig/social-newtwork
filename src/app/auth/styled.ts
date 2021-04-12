@@ -24,7 +24,7 @@ const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
 const animationTypeSecondary = 'linear';
 
-const inputsGap = 90;
+const inputsGap = 50;
 const formPaddingTop = 100;
 
 const svgSize = 180;
@@ -69,6 +69,7 @@ const FormContainer = styled.div<SwitchState>`
   height: 100%;
   position: absolute;
   justify-content: center;
+  align-items: center;
 
   & .spinner {
     ${centralize};
