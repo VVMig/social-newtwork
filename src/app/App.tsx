@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Header, PostsList } from '../packages/components';
 import { Styled } from './styled';
@@ -17,6 +17,10 @@ import { observer } from 'mobx-react-lite';
 import { store } from './store';
 
 export const App = observer(() => {
+  useEffect(() => {
+    store.user.authorizeUser();
+  }, []);
+
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -27,24 +31,23 @@ export const App = observer(() => {
             </Route>
           </Styled.Wrapper>
 
-          {store.user.current.verified && (
-            <Route path="/">
-              <Styled.Wrapper auth>
-                <SidebarInfo friends={friends} groups={groups} />
-                <Styled.Content>
-                  <Header tabs={tabs} />
-                  <Route path={TabRoutes.Home}>
-                    <PostsList posts={posts} />
-                  </Route>
-                </Styled.Content>
-                <SidebarLive
-                  viewIcon={<Icon type={IconType.Views} />}
-                  notifyIcon={<Icon type={IconType.Notifications} />}
-                  sendIcon={<Icon type={IconType.Send} />}
-                />
-              </Styled.Wrapper>
-            </Route>
-          )}
+          <Route path="/">
+            <Styled.Wrapper auth>
+              <SidebarInfo friends={friends} groups={groups} />
+              <Styled.Content>
+                <Header tabs={tabs} />
+                <Route path={TabRoutes.Home}>
+                  <PostsList posts={posts} />
+                </Route>
+              </Styled.Content>
+              <SidebarLive
+                viewIcon={<Icon type={IconType.Views} />}
+                notifyIcon={<Icon type={IconType.Notifications} />}
+                sendIcon={<Icon type={IconType.Send} />}
+              />
+            </Styled.Wrapper>
+          </Route>
+
           <Redirect to={'/authorization'} />
         </Switch>
       </ThemeProvider>

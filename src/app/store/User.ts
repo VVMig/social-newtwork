@@ -54,6 +54,8 @@ export const User = types
       try {
         startLoad();
 
+        axios.defaults.withCredentials = true;
+
         const { data } = yield axios.get(`${url}api/user/current`);
 
         self.current = data;
