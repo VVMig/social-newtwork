@@ -1,6 +1,6 @@
 import { types, flow } from 'mobx-state-tree';
 import { SignInValues, SignUpValues } from '../auth/interfaces';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { url } from '../url';
 
 const defValues = types.model({
@@ -24,13 +24,12 @@ export const User = types
   .actions((self) => {
     const signUp = flow(function* (values: SignUpValues) {
       try {
-        resetError();
-        self.loading = true;
+        startLoad();
 
         yield axios.post(`${url}api/auth/registration`, values);
         signIn({ email: values.email, password: values.password });
       } catch (error) {
-        self.error = error.response.data.message;
+        self.error = parseError(error);
       } finally {
         self.loading = false;
       }
@@ -38,16 +37,14 @@ export const User = types
 
     const signIn = flow(function* (values: SignInValues) {
       try {
-        resetError();
-
-        self.loading = true;
+        startLoad();
 
         axios.defaults.withCredentials = true;
 
         yield axios.post(`${url}api/auth/login`, values);
         yield authorizeUser();
       } catch (error) {
-        self.error = error.response.data.message;
+        self.error = parseError(error);
       } finally {
         self.loading = false;
       }
@@ -55,15 +52,13 @@ export const User = types
 
     const authorizeUser = flow(function* () {
       try {
-        resetError();
-
-        self.loading = true;
+        startLoad();
 
         const { data } = yield axios.get(`${url}api/user/current`);
 
         self.current = data;
       } catch (error) {
-        self.error = error.response.data.message;
+        self.error = parseError(error);
       } finally {
         self.loading = false;
       }
@@ -71,13 +66,11 @@ export const User = types
 
     const refreshToken = flow(function* () {
       try {
-        resetError();
-
-        self.loading = true;
+        startLoad();
 
         yield axios.post(`${url}api/auth/refreshToken`);
       } catch (error) {
-        self.error = error.response.data.message;
+        self.error = parseError(error);
       } finally {
         self.loading = false;
       }
@@ -85,8 +78,7 @@ export const User = types
 
     const signOut = flow(function* () {
       try {
-        resetError();
-        self.loading = true;
+        startLoad();
 
         yield axios.post(`${url}api/auth/signOut`);
 
@@ -97,11 +89,19 @@ export const User = types
           verified: false,
         };
       } catch (error) {
-        self.error = error.response.data.message;
+        self.error = parseError(error);
       } finally {
         self.loading = false;
       }
     });
+
+    const parseError = (error: AxiosError): string =>
+      error.response?.data ? error.response.data.message : error.message;
+
+    const startLoad = (): void => {
+      resetError();
+      self.loading = true;
+    };
 
     const resetError = (): void => {
       self.error = '';
