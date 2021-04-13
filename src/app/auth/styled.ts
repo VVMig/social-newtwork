@@ -168,7 +168,7 @@ const Auth = styled.div`
   max-width: 1080px;
   width: 100%;
   height: 700px;
-  box-shadow: 2px 2px 10px ${(props) => props.theme.views};
+  box-shadow: 2px 2px 10px ${(props) => props.theme.additionalGrey};
   background-color: ${(props) => props.theme.light};
   border-radius: 10px;
 `;

@@ -9,12 +9,12 @@ const Alert = styled.div`
   padding: 20px 10px;
   font-size: 20px;
   border-radius: 10px;
-  color: ${(props) => props.theme.blueText};
+  color: ${(props) => props.theme.blue};
 `;
 
 const Close = styled.button`
   position: absolute;
-  color: ${(props) => props.theme.blueText};
+  color: ${(props) => props.theme.blue};
   right: 0;
   background-color: transparent;
   border: 0;

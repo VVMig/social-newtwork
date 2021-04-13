@@ -26,7 +26,7 @@ const Input = styled.input<InputProps>`
   border: 0;
   width: 100%;
   padding: 10px 15px 10px ${paddingLeft}px;
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   font-size: 18px;
   border-radius: 5px;
   z-index: ${zIndex.inputs};
@@ -46,13 +46,13 @@ const Input = styled.input<InputProps>`
     `}
 
   &::placeholder {
-    color: ${(props) => props.theme.textMain};
+    color: ${(props) => props.theme.greyMain};
     text-transform: capitalize;
   }
 
   &:focus {
     outline: 0;
-    box-shadow: 0 0 10px ${(props) => props.theme.inputShadow};
+    box-shadow: 0 0 10px ${(props) => props.theme.darkBlue};
     transition: 0.2s linear;
   }
 `;
@@ -67,7 +67,7 @@ const IconContainer = styled.label`
   height: 41px;
   top: ${paddingTopContainer}px;
   left: 0;
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   padding-bottom: 3px;
 
   & div {
