@@ -1,11 +1,10 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { SignUpValues } from '../interfaces';
+import { SignUpValues, SubmitProps } from '../interfaces';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
-import { store } from '../../store';
-import { observer } from 'mobx-react-lite';
 import { Form } from '../Form';
+import { signUp, parseError } from '../../helpers';
 
 const initialValues: SignUpValues = {
   firstName: '',
@@ -14,7 +13,22 @@ const initialValues: SignUpValues = {
   password: '',
 };
 
-export const SignUpForm = observer(() => {
+export const SignUpForm = ({
+  startFetch,
+  endFetch,
+  errorHandler,
+}: SubmitProps) => {
+  const signUpSubmit = async (values: SignUpValues) => {
+    try {
+      startFetch();
+      await signUp(values);
+    } catch (error) {
+      errorHandler(parseError(error));
+    } finally {
+      endFetch();
+    }
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -23,11 +37,11 @@ export const SignUpForm = observer(() => {
         values: SignUpValues,
         { setSubmitting }: FormikHelpers<SignUpValues>
       ) => {
-        store.user.signUp(values);
+        signUpSubmit(values);
         setSubmitting(false);
       }}
     >
       <Form fields={signUpFields} />
     </Formik>
   );
-});
+};

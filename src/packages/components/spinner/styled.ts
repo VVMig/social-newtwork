@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { zIndex } from '../zIndex';
 
-const skBounceDelay = keyframes`
+const bounceDelay = keyframes`
   0%, 
   80%, 
   100% { 
@@ -19,7 +19,7 @@ const generalCss = css`
 
   border-radius: 100%;
   display: inline-block;
-  animation: ${skBounceDelay} 1.4s infinite ease-in-out both;
+  animation: ${bounceDelay} 1.4s infinite ease-in-out both;
 `;
 
 const Spinner = styled.div`
@@ -28,23 +28,23 @@ const Spinner = styled.div`
   z-index: ${zIndex.spinner};
 `;
 
-const Bounce1 = styled.div`
+const BounceLeft = styled.div`
   ${generalCss}
 `;
 
-const Bounce2 = styled.div`
+const BounceMiddle = styled.div`
   ${generalCss}
   animation-delay: 0.16s;
 `;
 
-const Bounce3 = styled.div`
+const BounceRight = styled.div`
   ${generalCss}
   animation-delay: 0.32s;
 `;
 
 export const Styled = {
   Spinner,
-  Bounce1,
-  Bounce2,
-  Bounce3,
+  BounceLeft,
+  BounceMiddle,
+  BounceRight,
 };

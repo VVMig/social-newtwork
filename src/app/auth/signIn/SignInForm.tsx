@@ -1,31 +1,43 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { SignInValues } from '../interfaces';
+import { SignInValues, SubmitProps } from '../interfaces';
 import { signInShema } from '../configs/validationSchema';
 import { signInFields } from '../configs/inputFields';
 import { Form } from '../Form';
 import { observer } from 'mobx-react-lite';
-import { store } from '../../store';
+import { parseError, signIn } from '../../helpers';
 
 const initialValues: SignInValues = {
   email: '',
   password: '',
 };
 
-export const SignInForm = observer(() => {
-  return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={signInShema}
-      onSubmit={(
-        values: SignInValues,
-        { setSubmitting }: FormikHelpers<SignInValues>
-      ) => {
-        store.user.signIn(values);
-        setSubmitting(false);
-      }}
-    >
-      <Form signIn fields={signInFields} />
-    </Formik>
-  );
-});
+export const SignInForm = observer(
+  ({ startFetch, endFetch, errorHandler }: SubmitProps) => {
+    const signInSubmit = async (values: SignInValues) => {
+      try {
+        startFetch();
+        await signIn(values);
+      } catch (error) {
+        errorHandler(parseError(error));
+      } finally {
+        endFetch();
+      }
+    };
+    return (
+      <Formik
+        initialValues={initialValues}
+        validationSchema={signInShema}
+        onSubmit={(
+          values: SignInValues,
+          { setSubmitting }: FormikHelpers<SignInValues>
+        ) => {
+          signInSubmit(values);
+          setSubmitting(false);
+        }}
+      >
+        <Form signIn fields={signInFields} />
+      </Formik>
+    );
+  }
+);

@@ -2,21 +2,18 @@ import React from 'react';
 import { Styled } from '../styled';
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
+import { store } from '../../store';
 
-interface Props {
-  email: string | null;
-}
-
-export const VerifyInfo = ({ email }: Props) => {
+export const VerificationInfo = () => {
   return (
     <>
-      <Styled.VerifyTitle>
+      <Styled.VerificationTitle>
         <Icon type={IconType.Email} />
-      </Styled.VerifyTitle>
-      <Styled.VerifyText>
+      </Styled.VerificationTitle>
+      <Styled.VerificationText>
         <p>Thanks for signing up. Confirm your email address</p>
-        <p>{email} to activate your account.</p>
-      </Styled.VerifyText>
+        <p>{store.user?.email} to activate your account.</p>
+      </Styled.VerificationText>
     </>
   );
 };

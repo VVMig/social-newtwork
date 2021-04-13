@@ -12,7 +12,7 @@ const Aside = styled.aside`
   height: 100vh;
   background-color: ${(props) => props.theme.mainBackground};
   z-index: ${zIndex.sideBarInfo};
-  padding-top: 20px;
+  padding: 20px 0;
   overflow-x: hidden;
   overflow-y: auto;
 `;

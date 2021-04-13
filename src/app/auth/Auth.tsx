@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { FormContainer } from './FormContainer';
-import { Styled, switchVerifyDuration } from './styled';
+import { Styled, switchVerificationDuration } from './styled';
 import { Welcome } from './Welcome';
-import { Verify } from './verify/Verify';
+import { Verification } from './verification/Verification';
 import { observer } from 'mobx-react-lite';
 import { store } from '../store';
 import { Transition } from 'react-transition-group';
@@ -12,7 +12,7 @@ export const Auth = observer(() => {
   const [signInDelayed, setsignInDelayed] = useState(true);
   const delay = 500;
 
-  const handleSwitch: React.MouseEventHandler = () => {
+  const switchHandler: React.MouseEventHandler = () => {
     setsignIn(!signIn);
     setTimeout(() => {
       setsignInDelayed(!signIn);
@@ -23,19 +23,19 @@ export const Auth = observer(() => {
     <Styled.Auth>
       <Styled.AuthContainer>
         <Transition
-          in={store.user.isUserSet && !store.user.current.verified}
-          timeout={switchVerifyDuration}
+          in={store.user && !store.user?.verified}
+          timeout={switchVerificationDuration}
           mountOnEnter
           unmountOnExit
         >
-          {(state) => <Verify className={state} />}
+          {(state) => <Verification className={state} />}
         </Transition>
 
-        <Transition in={!store.user.isUserSet} timeout={switchVerifyDuration}>
+        <Transition in={!store.user} timeout={switchVerificationDuration}>
           {(state) => (
             <Styled.Main className={`${state}`}>
               <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
-              <Welcome signIn={signIn} handler={handleSwitch} />
+              <Welcome signIn={signIn} switchHandler={switchHandler} />
             </Styled.Main>
           )}
         </Transition>

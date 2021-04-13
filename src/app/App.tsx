@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import { Header, PostsList } from '../packages/components';
 import { Styled } from './styled';
@@ -14,31 +14,24 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
-import { store } from './store';
 
 export const App = observer(() => {
-  useEffect(() => {
-    store.user.authorizeUser();
-  }, []);
-
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Switch>
-          <Styled.Wrapper>
+          {/* <Styled.Wrapper>
             <Route path="/authorization">
               <Auth />
             </Route>
-          </Styled.Wrapper>
+          </Styled.Wrapper> */}
 
-          <Route path="/">
+          <Route exact path="/">
             <Styled.Wrapper auth>
               <SidebarInfo friends={friends} groups={groups} />
               <Styled.Content>
                 <Header tabs={tabs} />
-                <Route path={TabRoutes.Home}>
-                  <PostsList posts={posts} />
-                </Route>
+                <PostsList posts={posts} />
               </Styled.Content>
               <SidebarLive
                 viewIcon={<Icon type={IconType.Views} />}

@@ -23,7 +23,7 @@ const Item = styled.div`
   display: inline-flex;
   align-items: center;
   width: 100%;
-  padding: 0 24px 0 28px;
+  padding: 10px 24px 10px 28px;
   position: relative;
   justify-content: space-between;
 `;
