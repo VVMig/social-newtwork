@@ -20,18 +20,21 @@ export const App = observer(() => {
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Switch>
-          {/* <Styled.Wrapper>
-            <Route path="/authorization">
+          <Route exact path="/authorization">
+            <Styled.Wrapper>
               <Auth />
-            </Route>
-          </Styled.Wrapper> */}
+            </Styled.Wrapper>
+          </Route>
 
-          <Route exact path="/">
+          <Route path="/">
             <Styled.Wrapper auth>
               <SidebarInfo friends={friends} groups={groups} />
               <Styled.Content>
                 <Header tabs={tabs} />
-                <PostsList posts={posts} />
+                <Route path={TabRoutes.Home}>
+                  <PostsList posts={posts} />
+                </Route>
+                <Route path={TabRoutes.Messager}>asd</Route>
               </Styled.Content>
               <SidebarLive
                 viewIcon={<Icon type={IconType.Views} />}
@@ -39,9 +42,8 @@ export const App = observer(() => {
                 sendIcon={<Icon type={IconType.Send} />}
               />
             </Styled.Wrapper>
+            <Redirect to={'/authorization'} />
           </Route>
-
-          <Redirect to={'/authorization'} />
         </Switch>
       </ThemeProvider>
     </BrowserRouter>
