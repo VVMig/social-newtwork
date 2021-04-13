@@ -1,19 +1,9 @@
 import { types } from 'mobx-state-tree';
-
-const defValues = types.model({
-  firstName: types.string,
-  lastName: types.string,
-  email: types.string,
-  verified: types.boolean,
-});
+import { defaultTypes } from '../utils';
 
 export const User = types.model('User', {
-  current: types.optional(defValues, {
-    firstName: '',
-    lastName: '',
-    email: '',
-    verified: false,
-  }),
-  error: types.optional(types.string, ''),
-  loading: types.optional(types.boolean, false),
+  firstName: defaultTypes.maybeString,
+  lastName: defaultTypes.maybeString,
+  email: defaultTypes.maybeString,
+  verified: defaultTypes.maybeBoolean,
 });
