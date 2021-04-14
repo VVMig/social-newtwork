@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const size = '25px';
 const tabState = css`
-  background-color: ${(props) => props.theme.tabColor};
+  background-color: ${(props) => props.theme.purple};
   color: ${(props) => props.theme.additional};
   transition: 0.2s linear;
 `;
@@ -28,7 +28,7 @@ const Nav = styled.nav`
   padding: 0 40px;
   justify-content: space-between;
   align-items: center;
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
 `;
 
 const Link = styled(NavLink)`

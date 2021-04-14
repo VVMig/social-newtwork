@@ -5,7 +5,7 @@ const SidebarWidget = styled.div`
 `;
 
 const Title = styled.div`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   font-size: 12px;
   text-transform: uppercase;
   padding-left: 28px;
@@ -52,7 +52,7 @@ const Online = styled.div`
 `;
 
 const Offline = styled.span`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   font-size: 12px;
 `;
 

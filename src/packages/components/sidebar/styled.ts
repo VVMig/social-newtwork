@@ -22,7 +22,7 @@ const Form = styled.form`
 `;
 
 const Input = styled.input`
-  color: ${(props) => props.theme.inputText};
+  color: ${(props) => props.theme.additionalDarkGrey};
   font-size: 14px;
   outline: 0;
   border: 0;
@@ -31,15 +31,15 @@ const Input = styled.input`
   height: 47px;
   padding: 0 40px;
   border-radius: 15px;
-  background-color: ${(props) => props.theme.inputBackground};
+  background-color: ${(props) => props.theme.additionalLightGrey};
   transition: 0.1s linear box-shadow;
 
   &::placeholder {
-    color: ${(props) => props.theme.textDark};
+    color: ${(props) => props.theme.greyDark};
   }
 
   &:focus {
-    box-shadow: 0 0 0 0.15rem ${(props) => props.theme.inputShadow};
+    box-shadow: 0 0 0 0.15rem ${(props) => props.theme.darkBlue};
     transition: 0.1s linear box-shadow;
   }
 `;
@@ -55,7 +55,7 @@ const Button = styled.button`
   left: 10px;
   padding: 0;
   z-index: ${zIndex.searchBtn};
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
 
   &:focus {
     outline: 0;
@@ -70,7 +70,7 @@ const Logo = styled.div`
 `;
 
 const NotificationsWrapper = styled.div`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   z-index: ${zIndex.notifications};
   padding-right: 22px;
 `;
@@ -92,7 +92,7 @@ const Name = styled.div`
 `;
 
 const Arrow = styled.div`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   & svg {
     width: ${arrowSize};
     height: ${arrowSize};

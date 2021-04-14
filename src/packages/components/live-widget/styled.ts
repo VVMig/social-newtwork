@@ -49,7 +49,7 @@ const Views = styled.div`
   color: ${(props) => props.theme.light};
   font-size: 10px;
   min-width: 46px;
-  background-color: ${(props) => props.theme.views};
+  background-color: ${(props) => props.theme.additionalGrey};
   margin-left: 3px;
   padding-right: 1px;
 
@@ -84,7 +84,7 @@ const Input = styled.input`
   outline: 0;
   border: 0;
   background-color: rgba(0, 0, 0, 0);
-  color: ${(props) => props.theme.tabColor};
+  color: ${(props) => props.theme.purple};
   font-size: 14px;
   width: 100%;
 
@@ -132,7 +132,7 @@ const Content = styled.div`
 
 const Time = styled.div`
   font-size: 12px;
-  color: ${(props) => props.theme.textLight}; ;
+  color: ${(props) => props.theme.greyLight}; ;
 `;
 
 const Name = styled.div`
@@ -142,7 +142,7 @@ const Name = styled.div`
 
 const Text = styled.p`
   font-size: 14px;
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   word-break: break-all;
   margin-block-start: 0;
   margin-block-end: 0;
