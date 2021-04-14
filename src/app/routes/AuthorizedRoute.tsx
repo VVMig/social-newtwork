@@ -10,6 +10,7 @@ import { groups } from '../groups';
 import { Header } from '../../packages/components';
 import { tabs } from '../tabs';
 import { Styled } from '../styled';
+import { RoutesEnum } from './RoutesEnum';
 
 export const AuthorizedRoute: React.FC<RouteProps> = ({
   children,
@@ -33,7 +34,7 @@ export const AuthorizedRoute: React.FC<RouteProps> = ({
             </Styled.Content>
           </Styled.Wrapper>
         ) : (
-          <Redirect to={'/'} />
+          <Redirect to={RoutesEnum.Authentication} />
         );
       }}
     />
