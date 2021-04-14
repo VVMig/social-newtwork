@@ -8,11 +8,11 @@ interface Props extends RouteProps {
 export const PrivateRoute: React.FC<Props> = ({
   children,
   isAccess,
-  ...rest
+  ...props
 }) => {
   return (
     <Route
-      {...rest}
+      {...props}
       render={() => {
         return isAccess ? children : <Redirect to={'/'} />;
       }}

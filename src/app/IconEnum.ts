@@ -12,11 +12,3 @@ export enum IconType {
   User = 'User',
   Lock = 'Lock',
 }
-
-export enum TabRoutes {
-  Home = '/',
-  Groups = '/groups',
-  Messager = '/messager',
-  Help = '/help',
-  Settings = '/settings',
-}

@@ -1,9 +1,5 @@
-import { Instance, types, flow } from 'mobx-state-tree';
+import { Instance, types } from 'mobx-state-tree';
 import { User } from './User';
-import { axiosConfig } from '../utils/axiosConfig';
-import Axios from 'axios';
-
-const apiClient = Axios.create(axiosConfig);
 
 export const Store = types
   .model('Store', {

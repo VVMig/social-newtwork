@@ -7,6 +7,7 @@ const SidebarContainer = styled.div`
   max-width: ${sidebarLiveWidth}px;
   width: 100%;
   height: 100vh;
+  order: 3;
 `;
 
 const Header = styled.div`
