@@ -11,7 +11,10 @@ import { Header } from '../../packages/components';
 import { tabs } from '../tabs';
 import { Styled } from '../styled';
 
-export const RedirectRoute: React.FC<RouteProps> = ({ children, ...props }) => {
+export const AuthorizedRoute: React.FC<RouteProps> = ({
+  children,
+  ...props
+}) => {
   return (
     <Route
       {...props}

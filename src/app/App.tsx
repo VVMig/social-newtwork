@@ -9,7 +9,7 @@ import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
 import { store } from './store';
 import { authorize } from './helpers';
-import { RedirectRoute } from './routes';
+import { AuthorizedRoute } from './routes';
 import { PageSpinner } from './PageSpinner';
 import { RoutesEnum } from './routes/RoutesEnum';
 
@@ -48,9 +48,9 @@ export const App = observer(() => {
               )}
             </Route>
 
-            <RedirectRoute path={RoutesEnum.Home}>
+            <AuthorizedRoute path={RoutesEnum.Home}>
               <PostsList posts={posts} />
-            </RedirectRoute>
+            </AuthorizedRoute>
           </>
         )}
       </Switch>

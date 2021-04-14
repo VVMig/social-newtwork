@@ -1,3 +1,3 @@
 export * from './CommonRoute';
 export * from './PrivateRoute';
-export * from './RedirectRoute';
+export * from './AuthorizedRoute';
