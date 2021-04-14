@@ -12,6 +12,7 @@ import { authorize } from './helpers';
 import { AuthorizedRoute } from './routes';
 import { PageSpinner } from './PageSpinner';
 import { RoutesEnum } from './routes/RoutesEnum';
+import { AuthContentProvider } from './AuthContentProvider';
 
 export const App = observer(() => {
   const [loading, setLoading] = useState(true);
@@ -48,9 +49,11 @@ export const App = observer(() => {
               )}
             </Route>
 
-            <AuthorizedRoute path={RoutesEnum.Home}>
-              <PostsList posts={posts} />
-            </AuthorizedRoute>
+            <AuthContentProvider>
+              <AuthorizedRoute path={RoutesEnum.Home}>
+                <PostsList posts={posts} />
+              </AuthorizedRoute>
+            </AuthContentProvider>
           </>
         )}
       </Switch>
