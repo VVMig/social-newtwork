@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
-import { Form as FormikForm } from 'formik';
 import { zIndex } from '../../packages/components';
-import { SwitchState, ResentState, FormikProps } from './interfaces';
+import { SwitchState, ResentState } from './interfaces';
 import {
   appearLeft,
   appearLeftLinear,
@@ -18,8 +17,9 @@ import {
   switchToRight,
   switchToRightForm,
 } from './configs/animations';
+import { Form as StyledFormikForm } from 'formik';
 
-export const switchVerifyDuration = 400;
+export const switchVerificationDuration = 400;
 const animationDuration = 0.8;
 const animationTypeMain = 'ease-in-out';
 const animationTypeSecondary = 'linear';
@@ -54,11 +54,11 @@ const Main = styled.div`
   }
 
   &.entering {
-    animation: ${appearLeftLinear} ${switchVerifyDuration}ms linear;
+    animation: ${appearLeftLinear} ${switchVerificationDuration}ms linear;
   }
 
   &.exiting {
-    animation: ${disappearLeftLinear} ${switchVerifyDuration}ms linear;
+    animation: ${disappearLeftLinear} ${switchVerificationDuration}ms linear;
   }
 `;
 
@@ -73,7 +73,7 @@ const FormContainer = styled.div<SwitchState>`
 
   & .spinner {
     ${centralize};
-    top: ${inputsGap + formPaddingTop}px;
+    top: ${formPaddingTop}px;
     transform: translate(-50%, -50%);
   }
 
@@ -123,7 +123,11 @@ const InputsContainer = styled.div`
   width: 100%;
 `;
 
-const Form = styled(FormikForm)<FormikProps>`
+const FormikForm = styled(StyledFormikForm)`
+  width: 100%;
+`;
+
+const Form = styled.div<SwitchState>`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -133,14 +137,14 @@ const Form = styled(FormikForm)<FormikProps>`
 
   ${FormTitle} {
     color: ${(props) =>
-      props.signin ? props.theme.primary : props.theme.lightBlue};
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
   }
 
   & button {
     margin-top: 10px;
     border: 0;
     background-color: ${(props) =>
-      props.signin ? props.theme.primary : props.theme.lightBlue};
+      props.signIn ? props.theme.primary : props.theme.lightBlue};
   }
 `;
 
@@ -164,7 +168,7 @@ const Auth = styled.div`
   max-width: 1080px;
   width: 100%;
   height: 700px;
-  box-shadow: 2px 2px 10px ${(props) => props.theme.views};
+  box-shadow: 2px 2px 10px ${(props) => props.theme.additionalGrey};
   background-color: ${(props) => props.theme.light};
   border-radius: 10px;
 `;
@@ -284,14 +288,14 @@ const SignUpBtnText = styled(BtnText)<SwitchState>`
         `}
 `;
 
-const Verify = styled.div`
+const Verification = styled.div`
   display: flex;
   width: 100%;
   position: relative;
   right: -100%;
 
   &.entering {
-    animation: ${appearRightLinear} ${switchVerifyDuration}ms linear;
+    animation: ${appearRightLinear} ${switchVerificationDuration}ms linear;
   }
 
   &.entered {
@@ -299,7 +303,7 @@ const Verify = styled.div`
   }
 
   &.exiting {
-    animation: ${disappearRightLinear} ${switchVerifyDuration}ms linear;
+    animation: ${disappearRightLinear} ${switchVerificationDuration}ms linear;
   }
 
   & .spinner {
@@ -316,7 +320,7 @@ const Verify = styled.div`
   }
 `;
 
-const VerifyContainer = styled.div`
+const VerificationContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -326,7 +330,7 @@ const VerifyContainer = styled.div`
   height: inherit;
 `;
 
-const VerifyTitle = styled.div`
+const VerificationTitle = styled.div`
   width: min-content;
   height: min-content;
   border-radius: 50%;
@@ -347,7 +351,7 @@ const VerifyTitle = styled.div`
   }
 `;
 
-const VerifyText = styled.div`
+const VerificationText = styled.div`
   color: ${(props) => props.theme.primary};
   font-size: 24px;
   font-weight: bold;
@@ -414,11 +418,12 @@ export const Styled = {
   InputsContainer,
   BtnText,
   AuthText,
-  Verify,
-  VerifyContainer,
-  VerifyTitle,
-  VerifyText,
+  Verification,
+  VerificationContainer,
+  VerificationTitle,
+  VerificationText,
   ResendBtn,
   SignOut,
   Main,
+  FormikForm,
 };
