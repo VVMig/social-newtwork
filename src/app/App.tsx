@@ -20,7 +20,6 @@ export const App = observer(() => {
   const authorizeUser = async () => {
     try {
       await authorize();
-      setLoading(false);
     } catch (error) {
       console.dir(error);
     } finally {

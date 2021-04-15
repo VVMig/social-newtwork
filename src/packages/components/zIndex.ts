@@ -9,4 +9,5 @@ export const zIndex = {
   spinner: 400,
   inputs: 250,
   error: 120,
+  dropdownMenu: 1000,
 };

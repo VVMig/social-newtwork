@@ -11,4 +11,5 @@ export enum IconType {
   Email = 'Email',
   User = 'User',
   Lock = 'Lock',
+  Exit = 'Exit',
 }
