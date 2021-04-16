@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { ImgProps, SpanProps } from './interfaces';
+import { SpanProps } from './interfaces';
+import { ImageWrapper } from '../imageWrapper';
 
 const moreSize = '30px';
 const gaps = '30px';
@@ -23,14 +24,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Img = styled.div<ImgProps>`
+const PostImage = styled(ImageWrapper)`
   max-width: 300px;
   width: 100%;
   height: 100%;
-  background: ${(props) => props.imgSrc || props.theme.primary};
-  border-radius: 25px;
-  background-position: center;
-  background-size: cover;
 `;
 
 const Content = styled.div`
@@ -174,7 +171,7 @@ export const Styled = {
   Subtitle,
   Footer,
   Wrapper,
-  Img,
+  PostImage,
   Content,
   Header,
   Date,

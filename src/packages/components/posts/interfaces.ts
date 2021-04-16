@@ -23,10 +23,6 @@ export interface HeaderProps {
   date: number;
 }
 
-export interface ImgProps {
-  imgSrc?: string;
-}
-
 export interface SpanProps {
   day?: boolean;
 }

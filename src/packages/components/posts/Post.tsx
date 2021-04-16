@@ -15,7 +15,7 @@ export const Post = ({
 }: PostProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.Img />
+      <Styled.PostImage />
       <Styled.Content>
         <Header title={title} subtitle={subtitle} date={date} />
         <Body
