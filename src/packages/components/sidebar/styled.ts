@@ -100,10 +100,15 @@ const Arrow = styled.div<MenuOpen>`
   display: flex;
   transform-origin: center;
   color: ${(props) => props.theme.greyDark};
+  position: relative;
 
   & div {
+    position: relative;
     display: flex;
     align-items: center;
+    z-index: 2;
+    width: ${arrowSize};
+    height: ${arrowSize};
     ${(props) =>
       props.open &&
       css`
@@ -114,9 +119,18 @@ const Arrow = styled.div<MenuOpen>`
   }
 
   & svg {
+    position: absolute;
+    z-index: ${zIndex.arrowSvg};
     width: ${arrowSize};
     height: ${arrowSize};
   }
+`;
+
+const ArrowClicker = styled.span`
+  position: absolute;
+  z-index: ${zIndex.arrowClicker};
+  width: ${arrowSize};
+  height: ${arrowSize};
 `;
 
 const Notifications = styled.div`
@@ -140,4 +154,5 @@ export const Styled = {
   Name,
   Arrow,
   Notifications,
+  ArrowClicker,
 };

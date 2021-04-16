@@ -10,4 +10,6 @@ export const zIndex = {
   inputs: 250,
   error: 120,
   dropdownMenu: 1000,
+  arrowSvg: 1020,
+  arrowClicker: 1100,
 };

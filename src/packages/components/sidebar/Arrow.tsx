@@ -18,6 +18,7 @@ export const Arrow = ({ icon, className, open, rotateDelay }: Props) => {
       delay={rotateDelay || defaultDelay}
     >
       {icon}
+      <Styled.ArrowClicker></Styled.ArrowClicker>
     </Styled.Arrow>
   );
 };
