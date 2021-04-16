@@ -35,7 +35,6 @@ const disappear = keyframes`
 
 const Menu = styled.div<Props>`
   display: flex;
-  max-width: 450px;
   width: 100%;
   background-color: ${(props) => props.theme.light};
   position: absolute;

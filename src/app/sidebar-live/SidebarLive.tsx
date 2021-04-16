@@ -1,4 +1,4 @@
-import React, { Dispatch, RefObject } from 'react';
+import React, { RefObject } from 'react';
 import { Sidebar } from '../../packages/components';
 import { Content } from './Content';
 import { Header } from './Header';
@@ -9,7 +9,7 @@ interface Props {
   notifyIcon: JSX.Element;
   sendIcon: JSX.Element;
   showMenu: boolean;
-  setShowMenu: Dispatch<React.SetStateAction<boolean>>;
+  showMenuHandler?: React.MouseEventHandler;
   menuRef: RefObject<HTMLDivElement>;
 }
 
@@ -18,7 +18,7 @@ export const SidebarLive = ({
   notifyIcon,
   sendIcon,
   showMenu,
-  setShowMenu,
+  showMenuHandler,
   menuRef,
 }: Props) => {
   return (
@@ -27,7 +27,7 @@ export const SidebarLive = ({
         <Header
           icon={notifyIcon}
           showMenu={showMenu}
-          setShowMenu={setShowMenu}
+          showMenuHandler={showMenuHandler}
           menuRef={menuRef}
         />
         <Content viewIcon={viewIcon} sendIcon={sendIcon} />

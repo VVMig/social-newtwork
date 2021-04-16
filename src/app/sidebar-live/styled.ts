@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const sidebarLiveWidth = 390;
 
-const headerInfoWidth = 140;
+const headerInfoWidth = 170;
 
 const marginFromHeader = 5;
 
@@ -26,13 +26,14 @@ const MenuArea = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   width: ${headerInfoWidth}px;
   cursor: pointer;
 
   & .dropdown-menu {
     margin-top: ${marginFromHeader}px;
     top: 100%;
-    right: 10px;
+    right: 0;
     max-width: ${headerInfoWidth}px;
   }
 `;

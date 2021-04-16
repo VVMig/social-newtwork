@@ -13,14 +13,18 @@ import { useOutsideClick } from './hooks';
 
 export const AuthContentProvider: React.FC = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+
+  const showMenuHandler: React.MouseEventHandler = () => {
+    setShowMenu(!showMenu);
+  };
+
   const ref = useRef<HTMLDivElement>(null);
 
   const closeOutsideMenuHandler = () => {
     setShowMenu(false);
   };
 
-  if (store.user && store.user.verified)
-    useOutsideClick(ref, closeOutsideMenuHandler);
+  useOutsideClick(ref, closeOutsideMenuHandler);
 
   return (
     <>
@@ -31,7 +35,7 @@ export const AuthContentProvider: React.FC = ({ children }) => {
             viewIcon={<Icon type={IconType.Views} />}
             notifyIcon={<Icon type={IconType.Notifications} />}
             sendIcon={<Icon type={IconType.Send} />}
-            setShowMenu={setShowMenu}
+            showMenuHandler={showMenuHandler}
             showMenu={showMenu}
             menuRef={ref}
           />

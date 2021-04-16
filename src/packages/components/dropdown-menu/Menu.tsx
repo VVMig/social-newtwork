@@ -12,6 +12,7 @@ export const Menu = ({ className, items, show, showDelay }: MenuProps) => {
       in={show}
       timeout={showDelay || defaultDelay}
       classNames={className}
+      mountOnEnter
       unmountOnExit
     >
       <Styled.Menu className={className} delay={showDelay || defaultDelay}>

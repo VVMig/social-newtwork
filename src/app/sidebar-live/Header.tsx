@@ -11,22 +11,18 @@ import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
 import { store } from '../store';
 import { signOut } from '../helpers';
-import React, { Dispatch, RefObject } from 'react';
+import React, { RefObject } from 'react';
 
 interface Props {
   icon: JSX.Element;
   showMenu: boolean;
-  setShowMenu: Dispatch<React.SetStateAction<boolean>>;
   menuRef: RefObject<HTMLDivElement>;
+  showMenuHandler?: React.MouseEventHandler;
 }
 
-export const Header = ({ icon, setShowMenu, showMenu, menuRef }: Props) => {
+export const Header = ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
   const signOutHandler: React.MouseEventHandler = async () => {
     await signOut();
-  };
-
-  const showMenuHandler: React.MouseEventHandler = () => {
-    setShowMenu(!showMenu);
   };
 
   const items: Item[] = [
@@ -49,11 +45,11 @@ export const Header = ({ icon, setShowMenu, showMenu, menuRef }: Props) => {
     <>
       <Styled.Header>
         <Notifications icon={icon} notify />
-        <Avatar size={30} route="#" />
         <Styled.MenuArea onClick={showMenuHandler} ref={menuRef}>
+          <Avatar size={30} route="#" outline={showMenu} />
           <Name name={store.user?.fullName || 'unknown'} />
-          <Arrow open={showMenu} icon={<Icon type={IconType.Arrow} />} />
           <Menu className="dropdown-menu" items={items} show={showMenu} />
+          <Arrow open={showMenu} icon={<Icon type={IconType.Arrow} />} />
         </Styled.MenuArea>
       </Styled.Header>
     </>
