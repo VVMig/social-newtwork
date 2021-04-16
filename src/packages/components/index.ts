@@ -10,3 +10,4 @@ export * from './button';
 export * from './spinner';
 export * from './alert';
 export * from './dropdown-menu';
+export * from './imageWrapper';

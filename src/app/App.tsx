@@ -53,9 +53,9 @@ export const App = observer(() => {
               <AuthorizedRoute path={RoutesEnum.Home}>
                 <PostsList posts={posts} />
               </AuthorizedRoute>
-              <Route path={`${RoutesEnum.Profile}/:id`}>
+              <AuthorizedRoute path={`${RoutesEnum.Profile}/:id`}>
                 <Profile />
-              </Route>
+              </AuthorizedRoute>
             </AuthContentProvider>
           </>
         )}

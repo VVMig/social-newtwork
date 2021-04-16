@@ -48,7 +48,7 @@ export const Header = ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
       <Styled.Header>
         <Notifications icon={icon} notify />
         <Styled.MenuArea onClick={showMenuHandler} ref={menuRef}>
-          <Avatar size={30} route="#" outline={showMenu} />
+          <Avatar size={30} outline={showMenu} />
           <Name name={store.user?.fullName || 'unknown'} />
           <Menu className="dropdown-menu" items={items} show={showMenu} />
           <Arrow open={showMenu} icon={<Icon type={IconType.Arrow} />} />
