@@ -92,6 +92,8 @@ const MenuItem = styled.li`
 const Link = styled(StyledLink)`
   text-decoration: none;
   color: inherit;
+  display: flex;
+  width: 100%;
 `;
 
 const Title = styled.span`
