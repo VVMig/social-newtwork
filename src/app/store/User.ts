@@ -7,6 +7,7 @@ export const User = types
     lastName: defaultTypes.maybeString,
     email: defaultTypes.maybeString,
     verified: defaultTypes.maybeBoolean,
+    id: defaultTypes.maybeString,
   })
   .views((self) => ({
     get fullName() {
