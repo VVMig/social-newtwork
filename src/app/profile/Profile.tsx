@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styled } from './styled';
-import { LeftContent } from './leftContent/LeftContent';
-import { RightContent } from './rightContent/RightContent';
+import { LeftContent } from './LeftContent';
+import { RightContent } from './RightContent';
 
 export const Profile = () => {
   return (

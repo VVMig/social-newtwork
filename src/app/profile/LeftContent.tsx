@@ -1,6 +1,6 @@
 import React from 'react';
-import { Styled } from '../styled';
-import { Actions } from '../Actions';
+import { Styled } from './styled';
+import { Actions } from './Actions';
 
 export const LeftContent = () => {
   return (
