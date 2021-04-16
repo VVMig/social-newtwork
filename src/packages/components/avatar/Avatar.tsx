@@ -9,7 +9,7 @@ export const Avatar = ({ route, size, outline }: AvatarProps) => {
           <Styled.Avatar size={size} outline={outline} />
         </Styled.Link>
       ) : (
-        <Styled.Avatar size={size} />
+        <Styled.Avatar size={size} outline={outline} />
       )}
     </>
   );
