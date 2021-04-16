@@ -12,6 +12,7 @@ import { IconType } from '../IconEnum';
 import { store } from '../store';
 import { signOut } from '../helpers';
 import React, { RefObject } from 'react';
+import { RoutesEnum } from '../routes/RoutesEnum';
 
 interface Props {
   icon: JSX.Element;
@@ -29,6 +30,7 @@ export const Header = ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
     {
       title: 'profile',
       icon: <Icon type={IconType.User} />,
+      link: `${RoutesEnum.Profile}/${store.user?.id}`,
     },
     {
       title: 'settings',

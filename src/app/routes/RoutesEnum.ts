@@ -5,4 +5,5 @@ export enum RoutesEnum {
   Messager = '/messager',
   Help = '/help',
   Settings = '/settings',
+  Profile = '/profile',
 }
