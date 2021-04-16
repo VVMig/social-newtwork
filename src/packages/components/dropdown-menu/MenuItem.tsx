@@ -9,7 +9,7 @@ export const MenuItem = ({ title, link, actionHandler, icon }: Item) => {
   };
 
   return (
-    <Styled.MenuItem onClickCapture={clickHandler}>
+    <Styled.MenuItem onClick={clickHandler}>
       {link ? (
         <Styled.Link to={link}>
           {icon}
