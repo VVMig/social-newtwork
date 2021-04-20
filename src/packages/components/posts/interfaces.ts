@@ -1,10 +1,12 @@
+import { ImageProps } from '../imageWrapper';
+
 interface Author {
   firstName: string;
   lastName: string;
   status?: string;
 }
 
-export interface Post {
+export interface Post extends ImageProps {
   title: string;
   subtitle: string;
   date: number;

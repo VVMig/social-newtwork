@@ -1,11 +1,16 @@
 import React from 'react';
 import { Styled } from '../styled';
 
-export const Header = () => {
+interface Props {
+  name?: string;
+  status?: string;
+}
+
+export const Header = ({ name, status }: Props) => {
   return (
     <Styled.InfoHeader>
-      <Styled.Name>Some guy</Styled.Name>
-      <Styled.Status>asdasdasdasdasdasdasd</Styled.Status>
+      <Styled.Name>{name || 'unknown'}</Styled.Name>
+      <Styled.Status>{status}</Styled.Status>
     </Styled.InfoHeader>
   );
 };

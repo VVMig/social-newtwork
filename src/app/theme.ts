@@ -21,4 +21,6 @@ export const theme = {
     'linear-gradient(90deg,rgba(9, 9, 121, 1),rgba(0, 212, 255, 1))',
   lightBlue: '#00B1E4',
   danger: '#ff7d7d',
+  lightBlack: 'rgba(65, 65, 65, 0.8)',
+  mainRed: '#ff3636',
 };

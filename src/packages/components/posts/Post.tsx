@@ -12,10 +12,11 @@ export const Post = ({
   text,
   author,
   likes,
+  src,
 }: PostProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.PostImage />
+      <Styled.PostImage src={src} />
       <Styled.Content>
         <Header title={title} subtitle={subtitle} date={date} />
         <Body

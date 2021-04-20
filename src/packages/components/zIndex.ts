@@ -12,4 +12,5 @@ export const zIndex = {
   dropdownMenu: 1000,
   arrowSvg: 1020,
   arrowClicker: 1100,
+  modal: 1500,
 };

@@ -14,6 +14,7 @@ import {
   LockOutlined,
   PersonOutline,
   ExitToApp,
+  Favorite,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -30,4 +31,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Lock]: <LockOutlined />,
   [IconType.User]: <PersonOutline />,
   [IconType.Exit]: <ExitToApp />,
+  [IconType.Like]: <Favorite />,
 };

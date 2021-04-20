@@ -1,12 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { ImageWrapper } from '../../packages/components';
 
 const imageSize = 300;
-const leftContentPadding = 50;
+const ProfileMainPadding = 20;
+
+interface StatisticBorder {
+  border?: boolean;
+}
 
 const Profile = styled.div`
   display: flex;
-  flex-wrap: wrap;
   width: 100%;
   max-width: 750px;
   border-radius: 10px;
@@ -15,22 +18,33 @@ const Profile = styled.div`
 `;
 
 const ProfilePhoto = styled(ImageWrapper)`
-  height: ${imageSize}px;
+  min-height: ${imageSize}px;
+  height: 100%;
   width: ${imageSize}px;
 `;
 
-const RightContent = styled.div`
+const ProfileInfo = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 0 0 ${leftContentPadding}px;
+  padding: 0 0 0 ${ProfileMainPadding}px;
+  width: 100%;
+  overflow: hidden;
 `;
 
-const LeftContent = styled(RightContent)`
+const ProfileInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+`;
+
+const ProfileMain = styled(ProfileInfo)`
   padding: 0;
+  max-width: 300px;
 `;
 
 const InfoHeader = styled.div`
-  padding-bottom: 20px;
+  padding-top: 10px;
 `;
 
 const Name = styled.h1`
@@ -49,16 +63,24 @@ const InfoStatistic = styled.div`
   width: min-content;
 `;
 
-const Statistic = styled.div`
+const Statistic = styled.div<StatisticBorder>`
   display: flex;
   flex-direction: column;
   padding: 15px;
   background-color: ${(props) => props.theme.additionalLightGrey};
+  border-right: 2px solid ${(props) => props.theme.greyMain};
+
+  ${(props) =>
+    !props.border &&
+    css`
+      border: 0;
+    `}
 `;
 
 const StatisticHeader = styled.h3`
   font-size: 22px;
   color: ${(props) => props.theme.additionalDarkGrey};
+  text-transform: capitalize;
 `;
 
 const StatisticBody = styled.span`
@@ -106,10 +128,92 @@ const ColorActionButton = styled(ActionButton)`
   color: ${(props) => props.theme.light};
 `;
 
+const PhotosWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  & .swiper-container {
+    width: 100%;
+  }
+
+  & .swiper-slide {
+    width: auto;
+    display: inline-flex;
+  }
+`;
+
+const Photos = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: ${(props) => props.theme.additionalLightGrey};
+  border-radius: 10px 10px 0 0;
+  padding: 8px;
+`;
+
+const AllPhotos = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-bottom: 2px;
+`;
+
+const AllPhotosButton = styled.span`
+  cursor: pointer;
+  color: ${(props) => props.theme.greyDark};
+
+  &:hover {
+    color: ${(props) => props.theme.additionalDarkGrey};
+  }
+`;
+
+const Photo = styled(ImageWrapper)`
+  height: 70px;
+  width: 70px;
+  border-radius: 0;
+`;
+
+const AllPhotosModal = styled.div`
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 100%;
+
+  & ${Photo} {
+    width: 100%;
+    max-width: 200px;
+    height: 100%;
+  }
+`;
+
+const PhotoModal = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  & ${Photo} {
+    height: 300px;
+    width: 250px;
+  }
+`;
+
+const LikesContainer = styled.div`
+  display: flex;
+`;
+
 export const Styled = {
+  LikesContainer,
+  PhotoModal,
+  AllPhotosButton,
+  AllPhotos,
+  PhotosWrapper,
   Profile,
   ProfilePhoto,
-  RightContent,
+  ProfileInfo,
   InfoHeader,
   Name,
   Status,
@@ -120,5 +224,9 @@ export const Styled = {
   Actions,
   ActionButton,
   ColorActionButton,
-  LeftContent,
+  ProfileMain,
+  Photos,
+  Photo,
+  ProfileInfoWrapper,
+  AllPhotosModal,
 };

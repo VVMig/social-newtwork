@@ -11,3 +11,6 @@ export * from './spinner';
 export * from './alert';
 export * from './dropdown-menu';
 export * from './imageWrapper';
+export * from './modal';
+export * from './portal';
+export * from './likes';

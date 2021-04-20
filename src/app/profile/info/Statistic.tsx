@@ -1,11 +1,16 @@
 import React from 'react';
 import { Styled } from '../styled';
+import { StatisticFields } from './interfaces';
 
-export const Statistic = () => {
+interface Props extends StatisticFields {
+  border?: boolean;
+}
+
+export const Statistic = ({ title, number, border }: Props) => {
   return (
-    <Styled.Statistic>
-      <Styled.StatisticHeader>Posts</Styled.StatisticHeader>
-      <Styled.StatisticBody>500</Styled.StatisticBody>
+    <Styled.Statistic border={border}>
+      <Styled.StatisticHeader>{title}</Styled.StatisticHeader>
+      <Styled.StatisticBody>{number}</Styled.StatisticBody>
     </Styled.Statistic>
   );
 };

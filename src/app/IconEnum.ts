@@ -12,4 +12,5 @@ export enum IconType {
   User = 'User',
   Lock = 'Lock',
   Exit = 'Exit',
+  Like = 'Like',
 }
