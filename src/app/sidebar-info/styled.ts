@@ -35,6 +35,10 @@ const SidebarContainer = styled.div`
   & Aside {
     transform: translate(-100%);
 
+    &.exited {
+      transform: translate(-100%);
+    }
+
     &.entering {
       animation: ${appearLeft} ${delay}ms linear;
     }
