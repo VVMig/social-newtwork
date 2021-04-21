@@ -1,6 +1,6 @@
 import React from 'react';
 import { Styled } from '../styled';
-import { StatisticFields } from './interfaces';
+import { StatisticFields } from '../interfaces';
 
 interface Props extends StatisticFields {
   border?: boolean;

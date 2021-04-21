@@ -1,5 +1,6 @@
+import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { ImageWrapper } from '../../packages/components';
+import { ImageWrapper, Avatar } from '../../packages/components';
 
 const imageSize = 300;
 const ProfileMainPadding = 20;
@@ -11,7 +12,6 @@ interface StatisticBorder {
 const Profile = styled.div`
   display: flex;
   width: 100%;
-  max-width: 750px;
   border-radius: 10px;
   padding: 10px;
   background-color: ${(props) => props.theme.mainBackground};
@@ -35,7 +35,7 @@ const ProfileInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 300px;
+  height: 400px;
 `;
 
 const ProfileMain = styled(ProfileInfo)`
@@ -128,7 +128,28 @@ const ColorActionButton = styled(ActionButton)`
   color: ${(props) => props.theme.light};
 `;
 
-const PhotosWrapper = styled.div`
+const Friend = styled(Link)`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: ${(props) => props.theme.additionalDarkGrey};
+`;
+
+const FriendAvatar = styled(Avatar)`
+  width: 60px;
+  height: 60px;
+`;
+
+const FriendFirstName = styled.h3`
+  font-size: 16px;
+  font-weight: normal;
+  padding-top: 5px;
+`;
+
+const ListSectionWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -144,7 +165,7 @@ const PhotosWrapper = styled.div`
   }
 `;
 
-const Photos = styled.div`
+const Items = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -153,14 +174,14 @@ const Photos = styled.div`
   padding: 8px;
 `;
 
-const AllPhotos = styled.div`
+const AllItems = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
   padding-bottom: 2px;
 `;
 
-const AllPhotosButton = styled.span`
+const AllItemsButton = styled.span`
   cursor: pointer;
   color: ${(props) => props.theme.greyDark};
 
@@ -175,7 +196,7 @@ const Photo = styled(ImageWrapper)`
   border-radius: 0;
 `;
 
-const AllPhotosModal = styled.div`
+const AllItemsModal = styled.div`
   display: flex;
   width: 100%;
   flex-wrap: wrap;
@@ -186,6 +207,22 @@ const AllPhotosModal = styled.div`
     width: 100%;
     max-width: 200px;
     height: 100%;
+  }
+
+  & ${Friend} {
+    &:hover ${FriendAvatar} {
+      box-shadow: 0 0 0 0.15rem ${(props) => props.theme.darkBlue};
+      transition: 0.1s linear box-shadow;
+    }
+  }
+
+  & ${FriendAvatar} {
+    width: 180px;
+    height: 180px;
+  }
+
+  & ${FriendFirstName} {
+    font-size: 24px;
   }
 `;
 
@@ -201,16 +238,14 @@ const PhotoModal = styled.div`
   }
 `;
 
-const LikesContainer = styled.div`
-  display: flex;
-`;
-
 export const Styled = {
-  LikesContainer,
+  FriendAvatar,
+  FriendFirstName,
+  Friend,
   PhotoModal,
-  AllPhotosButton,
-  AllPhotos,
-  PhotosWrapper,
+  AllItemsButton,
+  AllItems,
+  ListSectionWrapper,
   Profile,
   ProfilePhoto,
   ProfileInfo,
@@ -225,8 +260,8 @@ export const Styled = {
   ActionButton,
   ColorActionButton,
   ProfileMain,
-  Photos,
+  Items,
   Photo,
   ProfileInfoWrapper,
-  AllPhotosModal,
+  AllItemsModal,
 };

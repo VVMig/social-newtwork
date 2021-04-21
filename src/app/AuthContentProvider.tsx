@@ -5,7 +5,6 @@ import { SidebarLive } from './sidebar-live/SidebarLive';
 import { Icon } from './Icon';
 import { IconType } from './IconEnum';
 import { friends } from './friends';
-import { groups } from './groups';
 import { Header } from '../packages/components';
 import { tabs } from './tabs';
 import { Styled } from './styled';
@@ -13,9 +12,14 @@ import { useOutsideClick } from './hooks';
 
 export const AuthContentProvider: React.FC = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(true);
 
   const showMenuHandler: React.MouseEventHandler = () => {
     setShowMenu(!showMenu);
+  };
+
+  const showSidebarHandler: React.MouseEventHandler = () => {
+    setShowSidebar(!showSidebar);
   };
 
   const ref = useRef<HTMLDivElement>(null);
@@ -30,7 +34,11 @@ export const AuthContentProvider: React.FC = ({ children }) => {
     <>
       {store.user && store.user.verified ? (
         <Styled.Wrapper auth>
-          <SidebarInfo friends={friends} groups={groups} />
+          <SidebarInfo
+            friends={friends}
+            showSidebarHandler={showSidebarHandler}
+            showSidebar={showSidebar}
+          />
           <SidebarLive
             viewIcon={<Icon type={IconType.Views} />}
             notifyIcon={<Icon type={IconType.Notifications} />}
@@ -38,15 +46,20 @@ export const AuthContentProvider: React.FC = ({ children }) => {
             showMenuHandler={showMenuHandler}
             showMenu={showMenu}
             menuRef={ref}
+            showSidebar={showSidebar}
           />
           <Styled.Content auth>
             <Header tabs={tabs} />
-            {children}
+            <Styled.ContentWidth sidebar={showSidebar}>
+              {children}
+            </Styled.ContentWidth>
           </Styled.Content>
         </Styled.Wrapper>
       ) : (
-        <Styled.Wrapper>
-          <Styled.Content>{children}</Styled.Content>
+        <Styled.Wrapper common>
+          <Styled.Content>
+            <Styled.ContentWidth>{children}</Styled.ContentWidth>
+          </Styled.Content>
         </Styled.Wrapper>
       )}
     </>

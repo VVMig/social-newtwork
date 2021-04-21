@@ -9,11 +9,11 @@ interface Props extends ModalProps {
 export const AllPhotoModal = ({ showModal, setShowModal, photos }: Props) => {
   return (
     <Modal showModal={showModal} setShowModal={setShowModal} title="All photos">
-      <Styled.AllPhotosModal>
+      <Styled.AllItemsModal>
         {photos.map((photo, i) => (
           <Styled.Photo {...photo} key={i} />
         ))}
-      </Styled.AllPhotosModal>
+      </Styled.AllItemsModal>
     </Modal>
   );
 };

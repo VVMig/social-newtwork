@@ -15,6 +15,7 @@ import {
   PersonOutline,
   ExitToApp,
   Favorite,
+  ArrowBackIos,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -32,4 +33,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.User]: <PersonOutline />,
   [IconType.Exit]: <ExitToApp />,
   [IconType.Like]: <Favorite />,
+  [IconType.CloseArrow]: <ArrowBackIos />,
 };

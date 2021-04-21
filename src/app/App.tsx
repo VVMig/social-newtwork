@@ -41,7 +41,7 @@ export const App = observer(() => {
           <>
             <Route exact path={RoutesEnum.Authentication}>
               {!store.user || !store.user.verified ? (
-                <Styled.Wrapper>
+                <Styled.Wrapper register>
                   <Auth />
                 </Styled.Wrapper>
               ) : (
@@ -53,9 +53,9 @@ export const App = observer(() => {
               <AuthorizedRoute path={RoutesEnum.Home}>
                 <PostsList posts={posts} />
               </AuthorizedRoute>
-              <AuthorizedRoute path={`${RoutesEnum.Profile}/:id`}>
+              <Route path={`${RoutesEnum.Profile}/:id`}>
                 <Profile />
-              </AuthorizedRoute>
+              </Route>
             </AuthContentProvider>
           </>
         )}

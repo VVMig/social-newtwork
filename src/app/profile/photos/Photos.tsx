@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Styled } from '../styled';
 import { AllPhotoModal } from './AllPhotoModal';
 import { PhotosSwiper } from './PhotosSwiper';
 import 'swiper/swiper-bundle.css';
-import { PhotosProps } from './interfacers';
+import { PhotosProps } from '../interfaces';
+import { ListSection } from '../ListSection';
 
 export const Photos = ({ photos }: PhotosProps) => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
@@ -14,16 +14,9 @@ export const Photos = ({ photos }: PhotosProps) => {
 
   return (
     <>
-      <Styled.PhotosWrapper>
-        <Styled.Photos>
-          <Styled.AllPhotos>
-            <Styled.AllPhotosButton onClick={allPhotosHandler}>
-              View all
-            </Styled.AllPhotosButton>
-          </Styled.AllPhotos>
-          <PhotosSwiper photos={photos} />
-        </Styled.Photos>
-      </Styled.PhotosWrapper>
+      <ListSection allClickHandler={allPhotosHandler}>
+        <PhotosSwiper photos={photos} />
+      </ListSection>
       <AllPhotoModal
         setShowModal={setShowAllPhotos}
         showModal={showAllPhotos}

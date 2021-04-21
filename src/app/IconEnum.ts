@@ -13,4 +13,5 @@ export enum IconType {
   Lock = 'Lock',
   Exit = 'Exit',
   Like = 'Like',
+  CloseArrow = 'CloseArrow',
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Styled } from '../styled';
 import { Statistic } from './Statistic';
-import { StatisticsProps } from './interfaces';
+import { StatisticsProps } from '../interfaces';
 
 export const Body = ({ stats }: StatisticsProps) => {
   return (
