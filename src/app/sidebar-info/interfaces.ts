@@ -1,6 +1,9 @@
-import { WidgetFields } from '../../packages/components';
+import { FriendFields } from '../../packages/components';
 
 export interface SidebarItems {
-  friends: WidgetFields[];
-  groups: WidgetFields[];
+  friends: FriendFields[];
+}
+
+export interface SidebarTogglerProps {
+  showSidebar: boolean;
 }

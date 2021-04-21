@@ -1,13 +1,13 @@
-export interface WidgetFields {
+export interface FriendFields {
   route: string;
   firstName?: string;
   lastName?: string;
   online?: boolean;
   lastVisit?: number;
-  communityName?: string;
+  avatar?: string;
 }
 
 export interface WidgetProps {
   title: string;
-  items: WidgetFields[];
+  items: FriendFields[];
 }

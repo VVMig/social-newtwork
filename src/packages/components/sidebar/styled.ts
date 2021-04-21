@@ -5,6 +5,8 @@ const logoSize = '30px';
 const notificationsSize = '25px';
 const arrowSize = '25px';
 
+export const delay = 300;
+
 interface MenuOpen {
   open: boolean;
   delay: number;

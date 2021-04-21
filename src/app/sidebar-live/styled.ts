@@ -1,10 +1,34 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const sidebarLiveWidth = 390;
+
+const delay = 300;
 
 const headerInfoWidth = 170;
 
 const marginFromHeader = 5;
+
+const appearRight = keyframes`
+  0%{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+`;
+
+const disappearRight = keyframes`
+  0%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100%{
+    transform: translateX(100%);
+    opacity: 0;
+  }
+`;
 
 const SidebarContainer = styled.div`
   justify-self: end;
@@ -12,6 +36,22 @@ const SidebarContainer = styled.div`
   width: 100%;
   height: 100vh;
   order: 3;
+
+  & Aside {
+    transform: translate(100%);
+
+    &.entering {
+      animation: ${appearRight} ${delay}ms linear;
+    }
+
+    &.entered {
+      transform: translate(0);
+    }
+
+    &.exiting {
+      animation: ${disappearRight} ${delay}ms linear;
+    }
+  }
 `;
 
 const Header = styled.div`

@@ -15,7 +15,7 @@ const PostContainer = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  max-width: 660px;
+  /* max-width: 750px; */
   width: 100%;
   background-color: ${(props) => props.theme.mainBackground};
   border-radius: 25px;
