@@ -6,11 +6,11 @@ interface Props extends StatisticFields {
   border?: boolean;
 }
 
-export const Statistic = ({ title, number, border }: Props) => {
+export const Statistic = ({ title, amount, border }: Props) => {
   return (
     <Styled.Statistic border={border}>
       <Styled.StatisticHeader>{title}</Styled.StatisticHeader>
-      <Styled.StatisticBody>{number}</Styled.StatisticBody>
+      <Styled.StatisticBody>{amount}</Styled.StatisticBody>
     </Styled.Statistic>
   );
 };

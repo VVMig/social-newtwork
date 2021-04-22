@@ -4,3 +4,5 @@ export * from './refreshToken';
 export * from './signIn';
 export * from './signUp';
 export * from './signOut';
+export * from './getProfile';
+export * from './sendFiles';

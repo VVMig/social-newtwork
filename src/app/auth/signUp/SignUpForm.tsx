@@ -4,7 +4,7 @@ import { SignUpValues, SubmitProps } from '../interfaces';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
 import { Form } from '../Form';
-import { signUp, parseError } from '../../helpers';
+import { signUp, parseError, signIn, authorize } from '../../helpers';
 
 const initialValues: SignUpValues = {
   firstName: '',
@@ -22,6 +22,11 @@ export const SignUpForm = ({
     try {
       startFetch();
       await signUp(values);
+      await signIn({
+        email: values.email,
+        password: values.password,
+      });
+      await authorize();
     } catch (error) {
       errorHandler(parseError(error));
     } finally {

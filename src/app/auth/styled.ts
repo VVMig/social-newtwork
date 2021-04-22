@@ -47,16 +47,18 @@ const Main = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  left: -100%;
+  left: 0;
+
+  &.exited {
+    left: -100%;
+  }
 
   &.entered {
     left: 0;
   }
-
   &.entering {
     animation: ${appearLeftLinear} ${switchVerificationDuration}ms linear;
   }
-
   &.exiting {
     animation: ${disappearLeftLinear} ${switchVerificationDuration}ms linear;
   }
@@ -292,7 +294,11 @@ const Verification = styled.div`
   display: flex;
   width: 100%;
   position: relative;
-  right: -100%;
+  right: 0;
+
+  &.exited {
+    right: -100%;
+  }
 
   &.entering {
     animation: ${appearRightLinear} ${switchVerificationDuration}ms linear;

@@ -18,8 +18,7 @@ const Profile = styled.div`
 `;
 
 const ProfilePhoto = styled(ImageWrapper)`
-  min-height: ${imageSize}px;
-  height: 100%;
+  height: ${imageSize}px;
   width: ${imageSize}px;
 `;
 

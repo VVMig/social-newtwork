@@ -14,4 +14,7 @@ export enum IconType {
   Exit = 'Exit',
   Like = 'Like',
   CloseArrow = 'CloseArrow',
+  Upload = 'Upload',
+  Done = 'Done',
+  Error = 'Error',
 }

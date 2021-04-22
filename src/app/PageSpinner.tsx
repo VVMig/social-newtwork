@@ -4,7 +4,7 @@ import { Styled } from './styled';
 
 export const PageSpinner = () => {
   return (
-    <Styled.Wrapper>
+    <Styled.Wrapper register>
       <Styled.PageSpinner>
         <Spinner />
       </Styled.PageSpinner>

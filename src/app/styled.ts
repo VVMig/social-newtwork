@@ -33,6 +33,7 @@ const Content = styled.div<AuthProps>`
   overflow-x: hidden;
   overflow-y: scroll;
   position: relative;
+  width: 100%;
   ${(props) =>
     props.auth &&
     css`

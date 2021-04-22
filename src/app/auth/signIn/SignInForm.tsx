@@ -19,6 +19,7 @@ export const SignInForm = observer(
         startFetch();
         await signIn(values);
         await authorize();
+        endFetch();
       } catch (error) {
         errorHandler(parseError(error));
         endFetch();

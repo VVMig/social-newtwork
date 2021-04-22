@@ -3,10 +3,14 @@ import { Body } from './Body';
 import { Header } from './Header';
 import { StatisticsProps } from '../interfaces';
 
-export const Info = ({ stats }: StatisticsProps) => {
+interface Props extends StatisticsProps {
+  name: string;
+}
+
+export const Info = ({ stats, name }: Props) => {
   return (
     <>
-      <Header />
+      <Header name={name} />
       <Body stats={stats} />
     </>
   );
