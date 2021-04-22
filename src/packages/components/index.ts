@@ -14,3 +14,4 @@ export * from './imageWrapper';
 export * from './modal';
 export * from './portal';
 export * from './likes';
+export * from './add-file-modal';

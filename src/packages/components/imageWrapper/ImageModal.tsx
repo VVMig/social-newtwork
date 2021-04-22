@@ -24,7 +24,7 @@ export const ImageModal = ({
       <Modal {...props}>
         <Styled.Image src={src} alt={alt} />
         <Styled.LikesContainer>
-          {likesNumber && likeIcon && (
+          {likesNumber !== undefined && likeIcon && (
             <Likes
               likesNumber={likesNumber}
               icon={likeIcon}
