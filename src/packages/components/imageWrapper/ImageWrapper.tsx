@@ -9,9 +9,7 @@ export const ImageWrapper = ({
   className,
   alt,
   src,
-  likeIcon,
-  likesNumber,
-  isLiked,
+  ...props
 }: ImageProps) => {
   const [showImageModal, setShowImageModal] = useState(false);
 
@@ -38,9 +36,7 @@ export const ImageWrapper = ({
         setShowModal={setShowImageModal}
         src={src}
         alt={alt}
-        likeIcon={likeIcon}
-        likesNumber={likesNumber}
-        isLiked={isLiked}
+        {...props}
       />
     </>
   );

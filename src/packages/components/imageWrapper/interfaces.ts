@@ -7,4 +7,5 @@ export interface ImageProps {
   alt?: string;
   likeIcon?: JSX.Element;
   isLiked?: boolean;
+  imageDate?: string;
 }

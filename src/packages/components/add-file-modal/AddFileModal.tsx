@@ -32,8 +32,9 @@ export const AddFileModal = ({
     try {
       setLoading(true);
       await sendFiles(files);
-      setSuccess(true);
       updateAction && (await updateAction());
+      setLoading(false);
+      setSuccess(true);
     } catch (error) {
       setError(true);
     } finally {

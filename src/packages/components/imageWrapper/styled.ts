@@ -22,14 +22,20 @@ const Image = styled.img`
   height: 100%;
 `;
 
-const LikesContainer = styled.div`
+const InfoContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding-top: 10px;
+`;
+
+const Date = styled.div`
+  font-size: 16px;
+  color: ${(props) => props.theme.additionalDarkGrey};
 `;
 
 export const Styled = {
   Preview,
   Image,
-  LikesContainer,
+  InfoContainer,
+  Date,
 };

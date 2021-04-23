@@ -9,6 +9,7 @@ interface Props extends ModalProps {
   alt?: string;
   likeIcon?: JSX.Element;
   isLiked?: boolean;
+  imageDate?: string;
 }
 
 export const ImageModal = ({
@@ -17,13 +18,15 @@ export const ImageModal = ({
   alt,
   likeIcon,
   isLiked,
+  imageDate,
   ...props
 }: Props) => {
   return (
     <>
       <Modal {...props}>
         <Styled.Image src={src} alt={alt} />
-        <Styled.LikesContainer>
+        <Styled.InfoContainer>
+          {imageDate && <Styled.Date>{imageDate}</Styled.Date>}
           {likesNumber !== undefined && likeIcon && (
             <Likes
               likesNumber={likesNumber}
@@ -31,7 +34,7 @@ export const ImageModal = ({
               isLiked={isLiked}
             />
           )}
-        </Styled.LikesContainer>
+        </Styled.InfoContainer>
       </Modal>
     </>
   );

@@ -5,6 +5,7 @@ export interface IPhoto {
   likes: [];
   avatar: boolean;
   ext: string;
+  date: number;
   _id: string;
 }
 
