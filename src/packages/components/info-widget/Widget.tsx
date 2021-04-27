@@ -10,8 +10,8 @@ export const Widget = ({ title, items }: WidgetProps) => {
         <h2>{title}</h2>
       </Styled.Title>
       <Styled.List>
-        {items.map((x, i) => (
-          <WidgetItem {...x} key={i} />
+        {items.map((item, i) => (
+          <WidgetItem {...item} key={i} />
         ))}
       </Styled.List>
     </Styled.SidebarWidget>

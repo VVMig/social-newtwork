@@ -1,11 +1,10 @@
 import React from 'react';
 import { Formik, FormikHelpers } from 'formik';
-import { Styled } from '../styled';
-import { SignUpValues } from '../interfaces';
-import { Button } from '../../../packages/components';
+import { SignUpValues, SubmitProps } from '../interfaces';
 import { signUpShema } from '../configs/validationSchema';
 import { signUpFields } from '../configs/inputFields';
-import { FormInputs } from '../FormInputs';
+import { Form } from '../Form';
+import { signUp, parseError, signIn, authorize } from '../../helpers';
 
 const initialValues: SignUpValues = {
   firstName: '',
@@ -14,7 +13,27 @@ const initialValues: SignUpValues = {
   password: '',
 };
 
-export const SignUpForm = () => {
+export const SignUpForm = ({
+  startFetch,
+  endFetch,
+  errorHandler,
+}: SubmitProps) => {
+  const signUpSubmit = async (values: SignUpValues) => {
+    try {
+      startFetch();
+      await signUp(values);
+      await signIn({
+        email: values.email,
+        password: values.password,
+      });
+      await authorize();
+    } catch (error) {
+      errorHandler(parseError(error));
+    } finally {
+      endFetch();
+    }
+  };
+
   return (
     <Formik
       initialValues={initialValues}
@@ -23,20 +42,11 @@ export const SignUpForm = () => {
         values: SignUpValues,
         { setSubmitting }: FormikHelpers<SignUpValues>
       ) => {
+        signUpSubmit(values);
         setSubmitting(false);
       }}
     >
-      <Styled.Form signIn={false}>
-        <Styled.FormTitle>
-          <h2>Create account</h2>
-        </Styled.FormTitle>
-        <Styled.InputsContainer>
-          <FormInputs fields={signUpFields} />
-        </Styled.InputsContainer>
-        <Button type="submit">
-          <Styled.BtnText>Sign up</Styled.BtnText>
-        </Button>
-      </Styled.Form>
+      <Form fields={signUpFields} />
     </Formik>
   );
 };

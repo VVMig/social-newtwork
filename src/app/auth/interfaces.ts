@@ -20,6 +20,7 @@ export enum NameValues {
 export interface InputFields {
   name: NameValues;
   placeholder: string;
+  type: string;
   icon: IconType;
 }
 export interface SwitchState {
@@ -27,14 +28,25 @@ export interface SwitchState {
 }
 
 export interface WelcomeProps extends SwitchState {
-  handler?: React.MouseEventHandler;
+  switchHandler?: React.MouseEventHandler;
 }
 
 export interface FormProps extends SwitchState {
-  signIn: boolean;
+  signIn?: boolean;
   fields: InputFields[];
+  loading?: boolean;
 }
 
 export interface FormContainerProps extends SwitchState {
   signInDelayed: boolean;
+}
+
+export interface SubmitProps {
+  startFetch: () => void;
+  endFetch: () => void;
+  errorHandler: (message: string) => void;
+}
+
+export interface ResentState {
+  resent: boolean;
 }

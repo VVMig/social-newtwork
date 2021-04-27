@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { ImgProps, SpanProps } from './interfaces';
+import { SpanProps } from './interfaces';
+import { ImageWrapper } from '../imageWrapper';
 
 const moreSize = '30px';
 const gaps = '30px';
@@ -14,7 +15,7 @@ const PostContainer = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  max-width: 660px;
+  /* max-width: 750px; */
   width: 100%;
   background-color: ${(props) => props.theme.mainBackground};
   border-radius: 25px;
@@ -23,14 +24,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const Img = styled.div<ImgProps>`
+const PostImage = styled(ImageWrapper)`
   max-width: 300px;
   width: 100%;
   height: 100%;
-  background: ${(props) => props.imgSrc || props.theme.primary};
-  border-radius: 25px;
-  background-position: center;
-  background-size: cover;
 `;
 
 const Content = styled.div`
@@ -53,8 +50,8 @@ const Date = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 8px 0 15px 0;
-  background-color: ${(props) => props.theme.backgroundBlue};
-  color: ${(props) => props.theme.blueText};
+  background-color: ${(props) => props.theme.bgBlue};
+  color: ${(props) => props.theme.blue};
   border-radius: 10px;
   height: 72px;
   max-width: 52px;
@@ -65,12 +62,12 @@ const DateSpan = styled.span<SpanProps>`
   ${(props) =>
     props.day
       ? css`
-          color: ${(props) => props.theme.tabColor};
+          color: ${(props) => props.theme.purple};
           font-size: 26px;
           font-weight: bold;
         `
       : css`
-          color: ${(props) => props.theme.blueText};
+          color: ${(props) => props.theme.blue};
           font-size: 18px;
           font-weight: normal;
         `};
@@ -89,7 +86,7 @@ const Title = styled.div`
 `;
 
 const More = styled.div`
-  color: ${(props) => props.theme.textLight};
+  color: ${(props) => props.theme.greyLight};
   cursor: pointer;
   margin-left: auto;
 
@@ -99,7 +96,7 @@ const More = styled.div`
   }
 
   &:hover {
-    color: ${(props) => props.theme.textDark};
+    color: ${(props) => props.theme.greyDark};
   }
 `;
 
@@ -111,7 +108,7 @@ const Body = styled.div`
 `;
 
 const Text = styled.div`
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   font-size: 12px;
   font-weight: lighter;
   line-height: 20px;
@@ -141,7 +138,7 @@ const Name = styled.span`
 `;
 
 const Subname = styled.span`
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   font-size: 8px;
 `;
 
@@ -153,7 +150,7 @@ const Footer = styled.div`
 `;
 
 const Subtitle = styled.span`
-  color: ${(props) => props.theme.textMain};
+  color: ${(props) => props.theme.greyMain};
   font-size: 12px;
   font-weight: lighter;
   line-height: 25px;
@@ -174,7 +171,7 @@ export const Styled = {
   Subtitle,
   Footer,
   Wrapper,
-  Img,
+  PostImage,
   Content,
   Header,
   Date,

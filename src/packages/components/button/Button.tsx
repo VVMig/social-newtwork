@@ -2,12 +2,16 @@ import React, { ButtonHTMLAttributes } from 'react';
 import { Styled } from './styled';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-  handler?: React.MouseEventHandler;
+  clickHandler?: React.MouseEventHandler;
 }
 
-export const Button: React.FC<Props> = ({ handler, children, type }) => {
+export const Button: React.FC<Props> = ({
+  clickHandler,
+  children,
+  ...props
+}) => {
   return (
-    <Styled.Btn onClick={handler} type={type}>
+    <Styled.Btn onClick={clickHandler} {...props}>
       {children}
     </Styled.Btn>
   );

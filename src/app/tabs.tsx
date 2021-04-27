@@ -1,30 +1,31 @@
 import { Icon } from './Icon';
 import { Tab } from '../packages/components';
-import { TabRoutes, IconType } from './IconEnum';
+import { IconType } from './IconEnum';
+import { RoutesEnum } from './routes/RoutesEnum';
 
 export const tabs: Tab[] = [
   {
-    route: TabRoutes.Home,
+    route: RoutesEnum.Home,
     title: 'Home page',
     component: (): JSX.Element => <Icon type={IconType.Home} />,
   },
   {
-    route: TabRoutes.Groups,
+    route: RoutesEnum.Groups,
     title: 'Groups',
     component: () => <Icon type={IconType.Groups} />,
   },
   {
-    route: TabRoutes.Messager,
+    route: RoutesEnum.Messager,
     title: 'Messager',
     component: () => <Icon type={IconType.Messager} />,
   },
   {
-    route: TabRoutes.Help,
+    route: RoutesEnum.Help,
     title: 'Help',
     component: () => <Icon type={IconType.Help} />,
   },
   {
-    route: TabRoutes.Settings,
+    route: RoutesEnum.Settings,
     title: 'Settings',
     component: () => <Icon type={IconType.Settings} />,
   },

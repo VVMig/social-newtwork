@@ -13,6 +13,12 @@ import {
   EmailOutlined,
   LockOutlined,
   PersonOutline,
+  ExitToApp,
+  Favorite,
+  ArrowBackIos,
+  CloudUploadOutlined,
+  CheckCircleOutline,
+  CancelOutlined,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -28,4 +34,10 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Email]: <EmailOutlined />,
   [IconType.Lock]: <LockOutlined />,
   [IconType.User]: <PersonOutline />,
+  [IconType.Exit]: <ExitToApp />,
+  [IconType.Like]: <Favorite />,
+  [IconType.CloseArrow]: <ArrowBackIos />,
+  [IconType.Upload]: <CloudUploadOutlined />,
+  [IconType.Done]: <CheckCircleOutline />,
+  [IconType.Error]: <CancelOutlined />,
 };

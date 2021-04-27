@@ -1,18 +1,35 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link as StyledLink } from 'react-router-dom';
 
 export interface AvatarProps {
-  size: number;
+  size?: number;
   route?: string;
+  outline?: boolean;
+  src?: string;
+  className?: string;
 }
 
 const Avatar = styled.div<AvatarProps>`
   width: ${(props) => props.size}px;
   height: ${(props) => props.size}px;
   background-position: center;
-  background-size: cover;
-  background-color: ${(props) => props.theme.primary};
+  background-size: contain;
+  ${(props) =>
+    props.src
+      ? css`
+          background-image: ${`url(${props.src})`};
+        `
+      : css`
+          background-color: ${props.theme.primary};
+        `}
+
   border-radius: 50%;
+  ${(props) =>
+    props.outline &&
+    css`
+      box-shadow: 0 0 0 0.15rem ${(props) => props.theme.darkBlue};
+      transition: 0.1s linear box-shadow;
+    `}
 `;
 
 const Link = styled(StyledLink)`

@@ -8,7 +8,7 @@ export const SignInText = ({ signIn }: WelcomeProps) => {
     <Styled.SignInText signIn={signIn}>
       <AuthText
         title="Welcome back!"
-        subtitle="Enter your personal details and start journey us"
+        subtitle="To keep connected with us please login with your personal info"
       />
     </Styled.SignInText>
   );

@@ -11,12 +11,10 @@ export enum IconType {
   Email = 'Email',
   User = 'User',
   Lock = 'Lock',
-}
-
-export enum TabRoutes {
-  Home = '/home',
-  Groups = '/groups',
-  Messager = '/messager',
-  Help = '/help',
-  Settings = '/settings',
+  Exit = 'Exit',
+  Like = 'Like',
+  CloseArrow = 'CloseArrow',
+  Upload = 'Upload',
+  Done = 'Done',
+  Error = 'Error',
 }

@@ -5,7 +5,7 @@ const SidebarWidget = styled.div`
 `;
 
 const Title = styled.div`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   font-size: 12px;
   text-transform: uppercase;
   padding-left: 28px;
@@ -23,7 +23,7 @@ const Item = styled.div`
   display: inline-flex;
   align-items: center;
   width: 100%;
-  padding: 0 24px 0 28px;
+  padding: 10px 24px 10px 28px;
   position: relative;
   justify-content: space-between;
 `;
@@ -52,7 +52,7 @@ const Online = styled.div`
 `;
 
 const Offline = styled.span`
-  color: ${(props) => props.theme.textDark};
+  color: ${(props) => props.theme.greyDark};
   font-size: 12px;
 `;
 

@@ -1,48 +1,64 @@
-import React from 'react';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
-import { Header, PostsList } from '../packages/components';
+import React, { useEffect, useState } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { PostsList } from '../packages/components';
 import { Styled } from './styled';
-import { tabs } from './tabs';
-import { friends } from './friends';
-import { groups } from './groups';
 import { posts } from './posts';
-import { IconType, TabRoutes } from './IconEnum';
-import { SidebarInfo } from './sidebar-info/SidebarInfo';
-import { SidebarLive } from './sidebar-live/SidebarLive';
-import { Icon } from './Icon';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
+import { observer } from 'mobx-react-lite';
+import { store } from './store';
+import { authorize } from './helpers';
+import { AuthorizedRoute } from './routes';
+import { PageSpinner } from './PageSpinner';
+import { RoutesEnum } from './routes/RoutesEnum';
+import { AuthContentProvider } from './AuthContentProvider';
+import { Profile } from './profile/Profile';
 
-export const App = () => {
+export const App = observer(() => {
+  const [loading, setLoading] = useState(true);
+
+  const authorizeUser = async () => {
+    try {
+      await authorize();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    authorizeUser();
+  }, []);
+
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <Switch>
-          <Route path="/register">
-            <Styled.Wrapper>
-              <Auth />
-            </Styled.Wrapper>
-          </Route>
-          <Route path="/">
-            <Styled.Wrapper auth>
-              <SidebarInfo friends={friends} groups={groups} />
-              <Styled.Content>
-                <Header tabs={tabs} />
-                <Route path={TabRoutes.Home}>
-                  <PostsList posts={posts} />
-                </Route>
-              </Styled.Content>
-              <SidebarLive
-                viewIcon={<Icon type={IconType.Views} />}
-                notifyIcon={<Icon type={IconType.Notifications} />}
-                sendIcon={<Icon type={IconType.Send} />}
-              />
-            </Styled.Wrapper>
-          </Route>
-          <Redirect to={TabRoutes.Home} />
-        </Switch>
-      </ThemeProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Switch>
+        {loading ? (
+          <PageSpinner />
+        ) : (
+          <>
+            <Route exact path={RoutesEnum.Authentication}>
+              {!store.user || !store.user.verified ? (
+                <Styled.Wrapper register>
+                  <Auth />
+                </Styled.Wrapper>
+              ) : (
+                <Redirect to={RoutesEnum.Home} />
+              )}
+            </Route>
+
+            <AuthContentProvider>
+              <AuthorizedRoute path={RoutesEnum.Home}>
+                <PostsList posts={posts} />
+              </AuthorizedRoute>
+              <Route path={`${RoutesEnum.Profile}/:id`}>
+                <Profile />
+              </Route>
+            </AuthContentProvider>
+          </>
+        )}
+      </Switch>
+    </ThemeProvider>
   );
-};
+});

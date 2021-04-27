@@ -1,12 +1,11 @@
 import React from 'react';
 import { Widget } from '../../packages/components';
-import { SidebarItems } from './interfaces';
+import { store } from '../store';
 
-export const Content = ({ friends, groups }: SidebarItems) => {
+export const Content = () => {
   return (
     <>
-      <Widget title="groups" items={groups} />
-      <Widget title="friends" items={friends} />
+      <Widget title="friends" items={store.user.friendsProfiles} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import { Sidebar } from '../../packages/components';
 import { Content } from './Content';
 import { Header } from './Header';
@@ -8,13 +8,30 @@ interface Props {
   viewIcon: JSX.Element;
   notifyIcon: JSX.Element;
   sendIcon: JSX.Element;
+  showMenu: boolean;
+  showMenuHandler?: React.MouseEventHandler;
+  menuRef: RefObject<HTMLDivElement>;
+  showSidebar: boolean;
 }
 
-export const SidebarLive = ({ viewIcon, notifyIcon, sendIcon }: Props) => {
+export const SidebarLive = ({
+  viewIcon,
+  notifyIcon,
+  sendIcon,
+  showMenu,
+  showMenuHandler,
+  menuRef,
+  showSidebar,
+}: Props) => {
   return (
     <Styled.SidebarContainer>
-      <Sidebar>
-        <Header icon={notifyIcon} />
+      <Sidebar showSidebar={showSidebar}>
+        <Header
+          icon={notifyIcon}
+          showMenu={showMenu}
+          showMenuHandler={showMenuHandler}
+          menuRef={menuRef}
+        />
         <Content viewIcon={viewIcon} sendIcon={sendIcon} />
       </Sidebar>
     </Styled.SidebarContainer>

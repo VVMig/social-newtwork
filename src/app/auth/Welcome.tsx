@@ -5,12 +5,12 @@ import { Button } from '../../packages/components';
 import { SignInText } from './signIn/SignInText';
 import { SignUpText } from './signUp/SignUpText';
 
-export const Welcome = ({ signIn, handler }: WelcomeProps) => {
+export const Welcome = ({ signIn, switchHandler }: WelcomeProps) => {
   return (
     <>
       <Styled.SwitchContent signIn={signIn}>
         <SignInText signIn={signIn} />
-        <Button handler={handler}>
+        <Button clickHandler={switchHandler} disabled={false}>
           <Styled.SignUpBtnText signIn={signIn}>Sign up</Styled.SignUpBtnText>
           <Styled.SignInBtnText signIn={signIn}>Sign in</Styled.SignInBtnText>
         </Button>
