@@ -7,11 +7,15 @@ import { PhotosProps } from '../interfaces';
 export const PhotosSwiper = ({ photos }: PhotosProps) => {
   return (
     <Swiper spaceBetween={2} slidesPerView={'auto'}>
-      {photos.map((photo, i) => (
-        <SwiperSlide key={i}>
-          <Styled.Photo {...photo} />
-        </SwiperSlide>
-      ))}
+      {photos.length ? (
+        photos.map((photo, i) => (
+          <SwiperSlide key={i}>
+            <Styled.Photo {...photo} />
+          </SwiperSlide>
+        ))
+      ) : (
+        <SwiperSlide>No photos yet</SwiperSlide>
+      )}
     </Swiper>
   );
 };

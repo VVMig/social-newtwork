@@ -2,24 +2,22 @@ import React, { useEffect, useState } from 'react';
 import { Styled } from './styled';
 import { ProfileMain } from './ProfileMain';
 import { ProfileInfo } from './ProfileInfo';
-import { parseStats } from '../helpers/parseStats';
-import { Params, ProfileUser } from './interfaces';
+import { Params } from './interfaces';
 import { getProfile, parseError } from '../helpers';
 import { useParams } from 'react-router';
 import { Spinner } from '../../packages/components';
-import { parsePhotos } from '../helpers/parsePhotos';
+import { store } from '../store';
+import { observer } from 'mobx-react-lite';
 
-export const Profile = () => {
-  const [profileUser, setProfileUser] = useState<ProfileUser>();
+export const Profile = observer(() => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { id } = useParams<Params>();
 
   const getProfileUser = async () => {
     try {
-      const data = await getProfile(id);
-
-      setProfileUser(data);
+      await getProfile(id);
+      setError('');
     } catch (error) {
       setError(parseError(error));
     } finally {
@@ -29,7 +27,8 @@ export const Profile = () => {
 
   useEffect(() => {
     getProfileUser();
-  }, []);
+    console.log(id);
+  }, [id]);
 
   return (
     <>
@@ -37,17 +36,10 @@ export const Profile = () => {
         <Spinner />
       ) : (
         <Styled.Profile>
-          {profileUser ? (
+          {store.isProfileSet && !error ? (
             <>
-              <ProfileMain
-                updateUser={getProfileUser}
-                profilePhoto={parsePhotos(profileUser.photos)[0]}
-              />
-              <ProfileInfo
-                stats={parseStats(profileUser)}
-                photos={parsePhotos(profileUser.photos)}
-                name={`${profileUser.firstName} ${profileUser.lastName}`}
-              />
+              <ProfileMain updateUser={getProfileUser} />
+              <ProfileInfo />
             </>
           ) : (
             error
@@ -56,4 +48,4 @@ export const Profile = () => {
       )}
     </>
   );
-};
+});

@@ -1,4 +1,4 @@
-import { ImageProps, FriendFields } from '../../packages/components';
+import { ImageProps } from '../../packages/components';
 
 export interface IPhoto {
   owner: ProfileUser;
@@ -9,6 +9,13 @@ export interface IPhoto {
   _id: string;
 }
 
+export interface FriendFields {
+  route: string;
+  firstName?: string;
+  lastName?: string;
+  online?: boolean;
+  avatar?: string;
+}
 export interface ProfileUser {
   firstName: string;
   lastName: string;

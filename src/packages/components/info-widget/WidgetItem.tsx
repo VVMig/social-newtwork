@@ -5,6 +5,7 @@ import { Styled } from './styled';
 import { Underline } from '../underline/Underline';
 import { Dot } from '../dot/Dot';
 import { Avatar } from '../avatar/Avatar';
+import moment from 'moment';
 
 export const WidgetItem = ({
   firstName,
@@ -14,6 +15,12 @@ export const WidgetItem = ({
   route,
   avatar,
 }: FriendFields) => {
+  const realTime = () => {
+    return moment(lastVisit).fromNow() === 'a few seconds ago'
+      ? 'recently'
+      : moment(lastVisit).fromNow();
+  };
+
   return (
     <Link to={route}>
       <Styled.Item>
@@ -23,17 +30,15 @@ export const WidgetItem = ({
             <h3>{`${firstName} ${lastName}`}</h3>
           </Styled.Name>
         </Styled.Info>
-        {online !== undefined && (
-          <Styled.Status>
-            {online ? (
-              <Styled.Online>
-                <Dot />
-              </Styled.Online>
-            ) : (
-              <Styled.Offline>{lastVisit} min</Styled.Offline>
-            )}
-          </Styled.Status>
-        )}
+        <Styled.Status>
+          {online ? (
+            <Styled.Online>
+              <Dot />
+            </Styled.Online>
+          ) : (
+            <Styled.Offline>{realTime()}</Styled.Offline>
+          )}
+        </Styled.Status>
         <Underline parentClass={Styled.Item.styledComponentId} />
       </Styled.Item>
     </Link>

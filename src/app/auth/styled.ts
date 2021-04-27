@@ -47,7 +47,7 @@ const Main = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 0;
+  left: -100%;
 
   &.exited {
     left: -100%;

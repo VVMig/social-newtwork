@@ -1,9 +1,9 @@
 export interface FriendFields {
   route: string;
-  firstName?: string;
-  lastName?: string;
-  online?: boolean;
-  lastVisit?: number;
+  firstName: string;
+  lastName: string;
+  online: boolean;
+  lastVisit: number;
   avatar?: string;
 }
 

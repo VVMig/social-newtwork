@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { ListSection } from '../ListSection';
 import { FriendsSwiper } from './FriendsSwiper';
 import { AllFriendsModal } from './AllFriendsModal';
-import { friends } from './/../../friends';
+import { store } from '../../store';
+import { observer } from 'mobx-react-lite';
 
-export const Friends = () => {
+export const Friends = observer(() => {
   const [showAllFriends, setShowAllFriends] = useState(false);
 
   const allFriendsHandler: React.MouseEventHandler = () => {
@@ -14,13 +15,15 @@ export const Friends = () => {
   return (
     <>
       <ListSection allClickHandler={allFriendsHandler}>
-        <FriendsSwiper friends={friends} />
+        <FriendsSwiper friends={store.profile.profileFriends} />
       </ListSection>
-      <AllFriendsModal
-        setShowModal={setShowAllFriends}
-        showModal={showAllFriends}
-        friends={friends}
-      />
+      {store.profile.friends.length > 0 && (
+        <AllFriendsModal
+          setShowModal={setShowAllFriends}
+          showModal={showAllFriends}
+          friends={store.profile.profileFriends}
+        />
+      )}
     </>
   );
-};
+});

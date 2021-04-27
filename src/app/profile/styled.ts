@@ -43,16 +43,18 @@ const ProfileMain = styled(ProfileInfo)`
 `;
 
 const InfoHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
   padding-top: 10px;
 `;
 
-const Name = styled.h1`
+const Name = styled.h2`
   font-size: 24px;
 `;
 
 const Status = styled.h2`
-  font-weight: normal;
-  font-size: 14px;
+  font-size: 22px;
+  color: ${(props) => props.theme.additionalDarkGrey};
 `;
 
 const InfoStatistic = styled.div`

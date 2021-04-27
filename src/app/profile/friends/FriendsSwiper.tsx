@@ -7,11 +7,15 @@ import { Friend } from './Friend';
 export const FriendsSwiper = ({ friends }: FriendsProps) => {
   return (
     <Swiper spaceBetween={7} slidesPerView={'auto'}>
-      {friends.map((friend, i) => (
-        <SwiperSlide key={i}>
-          <Friend {...friend} />
-        </SwiperSlide>
-      ))}
+      {friends.length ? (
+        friends.map((friend, i) => (
+          <SwiperSlide key={i}>
+            <Friend {...friend} />
+          </SwiperSlide>
+        ))
+      ) : (
+        <SwiperSlide>No friends yet</SwiperSlide>
+      )}
     </Swiper>
   );
 };

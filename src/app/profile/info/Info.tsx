@@ -1,17 +1,18 @@
 import React from 'react';
 import { Body } from './Body';
 import { Header } from './Header';
-import { StatisticsProps } from '../interfaces';
+import { store } from '../../store';
+import { observer } from 'mobx-react-lite';
 
-interface Props extends StatisticsProps {
-  name: string;
-}
-
-export const Info = ({ stats, name }: Props) => {
+export const Info = observer(() => {
   return (
     <>
-      <Header name={name} />
-      <Body stats={stats} />
+      <Header
+        name={store.profile.name}
+        online={store.profile.online}
+        lastVisit={store.profile.lastVisit}
+      />
+      <Body stats={store.profile.stats} />
     </>
   );
-};
+});

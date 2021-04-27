@@ -1,5 +1,6 @@
 import React from 'react';
-import { FriendFields, Modal, ModalProps } from '../../../packages/components';
+import { Modal, ModalProps } from '../../../packages/components';
+import { FriendFields } from '../interfaces';
 import { Styled } from '../styled';
 import { Friend } from './Friend';
 
@@ -12,6 +13,10 @@ export const AllFriendsModal = ({
   setShowModal,
   friends,
 }: Props) => {
+  const closeModal: React.MouseEventHandler = () => {
+    setShowModal(false);
+  };
+
   return (
     <Modal
       showModal={showModal}
@@ -20,7 +25,7 @@ export const AllFriendsModal = ({
     >
       <Styled.AllItemsModal>
         {friends.map((friend, i) => (
-          <Friend {...friend} key={i} />
+          <Friend {...friend} key={i} closeModal={closeModal} />
         ))}
       </Styled.AllItemsModal>
     </Modal>

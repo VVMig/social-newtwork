@@ -1,14 +1,24 @@
 import React from 'react';
 import { Styled } from '../styled';
+import moment from 'moment';
 
 interface Props {
-  name?: string;
+  name: string;
+  online?: boolean;
+  lastVisit?: number;
 }
 
-export const Header = ({ name }: Props) => {
+export const Header = ({ name, online, lastVisit }: Props) => {
+  const realTime = () => {
+    return moment(lastVisit).fromNow() === 'a few seconds ago'
+      ? 'recently'
+      : moment(lastVisit).fromNow();
+  };
+
   return (
     <Styled.InfoHeader>
       <Styled.Name>{name || 'unknown'}</Styled.Name>
+      <Styled.Status>{online ? 'online' : realTime()}</Styled.Status>
     </Styled.InfoHeader>
   );
 };

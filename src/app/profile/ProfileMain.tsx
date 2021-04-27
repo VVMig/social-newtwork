@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Styled } from './styled';
 import { Actions } from './Actions';
-import { ImageProps } from '../../packages/components';
 import { useParams } from 'react-router-dom';
 import { Params } from './interfaces';
 import { store } from '../store';
@@ -9,13 +8,13 @@ import { AddFileModal } from '../../packages/components';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
 import { sendFiles } from '../helpers';
+import { observer } from 'mobx-react-lite';
 
 interface Props {
-  profilePhoto: ImageProps;
   updateUser: () => Promise<void>;
 }
 
-export const ProfileMain = ({ profilePhoto, updateUser }: Props) => {
+export const ProfileMain = observer(({ updateUser }: Props) => {
   const { id } = useParams<Params>();
 
   const [showAddPhotoModal, setShowAddPhotoModal] = useState(false);
@@ -24,13 +23,18 @@ export const ProfileMain = ({ profilePhoto, updateUser }: Props) => {
     setShowAddPhotoModal(!showAddPhotoModal);
   };
 
+  const isFriend = () => {
+    return !!store.user.friends.find((friend) => friend._id === id);
+  };
+
   return (
     <>
       <Styled.ProfileMain>
-        <Styled.ProfilePhoto {...profilePhoto} />
+        <Styled.ProfilePhoto src={store.profile.avatar.name} />
         <Actions
           addPhotoModalHandler={addPhotoModalHandler}
-          isOwner={store.user?.id === id}
+          isOwner={store.user?._id === id}
+          isFriend={isFriend()}
         />
       </Styled.ProfileMain>
       {showAddPhotoModal && (
@@ -46,4 +50,4 @@ export const ProfileMain = ({ profilePhoto, updateUser }: Props) => {
       )}
     </>
   );
-};
+});

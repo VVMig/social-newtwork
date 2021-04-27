@@ -2,6 +2,7 @@ import React from 'react';
 import { Modal, ModalProps } from '../modal';
 import { Styled } from './styled';
 import { Likes } from '../likes';
+import moment from 'moment';
 
 interface Props extends ModalProps {
   likesNumber?: number;
@@ -9,7 +10,7 @@ interface Props extends ModalProps {
   alt?: string;
   likeIcon?: JSX.Element;
   isLiked?: boolean;
-  imageDate?: string;
+  imageDate?: number;
 }
 
 export const ImageModal = ({
@@ -21,12 +22,18 @@ export const ImageModal = ({
   imageDate,
   ...props
 }: Props) => {
+  const realTime = () => {
+    return moment(imageDate).fromNow() === 'a few seconds ago'
+      ? 'recently'
+      : moment(imageDate).fromNow();
+  };
+
   return (
     <>
       <Modal {...props}>
         <Styled.Image src={src} alt={alt} />
         <Styled.InfoContainer>
-          {imageDate && <Styled.Date>{imageDate}</Styled.Date>}
+          {imageDate && <Styled.Date>{realTime()}</Styled.Date>}
           {likesNumber !== undefined && likeIcon && (
             <Likes
               likesNumber={likesNumber}
