@@ -1,9 +1,12 @@
 import styled, { css, keyframes } from 'styled-components';
 import { zIndex } from '../../packages/components';
-import { SidebarTogglerProps } from './interfaces';
 
 export const sidebarInfoWidth = 320;
 const delay = 300;
+
+interface ISidebar {
+  showSidebar?: boolean;
+}
 
 const appearLeft = keyframes`
   0%{
@@ -58,7 +61,7 @@ const Header = styled.div`
   padding: 0 24px 0 28px;
 `;
 
-const SidebarToggler = styled.div<SidebarTogglerProps>`
+const SidebarToggler = styled.div<ISidebar>`
   width: 30px;
   height: 30px;
   top: 10px;

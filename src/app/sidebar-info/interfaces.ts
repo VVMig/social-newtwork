@@ -1,4 +1,4 @@
-import { FriendFields } from '../../packages/components';
+import { FriendFields } from '../profile/interfaces';
 
 export interface SidebarItems {
   friends: FriendFields[];

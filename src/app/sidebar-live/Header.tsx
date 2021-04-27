@@ -30,7 +30,7 @@ export const Header = ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
     {
       title: 'profile',
       icon: <Icon type={IconType.User} />,
-      link: `${RoutesEnum.Profile}/${store.user?.id}`,
+      link: `${RoutesEnum.Profile}/${store.user?._id}`,
     },
     {
       title: 'settings',

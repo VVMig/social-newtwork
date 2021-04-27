@@ -7872,6 +7872,11 @@ mobx@^6.1.8:
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-6.1.8.tgz#5d03cb76d8f7694dd82bfb2578d886945b66450d"
   integrity sha512-U4yCvUeh6yKXRwFxm2lyJjXPVekOEar/R8ZKWAXem/3fthJqYflViawfjDAUh7lZEvbKqljC3NT/pSaUKpE+gg==
 
+moment@^2.29.1:
+  version "2.29.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.1.tgz#b2be769fa31940be9eeea6469c075e35006fa3d3"
+  integrity sha512-kHmoybcPV8Sqy59DwNDY3Jefr64lK/by/da0ViFcuA4DH0vQg5Q6Ze5VimxkfQNSC+Mls/Kx53s7TjP1RhFEDQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -9804,6 +9809,11 @@ react-transition-group@^4.4.0, react-transition-group@^4.4.1:
     dom-helpers "^5.0.1"
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
+
+react-use-websocket@^2.6.1:
+  version "2.6.1"
+  resolved "https://registry.yarnpkg.com/react-use-websocket/-/react-use-websocket-2.6.1.tgz#99899f06a737f3111ff0b9e4556e2add360ec16f"
+  integrity sha512-Nx1jUab+7eHpVftBpscgVG26UMVjy4P8ss+I3sE6LijHXC0chFej7unzH9YXElN9stEm1of+qZA+YX/ZlPIQBQ==
 
 react@^17.0.1:
   version "17.0.1"
