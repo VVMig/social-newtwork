@@ -1,17 +1,17 @@
 import React from 'react';
 import { Modal, ModalProps } from '../../../packages/components';
-import { FriendFields } from '../interfaces';
+import { FollowerFields } from '../interfaces';
 import { Styled } from '../styled';
-import { Friend } from './Friend';
+import { Follower } from './Follower';
 
 interface Props extends ModalProps {
-  friends: FriendFields[];
+  followers: FollowerFields[];
 }
 
-export const AllFriendsModal = ({
+export const AllFollowersModal = ({
   showModal,
   setShowModal,
-  friends,
+  followers,
 }: Props) => {
   const closeModal: React.MouseEventHandler = () => {
     setShowModal(false);
@@ -24,8 +24,8 @@ export const AllFriendsModal = ({
       title="All friends"
     >
       <Styled.AllItemsModal>
-        {friends.map((friend, i) => (
-          <Friend {...friend} key={i} closeModal={closeModal} />
+        {followers.map((follower, i) => (
+          <Follower {...follower} key={i} closeModal={closeModal} />
         ))}
       </Styled.AllItemsModal>
     </Modal>

@@ -1,7 +1,7 @@
 import { ImageProps } from '../../packages/components';
 
 export interface IPhoto {
-  owner: ProfileUser;
+  owner: string;
   likes: [];
   avatar: boolean;
   ext: string;
@@ -9,21 +9,13 @@ export interface IPhoto {
   _id: string;
 }
 
-export interface FriendFields {
+export interface FollowerFields {
   route: string;
   firstName?: string;
   lastName?: string;
   online?: boolean;
   avatar?: string;
 }
-export interface ProfileUser {
-  firstName: string;
-  lastName: string;
-  friends: FriendFields[];
-  id: string;
-  photos: IPhoto[];
-}
-
 export interface Params {
   id: string;
 }
@@ -33,7 +25,7 @@ export interface PhotosProps {
 }
 
 export interface FriendsProps {
-  friends: FriendFields[];
+  followers: FollowerFields[];
 }
 
 export interface StatisticFields {

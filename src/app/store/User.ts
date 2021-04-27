@@ -3,7 +3,7 @@ import { RoutesEnum } from '../routes/RoutesEnum';
 import { defaultTypes } from '../utils';
 import { IUpdate } from '../wsreducer';
 
-const Friend = types.model('Friend', {
+const Following = types.model('Following', {
   firstName: types.optional(types.string, ''),
   lastName: types.optional(types.string, ''),
   online: types.optional(types.boolean, false),
@@ -19,28 +19,28 @@ export const User = types
     email: defaultTypes.maybeString,
     verified: defaultTypes.maybeBoolean,
     _id: defaultTypes.maybeString,
-    friends: types.optional(types.array(Friend), []),
+    following: types.optional(types.array(Following), []),
     avatar: types.optional(types.string, ''),
   })
   .views((self) => ({
     get fullName() {
       return `${self.firstName} ${self.lastName}`;
     },
-    get friendsProfiles() {
-      return self.friends.map((friend) => ({
-        ...friend,
-        avatar: friend.avatar,
-        route: `${RoutesEnum.Profile}/${friend._id}`,
+    get followingProfiles() {
+      return self.following.map((follow) => ({
+        ...follow,
+        avatar: follow.avatar,
+        route: `${RoutesEnum.Profile}/${follow._id}`,
       }));
     },
   }))
   .actions((self) => ({
-    updateFriendStatus: (updatedFriend: IUpdate) => {
-      self.friends = cast(
-        self.friends.map((friend) =>
-          friend._id === updatedFriend._id
-            ? { ...friend, ...updatedFriend }
-            : friend
+    updateFollowingStatus: (updatedFriend: IUpdate) => {
+      self.following = cast(
+        self.following.map((follow) =>
+          follow._id === updatedFriend._id
+            ? { ...follow, ...updatedFriend }
+            : follow
         )
       );
     },

@@ -24,7 +24,7 @@ export const ProfileMain = observer(({ updateUser }: Props) => {
   };
 
   const isFriend = () => {
-    return !!store.user.friends.find((friend) => friend._id === id);
+    return !!store.user.following.find((following) => following._id === id);
   };
 
   return (

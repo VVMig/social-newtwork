@@ -2,7 +2,7 @@ import React from 'react';
 import { Styled } from './styled';
 import { Info } from './info/Info';
 import { Photos } from './photos/Photos';
-import { Friends } from './friends/Friends';
+import { Followers } from './followers/Followers';
 
 export const ProfileInfo = () => {
   return (
@@ -10,7 +10,7 @@ export const ProfileInfo = () => {
       <Styled.ProfileInfoWrapper>
         <Info />
         <Photos />
-        <Friends />
+        <Followers />
       </Styled.ProfileInfoWrapper>
     </Styled.ProfileInfo>
   );

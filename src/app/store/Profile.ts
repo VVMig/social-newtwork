@@ -1,11 +1,11 @@
-import { types } from 'mobx-state-tree';
+import { Instance, types } from 'mobx-state-tree';
 import { defaultTypes } from '../utils';
 import { imageUrl } from '../url';
 import { ImageProps } from '../../packages/components';
 import { RoutesEnum } from '../routes/RoutesEnum';
-import { FriendFields } from '../profile/interfaces';
+import { FollowerFields } from '../profile/interfaces';
 
-const Friend = types.model('Friend', {
+const Followers = types.model('Followers', {
   firstName: types.optional(types.string, 'unknown'),
   _id: types.optional(types.string, ''),
   avatar: types.optional(types.string, ''),
@@ -30,12 +30,19 @@ export const Profile = types
     firstName: defaultTypes.maybeString,
     lastName: defaultTypes.maybeString,
     id: defaultTypes.maybeString,
-    friends: types.optional(types.array(Friend), []),
+    followers: types.optional(types.array(Followers), []),
     photos: types.optional(types.array(Photo), []),
     avatar: types.optional(Photo, {}),
     online: defaultTypes.maybeBoolean,
     lastVisit: defaultTypes.maybeNumber,
   })
+  .actions((self) => ({
+    updateProfile(updatedProfile: Instance<typeof self>) {
+      console.log(updatedProfile);
+
+      Object.assign(self, updatedProfile);
+    },
+  }))
   .views((self) => ({
     get name() {
       return `${self.firstName} ${self.lastName}`;
@@ -43,8 +50,8 @@ export const Profile = types
     get stats() {
       return [
         {
-          title: 'Friends',
-          amount: self.friends.length,
+          title: 'Followers',
+          amount: self.followers.length,
         },
         {
           title: 'Photos',
@@ -60,12 +67,12 @@ export const Profile = types
         imageDate: photo.date,
       }));
     },
-    get profileFriends(): FriendFields[] {
-      return self.friends.map((friend) => ({
-        route: `${RoutesEnum.Profile}/${friend._id}`,
-        avatar: friend.avatar,
-        firstName: friend.firstName,
-        online: friend.online,
+    get profileFollowers(): FollowerFields[] {
+      return self.followers.map((follower) => ({
+        route: `${RoutesEnum.Profile}/${follower._id}`,
+        avatar: follower.avatar,
+        firstName: follower.firstName,
+        online: follower.online,
       }));
     },
   }));
