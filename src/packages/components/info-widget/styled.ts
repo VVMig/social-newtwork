@@ -56,7 +56,13 @@ const Offline = styled.span`
   font-size: 12px;
 `;
 
+const Empty = styled(Item)`
+  color: ${(props) => props.theme.greyDark};
+  font-size: 18px;
+`;
+
 export const Styled = {
+  Empty,
   Offline,
   Online,
   Status,

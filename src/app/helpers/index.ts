@@ -6,3 +6,4 @@ export * from './signUp';
 export * from './signOut';
 export * from './getProfile';
 export * from './sendFiles';
+export * from './searchUsers';
