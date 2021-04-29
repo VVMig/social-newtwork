@@ -1,5 +1,8 @@
 import { WSEvents } from './WSEvents';
 import { store } from '../store';
+import { Instance } from 'mobx-state-tree';
+import { Profile } from '../store/Profile';
+import { User } from '../store/User';
 
 export interface IUpdate {
   _id: string;
@@ -10,9 +13,33 @@ export interface IUpdate {
   lastName: string;
 }
 
+export interface IFollow {
+  firstName: string;
+  lastName: string;
+  avatar: string;
+  online: string;
+}
+
+export interface IPhoto {
+  likes: number;
+  _id: string;
+  date: number;
+}
+
+export interface IProfile {
+  _id: string;
+  online: boolean;
+  lastVisit: number;
+  avatar: string;
+  firstName: string;
+  lastName: string;
+  following: IFollow[];
+  photos: IPhoto[];
+}
+
 interface ILastMessage {
-  type: WSEvents.Update;
-  payload: IUpdate;
+  type: WSEvents.Update | WSEvents.Profile | WSEvents.FollowingUpdate;
+  payload: IUpdate | Instance<typeof Profile> | Instance<typeof User>;
 }
 
 export const wsActions = (lastMessage: ILastMessage) => {
@@ -20,9 +47,14 @@ export const wsActions = (lastMessage: ILastMessage) => {
 
   switch (type) {
     case WSEvents.Update:
-      store.user?.updateFriendStatus(payload);
+      store.setUser(payload as Instance<typeof User>);
       break;
-
+    case WSEvents.Profile:
+      store.profile.updateProfile(payload as Instance<typeof Profile>);
+      break;
+    case WSEvents.FollowingUpdate:
+      store.user?.updateFollowingStatus(payload as IUpdate);
+      break;
     default:
       break;
   }

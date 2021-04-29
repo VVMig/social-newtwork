@@ -14,8 +14,6 @@ import { wsActions } from './wsreducer';
 export const AuthContent: React.FC = ({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
-  useWebSocket(wsUrl);
-
   const { lastJsonMessage } = useWebSocket(wsUrl);
 
   useEffect(() => {

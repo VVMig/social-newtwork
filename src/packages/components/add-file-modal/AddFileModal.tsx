@@ -10,7 +10,6 @@ interface Props extends ModalProps {
   successIcon: JSX.Element;
   failedIcon: JSX.Element;
   sendFiles: (files: Blob[]) => Promise<void>;
-  updateAction?: () => Promise<void>;
 }
 
 export const AddFileModal = ({
@@ -20,7 +19,6 @@ export const AddFileModal = ({
   setShowModal,
   successIcon,
   failedIcon,
-  updateAction,
 }: Props) => {
   const [files, setFiles] = useState<Blob[]>([]);
   const [loading, setLoading] = useState(false);
@@ -32,8 +30,6 @@ export const AddFileModal = ({
     try {
       setLoading(true);
       await sendFiles(files);
-      updateAction && (await updateAction());
-      setLoading(false);
       setSuccess(true);
     } catch (error) {
       setError(true);

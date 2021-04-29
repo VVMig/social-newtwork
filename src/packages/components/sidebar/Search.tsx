@@ -1,14 +1,30 @@
 import React from 'react';
-import { Search as SearchIcon } from '@material-ui/icons';
 import { Styled } from './styled';
 
-export const Search = () => {
+interface Props {
+  inputValue: string;
+  changeHandler: (event: React.FormEvent<HTMLInputElement>) => void;
+  resetValue: () => void;
+  resetIcon: JSX.Element;
+}
+
+export const Search = ({
+  inputValue,
+  changeHandler,
+  resetValue,
+  resetIcon,
+}: Props) => {
   return (
-    <Styled.Form>
-      <Styled.Input type="text" placeholder="Search" />
-      <Styled.Button type="submit">
-        <SearchIcon />
-      </Styled.Button>
-    </Styled.Form>
+    <Styled.Search>
+      <Styled.Input
+        type="text"
+        value={inputValue}
+        placeholder="Search"
+        onChange={changeHandler}
+      />
+      {inputValue && (
+        <Styled.Button onClick={resetValue}>{resetIcon}</Styled.Button>
+      )}
+    </Styled.Search>
   );
 };

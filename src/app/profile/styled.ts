@@ -142,6 +142,7 @@ const Friend = styled(Link)`
 const FriendAvatar = styled(Avatar)`
   width: 60px;
   height: 60px;
+  font-size: 32px;
 `;
 
 const FriendFirstName = styled.h3`
@@ -220,6 +221,7 @@ const AllItemsModal = styled.div`
   & ${FriendAvatar} {
     width: 180px;
     height: 180px;
+    font-size: 82px;
   }
 
   & ${FriendFirstName} {

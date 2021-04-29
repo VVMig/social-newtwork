@@ -9,6 +9,7 @@ export const ImageWrapper = ({
   className,
   alt,
   src,
+  setAvatarAction,
   ...props
 }: ImageProps) => {
   const [showImageModal, setShowImageModal] = useState(false);
@@ -36,6 +37,7 @@ export const ImageWrapper = ({
         setShowModal={setShowImageModal}
         src={src}
         alt={alt}
+        setAvatarAction={setAvatarAction}
         {...props}
       />
     </>

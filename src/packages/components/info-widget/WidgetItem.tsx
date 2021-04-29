@@ -25,7 +25,7 @@ export const WidgetItem = ({
     <Link to={route}>
       <Styled.Item>
         <Styled.Info>
-          <Avatar size={30} src={avatar} />
+          <Avatar size={30} src={avatar} name={!avatar ? firstName : ''} />
           <Styled.Name>
             <h3>{`${firstName} ${lastName}`}</h3>
           </Styled.Name>

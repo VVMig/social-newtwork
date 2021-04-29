@@ -3,31 +3,34 @@ import { Styled } from './styled';
 import { ProfileMain } from './ProfileMain';
 import { ProfileInfo } from './ProfileInfo';
 import { Params } from './interfaces';
-import { getProfile, parseError } from '../helpers';
 import { useParams } from 'react-router';
 import { Spinner } from '../../packages/components';
 import { store } from '../store';
 import { observer } from 'mobx-react-lite';
+import useWebSocket from 'react-use-websocket';
+import { wsUrl } from '../url';
+import { wsActions } from '../wsreducer';
 
 export const Profile = observer(() => {
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error] = useState('');
   const { id } = useParams<Params>();
+  const { lastJsonMessage, sendMessage } = useWebSocket(`${wsUrl}/profile`);
 
-  const getProfileUser = async () => {
-    try {
-      await getProfile(id);
-      setError('');
-    } catch (error) {
-      setError(parseError(error));
-    } finally {
-      setLoading(false);
-    }
+  const sendCurrentProfile = () => {
+    sendMessage(id);
   };
 
   useEffect(() => {
-    getProfileUser();
-    console.log(id);
+    if (lastJsonMessage) {
+      wsActions(lastJsonMessage);
+      setLoading(false);
+    }
+  }, [lastJsonMessage]);
+
+  useEffect(() => {
+    sendCurrentProfile();
+    setLoading(true);
   }, [id]);
 
   return (
@@ -38,7 +41,7 @@ export const Profile = observer(() => {
         <Styled.Profile>
           {store.isProfileSet && !error ? (
             <>
-              <ProfileMain updateUser={getProfileUser} />
+              <ProfileMain />
               <ProfileInfo />
             </>
           ) : (

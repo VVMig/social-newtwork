@@ -5,6 +5,9 @@ interface Props {
   successIcon: JSX.Element;
 }
 
-export const UploadSuccess = ({ successIcon }: Props) => {
-  return <Styled.UploadSuccess>{successIcon}</Styled.UploadSuccess>;
-};
+export const UploadSuccess = React.memo(
+  ({ successIcon }: Props) => {
+    return <Styled.UploadSuccess>{successIcon}</Styled.UploadSuccess>;
+  },
+  () => false
+);

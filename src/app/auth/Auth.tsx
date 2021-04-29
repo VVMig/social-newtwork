@@ -19,8 +19,6 @@ export const Auth = observer(() => {
     }, delay);
   };
 
-  console.log(store.user);
-
   return (
     <Styled.Auth>
       <Styled.AuthContainer>

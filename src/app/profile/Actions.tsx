@@ -4,14 +4,16 @@ import { Styled } from './styled';
 interface Props {
   isOwner: boolean;
   addPhotoModalHandler: React.MouseEventHandler;
-  isFriend: boolean;
+  isFollowing: boolean;
+  subscribeHandler: React.MouseEventHandler<Element>;
 }
 
-export const Actions = ({ isOwner, addPhotoModalHandler, isFriend }: Props) => {
-  const subscribeHandler: React.MouseEventHandler = () => {
-    console.log('click');
-  };
-
+export const Actions = ({
+  isOwner,
+  addPhotoModalHandler,
+  isFollowing,
+  subscribeHandler,
+}: Props) => {
   return (
     <Styled.Actions>
       {isOwner ? (
@@ -24,7 +26,7 @@ export const Actions = ({ isOwner, addPhotoModalHandler, isFriend }: Props) => {
       ) : (
         <>
           <Styled.ColorActionButton onClick={subscribeHandler}>
-            {isFriend ? 'Unsubscribe' : 'Subscribe'}
+            {isFollowing ? 'Unfollow' : 'Follow'}
           </Styled.ColorActionButton>
           <Styled.ActionButton>Chat</Styled.ActionButton>
         </>

@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface ImageProps {
   src: string;
   className?: string;
@@ -8,4 +10,5 @@ export interface ImageProps {
   likeIcon?: JSX.Element;
   isLiked?: boolean;
   imageDate?: number;
+  setAvatarAction?: React.MouseEventHandler<Element>;
 }

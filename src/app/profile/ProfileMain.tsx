@@ -7,14 +7,10 @@ import { store } from '../store';
 import { AddFileModal } from '../../packages/components';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
-import { sendFiles } from '../helpers';
+import { follow, sendFiles, unfollow } from '../helpers';
 import { observer } from 'mobx-react-lite';
 
-interface Props {
-  updateUser: () => Promise<void>;
-}
-
-export const ProfileMain = observer(({ updateUser }: Props) => {
+export const ProfileMain = observer(() => {
   const { id } = useParams<Params>();
 
   const [showAddPhotoModal, setShowAddPhotoModal] = useState(false);
@@ -23,18 +19,34 @@ export const ProfileMain = observer(({ updateUser }: Props) => {
     setShowAddPhotoModal(!showAddPhotoModal);
   };
 
-  const isFriend = () => {
-    return !!store.user.friends.find((friend) => friend._id === id);
+  const isFollowing = () => {
+    return !!store.user.following.find((following) => following._id === id);
+  };
+
+  const subscribeHandler: React.MouseEventHandler = async () => {
+    try {
+      if (isFollowing()) {
+        unfollow(id);
+      } else follow(id);
+    } catch (error) {
+      store.profile.setError('asd');
+    }
   };
 
   return (
     <>
       <Styled.ProfileMain>
-        <Styled.ProfilePhoto src={store.profile.avatar.name} />
+        {store.profile.avatar.name && (
+          <Styled.ProfilePhoto
+            {...store.profile.profileAvatar}
+            likeIcon={<Icon type={IconType.Like} />}
+          />
+        )}
         <Actions
           addPhotoModalHandler={addPhotoModalHandler}
           isOwner={store.user?._id === id}
-          isFriend={isFriend()}
+          isFollowing={isFollowing()}
+          subscribeHandler={subscribeHandler}
         />
       </Styled.ProfileMain>
       {showAddPhotoModal && (
@@ -45,7 +57,6 @@ export const ProfileMain = observer(({ updateUser }: Props) => {
           sendFiles={sendFiles}
           successIcon={<Icon type={IconType.Done} />}
           failedIcon={<Icon type={IconType.Error} />}
-          updateAction={updateUser}
         />
       )}
     </>

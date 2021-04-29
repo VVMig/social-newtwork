@@ -24,7 +24,7 @@ const Aside = styled.aside`
   overflow-y: auto;
 `;
 
-const Form = styled.form`
+const Search = styled.div`
   position: relative;
 `;
 
@@ -59,10 +59,16 @@ const Button = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 10px;
+  right: 10px;
   padding: 0;
   z-index: ${zIndex.searchBtn};
   color: ${(props) => props.theme.greyDark};
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
   &:focus {
     outline: 0;
@@ -149,7 +155,7 @@ export const Styled = {
   Logo,
   Button,
   Input,
-  Form,
+  Search,
   Aside,
   NotificationsWrapper,
   Notify,

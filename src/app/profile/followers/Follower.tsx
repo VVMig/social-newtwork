@@ -1,15 +1,15 @@
 import React from 'react';
-import { FriendFields } from '../interfaces';
+import { FollowerFields } from '../interfaces';
 import { Styled } from '../styled';
 
-interface Props extends FriendFields {
+interface Props extends FollowerFields {
   closeModal?: React.MouseEventHandler;
 }
 
-export const Friend = ({ route, avatar, firstName, closeModal }: Props) => {
+export const Follower = ({ route, avatar, firstName, closeModal }: Props) => {
   return (
     <Styled.Friend to={route} onClick={closeModal}>
-      <Styled.FriendAvatar src={avatar} />
+      <Styled.FriendAvatar src={avatar} name={firstName} />
       <Styled.FriendFirstName>{firstName}</Styled.FriendFirstName>
     </Styled.Friend>
   );

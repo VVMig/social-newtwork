@@ -10,4 +10,5 @@ export interface FriendFields {
 export interface WidgetProps {
   title: string;
   items: FriendFields[];
+  altTitle?: string;
 }

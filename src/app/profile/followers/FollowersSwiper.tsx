@@ -2,19 +2,19 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import { FriendsProps } from '../interfaces';
-import { Friend } from './Friend';
+import { Follower } from './Follower';
 
-export const FriendsSwiper = ({ friends }: FriendsProps) => {
+export const FollowersSwiper = ({ followers }: FriendsProps) => {
   return (
     <Swiper spaceBetween={7} slidesPerView={'auto'}>
-      {friends.length ? (
-        friends.map((friend, i) => (
+      {followers.length ? (
+        followers.map((follower, i) => (
           <SwiperSlide key={i}>
-            <Friend {...friend} />
+            <Follower {...follower} />
           </SwiperSlide>
         ))
       ) : (
-        <SwiperSlide>No friends yet</SwiperSlide>
+        <SwiperSlide>No followers yet</SwiperSlide>
       )}
     </Swiper>
   );
