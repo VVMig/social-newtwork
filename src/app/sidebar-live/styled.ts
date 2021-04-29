@@ -10,22 +10,22 @@ const marginFromHeader = 5;
 
 const appearRight = keyframes`
   0%{
-    transform: translateX(100%);
+    transform: translate(100%);
     opacity: 0;
   }
   100%{
-    transform: translateX(0);
+    transform: translate(0);
     opacity: 1;
   }
 `;
 
 const disappearRight = keyframes`
   0%{
-    transform: translateX(0);
+    transform: translate(0);
     opacity: 1;
   }
   100%{
-    transform: translateX(100%);
+    transform: translate(100%);
     opacity: 0;
   }
 `;
@@ -39,6 +39,7 @@ const SidebarContainer = styled.div`
 
   & Aside {
     transform: translate(100%);
+    will-change: transform;
 
     &.exited {
       transform: translate(100%);
@@ -71,7 +72,7 @@ const MenuArea = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  width: ${headerInfoWidth}px;
+  max-width: ${headerInfoWidth}px;
   cursor: pointer;
 
   & .dropdown-menu {
