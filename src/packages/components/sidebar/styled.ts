@@ -1,9 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { zIndex } from '../zIndex';
 
 const logoSize = '30px';
 const notificationsSize = '25px';
 const arrowSize = '25px';
+
+interface MenuOpen {
+  open: boolean;
+  delay: number;
+}
 
 const Aside = styled.aside`
   display: flex;
@@ -91,12 +96,41 @@ const Name = styled.div`
   padding-left: 8px;
 `;
 
-const Arrow = styled.div`
+const Arrow = styled.div<MenuOpen>`
+  display: flex;
+  transform-origin: center;
   color: ${(props) => props.theme.greyDark};
+  position: relative;
+
+  & div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    width: ${arrowSize};
+    height: ${arrowSize};
+    ${(props) =>
+      props.open &&
+      css`
+        transform-origin: center;
+        transform: rotate(180deg);
+      `}
+    transition: ${(props) => props.delay}ms linear;
+  }
+
   & svg {
+    position: absolute;
+    z-index: ${zIndex.arrowSvg};
     width: ${arrowSize};
     height: ${arrowSize};
   }
+`;
+
+const ArrowClicker = styled.span`
+  position: absolute;
+  z-index: ${zIndex.arrowClicker};
+  width: ${arrowSize};
+  height: ${arrowSize};
 `;
 
 const Notifications = styled.div`
@@ -120,4 +154,5 @@ export const Styled = {
   Name,
   Arrow,
   Notifications,
+  ArrowClicker,
 };

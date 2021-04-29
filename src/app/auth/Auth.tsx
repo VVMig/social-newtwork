@@ -25,8 +25,6 @@ export const Auth = observer(() => {
         <Transition
           in={store.user && !store.user?.verified}
           timeout={switchVerificationDuration}
-          mountOnEnter
-          unmountOnExit
         >
           {(state) => <Verification className={state} />}
         </Transition>

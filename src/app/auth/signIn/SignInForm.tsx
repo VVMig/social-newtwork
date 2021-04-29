@@ -5,7 +5,7 @@ import { signInShema } from '../configs/validationSchema';
 import { signInFields } from '../configs/inputFields';
 import { Form } from '../Form';
 import { observer } from 'mobx-react-lite';
-import { parseError, signIn } from '../../helpers';
+import { authorize, parseError, signIn } from '../../helpers';
 
 const initialValues: SignInValues = {
   email: '',
@@ -18,9 +18,9 @@ export const SignInForm = observer(
       try {
         startFetch();
         await signIn(values);
+        await authorize();
       } catch (error) {
         errorHandler(parseError(error));
-      } finally {
         endFetch();
       }
     };
