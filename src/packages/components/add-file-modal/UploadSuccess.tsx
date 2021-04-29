@@ -9,5 +9,5 @@ export const UploadSuccess = React.memo(
   ({ successIcon }: Props) => {
     return <Styled.UploadSuccess>{successIcon}</Styled.UploadSuccess>;
   },
-  () => false
+  () => true
 );
