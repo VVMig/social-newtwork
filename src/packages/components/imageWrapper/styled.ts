@@ -17,6 +17,10 @@ const Preview = styled.img<ImageProps>`
     `}
 `;
 
+const DefaultPreview = styled.div`
+  background-color: ${(props) => props.theme.primary};
+`;
+
 const Image = styled.img`
   width: 100%;
   height: 100%;
@@ -33,9 +37,22 @@ const Date = styled.div`
   color: ${(props) => props.theme.additionalDarkGrey};
 `;
 
+const Actions = styled.div`
+  display: flex;
+
+  & button {
+    background-color: ${(props) => props.theme.darkBlue};
+    width: auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+`;
+
 export const Styled = {
+  DefaultPreview,
   Preview,
   Image,
   InfoContainer,
   Date,
+  Actions,
 };

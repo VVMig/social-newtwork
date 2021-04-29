@@ -1,15 +1,28 @@
 import React from 'react';
 import { Styled, AvatarProps } from './styled';
 
-export const Avatar = ({ route, className, ...props }: AvatarProps) => {
+export const Avatar = ({
+  route,
+  className,
+  src,
+  name,
+  ...props
+}: AvatarProps) => {
   return (
     <>
       {route ? (
         <Styled.Link to={route}>
-          <Styled.Avatar {...props} className={`avatar ${className}`} />
+          <Styled.Avatar
+            {...props}
+            className={`avatar ${className}`}
+            src={src}
+          />
+          {!src && name && name[0]}
         </Styled.Link>
       ) : (
-        <Styled.Avatar {...props} className={`avatar ${className}`} />
+        <Styled.Avatar {...props} className={`avatar ${className}`} src={src}>
+          {!src && name && name[0]}
+        </Styled.Avatar>
       )}
     </>
   );

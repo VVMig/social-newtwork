@@ -1,4 +1,5 @@
 export enum WSEvents {
-  Update = 'Update',
+  FollowingUpdate = 'FollowingUpdate',
   Profile = 'Profile',
+  Update = 'Update',
 }

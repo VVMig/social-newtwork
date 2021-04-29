@@ -7,6 +7,7 @@ export interface AvatarProps {
   outline?: boolean;
   src?: string;
   className?: string;
+  name?: string;
 }
 
 const Avatar = styled.div<AvatarProps>`
@@ -14,16 +15,21 @@ const Avatar = styled.div<AvatarProps>`
   height: ${(props) => props.size}px;
   background-position: center;
   background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.light};
   ${(props) =>
     props.src
       ? css`
           background-image: ${`url(${props.src})`};
         `
       : css`
-          background-color: ${props.theme.primary};
+          background-color: ${props.theme.purple};
         `}
 
   border-radius: 50%;
+  text-transform: uppercase;
   ${(props) =>
     props.outline &&
     css`

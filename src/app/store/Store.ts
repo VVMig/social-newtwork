@@ -9,7 +9,7 @@ export const Store = types
   })
   .actions((self) => ({
     setUser(user: Instance<typeof User>) {
-      self.user = cast(user);
+      Object.assign(self.user, user);
     },
     setProfile(profile: Instance<typeof Profile>) {
       self.profile = cast(profile);

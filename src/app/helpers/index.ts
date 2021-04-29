@@ -7,3 +7,6 @@ export * from './signOut';
 export * from './getProfile';
 export * from './sendFiles';
 export * from './searchUsers';
+export * from './updateAvatar';
+export * from './follow';
+export * from './unfollow';

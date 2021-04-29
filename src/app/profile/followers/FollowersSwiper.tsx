@@ -14,7 +14,7 @@ export const FollowersSwiper = ({ followers }: FriendsProps) => {
           </SwiperSlide>
         ))
       ) : (
-        <SwiperSlide>No friends yet</SwiperSlide>
+        <SwiperSlide>No followers yet</SwiperSlide>
       )}
     </Swiper>
   );

@@ -1,14 +1,12 @@
 import Axios from 'axios';
 import { FriendFields } from '../../packages/components';
 import { RoutesEnum } from '../routes/RoutesEnum';
+import { imageUrl } from '../url';
 import { axiosConfig } from '../utils/axiosConfig';
-
-interface SearchedUser extends FriendFields {
-  _id: string;
-}
+import { Following } from '../interfaces';
 
 interface SearchResult {
-  searchedItems: SearchedUser[];
+  searchedItems: Following[];
 }
 
 const apiClient = Axios.create(axiosConfig);
@@ -22,7 +20,7 @@ export const searchUsers = async (name: string): Promise<FriendFields[]> => {
     online: item.online,
     lastVisit: item.lastVisit,
     _id: item._id,
-    avatar: item.avatar,
+    avatar: item.avatar.name ? `${imageUrl}/${item.avatar.name}` : '',
     route: `${RoutesEnum.Profile}/${item._id}`,
   }));
 };

@@ -1,3 +1,4 @@
+import { observer } from 'mobx-react-lite';
 import React from 'react';
 import { FriendFields, Widget } from '../../packages/components';
 import { store } from '../store';
@@ -7,7 +8,7 @@ interface Props {
   searchingUser: string;
 }
 
-export const Content = ({ searchedItems, searchingUser }: Props) => {
+export const Content = observer(({ searchedItems, searchingUser }: Props) => {
   return (
     <>
       <Widget
@@ -19,4 +20,4 @@ export const Content = ({ searchedItems, searchingUser }: Props) => {
       />
     </>
   );
-};
+});
