@@ -10,3 +10,6 @@ export * from './searchUsers';
 export * from './updateAvatar';
 export * from './follow';
 export * from './unfollow';
+export * from './deletePhotosRequest';
+export * from './isLiked';
+export * from './likeToggle';

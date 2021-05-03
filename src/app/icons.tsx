@@ -19,6 +19,7 @@ import {
   CloudUploadOutlined,
   CheckCircleOutline,
   CancelOutlined,
+  Delete,
 } from '@material-ui/icons';
 
 export const icons: Record<IconType, JSX.Element> = {
@@ -40,4 +41,5 @@ export const icons: Record<IconType, JSX.Element> = {
   [IconType.Upload]: <CloudUploadOutlined />,
   [IconType.Done]: <CheckCircleOutline />,
   [IconType.Error]: <CancelOutlined />,
+  [IconType.Trash]: <Delete />,
 };

@@ -4,10 +4,17 @@ import { Actions } from './Actions';
 import { useParams } from 'react-router-dom';
 import { Params } from './interfaces';
 import { store } from '../store';
-import { AddFileModal } from '../../packages/components';
+import { AddFileModal, ImageProps } from '../../packages/components';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
-import { follow, sendFiles, unfollow } from '../helpers';
+import {
+  follow,
+  isLiked,
+  likeToggle,
+  parseError,
+  sendFiles,
+  unfollow,
+} from '../helpers';
 import { observer } from 'mobx-react-lite';
 
 export const ProfileMain = observer(() => {
@@ -23,6 +30,14 @@ export const ProfileMain = observer(() => {
     return !!store.user.following.find((following) => following._id === id);
   };
 
+  async function toggleLikeHandler(this: ImageProps) {
+    try {
+      await likeToggle(`${/(?!.*\/).*/.exec(this.src)?.shift()}`);
+    } catch (error) {
+      store.profile.setError(parseError(error));
+    }
+  }
+
   const subscribeHandler: React.MouseEventHandler = async () => {
     try {
       if (isFollowing()) {
@@ -36,11 +51,15 @@ export const ProfileMain = observer(() => {
   return (
     <>
       <Styled.ProfileMain>
-        {store.profile.avatar.name && (
+        {store.profile.avatar ? (
           <Styled.ProfilePhoto
             {...store.profile.profileAvatar}
+            isLiked={isLiked(store.user._id, store.profile.profileAvatar.src)}
             likeIcon={<Icon type={IconType.Like} />}
+            likeHandler={toggleLikeHandler.bind(store.profile.profileAvatar)}
           />
+        ) : (
+          <Styled.EmptyAvatar name={store.profile.firstName} />
         )}
         <Actions
           addPhotoModalHandler={addPhotoModalHandler}

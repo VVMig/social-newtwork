@@ -11,4 +11,9 @@ export interface ImageProps {
   isLiked?: boolean;
   imageDate?: number;
   setAvatarAction?: React.MouseEventHandler<Element>;
+  selectMode?: boolean;
+  selected?: boolean;
+  setSelected?: (selected: boolean) => void;
+  deleteHandler?: React.MouseEventHandler;
+  likeHandler?: React.MouseEventHandler;
 }

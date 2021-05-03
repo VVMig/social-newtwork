@@ -3,12 +3,18 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Styled } from '../styled';
 import 'swiper/swiper-bundle.css';
 import { PhotosProps } from '../interfaces';
+import { ImageProps } from '../../../packages/components';
 
 interface Props extends PhotosProps {
   avatarHandler?: React.MouseEventHandler<Element>;
+  deletePhoto: (photo: ImageProps[] | string) => Promise<void>;
 }
 
-export const PhotosSwiper = ({ photos, avatarHandler }: Props) => {
+export const PhotosSwiper = ({ photos, avatarHandler, deletePhoto }: Props) => {
+  async function deleteHandler(this: ImageProps) {
+    deletePhoto(`${/(?!.*\/).*/.exec(this.src)?.shift()}`);
+  }
+
   return (
     <Swiper spaceBetween={2} slidesPerView={'auto'}>
       {photos.length ? (
@@ -17,6 +23,7 @@ export const PhotosSwiper = ({ photos, avatarHandler }: Props) => {
             <Styled.Photo
               {...photo}
               setAvatarAction={avatarHandler?.bind(photo)}
+              deleteHandler={deleteHandler.bind(photo)}
             />
           </SwiperSlide>
         ))

@@ -17,4 +17,5 @@ export enum IconType {
   Upload = 'Upload',
   Done = 'Done',
   Error = 'Error',
+  Trash = 'Trash',
 }

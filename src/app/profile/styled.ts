@@ -136,6 +136,7 @@ const Friend = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  height: min-content;
   color: ${(props) => props.theme.additionalDarkGrey};
 `;
 
@@ -198,11 +199,39 @@ const Photo = styled(ImageWrapper)`
   border-radius: 0;
 `;
 
-const AllItemsModal = styled.div`
+const ActionsModal = styled.div`
   display: flex;
   width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 0;
+
+  & button {
+    background-color: ${(props) => props.theme.additionalDarkGrey};
+    max-width: 80px;
+    height: 40px;
+    padding: 0;
+    font-size: 14px;
+  }
+
+  & div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${(props) => props.theme.danger};
+    & svg {
+      cursor: pointer;
+    }
+  }
+`;
+
+const AllItemsModal = styled.div`
+  display: flex;
+  width: 1000px;
   flex-wrap: wrap;
   gap: 10px;
+  min-height: 500px;
   height: 100%;
 
   & ${Photo} {
@@ -241,7 +270,16 @@ const PhotoModal = styled.div`
   }
 `;
 
+const EmptyAvatar = styled(Avatar)`
+  height: ${imageSize}px;
+  width: ${imageSize}px;
+  border-radius: 10px;
+  font-size: 84px;
+`;
+
 export const Styled = {
+  EmptyAvatar,
+  ActionsModal,
   FriendAvatar,
   FriendFirstName,
   Friend,
