@@ -3,7 +3,7 @@ import { store } from '../store';
 import { Instance } from 'mobx-state-tree';
 import { Profile } from '../store/Profile';
 import { User } from '../store/User';
-import { ILastMessage, IUpdate } from './interfaces';
+import { ILastMessage, IUpdate, IError } from './interfaces';
 import { notificationReducer } from '../helpers/notificationReducer';
 
 export const wsActions = (lastMessage: ILastMessage) => {
@@ -22,7 +22,8 @@ export const wsActions = (lastMessage: ILastMessage) => {
       store.user?.updateFollowingStatus(payload as IUpdate);
       break;
     case WSEvents.Error:
-      console.log(payload);
+      store.setError((payload as IError).message);
+      console.log(type, payload);
       break;
     default:
       break;

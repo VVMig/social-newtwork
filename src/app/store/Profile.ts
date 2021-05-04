@@ -35,14 +35,10 @@ export const Profile = types
     avatar: types.maybeNull(Photo),
     online: defaultTypes.maybeBoolean,
     lastVisit: defaultTypes.maybeNumber,
-    error: types.optional(types.string, ''),
   })
   .actions((self) => ({
     updateProfile(updatedProfile: Instance<typeof self>) {
       Object.assign(self, updatedProfile);
-    },
-    setError(error: string) {
-      self.error = error;
     },
   }))
   .views((self) => ({

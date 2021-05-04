@@ -34,7 +34,7 @@ export const Photos = observer(() => {
     try {
       await likeToggle(`${/(?!.*\/).*/.exec(this.src)?.shift()}`);
     } catch (error) {
-      store.profile.setError(parseError(error));
+      store.setError(parseError(error));
     }
   }
 
@@ -52,7 +52,7 @@ export const Photos = observer(() => {
       if (Array.isArray(photos)) await deletePhotosRequest(photosNames(photos));
       else deletePhotosRequest([photos]);
     } catch (error) {
-      store.profile.setError(parseError(error));
+      store.setError(parseError(error));
     }
   };
 
@@ -66,7 +66,7 @@ export const Photos = observer(() => {
     try {
       await updateAvatar(result[0]);
     } catch (error) {
-      store.profile.setError(parseError(error));
+      store.setError(parseError(error));
     }
   };
 

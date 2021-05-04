@@ -7,6 +7,7 @@ export const Store = types
     user: types.optional(User, {}),
     profile: types.optional(Profile, {}),
     notify: types.optional(types.boolean, false),
+    error: types.maybe(types.string),
   })
   .actions((self) => ({
     setUser(user: Instance<typeof User>) {
@@ -24,6 +25,12 @@ export const Store = types
     },
     resetUser() {
       self.user = cast({});
+    },
+    setError(error?: string) {
+      self.error = error || 'Network error';
+    },
+    resetError() {
+      self.error = undefined;
     },
   }))
   .views((self) => ({

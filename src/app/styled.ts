@@ -1,7 +1,9 @@
 import styled, { css } from 'styled-components';
 import { sidebarInfoWidth } from './sidebar-info/styled';
 import { sidebarLiveWidth } from './sidebar-live/styled';
-import { headerHeight } from '../packages/components';
+import { Alert, headerHeight } from '../packages/components';
+import { appearTop } from './auth/configs/animations';
+
 interface AuthProps {
   register?: boolean;
   auth?: boolean;
@@ -81,9 +83,22 @@ const PageSpinner = styled.div`
   }
 `;
 
+const GlobalAlert = styled(Alert)`
+  & {
+    position: fixed;
+    left: 50%;
+    top: 5px;
+    transform: translate(-50%);
+    background-color: ${(props) => props.theme.mainBackground};
+    box-shadow: 0 0 2px ${(props) => props.theme.black};
+    animation: ${appearTop} 0.2s linear;
+  }
+`;
+
 export const Styled = {
   Wrapper,
   Content,
   PageSpinner,
   ContentWidth,
+  GlobalAlert,
 };
