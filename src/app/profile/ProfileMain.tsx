@@ -61,12 +61,14 @@ export const ProfileMain = observer(() => {
         ) : (
           <Styled.EmptyAvatar name={store.profile.firstName} />
         )}
-        <Actions
-          addPhotoModalHandler={addPhotoModalHandler}
-          isOwner={store.user?._id === id}
-          isFollowing={isFollowing()}
-          subscribeHandler={subscribeHandler}
-        />
+        {store.isUserSet && store.user.verified && (
+          <Actions
+            addPhotoModalHandler={addPhotoModalHandler}
+            isOwner={store.user?._id === id}
+            isFollowing={isFollowing()}
+            subscribeHandler={subscribeHandler}
+          />
+        )}
       </Styled.ProfileMain>
       {showAddPhotoModal && (
         <AddFileModal

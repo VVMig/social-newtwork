@@ -34,7 +34,11 @@ export interface IProfile {
 }
 
 export interface ILastMessage {
-  type: WSEvents.Update | WSEvents.Profile | WSEvents.FollowingUpdate;
+  type:
+    | WSEvents.Update
+    | WSEvents.Profile
+    | WSEvents.FollowingUpdate
+    | WSEvents.Error;
   payload:
     | IUpdate
     | Instance<typeof Profile>

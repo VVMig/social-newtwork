@@ -20,7 +20,7 @@ export const searchUsers = async (name: string): Promise<FriendFields[]> => {
     online: item.online,
     lastVisit: item.lastVisit,
     _id: item._id,
-    avatar: item.avatar.name ? `${imageUrl}/${item.avatar.name}` : '',
+    avatar: item.avatar ? `${imageUrl}/${item.avatar.name}` : '',
     route: `${RoutesEnum.Profile}/${item._id}`,
   }));
 };

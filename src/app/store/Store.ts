@@ -16,7 +16,6 @@ export const Store = types
     setProfile(profile: Instance<typeof Profile>) {
       self.profile = cast(profile);
     },
-
     resetProfile() {
       self.profile = cast({});
     },
@@ -32,6 +31,6 @@ export const Store = types
       return !Object.values(self.user).includes(undefined);
     },
     get isProfileSet() {
-      return !Object.values(self.user).includes(undefined);
+      return !Object.values(self.profile).includes(undefined);
     },
   }));

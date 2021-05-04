@@ -1,17 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Styled } from '../styled';
 import { Alert, Button, Spinner } from '../../../packages/components';
 import { VerificationInfo } from './VerificationInfo';
 import { parseError, refreshToken, signOut } from '../../helpers';
-
+import useWebSocket from 'react-use-websocket';
+import { wsUrl } from '../../url';
+import { wsActions } from '../../wsreducer';
+import { observer } from 'mobx-react-lite';
+import { store } from '../../store';
+import { useHistory } from 'react-router';
+import { RoutesEnum } from '../../routes/RoutesEnum';
 interface Props {
   className: string;
 }
 
-export const Verification = ({ className }: Props) => {
+export const Verification = observer(({ className }: Props) => {
   const [resent, setResent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const history = useHistory();
+  const { lastJsonMessage, sendMessage } = useWebSocket(
+    `${wsUrl}/verification`,
+    {
+      onOpen: () => sendCurrentUser(),
+    }
+  );
+
+  useEffect(() => {
+    console.log(lastJsonMessage);
+    lastJsonMessage && wsActions(lastJsonMessage);
+  }, [lastJsonMessage]);
+
+  useEffect(() => {
+    if (store.user.verified) history.push(RoutesEnum.Home);
+  }, [store.user.verified]);
+
+  const sendCurrentUser = () => {
+    sendMessage(`${store.user._id}`);
+  };
 
   const signOutHandler: React.MouseEventHandler = async () => {
     try {
@@ -57,4 +83,4 @@ export const Verification = ({ className }: Props) => {
       </Styled.VerificationContainer>
     </Styled.Verification>
   );
-};
+});
