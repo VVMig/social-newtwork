@@ -13,6 +13,8 @@ interface Props extends ModalProps {
   isLiked?: boolean;
   imageDate?: number;
   setAvatarAction?: React.MouseEventHandler;
+  deleteHandler?: React.MouseEventHandler;
+  likeHandler?: React.MouseEventHandler;
 }
 
 export const ImageModal = ({
@@ -23,6 +25,8 @@ export const ImageModal = ({
   isLiked,
   imageDate,
   setAvatarAction,
+  deleteHandler,
+  likeHandler,
   ...props
 }: Props) => {
   const realTime = () => {
@@ -39,6 +43,7 @@ export const ImageModal = ({
           {imageDate && <Styled.Date>{realTime()}</Styled.Date>}
           {likesNumber !== undefined && likeIcon && (
             <Likes
+              actionHandler={likeHandler}
               likesNumber={likesNumber}
               icon={likeIcon}
               isLiked={isLiked}
@@ -48,6 +53,9 @@ export const ImageModal = ({
         {setAvatarAction && (
           <Styled.Actions>
             <Button onClick={setAvatarAction}>Set as profile image</Button>
+            <Styled.Delete onClick={deleteHandler}>
+              <Button>Delete</Button>
+            </Styled.Delete>
           </Styled.Actions>
         )}
       </Modal>

@@ -45,6 +45,9 @@ interface ILastMessage {
 export const wsActions = (lastMessage: ILastMessage) => {
   const { type, payload } = lastMessage;
 
+  console.log(type);
+  console.log(payload);
+
   switch (type) {
     case WSEvents.Update:
       store.setUser(payload as Instance<typeof User>);

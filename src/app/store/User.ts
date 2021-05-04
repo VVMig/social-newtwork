@@ -16,11 +16,11 @@ export const Following = types
     online: types.optional(types.boolean, false),
     _id: types.optional(types.string, ''),
     lastVisit: types.optional(types.number, 0),
-    avatar: types.optional(Avatar, {}),
+    avatar: types.maybeNull(Avatar),
   })
   .views((self) => ({
     get followingAvatar() {
-      return self.avatar.name ? `${imageUrl}/${self.avatar.name}` : '';
+      return self.avatar ? `${imageUrl}/${self.avatar.name}` : '';
     },
   }));
 
@@ -32,7 +32,7 @@ export const User = types
     verified: defaultTypes.maybeBoolean,
     _id: defaultTypes.maybeString,
     following: types.optional(types.array(Following), []),
-    avatar: types.optional(Avatar, {}),
+    avatar: types.maybeNull(Avatar),
   })
   .views((self) => ({
     get fullName() {
@@ -46,7 +46,7 @@ export const User = types
       }));
     },
     get userAvatar() {
-      return self.avatar.name ? `${imageUrl}/${self.avatar.name}` : '';
+      return self.avatar ? `${imageUrl}/${self.avatar.name}` : '';
     },
   }))
   .actions((self) => ({

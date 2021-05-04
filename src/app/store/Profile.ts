@@ -21,7 +21,7 @@ const Photo = types.model('Photo', {
 const Followers = types.model('Followers', {
   firstName: types.optional(types.string, 'unknown'),
   _id: types.optional(types.string, ''),
-  avatar: types.optional(Photo, {}),
+  avatar: types.maybeNull(Photo),
   online: types.optional(types.boolean, false),
 });
 
@@ -32,7 +32,7 @@ export const Profile = types
     id: defaultTypes.maybeString,
     followers: types.optional(types.array(Followers), []),
     photos: types.optional(types.array(Photo), []),
-    avatar: types.optional(Photo, {}),
+    avatar: types.maybeNull(Photo),
     online: defaultTypes.maybeBoolean,
     lastVisit: defaultTypes.maybeNumber,
     error: defaultTypes.maybeString,
@@ -48,10 +48,10 @@ export const Profile = types
   .views((self) => ({
     get profileAvatar() {
       return {
-        src: `${imageUrl}/${self.avatar.name}`,
-        isModal: true,
-        likesNumber: self.avatar.likes.length,
-        imageDate: self.avatar.date,
+        src: self.avatar?.name ? `${imageUrl}/${self.avatar.name}` : '',
+        isModal: !!self.avatar,
+        likesNumber: self.avatar?.likes.length || 0,
+        imageDate: self.avatar?.date || 0,
       };
     },
     get name() {
@@ -66,6 +66,13 @@ export const Profile = types
         {
           title: 'Photos',
           amount: self.photos.length,
+        },
+        {
+          title: 'Likes',
+          amount: self.photos.reduce(
+            (likes, photo) => likes + photo.likes.length,
+            0
+          ),
         },
       ];
     },
@@ -82,7 +89,7 @@ export const Profile = types
     get profileFollowers(): FollowerFields[] {
       return self.followers.map((follower) => ({
         route: `${RoutesEnum.Profile}/${follower._id}`,
-        avatar: follower.avatar.name
+        avatar: follower.avatar?.name
           ? `${imageUrl}/${follower.avatar.name}`
           : '',
         firstName: follower.firstName,

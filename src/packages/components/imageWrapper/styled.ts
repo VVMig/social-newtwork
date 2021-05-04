@@ -11,6 +11,12 @@ const Preview = styled.img<ImageProps>`
   object-fit: cover;
 
   ${(props) =>
+    props.selected &&
+    css`
+      opacity: 0.5;
+    `}
+
+  ${(props) =>
     props.isModal &&
     css`
       cursor: pointer;
@@ -48,6 +54,15 @@ const Actions = styled.div`
   }
 `;
 
+const Delete = styled.div`
+  & button {
+    background-color: ${(props) => props.theme.danger};
+    width: auto;
+    padding: 5px;
+    border-radius: 10px;
+  }
+`;
+
 export const Styled = {
   DefaultPreview,
   Preview,
@@ -55,4 +70,5 @@ export const Styled = {
   InfoContainer,
   Date,
   Actions,
+  Delete,
 };
