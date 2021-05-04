@@ -67,7 +67,6 @@ const MenuItem = styled.li`
   color: ${(props) => props.theme.black};
   padding: 4px 10px;
   transition: 0.2s linear;
-  text-transform: capitalize;
   color: ${(props) => props.theme.additionalDarkGrey};
 
   & div {

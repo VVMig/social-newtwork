@@ -14,4 +14,5 @@ export const zIndex = {
   arrowClicker: 1100,
   modal: 1500,
   sidebarToggler: 1200,
+  notificationsArea: 1300,
 };

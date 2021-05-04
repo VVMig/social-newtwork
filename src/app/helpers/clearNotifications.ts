@@ -3,8 +3,6 @@ import { axiosConfig } from '../utils/axiosConfig';
 
 const apiClient = Axios.create(axiosConfig);
 
-export const updateAvatar = async (imageId: string) => {
-  await apiClient.post('/user/updateAvatar', {
-    imageId,
-  });
+export const clearNotifications = async () => {
+  await apiClient.post('/user/clearNotifications');
 };

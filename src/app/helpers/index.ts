@@ -13,3 +13,5 @@ export * from './unfollow';
 export * from './deletePhotosRequest';
 export * from './isLiked';
 export * from './likeToggle';
+export * from './clearNotifications';
+export * from './notificationReducer';
