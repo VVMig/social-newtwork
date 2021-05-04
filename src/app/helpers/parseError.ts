@@ -1,4 +1,10 @@
 import { AxiosError } from 'axios';
 
-export const parseError = (error: AxiosError): string =>
-  error.response?.data?.message || error.message;
+const unauthorizedCode = 401;
+
+export const parseError = (error: AxiosError): string => {
+  if (error.response?.status === unauthorizedCode) {
+    return 'Please sign in';
+  }
+  return error.response?.data?.message || error.message;
+};
