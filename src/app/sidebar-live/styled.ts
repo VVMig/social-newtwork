@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { zIndex } from '../../packages/components';
 
 export const sidebarLiveWidth = 390;
 
@@ -80,14 +81,46 @@ const MenuArea = styled.div`
     top: 100%;
     right: 0;
     max-width: ${headerInfoWidth}px;
+    & span {
+      text-transform: capitalize;
+    }
   }
 `;
 
 const Content = styled.div``;
+
+const NotificationArea = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  & svg {
+    cursor: pointer;
+  }
+`;
+
+const NotificationsList = styled.div`
+  width: calc(100% * 0.7);
+  position: absolute;
+  left: 10px;
+  top: 100%;
+  margin-top: ${marginFromHeader}px;
+  z-index: ${zIndex.notificationsArea};
+
+  & .avatar {
+    font-size: 10px;
+  }
+
+  & .dropdown-notifications {
+    text-transform: none;
+  }
+`;
 
 export const Styled = {
   SidebarContainer,
   Header,
   Content,
   MenuArea,
+  NotificationsList,
+  NotificationArea,
 };

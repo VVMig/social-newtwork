@@ -6,16 +6,22 @@ export const Store = types
   .model('Store', {
     user: types.optional(User, {}),
     profile: types.optional(Profile, {}),
+    notify: types.optional(types.boolean, false),
   })
   .actions((self) => ({
     setUser(user: Instance<typeof User>) {
       Object.assign(self.user, user);
+      self.user.resetNotifications();
     },
     setProfile(profile: Instance<typeof Profile>) {
       self.profile = cast(profile);
     },
+
     resetProfile() {
       self.profile = cast({});
+    },
+    setNotify(notify: boolean) {
+      self.notify = notify;
     },
     resetUser() {
       self.user = cast({});

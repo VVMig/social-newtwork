@@ -10,11 +10,18 @@ import { useOutsideClick } from './hooks';
 import useWebSocket from 'react-use-websocket';
 import { wsUrl } from './url';
 import { wsActions } from './wsreducer';
+import { observer } from 'mobx-react-lite';
+import useSound from 'use-sound';
+import { store } from './store';
 
-export const AuthContent: React.FC = ({ children }) => {
+export const AuthContent: React.FC = observer(({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
+  const [canPlay, setCanPlay] = useState(false);
   const { lastJsonMessage } = useWebSocket(wsUrl);
+  const [play] = useSound(`${process.env.PUBLIC_URL}/sounds/notification.mp3`, {
+    volume: 0.5,
+  });
 
   useEffect(() => {
     lastJsonMessage && wsActions(lastJsonMessage);
@@ -35,6 +42,16 @@ export const AuthContent: React.FC = ({ children }) => {
   };
 
   useOutsideClick(ref, closeOutsideMenuHandler);
+
+  useEffect(() => {
+    if (store.notify) setCanPlay(true);
+  }, [store.notify]);
+
+  useEffect(() => {
+    if (store.user.notifications.length > 0 && canPlay) {
+      play();
+    }
+  }, [store.user.notifications.length]);
 
   return (
     <>
@@ -59,4 +76,4 @@ export const AuthContent: React.FC = ({ children }) => {
       </Styled.Content>
     </>
   );
-};
+});

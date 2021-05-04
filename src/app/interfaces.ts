@@ -39,3 +39,15 @@ export interface IUser {
   following: Following[];
   avatar: Image;
 }
+
+export interface ActionUser {
+  firstName: string;
+  lastName: string;
+  _id: string;
+  avatar: Image | null;
+}
+
+export interface INotification {
+  notifyMessage: string;
+  from: ActionUser;
+}

@@ -66,7 +66,7 @@ export const Photos = observer(() => {
     try {
       await updateAvatar(result[0]);
     } catch (error) {
-      console.log(error);
+      store.profile.setError(parseError(error));
     }
   };
 

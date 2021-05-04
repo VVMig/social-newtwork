@@ -10,10 +10,12 @@ import {
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
 import { store } from '../store';
-import { signOut } from '../helpers';
-import React, { RefObject } from 'react';
+import { clearNotifications, signOut } from '../helpers';
+import React, { RefObject, useRef, useState } from 'react';
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { observer } from 'mobx-react-lite';
+import { NotificationsList } from './notificationsList/NotificationsList';
+import { useOutsideClick } from '../hooks';
 
 interface Props {
   icon: JSX.Element;
@@ -24,9 +26,30 @@ interface Props {
 
 export const Header = observer(
   ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
+    const [notifications, setNotifications] = useState(false);
+    const notifyRef = useRef<HTMLDivElement>(null);
+
+    const closeNotifications = async () => {
+      if (notifications) {
+        await clearNotifications();
+        store.user.resetNotifications();
+      }
+      setNotifications(false);
+    };
+
+    const notificationsHandler: React.MouseEventHandler = async () => {
+      if (notifications) {
+        await clearNotifications();
+        store.user.resetNotifications();
+      }
+      setNotifications(!notifications);
+    };
+
     const signOutHandler: React.MouseEventHandler = async () => {
       await signOut();
     };
+
+    useOutsideClick(notifyRef, closeNotifications);
 
     const items: Item[] = [
       {
@@ -48,7 +71,15 @@ export const Header = observer(
     return (
       <>
         <Styled.Header>
-          <Notifications icon={icon} notify />
+          <Styled.NotificationArea ref={notifyRef}>
+            <Notifications
+              icon={icon}
+              notify={store.user.notifications.length > 0}
+              clickHandler={notificationsHandler}
+            />
+            <NotificationsList show={notifications} />
+          </Styled.NotificationArea>
+
           <Styled.MenuArea onClick={showMenuHandler} ref={menuRef}>
             <Avatar
               size={30}

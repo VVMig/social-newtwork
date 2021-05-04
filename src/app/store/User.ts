@@ -1,13 +1,31 @@
-import { cast, types } from 'mobx-state-tree';
+import { cast, Instance, types } from 'mobx-state-tree';
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { imageUrl } from '../url';
 import { defaultTypes } from '../utils';
-import { IUpdate } from '../wsreducer';
+import { IUpdate } from '../wsreducer/interfaces';
 
 const Avatar = types.model('Avatar', {
   _id: types.optional(types.string, ''),
   name: types.optional(types.string, ''),
 });
+
+const ActionUser = types.model('ActionUser', {
+  firstName: types.optional(types.string, ''),
+  lastName: types.optional(types.string, ''),
+  _id: types.optional(types.string, ''),
+  avatar: types.maybeNull(Avatar),
+});
+
+export const Notification = types
+  .model('Notification', {
+    notifyMessage: types.optional(types.string, ''),
+    from: types.optional(ActionUser, {}),
+  })
+  .views((self) => ({
+    get userAvatar() {
+      return self.from.avatar ? `${imageUrl}/${self.from.avatar.name}` : '';
+    },
+  }));
 
 export const Following = types
   .model('Following', {
@@ -33,6 +51,7 @@ export const User = types
     _id: defaultTypes.maybeString,
     following: types.optional(types.array(Following), []),
     avatar: types.maybeNull(Avatar),
+    notifications: types.optional(types.array(Notification), []),
   })
   .views((self) => ({
     get fullName() {
@@ -57,5 +76,11 @@ export const User = types
       if (updatedFollowingIndex > -1) {
         self.following[updatedFollowingIndex] = cast(updatedFollowing);
       } else self.following.push(updatedFollowing);
+    },
+    addNotification(notification: Instance<typeof Notification>) {
+      self.notifications.push(notification);
+    },
+    resetNotifications() {
+      self.notifications = cast([]);
     },
   }));
