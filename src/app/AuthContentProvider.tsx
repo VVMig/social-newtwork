@@ -2,10 +2,18 @@ import React from 'react';
 import { store } from './store';
 import { AuthContent } from './AuthContent';
 import { Styled } from './styled';
+import { observer } from 'mobx-react-lite';
 
-export const AuthContentProvider: React.FC = ({ children }) => {
+export const AuthContentProvider: React.FC = observer(({ children }) => {
+  const closeAlert = () => {
+    store.resetError();
+  };
+
   return (
     <>
+      {store.error && (
+        <Styled.GlobalAlert text={store.error} handleClose={closeAlert} />
+      )}
       {store.isUserSet && store.user.verified ? (
         <Styled.Wrapper auth>
           <AuthContent>{children}</AuthContent>
@@ -19,4 +27,4 @@ export const AuthContentProvider: React.FC = ({ children }) => {
       )}
     </>
   );
-};
+});

@@ -43,7 +43,12 @@ export interface ILastMessage {
     | IUpdate
     | Instance<typeof Profile>
     | Instance<typeof User>
-    | INotification;
+    | INotification
+    | IError;
+}
+
+export interface IError {
+  message: string;
 }
 
 export interface IUpdate {

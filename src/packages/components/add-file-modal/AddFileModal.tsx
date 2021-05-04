@@ -3,6 +3,7 @@ import { Modal, ModalProps } from '../modal';
 import { UploadZone } from './UploadZone';
 import { UploadSuccess } from './UploadSuccess';
 import { UploadFailed } from './UploadFailed';
+import { AxiosError } from 'axios';
 
 interface Props extends ModalProps {
   extencions?: string;
@@ -10,6 +11,7 @@ interface Props extends ModalProps {
   successIcon: JSX.Element;
   failedIcon: JSX.Element;
   sendFiles: (files: Blob[]) => Promise<void>;
+  showError?: (error: AxiosError) => void;
 }
 
 export const AddFileModal = ({
@@ -19,6 +21,7 @@ export const AddFileModal = ({
   setShowModal,
   successIcon,
   failedIcon,
+  showError,
 }: Props) => {
   const [files, setFiles] = useState<Blob[]>([]);
   const [loading, setLoading] = useState(false);
@@ -33,6 +36,7 @@ export const AddFileModal = ({
       setSuccess(true);
     } catch (error) {
       setError(true);
+      showError && showError(error as AxiosError);
     } finally {
       setLoading(false);
       setTimeout(() => {

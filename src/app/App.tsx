@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
 import { PostsList } from '../packages/components';
 import { Styled } from './styled';
 import { posts } from './posts';
@@ -8,7 +8,7 @@ import { theme } from './theme';
 import { Auth } from './auth/Auth';
 import { observer } from 'mobx-react-lite';
 import { store } from './store';
-import { authorize } from './helpers';
+import { authorize, parseError } from './helpers';
 import { AuthorizedRoute } from './routes';
 import { PageSpinner } from './PageSpinner';
 import { RoutesEnum } from './routes/RoutesEnum';
@@ -17,6 +17,7 @@ import { Profile } from './profile/Profile';
 
 export const App = observer(() => {
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
 
   const authorizeUser = async () => {
     try {
@@ -24,6 +25,8 @@ export const App = observer(() => {
       setLoading(false);
     } catch (error) {
       setLoading(false);
+      location.pathname !== RoutesEnum.Authentication &&
+        store.setError(parseError(error));
     }
   };
 

@@ -16,6 +16,7 @@ import {
   unfollow,
 } from '../helpers';
 import { observer } from 'mobx-react-lite';
+import { AxiosError } from 'axios';
 
 export const ProfileMain = observer(() => {
   const { id } = useParams<Params>();
@@ -34,18 +35,26 @@ export const ProfileMain = observer(() => {
     try {
       await likeToggle(`${/(?!.*\/).*/.exec(this.src)?.shift()}`);
     } catch (error) {
-      store.profile.setError(parseError(error));
+      store.setError(parseError(error));
     }
   }
 
   const subscribeHandler: React.MouseEventHandler = async () => {
     try {
       if (isFollowing()) {
-        unfollow(id);
-      } else follow(id);
+        await unfollow(id);
+      } else await follow(id);
     } catch (error) {
-      store.profile.setError('asd');
+      store.setError(parseError(error));
     }
+  };
+
+  const sendPhotos = async (files: Blob[]) => {
+    await sendFiles(files);
+  };
+
+  const handleError = (error: AxiosError) => {
+    store.setError(parseError(error));
   };
 
   return (
@@ -75,9 +84,10 @@ export const ProfileMain = observer(() => {
           uploadIcon={<Icon type={IconType.Upload} />}
           setShowModal={setShowAddPhotoModal}
           showModal={showAddPhotoModal}
-          sendFiles={sendFiles}
+          sendFiles={sendPhotos}
           successIcon={<Icon type={IconType.Done} />}
           failedIcon={<Icon type={IconType.Error} />}
+          showError={handleError}
         />
       )}
     </>
