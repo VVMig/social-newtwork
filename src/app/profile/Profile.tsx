@@ -13,7 +13,6 @@ import { wsActions } from '../wsreducer';
 
 export const Profile = observer(() => {
   const [loading, setLoading] = useState(true);
-  const [error] = useState('');
   const { id } = useParams<Params>();
   const { lastJsonMessage, sendMessage } = useWebSocket(`${wsUrl}/profile`);
 
@@ -39,13 +38,11 @@ export const Profile = observer(() => {
         <Spinner />
       ) : (
         <Styled.Profile>
-          {store.isProfileSet && !error ? (
+          {store.isProfileSet && (
             <>
               <ProfileMain />
               <ProfileInfo />
             </>
-          ) : (
-            error
           )}
         </Styled.Profile>
       )}

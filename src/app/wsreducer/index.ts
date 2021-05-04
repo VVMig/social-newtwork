@@ -16,10 +16,13 @@ export const wsActions = (lastMessage: ILastMessage) => {
       store.setNotify(true);
       break;
     case WSEvents.Profile:
-      store.profile.updateProfile(payload as Instance<typeof Profile>);
+      store.setProfile(payload as Instance<typeof Profile>);
       break;
     case WSEvents.FollowingUpdate:
       store.user?.updateFollowingStatus(payload as IUpdate);
+      break;
+    case WSEvents.Error:
+      console.log(payload);
       break;
     default:
       break;

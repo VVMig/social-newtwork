@@ -35,7 +35,7 @@ export const Profile = types
     avatar: types.maybeNull(Photo),
     online: defaultTypes.maybeBoolean,
     lastVisit: defaultTypes.maybeNumber,
-    error: defaultTypes.maybeString,
+    error: types.optional(types.string, ''),
   })
   .actions((self) => ({
     updateProfile(updatedProfile: Instance<typeof self>) {
