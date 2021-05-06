@@ -14,6 +14,7 @@ import { PageSpinner } from './PageSpinner';
 import { RoutesEnum } from './routes/RoutesEnum';
 import { AuthContentProvider } from './AuthContentProvider';
 import { Profile } from './profile/Profile';
+import { Messager } from './messager';
 
 export const App = observer(() => {
   const [loading, setLoading] = useState(true);
@@ -54,6 +55,9 @@ export const App = observer(() => {
             <AuthContentProvider>
               <AuthorizedRoute path={RoutesEnum.Home}>
                 <PostsList posts={posts} />
+              </AuthorizedRoute>
+              <AuthorizedRoute path={RoutesEnum.Messager} exact>
+                <Messager />
               </AuthorizedRoute>
               <Route path={`${RoutesEnum.Profile}/:id`}>
                 <Profile />

@@ -23,4 +23,5 @@ export const theme = {
   danger: '#ff7d7d',
   lightBlack: 'rgba(65, 65, 65, 0.8)',
   mainRed: '#ff3636',
+  additionalDarkBlue: '#034efc',
 };

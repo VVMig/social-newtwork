@@ -1,12 +1,14 @@
 import { cast, Instance, types } from 'mobx-state-tree';
 import { Profile } from './Profile';
 import { User } from './User';
+import { Dialog } from './Dialog';
 
 export const Store = types
   .model('Store', {
     user: types.optional(User, {}),
     profile: types.optional(Profile, {}),
     notify: types.optional(types.boolean, false),
+    dialogs: types.optional(types.array(Dialog), []),
     error: types.maybe(types.string),
   })
   .actions((self) => ({

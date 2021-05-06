@@ -9,7 +9,7 @@ const Avatar = types.model('Avatar', {
   name: types.optional(types.string, ''),
 });
 
-const ActionUser = types.model('ActionUser', {
+export const ActionUser = types.model('ActionUser', {
   firstName: types.optional(types.string, ''),
   lastName: types.optional(types.string, ''),
   _id: types.optional(types.string, ''),
