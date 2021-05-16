@@ -1,17 +1,26 @@
-import { types } from 'mobx-state-tree';
-import { ActionUser } from './User';
+import { types, Instance } from 'mobx-state-tree';
+import { imageUrl } from '../url';
+import { ActionUser, Message } from './User';
 
-const Message = types.model('Message', {
-  from: ActionUser,
-  text: types.optional(types.string, ''),
-  date: types.optional(types.number, 0),
-  type: types.optional(types.string, 'Text'),
-});
+export const Dialog = types
+  .model('Dialog', {
+    messages: types.optional(types.array(Message), []),
+    _id: types.optional(types.string, ''),
+    interlocutor: types.optional(ActionUser, {}),
+    commonId: types.optional(types.string, ''),
+  })
+  .views((self) => ({
+    get name() {
+      return `${self.interlocutor.firstName} ${self.interlocutor.lastName}`;
+    },
+    get userId() {
+      return self.interlocutor._id;
+    },
+    get avatar() {
+      return self.interlocutor.avatar
+        ? `${imageUrl}/${self.interlocutor.avatar.name}`
+        : '';
+    },
+  }));
 
-export const Dialog = types.model('Dialog', {
-  messages: types.optional(types.array(Message), []),
-  date: types.optional(types.number, 0),
-  read: types.optional(types.boolean, false),
-  mute: types.optional(types.boolean, false),
-  lastMessage: types.optional(types.string, ''),
-});
+export type IDialog = Instance<typeof Dialog>;

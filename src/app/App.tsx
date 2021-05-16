@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-import { PostsList } from '../packages/components';
 import { Styled } from './styled';
-import { posts } from './posts';
 import { ThemeProvider } from 'styled-components';
 import { theme } from './theme';
 import { Auth } from './auth/Auth';
@@ -15,6 +13,7 @@ import { RoutesEnum } from './routes/RoutesEnum';
 import { AuthContentProvider } from './AuthContentProvider';
 import { Profile } from './profile/Profile';
 import { Messager } from './messager';
+import { Home } from './home/Home';
 
 export const App = observer(() => {
   const [loading, setLoading] = useState(true);
@@ -54,7 +53,7 @@ export const App = observer(() => {
 
             <AuthContentProvider>
               <AuthorizedRoute path={RoutesEnum.Home}>
-                <PostsList posts={posts} />
+                <Home />
               </AuthorizedRoute>
               <AuthorizedRoute path={RoutesEnum.Messager} exact>
                 <Messager />

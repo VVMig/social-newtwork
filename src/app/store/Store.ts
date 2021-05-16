@@ -1,20 +1,38 @@
 import { cast, Instance, types } from 'mobx-state-tree';
 import { Profile } from './Profile';
 import { User } from './User';
-import { Dialog } from './Dialog';
+import { Dialog, IDialog } from './Dialog';
 
 export const Store = types
   .model('Store', {
     user: types.optional(User, {}),
     profile: types.optional(Profile, {}),
     notify: types.optional(types.boolean, false),
-    dialogs: types.optional(types.array(Dialog), []),
+    dialog: types.optional(Dialog, {}),
     error: types.maybe(types.string),
+    newMessage: types.optional(types.array(types.number), []),
   })
   .actions((self) => ({
     setUser(user: Instance<typeof User>) {
+      user.allDialogs?.forEach((dialog) => {
+        const prevDialog = self.user.allDialogs.find(
+          (prevDialog) => prevDialog._id === dialog._id
+        );
+
+        if (
+          prevDialog &&
+          prevDialog.lastMessage._id !== dialog.lastMessage._id &&
+          !dialog.lastMessage.read &&
+          dialog.lastMessage.from !== self.user._id
+        ) {
+          self.newMessage.push(1);
+        }
+      });
       Object.assign(self.user, user);
       self.user.resetNotifications();
+    },
+    setDialog(dialog: IDialog) {
+      self.dialog = dialog;
     },
     setProfile(profile: Instance<typeof Profile>) {
       self.profile = cast(profile);
@@ -33,6 +51,9 @@ export const Store = types
     },
     resetError() {
       self.error = undefined;
+    },
+    resetDialog() {
+      self.dialog = cast({});
     },
   }))
   .views((self) => ({

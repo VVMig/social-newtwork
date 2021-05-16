@@ -21,7 +21,7 @@ export const AllFollowersModal = ({
     <Modal
       showModal={showModal}
       setShowModal={setShowModal}
-      title="All friends"
+      title="All followers"
     >
       <Styled.AllItemsModal>
         {followers.map((follower, i) => (

@@ -10,12 +10,13 @@ import {
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
 import { store } from '../store';
-import { clearNotifications, signOut } from '../helpers';
+import { clearNotifications, parseError, signOut } from '../helpers';
 import React, { RefObject, useRef, useState } from 'react';
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { observer } from 'mobx-react-lite';
 import { NotificationsList } from './notificationsList/NotificationsList';
 import { useOutsideClick } from '../hooks';
+import { useHistory } from 'react-router';
 
 interface Props {
   icon: JSX.Element;
@@ -28,6 +29,7 @@ export const Header = observer(
   ({ icon, showMenuHandler, showMenu, menuRef }: Props) => {
     const [notifications, setNotifications] = useState(false);
     const notifyRef = useRef<HTMLDivElement>(null);
+    const history = useHistory();
 
     const closeNotifications = async () => {
       if (notifications) {
@@ -46,7 +48,12 @@ export const Header = observer(
     };
 
     const signOutHandler: React.MouseEventHandler = async () => {
-      await signOut();
+      try {
+        await signOut();
+        history.push(RoutesEnum.Authentication);
+      } catch (error) {
+        store.setError(parseError(error));
+      }
     };
 
     useOutsideClick(notifyRef, closeNotifications);
@@ -56,10 +63,6 @@ export const Header = observer(
         title: 'profile',
         icon: <Icon type={IconType.User} />,
         link: `${RoutesEnum.Profile}/${store.user?._id}`,
-      },
-      {
-        title: 'settings',
-        icon: <Icon type={IconType.Settings} />,
       },
       {
         title: 'sign out',

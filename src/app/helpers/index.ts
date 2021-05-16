@@ -15,3 +15,8 @@ export * from './isLiked';
 export * from './likeToggle';
 export * from './clearNotifications';
 export * from './notificationReducer';
+export * from './getDialog';
+export * from './sendMessage';
+export * from './deleteDialog';
+export * from './fetchNews';
+export * from './parseNews';

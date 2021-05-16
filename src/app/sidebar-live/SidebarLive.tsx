@@ -15,9 +15,7 @@ interface Props {
 }
 
 export const SidebarLive = ({
-  viewIcon,
   notifyIcon,
-  sendIcon,
   showMenu,
   showMenuHandler,
   menuRef,
@@ -32,7 +30,7 @@ export const SidebarLive = ({
           showMenuHandler={showMenuHandler}
           menuRef={menuRef}
         />
-        <Content viewIcon={viewIcon} sendIcon={sendIcon} />
+        <Content />
       </Sidebar>
     </Styled.SidebarContainer>
   );

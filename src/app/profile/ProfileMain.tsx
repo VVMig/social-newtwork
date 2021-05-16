@@ -76,6 +76,7 @@ export const ProfileMain = observer(() => {
             isOwner={store.user?._id === id}
             isFollowing={isFollowing()}
             subscribeHandler={subscribeHandler}
+            id={id}
           />
         )}
       </Styled.ProfileMain>

@@ -54,7 +54,7 @@ const Name = styled.h2`
 
 const Status = styled.h2`
   font-size: 22px;
-  color: ${(props) => props.theme.additionalDarkGrey};
+  color: ${(props) => props.theme.blue};
 `;
 
 const InfoStatistic = styled.div`
