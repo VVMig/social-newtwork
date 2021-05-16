@@ -5,6 +5,7 @@ import { Profile } from '../store/Profile';
 import { User } from '../store/User';
 import { ILastMessage, IUpdate, IError } from './interfaces';
 import { notificationReducer } from '../helpers/notificationReducer';
+import { IDialog } from '../store/Dialog';
 
 export const wsActions = (lastMessage: ILastMessage) => {
   const { type, payload } = lastMessage;
@@ -23,7 +24,9 @@ export const wsActions = (lastMessage: ILastMessage) => {
       break;
     case WSEvents.Error:
       store.setError((payload as IError).message);
-      console.log(type, payload);
+      break;
+    case WSEvents.RoomUpdate:
+      store.setDialog(payload as IDialog);
       break;
     default:
       break;

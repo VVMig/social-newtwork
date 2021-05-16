@@ -3,4 +3,7 @@ export enum WSEvents {
   Profile = 'Profile',
   Update = 'Update',
   Error = 'Error',
+  RoomConnect = 'RoomConnect',
+  RoomMessageSent = 'RoomMessageSent',
+  RoomUpdate = 'RoomUpdate',
 }
