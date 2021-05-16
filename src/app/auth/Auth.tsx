@@ -25,11 +25,18 @@ export const Auth = observer(() => {
         <Transition
           in={store.isUserSet && !store.user?.verified}
           timeout={switchVerificationDuration}
+          mountOnEnter
+          unmountOnExit
         >
           {(state) => <Verification className={state} />}
         </Transition>
 
-        <Transition in={!store.isUserSet} timeout={switchVerificationDuration}>
+        <Transition
+          in={!store.isUserSet}
+          timeout={switchVerificationDuration}
+          mountOnEnter
+          unmountOnExit
+        >
           {(state) => (
             <Styled.Main className={`${state}`}>
               <FormContainer signIn={signIn} signInDelayed={signInDelayed} />
