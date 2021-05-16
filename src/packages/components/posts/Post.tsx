@@ -13,18 +13,16 @@ export const Post = ({
   author,
   likes,
   src,
+  link,
 }: PostProps) => {
   return (
     <Styled.Wrapper>
-      <Styled.PostImage src={src} />
+      <Styled.ToSourceLink href={link} target="_blank">
+        <Styled.PostImage src={src} />
+      </Styled.ToSourceLink>
       <Styled.Content>
         <Header title={title} subtitle={subtitle} date={date} />
-        <Body
-          text={text}
-          firstName={author.firstName}
-          lastName={author.lastName}
-          status={author.status}
-        />
+        <Body text={text} author={author} />
         <Footer likes={likes} />
       </Styled.Content>
     </Styled.Wrapper>

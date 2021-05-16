@@ -10,7 +10,7 @@ const tabState = css`
 export const headerHeight = 70;
 
 const Header = styled.header`
-  max-width: 465px;
+  max-width: 320px;
   width: 100%;
   height: ${headerHeight}px;
   display: inline-flex;

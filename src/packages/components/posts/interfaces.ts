@@ -1,18 +1,13 @@
 import { ImageProps } from '../imageWrapper';
 
-interface Author {
-  firstName: string;
-  lastName: string;
-  status?: string;
-}
-
 export interface Post extends ImageProps {
   title: string;
   subtitle: string;
   date: number;
   text: string;
-  author: Author;
+  author: string;
   likes: number;
+  link: string;
 }
 
 export interface PostsListProps {
@@ -29,8 +24,9 @@ export interface SpanProps {
   day?: boolean;
 }
 
-export interface BodyProps extends Author {
+export interface BodyProps {
   text: string;
+  author: string;
 }
 
 export interface FooterProps {

@@ -15,7 +15,6 @@ const PostContainer = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  /* max-width: 750px; */
   width: 100%;
   background-color: ${(props) => props.theme.mainBackground};
   border-radius: 25px;
@@ -165,7 +164,13 @@ const Like = styled.span.attrs({
   cursor: pointer;
 `;
 
+const ToSourceLink = styled.a`
+  width: 100%;
+  max-width: 300px;
+`;
+
 export const Styled = {
+  ToSourceLink,
   PostContainer,
   Like,
   Subtitle,
