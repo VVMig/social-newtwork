@@ -27,7 +27,6 @@ export const Verification = observer(({ className }: Props) => {
   );
 
   useEffect(() => {
-    console.log(lastJsonMessage);
     lastJsonMessage && wsActions(lastJsonMessage);
   }, [lastJsonMessage]);
 
