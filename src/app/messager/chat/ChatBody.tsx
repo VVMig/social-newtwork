@@ -1,6 +1,75 @@
-import React from 'react';
+import { observer } from 'mobx-react-lite';
+import React, { useEffect, useRef, useState } from 'react';
+import { store } from '../../store';
 import { Styled } from './styled';
+import { Message } from './Message';
+import { Icon } from '../../Icon';
+import { IconType } from '../../IconEnum';
 
-export const ChatBody = () => {
-  return <Styled.ChatBody></Styled.ChatBody>;
-};
+interface Props {
+  loading: boolean;
+}
+
+export const ChatBody = observer(({ loading }: Props) => {
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const stopScrollBottom = 600;
+  const [scrollToLastMessage, setScrollToLastMessage] = useState(true);
+
+  const scrollToBottom = (element: HTMLElement, smooth?: boolean) => {
+    element.scroll({
+      top: element.scrollHeight,
+      behavior: smooth ? 'smooth' : 'auto',
+    });
+  };
+
+  const scrollToBottomBtnHandler: React.MouseEventHandler = () => {
+    if (bodyRef.current) {
+      scrollToBottom(bodyRef.current, true);
+    }
+  };
+
+  useEffect(() => {
+    if (bodyRef.current && scrollToLastMessage) {
+      scrollToBottom(bodyRef.current, true);
+    }
+  }, [store.dialog.messages.length]);
+
+  useEffect(() => {
+    if (bodyRef.current) {
+      scrollToBottom(bodyRef.current);
+    }
+  }, [loading]);
+
+  const scrollHanlder = (e: React.UIEvent<HTMLDivElement>) => {
+    if (
+      e.currentTarget.scrollHeight - e.currentTarget.scrollTop >
+      stopScrollBottom
+    ) {
+      setScrollToLastMessage(false);
+    } else {
+      setScrollToLastMessage(true);
+    }
+  };
+
+  return (
+    <Styled.ChatBody padding={loading} ref={bodyRef} onScroll={scrollHanlder}>
+      {loading ? (
+        <Styled.ChatSpinner />
+      ) : (
+        store.dialog.messages.map((message) => (
+          <Message
+            unread={store.user._id === message.from ? !message.read : false}
+            key={message._id}
+            text={message.text}
+            owner={message.from === store.user._id}
+          />
+        ))
+      )}
+      {!scrollToLastMessage && (
+        <Styled.ScrollToBottomBtn onClick={scrollToBottomBtnHandler}>
+          <Icon type={IconType.CloseArrow} />
+        </Styled.ScrollToBottomBtn>
+      )}
+    </Styled.ChatBody>
+  );
+});

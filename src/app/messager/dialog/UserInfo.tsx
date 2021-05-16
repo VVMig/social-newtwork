@@ -1,13 +1,30 @@
 import React from 'react';
+import { IMessage } from '../../store/User';
 import { Styled } from './styled';
 
-export const UserInfo = () => {
+interface Props {
+  avatar: string;
+  name: string;
+  lastMessage?: IMessage;
+  owner: boolean;
+}
+
+export const UserInfo = ({ avatar, name, lastMessage, owner }: Props) => {
   return (
     <Styled.UserInfo>
-      <Styled.Avatar />
+      <Styled.Avatar src={avatar} name={name} />
       <Styled.DialogName>
-        <Styled.UserName></Styled.UserName>
-        <Styled.LastMessage></Styled.LastMessage>
+        <Styled.UserName>{name}</Styled.UserName>
+        <Styled.LastMessage>
+          {lastMessage?.text ? (
+            <span>
+              {owner && 'You: '}
+              {lastMessage.text}
+            </span>
+          ) : (
+            'Start messaging...'
+          )}
+        </Styled.LastMessage>
       </Styled.DialogName>
     </Styled.UserInfo>
   );

@@ -1,11 +1,24 @@
-import styled, { css } from 'styled-components';
-import { Link as StyledLink } from 'react-router-dom';
-import { Avatar, Button } from '../../../packages/components';
+import styled, { css, keyframes } from 'styled-components';
+import { Avatar, Button, Spinner } from '../../../packages/components';
 
 export interface IMessage {
   owner?: boolean;
   requestNow?: boolean;
+  unread?: boolean;
 }
+
+interface IChatBody {
+  padding: boolean;
+}
+
+const appearScroll = keyframes`
+  0%{
+    opacity: 0;
+  },
+  100% {
+    opacity: 1;
+  }
+`;
 
 const Chat = styled.div`
   display: flex;
@@ -44,10 +57,9 @@ const GoBack = styled.div`
   }
 `;
 
-const GoBackLink = styled(StyledLink)`
-  color: inherit;
-  text-decoration: none;
+const GoBackLink = styled.div`
   display: flex;
+  cursor: pointer;
 `;
 
 const ChatTitle = styled.h2`
@@ -61,12 +73,19 @@ const ChatAvatar = styled(Avatar)`
   height: 30px;
 `;
 
-const ChatBody = styled.div`
+const ChatBody = styled.div<IChatBody>`
   display: flex;
   flex-direction: column;
   padding-top: 10px;
   height: calc(100vh * 0.6);
   overflow: auto;
+
+  ${(props) =>
+    props.padding &&
+    css`
+      align-items: center;
+      justify-content: center;
+    `}
 `;
 
 const Message = styled.div`
@@ -76,19 +95,27 @@ const Message = styled.div`
   background-color: ${(props) => props.theme.additionalDarkBlue};
   word-wrap: break-word;
   font-size: 16px;
+  white-space: pre-wrap;
 `;
 
 const MessageWrapper = styled.div<IMessage>`
   display: flex;
   width: 100%;
   color: ${(props) => props.theme.light};
-  padding-bottom: 10px;
+  padding-bottom: 15px;
+
+  ${(props) =>
+    props.unread &&
+    css`
+      ${Message} {
+        box-shadow: 0 0 5px ${props.theme.black};
+      }
+    `}
 
   ${(props) =>
     props.owner &&
     css`
       justify-content: flex-end;
-      padding-right: 2px;
 
       ${Message} {
         background-color: ${props.theme.additionalDarkBlue};
@@ -107,13 +134,13 @@ const MessageInputWrapper = styled.div`
   bottom: -50px;
 `;
 
-const MessageForm = styled.div`
+const MessageForm = styled.form`
   display: flex;
   width: 100%;
   align-items: center;
 `;
 
-const MessageTextWrite = styled.div`
+const MessageTextWrite = styled.textarea`
   background-color: ${(props) => props.theme.light};
   color: ${(props) => props.theme.additionalDarkGrey};
   font-size: 15px;
@@ -150,6 +177,24 @@ const MessageSendButton = styled(Button)`
   }
 `;
 
+const ChatSpinner = styled(Spinner)``;
+
+const ScrollToBottomBtn = styled.div`
+  opacity: 0.5;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  position: absolute;
+  right: 0;
+  bottom: 20px;
+  cursor: pointer;
+  animation: ${appearScroll} 0.2s linear;
+  overflow: hidden;
+
+  & svg {
+    transform: translateX(25%);
+  }
+`;
+
 export const Styled = {
   MessageSend,
   Chat,
@@ -165,4 +210,6 @@ export const Styled = {
   MessageForm,
   MessageTextWrite,
   MessageSendButton,
+  ChatSpinner,
+  ScrollToBottomBtn,
 };

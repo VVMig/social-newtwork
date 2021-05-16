@@ -1,10 +1,15 @@
 import React from 'react';
 import { Styled, IMessage } from './styled';
 
-export const Message = (props: IMessage) => {
+interface Props extends IMessage {
+  text: string;
+  unread: boolean;
+}
+
+export const Message = ({ text, ...props }: Props) => {
   return (
     <Styled.MessageWrapper {...props}>
-      <Styled.Message></Styled.Message>
+      <Styled.Message>{text}</Styled.Message>
     </Styled.MessageWrapper>
   );
 };
