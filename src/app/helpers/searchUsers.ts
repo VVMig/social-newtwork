@@ -1,6 +1,7 @@
 import Axios from 'axios';
 
 import { FriendFields } from '../../packages/components';
+import { endpoints } from '../endpoints';
 import { Following } from '../interfaces';
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { imageUrl } from '../url';
@@ -13,7 +14,9 @@ interface SearchResult {
 const apiClient = Axios.create(axiosConfig);
 
 export const searchUsers = async (name: string): Promise<FriendFields[]> => {
-  const { data } = await apiClient.get<SearchResult>(`/user/search/${name}`);
+  const { data } = await apiClient.get<SearchResult>(
+    endpoints.user.searchUser(name)
+  );
 
   return data.searchedItems.map((item) => ({
     firstName: item.firstName,
