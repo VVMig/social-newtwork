@@ -1,16 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 
 import { Avatar, Button, Spinner } from '../../../packages/components';
-
-export interface IMessage {
-  owner?: boolean;
-  requestNow?: boolean;
-  unread?: boolean;
-}
-
-interface IChatBody {
-  padding: boolean;
-}
+import { MessageProps, IChatBody } from './interfaces';
 
 const appearScroll = keyframes`
   0%{
@@ -99,7 +90,7 @@ const Message = styled.div`
   white-space: pre-wrap;
 `;
 
-const MessageWrapper = styled.div<IMessage>`
+const MessageWrapper = styled.div<MessageProps>`
   display: flex;
   width: 100%;
   color: ${(props) => props.theme.light};

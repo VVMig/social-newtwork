@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IMessage,Styled } from './styled';
-
-interface Props extends IMessage {
+import { MessageProps } from './interfaces';
+import { Styled } from './styled';
+interface Props extends MessageProps {
   text: string;
   unread: boolean;
 }
