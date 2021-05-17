@@ -7,9 +7,9 @@ interface Props extends MessageProps {
   unread: boolean;
 }
 
-export const Message = ({ text, ...props }: Props) => {
+export const Message = ({ text, unread, owner }: Props) => {
   return (
-    <Styled.MessageWrapper {...props}>
+    <Styled.MessageWrapper unread={unread} owner={owner}>
       <Styled.Message>{text}</Styled.Message>
     </Styled.MessageWrapper>
   );
