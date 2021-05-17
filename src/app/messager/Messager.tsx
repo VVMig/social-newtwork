@@ -15,26 +15,24 @@ export const Messager = observer(() => {
   return (
     <Styled.Messager>
       {!userIdQuery ? (
-        <>
-          {store.user.allDialogs.length ? (
-            store.user.allDialogs.map((dialog, i) => (
-              <Styled.Link
-                to={`${RoutesEnum.Messager}?userId=${dialog.from._id}`}
-                key={i}
-              >
-                <Dialog
-                  from={dialog.from}
-                  read={dialog.read}
-                  lastMessage={dialog.lastMessage}
-                  dialogId={dialog._id}
-                  owner={dialog.lastMessage.from === store.user._id}
-                />
-              </Styled.Link>
-            ))
-          ) : (
-            <Styled.EmptyDialogs>Start chat with someone</Styled.EmptyDialogs>
-          )}
-        </>
+        store.user.allDialogs.length ? (
+          store.user.allDialogs.map((dialog, i) => (
+            <Styled.Link
+              to={`${RoutesEnum.Messager}?userId=${dialog.from._id}`}
+              key={i}
+            >
+              <Dialog
+                from={dialog.from}
+                read={dialog.read}
+                lastMessage={dialog.lastMessage}
+                dialogId={dialog._id}
+                owner={dialog.lastMessage.from === store.user._id}
+              />
+            </Styled.Link>
+          ))
+        ) : (
+          <Styled.EmptyDialogs>Start chat with someone</Styled.EmptyDialogs>
+        )
       ) : (
         <Chat userId={userIdQuery} />
       )}
