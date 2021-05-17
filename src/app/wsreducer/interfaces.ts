@@ -1,9 +1,10 @@
 import { Instance } from 'mobx-state-tree';
-import { WSEvents } from './WSEvents';
+
 import { ActionUser } from '../interfaces';
+import { IDialog } from '../store/Dialog';
 import { Profile } from '../store/Profile';
 import { User } from '../store/User';
-import { IDialog } from '../store/Dialog';
+import { WSEvents } from './WSEvents';
 
 export interface IFollow {
   firstName: string;

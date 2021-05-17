@@ -1,5 +1,7 @@
-import { useField } from 'formik';
 import React from 'react';
+
+import { useField } from 'formik';
+
 import { Styled } from './styled';
 
 interface Props {

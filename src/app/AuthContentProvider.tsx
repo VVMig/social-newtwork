@@ -1,8 +1,10 @@
 import React from 'react';
-import { store } from './store';
-import { AuthContent } from './AuthContent';
-import { Styled } from './styled';
+
 import { observer } from 'mobx-react-lite';
+
+import { AuthContent } from './AuthContent';
+import { store } from './store';
+import { Styled } from './styled';
 
 export const AuthContentProvider: React.FC = observer(({ children }) => {
   const closeAlert = () => {

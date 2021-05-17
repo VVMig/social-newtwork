@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
-import { SpanProps } from './interfaces';
+
 import { ImageWrapper } from '../imageWrapper';
+import { SpanProps } from './interfaces';
 
 const moreSize = '30px';
 const gaps = '30px';

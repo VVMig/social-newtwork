@@ -1,7 +1,8 @@
 import { cast, Instance, types } from 'mobx-state-tree';
+
+import { Dialog, IDialog } from './Dialog';
 import { Profile } from './Profile';
 import { User } from './User';
-import { Dialog, IDialog } from './Dialog';
 
 export const Store = types
   .model('Store', {

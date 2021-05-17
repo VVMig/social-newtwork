@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { FooterProps } from './interfaces';
 import { Styled } from './styled';
 

@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Styled } from './styled';
-import { ChatHeader } from './ChatHeader';
-import { ChatBody } from './ChatBody';
-import { SendMessage } from './SendMessage';
+
 import { observer } from 'mobx-react-lite';
+import useWebSocket from 'react-use-websocket';
+
 import { getDialog, parseError } from '../../helpers';
 import { store } from '../../store';
-import useWebSocket from 'react-use-websocket';
 import { wsUrl } from '../../url';
 import { wsActions } from '../../wsreducer';
 import { WSEvents } from '../../wsreducer/WSEvents';
+import { ChatBody } from './ChatBody';
+import { ChatHeader } from './ChatHeader';
+import { SendMessage } from './SendMessage';
+import { Styled } from './styled';
 interface Props {
   userId: string;
 }

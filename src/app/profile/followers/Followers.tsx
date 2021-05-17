@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { ListSection } from '../ListSection';
-import { FollowersSwiper } from './FollowersSwiper';
-import { AllFollowersModal } from './AllFollowersModal';
-import { store } from '../../store';
+
 import { observer } from 'mobx-react-lite';
+
+import { store } from '../../store';
+import { ListSection } from '../ListSection';
+import { AllFollowersModal } from './AllFollowersModal';
+import { FollowersSwiper } from './FollowersSwiper';
 
 export const Followers = observer(() => {
   const [showAllFollowers, setShowAllFollowers] = useState(false);

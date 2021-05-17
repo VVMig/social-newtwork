@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const size = '25px';
 const tabState = css`

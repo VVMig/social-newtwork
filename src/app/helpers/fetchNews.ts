@@ -1,4 +1,5 @@
 import Axios from 'axios';
+
 import { axiosNewsConfig } from '../utils/axiosConfig';
 import { parseNews } from './parseNews';
 

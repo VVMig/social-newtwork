@@ -1,7 +1,8 @@
 import React from 'react';
+
 import { Item } from './interfaces';
-import { Styled } from './styled';
 import { MenuItem } from './MenuItem';
+import { Styled } from './styled';
 
 interface Props {
   items: Item[];

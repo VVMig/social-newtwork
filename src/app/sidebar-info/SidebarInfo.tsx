@@ -1,4 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
+
+import { debounce } from 'lodash';
+
 import { FriendFields, Sidebar } from '../../packages/components';
 import { searchUsers } from '../helpers';
 import { Icon } from '../Icon';
@@ -6,7 +9,6 @@ import { IconType } from '../IconEnum';
 import { Content } from './Content';
 import { Header } from './Header';
 import { Styled } from './styled';
-import { debounce } from 'lodash';
 
 interface Props {
   showSidebar: boolean;

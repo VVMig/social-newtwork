@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Styled } from './styled';
+
+import { observer } from 'mobx-react-lite';
+
+import { parseError, sendMessage } from '../../helpers';
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
 import { store } from '../../store';
-import { parseError, sendMessage } from '../../helpers';
-import { observer } from 'mobx-react-lite';
+import { Styled } from './styled';
 
 export const SendMessage = observer(() => {
   const [text, setText] = useState('');

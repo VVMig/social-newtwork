@@ -1,2 +1,2 @@
-export * from './Messager';
 export * from './chat/Chat';
+export * from './Messager';

@@ -1,6 +1,7 @@
 import Axios from 'axios';
-import { axiosConfig } from '../utils/axiosConfig';
+
 import { SignUpValues } from '../auth/interfaces';
+import { axiosConfig } from '../utils/axiosConfig';
 
 const apiClient = Axios.create(axiosConfig);
 

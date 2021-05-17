@@ -1,22 +1,25 @@
-import React, { useState } from 'react';
-import { AllPhotoModal } from './AllPhotoModal';
-import { PhotosSwiper } from './PhotosSwiper';
 import 'swiper/swiper-bundle.css';
-import { ListSection } from '../ListSection';
-import { store } from '../../store';
-import { Icon } from '../../Icon';
-import { IconType } from '../../IconEnum';
-import { ImageProps } from '../../../packages/components';
+
+import React, { useState } from 'react';
+
 import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
-import { Params } from '../interfaces';
+
+import { ImageProps } from '../../../packages/components';
 import {
-  parseError,
-  updateAvatar,
   deletePhotosRequest,
   isLiked,
   likeToggle,
+  parseError,
+  updateAvatar,
 } from '../../helpers';
+import { Icon } from '../../Icon';
+import { IconType } from '../../IconEnum';
+import { store } from '../../store';
+import { Params } from '../interfaces';
+import { ListSection } from '../ListSection';
+import { AllPhotoModal } from './AllPhotoModal';
+import { PhotosSwiper } from './PhotosSwiper';
 
 const photosNames = (photos: ImageProps[]): string[] => {
   return photos.map((photo) => `${/(?!.*\/).*/.exec(photo.src)?.shift()}`);

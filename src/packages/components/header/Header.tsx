@@ -1,6 +1,7 @@
 import React from 'react';
-import { Navbar } from './Navbar';
+
 import { TabProps } from './interfaces';
+import { Navbar } from './Navbar';
 import { Styled } from './styled';
 
 export const Header = ({ tabs }: TabProps) => {

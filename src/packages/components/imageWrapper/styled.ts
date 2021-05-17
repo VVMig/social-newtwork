@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { ImageProps } from './interfaces';
 
 const Preview = styled.div<ImageProps>`

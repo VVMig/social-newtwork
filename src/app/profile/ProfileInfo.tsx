@@ -1,8 +1,9 @@
 import React from 'react';
-import { Styled } from './styled';
+
+import { Followers } from './followers/Followers';
 import { Info } from './info/Info';
 import { Photos } from './photos/Photos';
-import { Followers } from './followers/Followers';
+import { Styled } from './styled';
 
 export const ProfileInfo = () => {
   return (

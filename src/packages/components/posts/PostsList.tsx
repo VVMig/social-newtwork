@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { PostsListProps } from './interfaces';
 import { Post } from './Post';
 import { Styled } from './styled';

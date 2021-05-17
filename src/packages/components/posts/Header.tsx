@@ -1,5 +1,7 @@
-import { MoreHoriz } from '@material-ui/icons';
 import React from 'react';
+
+import { MoreHoriz } from '@material-ui/icons';
+
 import { HeaderProps } from './interfaces';
 import { Styled } from './styled';
 

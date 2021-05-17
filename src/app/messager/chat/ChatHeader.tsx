@@ -1,11 +1,13 @@
 import React from 'react';
-import { Styled } from './styled';
+
+import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router-dom';
+
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
-import { useHistory } from 'react-router-dom';
-import { observer } from 'mobx-react-lite';
-import { store } from '../../store';
 import { RoutesEnum } from '../../routes/RoutesEnum';
+import { store } from '../../store';
+import { Styled } from './styled';
 
 interface Props {
   loading: boolean;

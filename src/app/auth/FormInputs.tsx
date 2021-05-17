@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { InputGroup } from '../../packages/components';
 import { Icon } from '../Icon';
 import { InputFields } from './interfaces';

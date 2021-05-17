@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Styled } from '../styled';
-import { Alert, Button, Spinner } from '../../../packages/components';
-import { VerificationInfo } from './VerificationInfo';
-import { parseError, refreshToken, signOut } from '../../helpers';
+
+import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router';
 import useWebSocket from 'react-use-websocket';
+
+import { Alert, Button, Spinner } from '../../../packages/components';
+import { parseError, refreshToken, signOut } from '../../helpers';
+import { RoutesEnum } from '../../routes/RoutesEnum';
+import { store } from '../../store';
 import { wsUrl } from '../../url';
 import { wsActions } from '../../wsreducer';
-import { observer } from 'mobx-react-lite';
-import { store } from '../../store';
-import { useHistory } from 'react-router';
-import { RoutesEnum } from '../../routes/RoutesEnum';
+import { Styled } from '../styled';
+import { VerificationInfo } from './VerificationInfo';
 interface Props {
   className: string;
 }

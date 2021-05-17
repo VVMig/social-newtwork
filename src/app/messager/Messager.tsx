@@ -1,11 +1,13 @@
 import React from 'react';
-import { Styled } from './styled';
-import { Dialog } from './dialog/Dialog';
-import { useQuery } from '../hooks';
-import { Chat } from './chat/Chat';
-import { RoutesEnum } from '../routes/RoutesEnum';
+
 import { observer } from 'mobx-react-lite';
+
+import { useQuery } from '../hooks';
+import { RoutesEnum } from '../routes/RoutesEnum';
 import { store } from '../store';
+import { Chat } from './chat/Chat';
+import { Dialog } from './dialog/Dialog';
+import { Styled } from './styled';
 
 export const Messager = observer(() => {
   const userIdQuery = useQuery('userId');

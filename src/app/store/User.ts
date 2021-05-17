@@ -1,4 +1,5 @@
 import { cast, Instance, types } from 'mobx-state-tree';
+
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { imageUrl } from '../url';
 import { defaultTypes } from '../utils';

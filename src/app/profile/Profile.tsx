@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { Styled } from './styled';
-import { ProfileMain } from './ProfileMain';
-import { ProfileInfo } from './ProfileInfo';
-import { Params } from './interfaces';
+
+import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router';
+import useWebSocket from 'react-use-websocket';
+
 import { Spinner } from '../../packages/components';
 import { store } from '../store';
-import { observer } from 'mobx-react-lite';
-import useWebSocket from 'react-use-websocket';
 import { wsUrl } from '../url';
 import { wsActions } from '../wsreducer';
+import { Params } from './interfaces';
+import { ProfileInfo } from './ProfileInfo';
+import { ProfileMain } from './ProfileMain';
+import { Styled } from './styled';
 
 export const Profile = observer(() => {
   const [loading, setLoading] = useState(true);

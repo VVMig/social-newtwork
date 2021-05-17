@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Styled } from './styled';
-import { FormContainerProps } from './interfaces';
-import { SignUpForm } from './signUp/SignUpForm';
-import { SignInForm } from './signIn/SignInForm';
-import { Alert, Spinner } from '../../packages/components';
+
 import { observer } from 'mobx-react-lite';
+
+import { Alert, Spinner } from '../../packages/components';
+import { FormContainerProps } from './interfaces';
+import { SignInForm } from './signIn/SignInForm';
+import { SignUpForm } from './signUp/SignUpForm';
+import { Styled } from './styled';
 
 export const FormContainer = observer(
   ({ signIn, signInDelayed }: FormContainerProps) => {

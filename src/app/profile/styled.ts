@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { ImageWrapper, Avatar } from '../../packages/components';
+
+import { Avatar,ImageWrapper } from '../../packages/components';
 
 const imageSize = 300;
 const ProfileMainPadding = 20;

@@ -1,26 +1,28 @@
 import React from 'react';
-import { IconType } from './IconEnum';
+
 import {
-  HomeRounded,
-  PeopleAltRounded,
-  ForumRounded,
-  FlagRounded,
-  SettingsRounded,
-  NotificationsNone,
+  ArrowBackIos,
   ArrowDropDown,
-  VisibilityOutlined,
-  Send,
+  CancelOutlined,
+  CheckCircleOutline,
+  CloudUploadOutlined,
+  Delete,
   EmailOutlined,
-  LockOutlined,
-  PersonOutline,
   ExitToApp,
   Favorite,
-  ArrowBackIos,
-  CloudUploadOutlined,
-  CheckCircleOutline,
-  CancelOutlined,
-  Delete,
+  FlagRounded,
+  ForumRounded,
+  HomeRounded,
+  LockOutlined,
+  NotificationsNone,
+  PeopleAltRounded,
+  PersonOutline,
+  Send,
+  SettingsRounded,
+  VisibilityOutlined,
 } from '@material-ui/icons';
+
+import { IconType } from './IconEnum';
 
 export const icons: Record<IconType, JSX.Element> = {
   [IconType.Groups]: <PeopleAltRounded />,

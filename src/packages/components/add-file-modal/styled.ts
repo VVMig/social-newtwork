@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+
 import { ImageWrapper } from '../imageWrapper';
 
 const iconSize = 80;

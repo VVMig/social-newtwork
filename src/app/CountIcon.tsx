@@ -1,9 +1,11 @@
 import React from 'react';
-import { Icon } from './Icon';
-import { Styled } from './styled';
+
 import { observer } from 'mobx-react-lite';
+
+import { Icon } from './Icon';
 import { IconType } from './IconEnum';
 import { store } from './store';
+import { Styled } from './styled';
 
 interface Props {
   type: IconType;

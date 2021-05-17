@@ -1,6 +1,8 @@
 import React from 'react';
-import { Spinner } from '../spinner';
+
 import { useDropzone } from 'react-dropzone';
+
+import { Spinner } from '../spinner';
 import { Styled } from './styled';
 
 interface Props {

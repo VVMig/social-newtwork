@@ -1,5 +1,6 @@
 import React from 'react';
-import { Styled, AvatarProps } from './styled';
+
+import { AvatarProps,Styled } from './styled';
 
 export const Avatar = ({
   route,

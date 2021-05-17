@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { SidebarInfo } from './sidebar-info/SidebarInfo';
-import { SidebarLive } from './sidebar-live/SidebarLive';
+
+import { observer } from 'mobx-react-lite';
+import useWebSocket from 'react-use-websocket';
+import useSound from 'use-sound';
+
+import { Header } from '../packages/components';
+import { useOutsideClick } from './hooks';
 import { Icon } from './Icon';
 import { IconType } from './IconEnum';
-import { Header } from '../packages/components';
-import { tabs } from './tabs';
+import { SidebarInfo } from './sidebar-info/SidebarInfo';
+import { SidebarLive } from './sidebar-live/SidebarLive';
+import { store } from './store';
 import { Styled } from './styled';
-import { useOutsideClick } from './hooks';
-import useWebSocket from 'react-use-websocket';
+import { tabs } from './tabs';
 import { wsUrl } from './url';
 import { wsActions } from './wsreducer';
-import { observer } from 'mobx-react-lite';
-import useSound from 'use-sound';
-import { store } from './store';
 
 export const AuthContent: React.FC = observer(({ children }) => {
   const [showMenu, setShowMenu] = useState(false);

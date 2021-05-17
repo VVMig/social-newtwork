@@ -1,9 +1,10 @@
 import React from 'react';
-import { WelcomeProps } from './interfaces';
-import { Styled } from './styled';
+
 import { Button } from '../../packages/components';
+import { WelcomeProps } from './interfaces';
 import { SignInText } from './signIn/SignInText';
 import { SignUpText } from './signUp/SignUpText';
+import { Styled } from './styled';
 
 export const Welcome = ({ signIn, switchHandler }: WelcomeProps) => {
   return (

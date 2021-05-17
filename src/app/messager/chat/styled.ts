@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+
 import { Avatar, Button, Spinner } from '../../../packages/components';
 
 export interface IMessage {

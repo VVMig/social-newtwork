@@ -1,9 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { Styled, defaultDelay } from './styled';
+
 import { Transition } from 'react-transition-group';
-import { ModalProps } from './interfaces';
+
 import { Portal } from '../portal';
+import { ModalProps } from './interfaces';
 import { ModalContent } from './ModalContent';
+import { defaultDelay, Styled } from './styled';
 
 export const Modal: React.FC<ModalProps> = ({
   showModal,

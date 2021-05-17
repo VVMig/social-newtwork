@@ -1,12 +1,14 @@
 import React from 'react';
+
+import moment from 'moment';
+
+import { deleteDialog, parseError } from '../../helpers';
+import { store } from '../../store';
+import { IActionUser } from '../../store/User';
+import { IMessage } from '../../store/User';
+import { MessageInfo } from './MessageInfo';
 import { Styled } from './styled';
 import { UserInfo } from './UserInfo';
-import { MessageInfo } from './MessageInfo';
-import { IActionUser } from '../../store/User';
-import { store } from '../../store';
-import { deleteDialog, parseError } from '../../helpers';
-import moment from 'moment';
-import { IMessage } from '../../store/User';
 interface Props {
   from: IActionUser;
   lastMessage?: IMessage;

@@ -1,7 +1,8 @@
 import React from 'react';
+
+import { AuthText } from '../AuthText';
 import { WelcomeProps } from '../interfaces';
 import { Styled } from '../styled';
-import { AuthText } from '../AuthText';
 
 export const SignUpText = ({ signIn }: WelcomeProps) => {
   return (

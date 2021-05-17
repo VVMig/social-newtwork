@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { Link as StyledLink } from 'react-router-dom';
+import styled from 'styled-components';
 
 const Messager = styled.div`
   width: 100%;

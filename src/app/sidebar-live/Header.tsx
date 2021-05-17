@@ -1,22 +1,24 @@
-import { Styled } from './styled';
+import React, { RefObject, useRef, useState } from 'react';
+
+import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router';
+
 import {
-  Name,
   Arrow,
   Avatar,
-  Notifications,
-  Menu,
   Item,
+  Menu,
+  Name,
+  Notifications,
 } from '../../packages/components';
+import { clearNotifications, parseError, signOut } from '../helpers';
+import { useOutsideClick } from '../hooks';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
-import { store } from '../store';
-import { clearNotifications, parseError, signOut } from '../helpers';
-import React, { RefObject, useRef, useState } from 'react';
 import { RoutesEnum } from '../routes/RoutesEnum';
-import { observer } from 'mobx-react-lite';
+import { store } from '../store';
 import { NotificationsList } from './notificationsList/NotificationsList';
-import { useOutsideClick } from '../hooks';
-import { useHistory } from 'react-router';
+import { Styled } from './styled';
 
 interface Props {
   icon: JSX.Element;

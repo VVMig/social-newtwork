@@ -1,8 +1,8 @@
-import { Icon } from './Icon';
 import { Tab } from '../packages/components';
+import { CountIcon } from './CountIcon';
+import { Icon } from './Icon';
 import { IconType } from './IconEnum';
 import { RoutesEnum } from './routes/RoutesEnum';
-import { CountIcon } from './CountIcon';
 
 export const tabs: Tab[] = [
   {

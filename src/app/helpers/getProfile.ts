@@ -1,6 +1,7 @@
 import Axios from 'axios';
-import { axiosConfig } from '../utils/axiosConfig';
+
 import { store } from '../store';
+import { axiosConfig } from '../utils/axiosConfig';
 
 const apiClient = Axios.create(axiosConfig);
 

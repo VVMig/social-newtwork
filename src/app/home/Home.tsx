@@ -1,12 +1,14 @@
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
+
+import { observer } from 'mobx-react-lite';
+
 import { Post, PostsList } from '../../packages/components';
 import { fetchNews, parseError } from '../helpers';
 import { store } from '../store';
 import { Styled } from './styled';
 
 export const Home = observer(() => {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [posts, setPosts] = useState<Post[]>([]);
 
   const fetchHomePage = async () => {
@@ -16,7 +18,7 @@ export const Home = observer(() => {
     } catch (error) {
       store.setError(parseError(error));
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -24,5 +26,7 @@ export const Home = observer(() => {
     fetchHomePage();
   }, []);
 
-  return <>{loading ? <Styled.HomeSpinner /> : <PostsList posts={posts} />}</>;
+  return (
+    <>{isLoading ? <Styled.HomeSpinner /> : <PostsList posts={posts} />}</>
+  );
 });

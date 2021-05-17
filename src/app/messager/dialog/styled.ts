@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import {
   Avatar as UserAvatar,
   Dot,

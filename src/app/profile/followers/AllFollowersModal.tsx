@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Modal, ModalProps } from '../../../packages/components';
 import { FollowerFields } from '../interfaces';
 import { Styled } from '../styled';

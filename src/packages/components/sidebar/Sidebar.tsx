@@ -1,6 +1,8 @@
 import React from 'react';
-import { Styled, delay } from './styled';
+
 import { Transition } from 'react-transition-group';
+
+import { delay, Styled } from './styled';
 
 interface Props {
   showSidebar: boolean;

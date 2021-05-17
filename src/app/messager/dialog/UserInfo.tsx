@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { IMessage } from '../../store/User';
 import { Styled } from './styled';
 

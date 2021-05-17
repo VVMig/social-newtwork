@@ -1,10 +1,12 @@
-import { observer } from 'mobx-react-lite';
 import React, { useEffect, useRef, useState } from 'react';
-import { store } from '../../store';
-import { Styled } from './styled';
-import { Message } from './Message';
+
+import { observer } from 'mobx-react-lite';
+
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
+import { store } from '../../store';
+import { Message } from './Message';
+import { Styled } from './styled';
 
 interface Props {
   loading: boolean;

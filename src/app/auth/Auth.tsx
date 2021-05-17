@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+
+import { observer } from 'mobx-react-lite';
+import { Transition } from 'react-transition-group';
+
+import { store } from '../store';
 import { FormContainer } from './FormContainer';
 import { Styled, switchVerificationDuration } from './styled';
-import { Welcome } from './Welcome';
 import { Verification } from './verification/Verification';
-import { observer } from 'mobx-react-lite';
-import { store } from '../store';
-import { Transition } from 'react-transition-group';
+import { Welcome } from './Welcome';
 
 export const Auth = observer(() => {
   const [signIn, setsignIn] = useState(true);

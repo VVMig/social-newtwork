@@ -1,5 +1,7 @@
 import React from 'react';
-import { Route, Redirect, RouteProps } from 'react-router-dom';
+
+import { Redirect, Route, RouteProps } from 'react-router-dom';
+
 import { store } from '../store';
 import { RoutesEnum } from './RoutesEnum';
 

@@ -1,7 +1,9 @@
 import React from 'react';
-import { Styled } from './styled';
+
 import { useHistory } from 'react-router-dom';
+
 import { RoutesEnum } from '../routes/RoutesEnum';
+import { Styled } from './styled';
 
 interface Props {
   isOwner: boolean;

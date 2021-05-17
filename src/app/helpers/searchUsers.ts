@@ -1,9 +1,10 @@
 import Axios from 'axios';
+
 import { FriendFields } from '../../packages/components';
+import { Following } from '../interfaces';
 import { RoutesEnum } from '../routes/RoutesEnum';
 import { imageUrl } from '../url';
 import { axiosConfig } from '../utils/axiosConfig';
-import { Following } from '../interfaces';
 
 interface SearchResult {
   searchedItems: Following[];

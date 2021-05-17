@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-import { sidebarInfoWidth } from './sidebar-info/styled';
-import { sidebarLiveWidth } from './sidebar-live/styled';
+
 import { Alert, headerHeight } from '../packages/components';
 import { appearTop } from './auth/configs/animations';
+import { sidebarInfoWidth } from './sidebar-info/styled';
+import { sidebarLiveWidth } from './sidebar-live/styled';
 
 interface AuthProps {
   register?: boolean;
