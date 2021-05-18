@@ -33,8 +33,8 @@ export interface ImageProps
     ImageActionsProps {
   actionHandler?: React.MouseEventHandler<Element>;
   isModal?: boolean;
-  selectMode?: boolean;
-  selected?: boolean;
+  isSelectMode?: boolean;
+  isSelected?: boolean;
   setSelected?: (selected: boolean) => void;
 }
 

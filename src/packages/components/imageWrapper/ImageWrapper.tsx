@@ -11,9 +11,9 @@ export const ImageWrapper: React.FC<ImageProps> = ({
   alt,
   src,
   setAvatarAction,
-  selectMode,
+  isSelectMode,
   setSelected,
-  selected,
+  isSelected,
   ...props
 }) => {
   const [showImageModal, setShowImageModal] = useState(false);
@@ -23,10 +23,10 @@ export const ImageWrapper: React.FC<ImageProps> = ({
   };
 
   const clickHandler: React.MouseEventHandler = (event) => {
-    if (!selectMode) {
+    if (!isSelectMode) {
       isModal && modalHandler(event);
       actionHandler && actionHandler(event);
-    } else setSelected && setSelected(!selected);
+    } else setSelected && setSelected(!isSelected);
   };
 
   return (
@@ -36,7 +36,7 @@ export const ImageWrapper: React.FC<ImageProps> = ({
         className={className}
         onClick={clickHandler}
         isModal={isModal}
-        isSelected={selected}
+        isSelected={isSelected}
       />
       <ImageModal
         showModal={showImageModal}

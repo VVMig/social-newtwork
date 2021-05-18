@@ -23,7 +23,7 @@ export const AllPhotoModal = ({
   avatarHandler,
   deletePhotos,
 }: Props) => {
-  const [selectMode, setSelectMode] = useState(false);
+  const [isSelectMode, setIsSelectMode] = useState(false);
   const [allPhotos, setAllPhotos] = useState(
     photos.map((photo) => ({
       ...photo,
@@ -32,7 +32,7 @@ export const AllPhotoModal = ({
   );
 
   const selectToggle: React.MouseEventHandler = () => {
-    setSelectMode(!selectMode);
+    setIsSelectMode(!isSelectMode);
   };
 
   function selectPhotoToggle(this: ImageProps, selected: boolean) {
@@ -70,24 +70,24 @@ export const AllPhotoModal = ({
   }, [photos]);
 
   useEffect(() => {
-    if (!selectMode)
+    if (!isSelectMode)
       setAllPhotos(photos.map((photo) => ({ ...photo, selected: false })));
-  }, [selectMode]);
+  }, [isSelectMode]);
 
   return (
     <Modal showModal={showModal} setShowModal={setShowModal} title="All photos">
       {deletePhotos && (
         <Styled.ActionsModal>
-          {selectMode && isItemsSelected() && (
+          {isSelectMode && isItemsSelected() && (
             <>
               <div onClick={trashClickHandler}>
                 <Icon type={IconType.Trash} title="Delete" />
               </div>
             </>
           )}
-          {selectMode && <Button onClick={selectAll}>Select all</Button>}
+          {isSelectMode && <Button onClick={selectAll}>Select all</Button>}
           <Button onClick={selectToggle}>
-            {selectMode ? 'Cancel' : 'Select'}
+            {isSelectMode ? 'Cancel' : 'Select'}
           </Button>
         </Styled.ActionsModal>
       )}
@@ -95,7 +95,7 @@ export const AllPhotoModal = ({
         {allPhotos.map((photo, i) => (
           <Styled.Photo
             {...photo}
-            selectMode={selectMode}
+            isSelectMode={isSelectMode}
             key={i}
             setAvatarAction={avatarHandler?.bind(photo)}
             setSelected={selectPhotoToggle.bind(photo)}
