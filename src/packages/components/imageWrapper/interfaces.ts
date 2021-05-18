@@ -1,19 +1,44 @@
 import React from 'react';
 
-export interface ImageProps {
-  src: string;
+import { ModalProps } from '../modal';
+
+export interface DefaultImageProps {
   className?: string;
-  actionHandler?: React.MouseEventHandler<Element>;
-  isModal?: boolean;
-  likesNumber?: number;
+  src: string;
   alt?: string;
+}
+
+export interface ImageInfoProps {
+  likesNumber?: number;
   likeIcon?: JSX.Element;
   isLiked?: boolean;
   imageDate?: number;
-  setAvatarAction?: React.MouseEventHandler<Element>;
+  likeHandler?: React.MouseEventHandler;
+}
+
+export interface ImageActionsProps {
+  setAvatarAction?: React.MouseEventHandler;
+  deleteHandler?: React.MouseEventHandler;
+}
+
+export interface ImageModalProps
+  extends ImageInfoProps,
+    DefaultImageProps,
+    ImageActionsProps,
+    ModalProps {}
+
+export interface ImageProps
+  extends DefaultImageProps,
+    ImageInfoProps,
+    ImageActionsProps {
+  actionHandler?: React.MouseEventHandler<Element>;
+  isModal?: boolean;
   selectMode?: boolean;
   selected?: boolean;
   setSelected?: (selected: boolean) => void;
-  deleteHandler?: React.MouseEventHandler;
-  likeHandler?: React.MouseEventHandler;
+}
+
+export interface PreviewProps extends DefaultImageProps {
+  isSelected?: boolean;
+  isModal?: boolean;
 }

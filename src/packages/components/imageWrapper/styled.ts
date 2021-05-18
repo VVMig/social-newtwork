@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
 
-import { ImageProps } from './interfaces';
+import { Button } from '../button';
+import { PreviewProps } from './interfaces';
 
-const Preview = styled.div<ImageProps>`
+const Preview = styled.div<PreviewProps>`
   background: ${(props) =>
     props.src ? `url(${props.src})` : props.theme.primary};
   border-radius: 25px;
@@ -12,7 +13,7 @@ const Preview = styled.div<ImageProps>`
   object-fit: cover;
 
   ${(props) =>
-    props.selected &&
+    props.isSelected &&
     css`
       opacity: 0.5;
     `}
@@ -46,22 +47,17 @@ const Date = styled.div`
 
 const Actions = styled.div`
   display: flex;
-
-  & button {
-    background-color: ${(props) => props.theme.darkBlue};
-    width: auto;
-    padding: 5px;
-    border-radius: 10px;
-  }
 `;
 
-const Delete = styled.div`
-  & button {
-    background-color: ${(props) => props.theme.danger};
-    width: auto;
-    padding: 5px;
-    border-radius: 10px;
-  }
+const SetAvatarButton = styled(Button)`
+  background-color: ${(props) => props.theme.darkBlue};
+  width: auto;
+  padding: 5px;
+  border-radius: 10px;
+`;
+
+const DeleteButton = styled(SetAvatarButton)`
+  background-color: ${(props) => props.theme.danger};
 `;
 
 export const Styled = {
@@ -71,5 +67,6 @@ export const Styled = {
   InfoContainer,
   Date,
   Actions,
-  Delete,
+  SetAvatarButton,
+  DeleteButton,
 };
