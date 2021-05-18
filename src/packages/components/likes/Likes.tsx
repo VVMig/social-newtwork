@@ -6,7 +6,7 @@ interface Props {
   likesNumber: number;
   isLiked?: boolean;
   actionHandler?: React.MouseEventHandler;
-  icon: JSX.Element;
+  icon?: JSX.Element;
 }
 
 export const Likes = ({ likesNumber, isLiked, actionHandler, icon }: Props) => {
