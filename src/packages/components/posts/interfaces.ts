@@ -1,6 +1,6 @@
-import { ImageProps } from '../imageWrapper';
+import { DefaultImageProps } from '../imageWrapper';
 
-export interface Post extends ImageProps {
+export interface Post extends DefaultImageProps {
   title: string;
   subtitle: string;
   date: number;
@@ -26,9 +26,9 @@ export interface SpanProps {
 
 export interface BodyProps {
   text: string;
-  author: string;
 }
 
 export interface FooterProps {
   likes: number;
+  author: string;
 }
