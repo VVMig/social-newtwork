@@ -1,7 +1,8 @@
 import styled, { css } from 'styled-components';
+
 import { ImageProps } from './interfaces';
 
-const Preview = styled.img<ImageProps>`
+const Preview = styled.div<ImageProps>`
   background: ${(props) =>
     props.src ? `url(${props.src})` : props.theme.primary};
   border-radius: 25px;

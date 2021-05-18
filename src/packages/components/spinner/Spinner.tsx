@@ -1,9 +1,14 @@
 import React from 'react';
+
 import { Styled } from './styled';
 
-export const Spinner = () => {
+interface Props {
+  className?: string;
+}
+
+export const Spinner = ({ className }: Props) => {
   return (
-    <Styled.Spinner className="spinner">
+    <Styled.Spinner className={`${className} spinner`}>
       <Styled.BounceLeft />
       <Styled.BounceMiddle />
       <Styled.BounceRight />

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { Link as StyledLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 export interface AvatarProps {
   size?: number;

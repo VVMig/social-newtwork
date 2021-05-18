@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+
+import { debounce } from 'lodash';
+
 import { FriendFields, Sidebar } from '../../packages/components';
 import { searchUsers } from '../helpers';
 import { Icon } from '../Icon';
@@ -15,23 +18,29 @@ interface Props {
 export const SidebarInfo = ({ showSidebarHandler, showSidebar }: Props) => {
   const [searchingUser, setSearchingUser] = useState('');
   const [searchedItems, setSearchedItems] = useState<FriendFields[]>([]);
+  const debounceDelay = 500;
 
   const handleChange = (event: React.FormEvent<HTMLInputElement>) => {
     setSearchingUser(event.currentTarget.value);
   };
+
+  const search = async () => {
+    const foundUsers = await searchUsers(searchingUser);
+    setSearchedItems(foundUsers);
+  };
+
+  const delayedSearch = useCallback(debounce(search, debounceDelay), [
+    searchingUser,
+  ]);
 
   const resetInput = () => {
     setSearchingUser('');
   };
 
   useEffect(() => {
-    searchingUser ? search() : setSearchedItems([]);
+    searchingUser ? delayedSearch() : setSearchedItems([]);
+    return delayedSearch.cancel;
   }, [searchingUser]);
-
-  const search = async () => {
-    const foundUsers = await searchUsers(searchingUser);
-    setSearchedItems(foundUsers);
-  };
 
   return (
     <Styled.SidebarContainer>

@@ -1,6 +1,7 @@
+import { Form as StyledFormikForm } from 'formik';
 import styled, { css } from 'styled-components';
+
 import { zIndex } from '../../packages/components';
-import { SwitchState, ResentState } from './interfaces';
 import {
   appearLeft,
   appearLeftLinear,
@@ -17,7 +18,7 @@ import {
   switchToRight,
   switchToRightForm,
 } from './configs/animations';
-import { Form as StyledFormikForm } from 'formik';
+import { ResentState,SwitchState } from './interfaces';
 
 export const switchVerificationDuration = 400;
 const animationDuration = 0.8;

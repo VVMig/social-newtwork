@@ -1,9 +1,10 @@
 import { Instance, types } from 'mobx-state-tree';
-import { defaultTypes } from '../utils';
-import { imageUrl } from '../url';
+
 import { ImageProps } from '../../packages/components';
-import { RoutesEnum } from '../routes/RoutesEnum';
 import { FollowerFields } from '../profile/interfaces';
+import { RoutesEnum } from '../routes/RoutesEnum';
+import { imageUrl } from '../url';
+import { defaultTypes } from '../utils';
 
 const Like = types.model('Like', {
   owner: types.optional(types.string, ''),

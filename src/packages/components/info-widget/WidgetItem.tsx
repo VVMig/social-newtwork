@@ -1,11 +1,13 @@
 import React from 'react';
+
+import moment from 'moment';
 import { Link } from 'react-router-dom';
+
+import { Avatar } from '../avatar/Avatar';
+import { Dot } from '../dot/Dot';
+import { Underline } from '../underline/Underline';
 import { FriendFields } from './interfaces';
 import { Styled } from './styled';
-import { Underline } from '../underline/Underline';
-import { Dot } from '../dot/Dot';
-import { Avatar } from '../avatar/Avatar';
-import moment from 'moment';
 
 export const WidgetItem = ({
   firstName,

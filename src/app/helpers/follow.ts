@@ -1,8 +1,10 @@
 import Axios from 'axios';
+
+import { endpoints } from '../endpoints';
 import { axiosConfig } from '../utils/axiosConfig';
 
 const apiClient = Axios.create(axiosConfig);
 
 export const follow = async (userId: string) => {
-  await apiClient.post('/user/follow', { userId });
+  await apiClient.post(endpoints.user.follow, { userId });
 };

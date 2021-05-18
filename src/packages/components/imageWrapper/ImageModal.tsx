@@ -1,9 +1,11 @@
 import React from 'react';
+
+import moment from 'moment';
+
+import { Button } from '../button';
+import { Likes } from '../likes';
 import { Modal, ModalProps } from '../modal';
 import { Styled } from './styled';
-import { Likes } from '../likes';
-import moment from 'moment';
-import { Button } from '../button';
 
 interface Props extends ModalProps {
   likesNumber?: number;

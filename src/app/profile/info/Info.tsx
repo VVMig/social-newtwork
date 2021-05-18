@@ -1,8 +1,10 @@
 import React from 'react';
+
+import { observer } from 'mobx-react-lite';
+
+import { store } from '../../store';
 import { Body } from './Body';
 import { Header } from './Header';
-import { store } from '../../store';
-import { observer } from 'mobx-react-lite';
 
 export const Info = observer(() => {
   return (

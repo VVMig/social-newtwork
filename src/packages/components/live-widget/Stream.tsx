@@ -1,7 +1,8 @@
 import React from 'react';
-import { Styled } from './styled';
-import { StreamHeader } from './StreamHeader';
+
 import { StreamHeaderProps } from './interfaces';
+import { StreamHeader } from './StreamHeader';
+import { Styled } from './styled';
 
 export const Stream = ({ viewIcon }: StreamHeaderProps) => {
   return (

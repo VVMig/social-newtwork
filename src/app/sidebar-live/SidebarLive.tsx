@@ -1,4 +1,5 @@
 import React, { RefObject } from 'react';
+
 import { Sidebar } from '../../packages/components';
 import { Content } from './Content';
 import { Header } from './Header';
@@ -15,9 +16,7 @@ interface Props {
 }
 
 export const SidebarLive = ({
-  viewIcon,
   notifyIcon,
-  sendIcon,
   showMenu,
   showMenuHandler,
   menuRef,
@@ -32,7 +31,7 @@ export const SidebarLive = ({
           showMenuHandler={showMenuHandler}
           menuRef={menuRef}
         />
-        <Content viewIcon={viewIcon} sendIcon={sendIcon} />
+        <Content />
       </Sidebar>
     </Styled.SidebarContainer>
   );

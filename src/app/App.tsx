@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
-import { PostsList } from '../packages/components';
-import { Styled } from './styled';
-import { posts } from './posts';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
-import { Auth } from './auth/Auth';
+
 import { observer } from 'mobx-react-lite';
-import { store } from './store';
-import { authorize, parseError } from './helpers';
-import { AuthorizedRoute } from './routes';
-import { PageSpinner } from './PageSpinner';
-import { RoutesEnum } from './routes/RoutesEnum';
+import { Redirect, Route, Switch, useLocation } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+
+import { Auth } from './auth/Auth';
 import { AuthContentProvider } from './AuthContentProvider';
+import { authorize, parseError } from './helpers';
+import { Home } from './home/Home';
+import { Messager } from './messager';
+import { PageSpinner } from './PageSpinner';
 import { Profile } from './profile/Profile';
+import { AuthorizedRoute } from './routes';
+import { RoutesEnum } from './routes/RoutesEnum';
+import { store } from './store';
+import { Styled } from './styled';
+import { theme } from './theme';
 
 export const App = observer(() => {
   const [loading, setLoading] = useState(true);
@@ -53,7 +55,10 @@ export const App = observer(() => {
 
             <AuthContentProvider>
               <AuthorizedRoute path={RoutesEnum.Home}>
-                <PostsList posts={posts} />
+                <Home />
+              </AuthorizedRoute>
+              <AuthorizedRoute path={RoutesEnum.Messager} exact>
+                <Messager />
               </AuthorizedRoute>
               <Route path={`${RoutesEnum.Profile}/:id`}>
                 <Profile />

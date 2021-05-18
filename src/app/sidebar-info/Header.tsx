@@ -1,7 +1,7 @@
 import { Logo, Search } from '../../packages/components';
-import { Styled } from './styled';
 import { Icon } from '../Icon';
 import { IconType } from '../IconEnum';
+import { Styled } from './styled';
 
 interface Props {
   searchingUser: string;

@@ -1,10 +1,12 @@
 import React from 'react';
+
 import { Formik, FormikHelpers } from 'formik';
-import { SignUpValues, SubmitProps } from '../interfaces';
-import { signUpShema } from '../configs/validationSchema';
+
+import { authorize,parseError, signIn, signUp } from '../../helpers';
 import { signUpFields } from '../configs/inputFields';
+import { signUpShema } from '../configs/validationSchema';
 import { Form } from '../Form';
-import { signUp, parseError, signIn, authorize } from '../../helpers';
+import { SignUpValues, SubmitProps } from '../interfaces';
 
 const initialValues: SignUpValues = {
   firstName: '',

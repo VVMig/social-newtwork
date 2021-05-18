@@ -1,9 +1,12 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Styled } from '../styled';
 import 'swiper/swiper-bundle.css';
-import { PhotosProps } from '../interfaces';
+
+import React from 'react';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { ImageProps } from '../../../packages/components';
+import { PhotosProps } from '../interfaces';
+import { Styled } from '../styled';
 
 interface Props extends PhotosProps {
   avatarHandler?: React.MouseEventHandler<Element>;

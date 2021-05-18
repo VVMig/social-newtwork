@@ -1,5 +1,7 @@
-import { observer } from 'mobx-react-lite';
 import React, { RefObject } from 'react';
+
+import { observer } from 'mobx-react-lite';
+
 import { Avatar, Menu } from '../../../packages/components';
 import { RoutesEnum } from '../../routes/RoutesEnum';
 import { store } from '../../store';

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Avatar } from '../avatar';
 import { MessageProps } from './interfaces';
 import { Styled } from './styled';

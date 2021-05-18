@@ -1,9 +1,11 @@
 import React from 'react';
-import { Styled } from './styled';
+
+import { observer } from 'mobx-react-lite';
+
 import { Button } from '../../packages/components';
 import { FormInputs } from './FormInputs';
 import { FormProps } from './interfaces';
-import { observer } from 'mobx-react-lite';
+import { Styled } from './styled';
 
 export const Form = observer(({ fields, signIn, loading }: FormProps) => {
   return (

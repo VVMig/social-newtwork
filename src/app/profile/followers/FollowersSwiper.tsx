@@ -1,6 +1,9 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
+
+import React from 'react';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 import { FriendsProps } from '../interfaces';
 import { Follower } from './Follower';
 

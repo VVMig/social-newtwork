@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
-import { SpanProps } from './interfaces';
+
 import { ImageWrapper } from '../imageWrapper';
+import { SpanProps } from './interfaces';
 
 const moreSize = '30px';
 const gaps = '30px';
@@ -15,7 +16,6 @@ const PostContainer = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
-  /* max-width: 750px; */
   width: 100%;
   background-color: ${(props) => props.theme.mainBackground};
   border-radius: 25px;
@@ -165,7 +165,13 @@ const Like = styled.span.attrs({
   cursor: pointer;
 `;
 
+const ToSourceLink = styled.a`
+  width: 100%;
+  max-width: 300px;
+`;
+
 export const Styled = {
+  ToSourceLink,
   PostContainer,
   Like,
   Subtitle,

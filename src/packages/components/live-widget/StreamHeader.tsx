@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { StreamHeaderProps } from './interfaces';
 import { Styled } from './styled';
 

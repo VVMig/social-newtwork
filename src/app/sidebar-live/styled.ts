@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+
 import { zIndex } from '../../packages/components';
 
 export const sidebarLiveWidth = 390;

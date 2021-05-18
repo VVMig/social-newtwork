@@ -1,7 +1,8 @@
 import React from 'react';
-import { WidgetItem } from './WidgetItem';
+
 import { WidgetProps } from './interfaces';
 import { Styled } from './styled';
+import { WidgetItem } from './WidgetItem';
 
 export const Widget = ({ title, items, altTitle }: WidgetProps) => {
   return (

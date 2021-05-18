@@ -1,8 +1,9 @@
 import React from 'react';
-import { Styled } from '../styled';
+
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
 import { store } from '../../store';
+import { Styled } from '../styled';
 
 export const VerificationInfo = () => {
   return (

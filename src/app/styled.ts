@@ -1,8 +1,9 @@
 import styled, { css } from 'styled-components';
-import { sidebarInfoWidth } from './sidebar-info/styled';
-import { sidebarLiveWidth } from './sidebar-live/styled';
+
 import { Alert, headerHeight } from '../packages/components';
 import { appearTop } from './auth/configs/animations';
+import { sidebarInfoWidth } from './sidebar-info/styled';
+import { sidebarLiveWidth } from './sidebar-live/styled';
 
 interface AuthProps {
   register?: boolean;
@@ -95,10 +96,31 @@ const GlobalAlert = styled(Alert)`
   }
 `;
 
+const CountIcon = styled.div`
+  position: relative;
+`;
+
+const Counter = styled.div`
+  width: 15px;
+  height: 15px;
+  background-color: ${(props) => props.theme.bgBlue};
+  position: absolute;
+  border-radius: 50%;
+  bottom: 0;
+  right: -5px;
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.additionalDarkGrey};
+`;
+
 export const Styled = {
   Wrapper,
   Content,
   PageSpinner,
   ContentWidth,
   GlobalAlert,
+  CountIcon,
+  Counter,
 };

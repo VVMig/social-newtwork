@@ -1,8 +1,10 @@
 import { Instance } from 'mobx-state-tree';
-import { WSEvents } from './WSEvents';
+
 import { ActionUser } from '../interfaces';
+import { IDialog } from '../store/Dialog';
 import { Profile } from '../store/Profile';
 import { User } from '../store/User';
+import { WSEvents } from './WSEvents';
 
 export interface IFollow {
   firstName: string;
@@ -38,13 +40,15 @@ export interface ILastMessage {
     | WSEvents.Update
     | WSEvents.Profile
     | WSEvents.FollowingUpdate
-    | WSEvents.Error;
+    | WSEvents.Error
+    | WSEvents.RoomUpdate;
   payload:
     | IUpdate
     | Instance<typeof Profile>
     | Instance<typeof User>
     | INotification
-    | IError;
+    | IError
+    | IDialog;
 }
 
 export interface IError {

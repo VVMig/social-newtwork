@@ -15,4 +15,5 @@ export const zIndex = {
   modal: 1500,
   sidebarToggler: 1200,
   notificationsArea: 1300,
+  messageAvatar: 800,
 };

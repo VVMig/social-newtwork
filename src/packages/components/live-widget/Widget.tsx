@@ -1,8 +1,9 @@
 import React from 'react';
-import { Styled } from './styled';
-import { Stream } from './Stream';
+
 import { Chat } from './Chat';
 import { WidgetProps } from './interfaces';
+import { Stream } from './Stream';
+import { Styled } from './styled';
 
 export const Widget = ({ viewIcon, sendIcon }: WidgetProps) => {
   return (

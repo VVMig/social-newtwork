@@ -1,6 +1,7 @@
-import styled, { keyframes } from 'styled-components';
-import { zIndex } from '../zIndex';
 import { Link as StyledLink } from 'react-router-dom';
+import styled, { keyframes } from 'styled-components';
+
+import { zIndex } from '../zIndex';
 
 interface Props {
   delay: number;

@@ -1,6 +1,11 @@
 import React from 'react';
+
 import { Styled } from './styled';
 
-export const Dot = () => {
-  return <Styled.Dot>&bull;</Styled.Dot>;
+interface Props {
+  className?: string;
+}
+
+export const Dot = ({ className }: Props) => {
+  return <Styled.Dot className={className}>&bull;</Styled.Dot>;
 };

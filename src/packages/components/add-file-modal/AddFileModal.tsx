@@ -1,9 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Modal, ModalProps } from '../modal';
-import { UploadZone } from './UploadZone';
-import { UploadSuccess } from './UploadSuccess';
-import { UploadFailed } from './UploadFailed';
+
 import { AxiosError } from 'axios';
+
+import { Modal, ModalProps } from '../modal';
+import { UploadFailed } from './UploadFailed';
+import { UploadSuccess } from './UploadSuccess';
+import { UploadZone } from './UploadZone';
 
 interface Props extends ModalProps {
   extencions?: string;

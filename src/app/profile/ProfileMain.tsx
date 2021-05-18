@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { Styled } from './styled';
-import { Actions } from './Actions';
+
+import { AxiosError } from 'axios';
+import { observer } from 'mobx-react-lite';
 import { useParams } from 'react-router-dom';
-import { Params } from './interfaces';
-import { store } from '../store';
+
 import { AddFileModal, ImageProps } from '../../packages/components';
-import { Icon } from '../Icon';
-import { IconType } from '../IconEnum';
 import {
   follow,
   isLiked,
@@ -15,8 +13,12 @@ import {
   sendFiles,
   unfollow,
 } from '../helpers';
-import { observer } from 'mobx-react-lite';
-import { AxiosError } from 'axios';
+import { Icon } from '../Icon';
+import { IconType } from '../IconEnum';
+import { store } from '../store';
+import { Actions } from './Actions';
+import { Params } from './interfaces';
+import { Styled } from './styled';
 
 export const ProfileMain = observer(() => {
   const { id } = useParams<Params>();
@@ -76,6 +78,7 @@ export const ProfileMain = observer(() => {
             isOwner={store.user?._id === id}
             isFollowing={isFollowing()}
             subscribeHandler={subscribeHandler}
+            id={id}
           />
         )}
       </Styled.ProfileMain>

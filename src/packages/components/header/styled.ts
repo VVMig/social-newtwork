@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 
 const size = '25px';
 const tabState = css`
@@ -10,7 +10,7 @@ const tabState = css`
 export const headerHeight = 70;
 
 const Header = styled.header`
-  max-width: 465px;
+  max-width: 320px;
   width: 100%;
   height: ${headerHeight}px;
   display: inline-flex;

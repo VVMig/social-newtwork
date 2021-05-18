@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Styled } from './styled';
+
 import { ImageModal } from './ImageModal';
 import { ImageProps } from './interfaces';
+import { Styled } from './styled';
 
 export const ImageWrapper = ({
   actionHandler,

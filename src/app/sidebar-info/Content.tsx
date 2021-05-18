@@ -1,5 +1,7 @@
-import { observer } from 'mobx-react-lite';
 import React from 'react';
+
+import { observer } from 'mobx-react-lite';
+
 import { FriendFields, Widget } from '../../packages/components';
 import { store } from '../store';
 

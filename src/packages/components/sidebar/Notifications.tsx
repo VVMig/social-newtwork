@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Dot } from '../dot/Dot';
 import { Styled } from './styled';
 

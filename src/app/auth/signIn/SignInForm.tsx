@@ -1,11 +1,13 @@
 import React from 'react';
+
 import { Formik, FormikHelpers } from 'formik';
-import { SignInValues, SubmitProps } from '../interfaces';
-import { signInShema } from '../configs/validationSchema';
-import { signInFields } from '../configs/inputFields';
-import { Form } from '../Form';
 import { observer } from 'mobx-react-lite';
+
 import { authorize, parseError, signIn } from '../../helpers';
+import { signInFields } from '../configs/inputFields';
+import { signInShema } from '../configs/validationSchema';
+import { Form } from '../Form';
+import { SignInValues, SubmitProps } from '../interfaces';
 
 const initialValues: SignInValues = {
   email: '',

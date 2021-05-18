@@ -1,6 +1,7 @@
 import React from 'react';
-import { Styled } from './styled';
+
 import { Item } from './interfaces';
+import { Styled } from './styled';
 
 export const MenuItem = ({ title, link, actionHandler, icon }: Item) => {
   return (

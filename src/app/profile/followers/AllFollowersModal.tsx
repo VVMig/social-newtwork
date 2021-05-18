@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Modal, ModalProps } from '../../../packages/components';
 import { FollowerFields } from '../interfaces';
 import { Styled } from '../styled';
@@ -21,7 +22,7 @@ export const AllFollowersModal = ({
     <Modal
       showModal={showModal}
       setShowModal={setShowModal}
-      title="All friends"
+      title="All followers"
     >
       <Styled.AllItemsModal>
         {followers.map((follower, i) => (

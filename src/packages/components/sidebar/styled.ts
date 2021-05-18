@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+
 import { zIndex } from '../zIndex';
 
 const logoSize = '30px';

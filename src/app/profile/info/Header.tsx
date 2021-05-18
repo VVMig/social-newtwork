@@ -1,6 +1,8 @@
 import React from 'react';
-import { Styled } from '../styled';
+
 import moment from 'moment';
+
+import { Styled } from '../styled';
 
 interface Props {
   name: string;

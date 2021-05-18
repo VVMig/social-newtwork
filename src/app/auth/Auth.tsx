@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
+
+import { observer } from 'mobx-react-lite';
+import { Transition } from 'react-transition-group';
+
+import { store } from '../store';
 import { FormContainer } from './FormContainer';
 import { Styled, switchVerificationDuration } from './styled';
-import { Welcome } from './Welcome';
 import { Verification } from './verification/Verification';
-import { observer } from 'mobx-react-lite';
-import { store } from '../store';
-import { Transition } from 'react-transition-group';
+import { Welcome } from './Welcome';
 
 export const Auth = observer(() => {
   const [signIn, setsignIn] = useState(true);
@@ -25,11 +27,18 @@ export const Auth = observer(() => {
         <Transition
           in={store.isUserSet && !store.user?.verified}
           timeout={switchVerificationDuration}
+          mountOnEnter
+          unmountOnExit
         >
           {(state) => <Verification className={state} />}
         </Transition>
 
-        <Transition in={!store.isUserSet} timeout={switchVerificationDuration}>
+        <Transition
+          in={!store.isUserSet}
+          timeout={switchVerificationDuration}
+          mountOnEnter
+          unmountOnExit
+        >
           {(state) => (
             <Styled.Main className={`${state}`}>
               <FormContainer signIn={signIn} signInDelayed={signInDelayed} />

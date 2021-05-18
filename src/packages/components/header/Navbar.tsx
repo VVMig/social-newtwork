@@ -1,6 +1,7 @@
 import React from 'react';
-import { NavTab } from './NavTab';
+
 import { TabProps } from './interfaces';
+import { NavTab } from './NavTab';
 import { Styled } from './styled';
 
 export const Navbar = ({ tabs }: TabProps) => {
