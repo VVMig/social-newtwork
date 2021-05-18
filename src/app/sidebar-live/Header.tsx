@@ -87,7 +87,6 @@ export const Header = observer(
 
           <Styled.MenuArea onClick={showMenuHandler} ref={menuRef}>
             <Avatar
-              size={30}
               outline={showMenu}
               src={store.user.userAvatar}
               name={store.user.firstName}

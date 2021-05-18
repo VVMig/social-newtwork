@@ -21,13 +21,7 @@ export const NotificationsList = observer(({ show, notifyRef }: Props) => {
           .map((item) => ({
             title: item.notifyMessage,
             link: `${RoutesEnum.Profile}/${item.from._id}`,
-            icon: (
-              <Avatar
-                src={item.userAvatar}
-                size={20}
-                name={item.from.firstName}
-              />
-            ),
+            icon: <Avatar src={item.userAvatar} name={item.from.firstName} />,
           }))
           .reverse()}
         className={'dropdown-notifications'}
