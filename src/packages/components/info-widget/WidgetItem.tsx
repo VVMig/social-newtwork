@@ -1,12 +1,11 @@
 import React from 'react';
 
-import moment from 'moment';
 import { Link } from 'react-router-dom';
 
-import { Avatar } from '../avatar/Avatar';
-import { Dot } from '../dot/Dot';
 import { Underline } from '../underline/Underline';
+import { Info } from './Info';
 import { FriendFields } from './interfaces';
+import { Status } from './Status';
 import { Styled } from './styled';
 
 export const WidgetItem = ({
@@ -17,30 +16,11 @@ export const WidgetItem = ({
   route,
   avatar,
 }: FriendFields) => {
-  const realTime = () => {
-    return moment(lastVisit).fromNow() === 'a few seconds ago'
-      ? 'recently'
-      : moment(lastVisit).fromNow();
-  };
-
   return (
     <Link to={route}>
       <Styled.Item>
-        <Styled.Info>
-          <Avatar size={30} src={avatar} name={!avatar ? firstName : ''} />
-          <Styled.Name>
-            <h3>{`${firstName} ${lastName}`}</h3>
-          </Styled.Name>
-        </Styled.Info>
-        <Styled.Status>
-          {online ? (
-            <Styled.Online>
-              <Dot />
-            </Styled.Online>
-          ) : (
-            <Styled.Offline>{realTime()}</Styled.Offline>
-          )}
-        </Styled.Status>
+        <Info src={avatar || ''} name={`${firstName} ${lastName}`} />
+        <Status online={online} lastVisit={lastVisit} />
         <Underline parentClass={Styled.Item.styledComponentId} />
       </Styled.Item>
     </Link>
