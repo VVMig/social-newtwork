@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { Alert, headerHeight } from '../packages/components';
+import { Alert, headerHeight, Spinner } from '../packages/components';
 import { appearTop } from './auth/configs/animations';
 import { sidebarInfoWidth } from './sidebar-info/styled';
 import { sidebarLiveWidth } from './sidebar-live/styled';
@@ -74,11 +74,9 @@ const Wrapper = styled.div<AuthProps>`
   height: 100vh;
 `;
 
-const PageSpinner = styled.div`
-  & .spinner {
-    width: 100px;
-  }
-  & .spinner > div {
+const PageSpinner = styled(Spinner)`
+  width: 100px;
+  & > div {
     width: 30px;
     height: 30px;
   }
