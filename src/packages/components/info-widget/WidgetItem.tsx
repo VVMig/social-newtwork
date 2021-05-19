@@ -14,12 +14,12 @@ export const WidgetItem = ({
   lastName,
   online,
   route,
-  avatar,
+  avatar = '',
 }: FriendFields) => {
   return (
     <Link to={route}>
       <Styled.Item>
-        <Info src={avatar || ''} name={`${firstName} ${lastName}`} />
+        <Info src={avatar} name={`${firstName} ${lastName}`} />
         <Status online={online} lastVisit={lastVisit} />
         <Underline parentClass={Styled.Item.styledComponentId} />
       </Styled.Item>

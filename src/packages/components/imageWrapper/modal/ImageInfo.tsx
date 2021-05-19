@@ -8,7 +8,7 @@ import { Styled } from '../styled';
 export const ImageInfo: React.FC<ImageInfoProps> = ({
   likeHandler,
   likeIcon,
-  likesNumber,
+  likesNumber = 0,
   imageDate,
   isLiked,
 }) => {
@@ -17,7 +17,7 @@ export const ImageInfo: React.FC<ImageInfoProps> = ({
       <Styled.Date>{lastTimeAction(imageDate)}</Styled.Date>
       <Likes
         actionHandler={likeHandler}
-        likesNumber={likesNumber || 0}
+        likesNumber={likesNumber}
         icon={likeIcon}
         isLiked={isLiked}
       />
