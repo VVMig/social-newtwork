@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
-import { Alert, Spinner } from '../../packages/components';
+import { Alert } from '../../packages/components';
 import { FormContainerProps } from './interfaces';
 import { SignInForm } from './signIn/SignInForm';
 import { SignUpForm } from './signUp/SignUpForm';
@@ -33,7 +33,7 @@ export const FormContainer = observer(
     return (
       <Styled.FormContainer signIn={signIn}>
         {error && <Alert text={error} handleClose={resetHandler} />}
-        {loading && <Spinner />}
+        {loading && <Styled.AuthSpinner />}
 
         {signInDelayed ? (
           <SignInForm
