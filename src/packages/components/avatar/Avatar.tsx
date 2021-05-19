@@ -12,19 +12,11 @@ export const Avatar = ({
 }: AvatarProps) => {
   const avatarLetter = name?.substr(0, 1) || '';
 
-  return (
-    <>
-      {route ? (
-        <Styled.Link to={route}>
-          <Styled.Avatar {...props} className={className} src={src}>
-            {!src && avatarLetter}
-          </Styled.Avatar>
-        </Styled.Link>
-      ) : (
-        <Styled.Avatar {...props} className={className} src={src}>
-          {!src && avatarLetter}
-        </Styled.Avatar>
-      )}
-    </>
+  const avatar = (
+    <Styled.Avatar {...props} className={className} src={src}>
+      {!src && avatarLetter}
+    </Styled.Avatar>
   );
+
+  return <>{route ? <Styled.Link to={route}>{avatar}</Styled.Link> : avatar}</>;
 };
