@@ -14,14 +14,12 @@ interface Props {
 export const Content = observer(
   ({ searchedItems, searchingUser, isSearchLoading }: Props) => {
     return (
-      <>
-        <Widget
-          title={searchingUser ? 'Result' : 'Following'}
-          items={searchingUser ? searchedItems : store.user.followingProfiles}
-          altTitle={searchingUser ? 'Could not find' : 'Start explore'}
-          isLoading={isSearchLoading}
-        />
-      </>
+      <Widget
+        title={searchingUser ? 'Result' : 'Following'}
+        items={searchingUser ? searchedItems : store.user.followingProfiles}
+        altTitle={searchingUser ? 'Could not find' : 'Start explore'}
+        isLoading={isSearchLoading}
+      />
     );
   }
 );
