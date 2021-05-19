@@ -13,6 +13,7 @@ interface Props {
   showMenuHandler?: React.MouseEventHandler;
   menuRef: RefObject<HTMLDivElement>;
   showSidebar: boolean;
+  contentRef: RefObject<HTMLDivElement>;
 }
 
 export const SidebarLive = ({
@@ -21,6 +22,7 @@ export const SidebarLive = ({
   showMenuHandler,
   menuRef,
   showSidebar,
+  contentRef,
 }: Props) => {
   return (
     <Styled.SidebarContainer>
@@ -31,7 +33,7 @@ export const SidebarLive = ({
           showMenuHandler={showMenuHandler}
           menuRef={menuRef}
         />
-        <Content />
+        <Content contentRef={contentRef} />
       </Sidebar>
     </Styled.SidebarContainer>
   );

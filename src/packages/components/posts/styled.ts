@@ -12,6 +12,7 @@ const PostContainer = styled.div`
   width: 100%;
   align-items: center;
   gap: ${gaps};
+  padding-bottom: 5px;
 `;
 
 const Wrapper = styled.div`

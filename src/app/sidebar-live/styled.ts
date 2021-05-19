@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 import { zIndex } from '../../packages/components';
 
@@ -9,6 +9,8 @@ const delay = 300;
 const headerInfoWidth = 170;
 
 const marginFromHeader = 5;
+
+export const scrollAnimationDuration = 200;
 
 const appearRight = keyframes`
   0%{
@@ -32,6 +34,20 @@ const disappearRight = keyframes`
   }
 `;
 
+const opacityAppear = keyframes`
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 0.5;
+  }
+`;
+
+const appearAnimation = (reverse?: boolean) => css`
+  animation: ${opacityAppear} ${scrollAnimationDuration}ms
+    ${reverse && 'reverse'} forwards;
+`;
+
 const SidebarContainer = styled.div`
   justify-self: end;
   max-width: ${sidebarLiveWidth}px;
@@ -42,6 +58,7 @@ const SidebarContainer = styled.div`
   & Aside {
     transform: translate(100%);
     will-change: transform;
+    padding-bottom: 0;
 
     &.exited {
       transform: translate(100%);
@@ -88,7 +105,10 @@ const MenuArea = styled.div`
   }
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+  height: 100%;
+`;
 
 const NotificationArea = styled.div`
   display: flex;
@@ -117,6 +137,34 @@ const NotificationsList = styled.div`
   }
 `;
 
+const ScrollToTop = styled.div`
+  display: flex;
+  justify-content: center;
+  background-color: ${(props) => props.theme.additionalLightBlue()};
+  cursor: pointer;
+  user-select: none;
+  align-self: flex-end;
+  width: 100%;
+  padding: 10px;
+
+  &.entering {
+    ${appearAnimation()}
+  }
+  &.entered {
+    opacity: 0.5;
+  }
+  &.exiting {
+    ${appearAnimation(true)}
+  }
+  &.exited {
+    opacity: 0;
+  }
+  &:hover {
+    opacity: 1;
+    transition: 0.2s linear;
+  }
+`;
+
 export const Styled = {
   SidebarContainer,
   Header,
@@ -124,4 +172,5 @@ export const Styled = {
   MenuArea,
   NotificationsList,
   NotificationArea,
+  ScrollToTop,
 };

@@ -17,3 +17,4 @@ export * from './sidebar';
 export * from './spinner';
 export * from './zIndex';
 export * from './utils';
+export * from './scroll-arrow';

@@ -24,4 +24,5 @@ export const theme = {
   lightBlack: 'rgba(65, 65, 65, 0.8)',
   mainRed: '#ff3636',
   additionalDarkBlue: '#034efc',
+  additionalLightBlue: (opacity = 1) => `rgba(102, 91, 252, ${opacity})`,
 };
