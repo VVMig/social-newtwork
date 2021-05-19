@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { Avatar } from '../avatar';
-
 const SidebarWidget = styled.div`
   padding-top: 35px;
 `;
@@ -34,8 +32,6 @@ const Info = styled.div`
   display: flex;
   align-items: center;
 `;
-
-const WidgetAvatar = styled(Avatar)``;
 
 const Name = styled.div`
   padding-left: 15px;
@@ -82,6 +78,5 @@ export const Styled = {
   List,
   Title,
   SidebarWidget,
-  WidgetAvatar,
   SpinnerContainer,
 };

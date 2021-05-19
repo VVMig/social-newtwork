@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Avatar } from '../avatar';
 import { Styled } from './styled';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
 export const Info: React.FC<Props> = ({ src, name }) => {
   return (
     <Styled.Info>
-      <Styled.WidgetAvatar src={src} name={name} />
+      <Avatar src={src} name={name} />
       <Styled.Name>
         <h3>{name}</h3>
       </Styled.Name>
