@@ -17,10 +17,10 @@ export const Messager = observer(() => {
       {userIdQuery ? (
         <Chat userId={userIdQuery} />
       ) : store.user.allDialogs.length ? (
-        store.user.allDialogs.map((dialog, i) => (
+        store.user.allDialogs.map((dialog, index) => (
           <Styled.Link
             to={`${RoutesEnum.Messager}?userId=${dialog.from._id}`}
-            key={i}
+            key={index}
           >
             <Dialog
               from={dialog.from}

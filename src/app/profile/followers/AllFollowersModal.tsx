@@ -25,8 +25,8 @@ export const AllFollowersModal = ({
       title="All followers"
     >
       <Styled.AllItemsModal>
-        {followers.map((follower, i) => (
-          <Follower {...follower} key={i} closeModal={closeModal} />
+        {followers.map((follower, index) => (
+          <Follower {...follower} key={index} closeModal={closeModal} />
         ))}
       </Styled.AllItemsModal>
     </Modal>

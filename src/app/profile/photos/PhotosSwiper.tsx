@@ -21,8 +21,8 @@ export const PhotosSwiper = ({ photos, avatarHandler, deletePhoto }: Props) => {
   return (
     <Swiper spaceBetween={2} slidesPerView={'auto'}>
       {photos.length ? (
-        photos.map((photo, i) => (
-          <SwiperSlide key={i}>
+        photos.map((photo, index) => (
+          <SwiperSlide key={index}>
             <Styled.Photo
               {...photo}
               setAvatarAction={avatarHandler?.bind(photo)}

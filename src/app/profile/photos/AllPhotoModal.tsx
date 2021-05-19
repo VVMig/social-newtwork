@@ -92,11 +92,11 @@ export const AllPhotoModal = ({
         </Styled.ActionsModal>
       )}
       <Styled.AllItemsModal>
-        {allPhotos.map((photo, i) => (
+        {allPhotos.map((photo, index) => (
           <Styled.Photo
             {...photo}
             isSelectMode={isSelectMode}
-            key={i}
+            key={index}
             setAvatarAction={avatarHandler?.bind(photo)}
             setSelected={selectPhotoToggle.bind(photo)}
             deleteHandler={trashClickHandler.bind(photo)}

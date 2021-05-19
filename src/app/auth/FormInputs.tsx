@@ -11,8 +11,8 @@ interface Props {
 export const FormInputs = ({ fields }: Props) => {
   return (
     <>
-      {fields.map((x, i) => (
-        <InputGroup {...x} key={i} icon={<Icon type={x.icon} />} />
+      {fields.map((x, index) => (
+        <InputGroup {...x} key={index} icon={<Icon type={x.icon} />} />
       ))}
     </>
   );
