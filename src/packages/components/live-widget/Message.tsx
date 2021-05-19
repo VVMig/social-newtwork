@@ -13,7 +13,7 @@ export const Message = ({ text, displayName, date, route }: MessageProps) => {
   return (
     <Styled.Message>
       <Styled.MainInfo>
-        <Avatar size={32} route={route} />
+        <Avatar route={route} />
         <Styled.Content>
           <Styled.Name>{displayName}</Styled.Name>
           <Styled.Text>{text}</Styled.Text>

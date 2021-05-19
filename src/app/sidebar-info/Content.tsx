@@ -8,18 +8,18 @@ import { store } from '../store';
 interface Props {
   searchedItems: FriendFields[];
   searchingUser: string;
+  isSearchLoading: boolean;
 }
 
-export const Content = observer(({ searchedItems, searchingUser }: Props) => {
-  return (
-    <>
+export const Content = observer(
+  ({ searchedItems, searchingUser, isSearchLoading }: Props) => {
+    return (
       <Widget
         title={searchingUser ? 'Result' : 'Following'}
-        items={
-          searchedItems.length ? searchedItems : store.user.followingProfiles
-        }
+        items={searchingUser ? searchedItems : store.user.followingProfiles}
         altTitle={searchingUser ? 'Could not find' : 'Start explore'}
+        isLoading={isSearchLoading}
       />
-    </>
-  );
-});
+    );
+  }
+);

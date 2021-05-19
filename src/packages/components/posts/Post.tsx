@@ -23,8 +23,8 @@ export const Post = ({
       </Styled.ToSourceLink>
       <Styled.Content>
         <Header title={title} subtitle={subtitle} date={date} />
-        <Body text={text} author={author} />
-        <Footer likes={likes} />
+        <Body text={text} />
+        <Footer likes={likes} author={author} />
       </Styled.Content>
     </Styled.Wrapper>
   );

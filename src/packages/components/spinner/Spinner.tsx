@@ -8,7 +8,7 @@ interface Props {
 
 export const Spinner = ({ className }: Props) => {
   return (
-    <Styled.Spinner className={`${className} spinner`}>
+    <Styled.Spinner className={className}>
       <Styled.BounceLeft />
       <Styled.BounceMiddle />
       <Styled.BounceRight />

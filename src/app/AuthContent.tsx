@@ -59,7 +59,7 @@ export const AuthContent: React.FC = observer(({ children }) => {
 
   useEffect(() => {
     play();
-  }, [store.newMessage.length]);
+  }, [store.newMessage]);
 
   return (
     <>

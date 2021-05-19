@@ -73,16 +73,21 @@ const DateSpan = styled.span<SpanProps>`
         `};
 `;
 
-const Title = styled.div`
+const HeaderText = styled.div`
+  overflow: hidden;
+  text-overflow: ellipsis;
   padding: 0 8px 0 8px;
-  font-weight: bold;
-  font-size: 12px;
-  text-transform: capitalize;
+`;
 
-  h2 {
-    margin-block-start: 0;
-    margin-block-end: 0;
-  }
+const Title = styled.h2`
+  font-weight: bold;
+  font-size: 15px;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 `;
 
 const More = styled.div`
@@ -115,38 +120,29 @@ const Text = styled.div`
   max-height: 60px;
   text-overflow: ellipsis;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 `;
 
 const Author = styled.div`
   display: flex;
-  height: 30px;
-  margin-top: auto;
-  width: 100%;
-`;
-
-const AuthorInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 100%;
-  padding: 0 0 0 7px;
+  max-width: 250px;
+  padding-bottom: 5px;
 `;
 
 const Name = styled.span`
   color: ${(props) => props.theme.black};
   font-size: 12px;
-`;
-
-const Subname = styled.span`
-  color: ${(props) => props.theme.greyMain};
-  font-size: 8px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 `;
 
 const Footer = styled.div`
   display: flex;
-  height: 24px;
-  margin-top: auto;
-  align-items: center;
+  flex-direction: column;
 `;
 
 const Subtitle = styled.span`
@@ -155,14 +151,17 @@ const Subtitle = styled.span`
   font-weight: lighter;
   line-height: 25px;
   padding: 0 0 0 2px;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 `;
 
-const Like = styled.span.attrs({
-  role: 'img',
-})`
+const Like = styled.span`
   font-size: 14px;
   color: ${(props) => props.theme.black};
   cursor: pointer;
+  width: fit-content;
 `;
 
 const ToSourceLink = styled.a`
@@ -171,6 +170,7 @@ const ToSourceLink = styled.a`
 `;
 
 export const Styled = {
+  HeaderText,
   ToSourceLink,
   PostContainer,
   Like,
@@ -187,7 +187,5 @@ export const Styled = {
   Body,
   Text,
   Author,
-  AuthorInfo,
-  Subname,
   Name,
 };

@@ -1,7 +1,7 @@
 import { Post } from '../../packages/components';
 
 export interface NewsFields {
-  author: string;
+  source: string;
   category: string;
   country: string;
   description: string;
@@ -17,7 +17,7 @@ export const parseNews = (news: NewsFields[]): Post[] =>
     subtitle: post.category,
     date: +new Date(post.published_at),
     text: post.description,
-    author: post.author,
+    author: post.source,
     likes: 0,
     src: post.image || '',
     link: post.url,

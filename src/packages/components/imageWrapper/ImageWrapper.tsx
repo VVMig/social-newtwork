@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 
-import { ImageModal } from './ImageModal';
 import { ImageProps } from './interfaces';
+import { ImageModal } from './modal/ImageModal';
 import { Styled } from './styled';
 
-export const ImageWrapper = ({
+export const ImageWrapper: React.FC<ImageProps> = ({
   actionHandler,
   isModal,
   className,
   alt,
   src,
   setAvatarAction,
-  selectMode,
+  isSelectMode,
   setSelected,
-  selected,
+  isSelected,
   ...props
-}: ImageProps) => {
+}) => {
   const [showImageModal, setShowImageModal] = useState(false);
 
   const modalHandler: React.MouseEventHandler = () => {
@@ -23,22 +23,21 @@ export const ImageWrapper = ({
   };
 
   const clickHandler: React.MouseEventHandler = (event) => {
-    if (!selectMode) {
+    if (!isSelectMode) {
       isModal && modalHandler(event);
       actionHandler && actionHandler(event);
-    } else setSelected && setSelected(!selected);
+    } else setSelected && setSelected(!isSelected);
   };
 
   return (
     <>
       <Styled.Preview
         src={src}
-        alt={alt}
         className={className}
         onClick={clickHandler}
         isModal={isModal}
-        selected={selected}
-      ></Styled.Preview>
+        isSelected={isSelected}
+      />
       <ImageModal
         showModal={showImageModal}
         setShowModal={setShowImageModal}

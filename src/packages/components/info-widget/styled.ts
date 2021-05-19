@@ -61,6 +61,12 @@ const Empty = styled(Item)`
   font-size: 18px;
 `;
 
+const SpinnerContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Styled = {
   Empty,
   Offline,
@@ -72,4 +78,5 @@ export const Styled = {
   List,
   Title,
   SidebarWidget,
+  SpinnerContainer,
 };

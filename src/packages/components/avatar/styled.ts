@@ -1,18 +1,11 @@
 import { Link as StyledLink } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-export interface AvatarProps {
-  size?: number;
-  route?: string;
-  outline?: boolean;
-  src?: string;
-  className?: string;
-  name?: string;
-}
+import { AvatarProps } from './interfaces';
 
 const Avatar = styled.div<AvatarProps>`
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
+  width: 30px;
+  height: 30px;
   background-position: center;
   background-size: contain;
   display: flex;

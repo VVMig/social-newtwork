@@ -11,7 +11,7 @@ export const Store = types
     notify: types.optional(types.boolean, false),
     dialog: types.optional(Dialog, {}),
     error: types.maybe(types.string),
-    newMessage: types.optional(types.array(types.number), []),
+    newMessage: types.optional(types.boolean, true),
   })
   .actions((self) => ({
     setUser(user: Instance<typeof User>) {
@@ -22,11 +22,12 @@ export const Store = types
 
         if (
           prevDialog &&
-          prevDialog.lastMessage._id !== dialog.lastMessage._id &&
+          prevDialog.lastMessage &&
+          dialog.lastMessage &&
           !dialog.lastMessage.read &&
           dialog.lastMessage.from !== self.user._id
         ) {
-          self.newMessage.push(1);
+          self.newMessage = !self.newMessage;
         }
       });
       Object.assign(self.user, user);
