@@ -16,7 +16,9 @@ import { Styled } from './styled';
 export const Profile = observer(() => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams<Params>();
-  const { lastJsonMessage, sendMessage } = useWebSocket(`${wsUrl}/profile`);
+  const { lastJsonMessage, sendMessage } = useWebSocket(`${wsUrl}/profile`, {
+    shouldReconnect: () => true,
+  });
 
   const sendCurrentProfile = () => {
     sendMessage(id);
