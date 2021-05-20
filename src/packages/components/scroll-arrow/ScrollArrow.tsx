@@ -6,6 +6,10 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
   icon: JSX.Element;
 }
 
-export const ScrollArrow: React.FC<Props> = ({ className, icon }) => {
-  return <Styled.ScrollArrow className={className}>{icon}</Styled.ScrollArrow>;
+export const ScrollArrow: React.FC<Props> = ({ className, icon, onClick }) => {
+  return (
+    <Styled.ScrollArrow className={className} onClick={onClick}>
+      {icon}
+    </Styled.ScrollArrow>
+  );
 };

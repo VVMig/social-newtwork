@@ -11,8 +11,8 @@ export const FollowersSwiper = ({ followers }: FriendsProps) => {
   return (
     <Swiper spaceBetween={7} slidesPerView={'auto'}>
       {followers.length ? (
-        followers.map((follower, i) => (
-          <SwiperSlide key={i}>
+        followers.map((follower, index) => (
+          <SwiperSlide key={index}>
             <Follower {...follower} />
           </SwiperSlide>
         ))
