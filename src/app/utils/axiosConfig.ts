@@ -7,13 +7,16 @@ export const axiosConfig: AxiosRequestConfig = {
   withCredentials: true,
 };
 
+export const newsLimit = 25;
+
 export const axiosNewsConfig: AxiosRequestConfig = {
   baseURL: 'http://api.mediastack.com/v1/news',
   params: {
     languages: 'en',
     sources: 'cnn',
-    access_key: 'd284d33b86b6476424fd84de56ed660c',
+    access_key: 'fa817602fe96164d44d5ad35f68b1112',
     sort: 'published_desc',
+    limit: newsLimit,
   },
 };
 

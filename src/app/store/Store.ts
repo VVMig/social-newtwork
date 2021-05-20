@@ -1,5 +1,6 @@
 import { cast, Instance, types } from 'mobx-state-tree';
 
+import { ContentScroll } from './ContentScroll';
 import { Dialog, IDialog } from './Dialog';
 import { Profile } from './Profile';
 import { User } from './User';
@@ -12,8 +13,16 @@ export const Store = types
     dialog: types.optional(Dialog, {}),
     error: types.maybe(types.string),
     newMessage: types.optional(types.boolean, true),
+    pageScrolling: types.optional(ContentScroll, {}),
   })
   .actions((self) => ({
+    setScroll(scrollHeight: number, scrollTop: number, clientHeight: number) {
+      self.pageScrolling = cast({
+        scrollHeight,
+        scrollTop,
+        clientHeight,
+      });
+    },
     setUser(user: Instance<typeof User>) {
       user.allDialogs?.forEach((dialog) => {
         const prevDialog = self.user.allDialogs.find(

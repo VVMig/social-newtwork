@@ -1,7 +1,7 @@
 import { Form as StyledFormikForm } from 'formik';
 import styled, { css } from 'styled-components';
 
-import { zIndex } from '../../packages/components';
+import { Spinner, zIndex } from '../../packages/components';
 import {
   appearLeft,
   appearLeftLinear,
@@ -18,7 +18,7 @@ import {
   switchToRight,
   switchToRightForm,
 } from './configs/animations';
-import { ResentState,SwitchState } from './interfaces';
+import { ResentState, SwitchState } from './interfaces';
 
 export const switchVerificationDuration = 400;
 const animationDuration = 0.8;
@@ -65,6 +65,12 @@ const Main = styled.div`
   }
 `;
 
+const AuthSpinner = styled(Spinner)`
+  ${centralize};
+  top: ${formPaddingTop}px;
+  transform: translate(-50%, -50%);
+`;
+
 const FormContainer = styled.div<SwitchState>`
   display: flex;
   max-width: calc(100% - ${cornerWidth}px);
@@ -73,12 +79,6 @@ const FormContainer = styled.div<SwitchState>`
   position: absolute;
   justify-content: center;
   align-items: center;
-
-  & .spinner {
-    ${centralize};
-    top: ${formPaddingTop}px;
-    transform: translate(-50%, -50%);
-  }
 
   & .alert {
     ${centralize};
@@ -410,6 +410,7 @@ const SignOut = styled.div`
 `;
 
 export const Styled = {
+  AuthSpinner,
   Auth,
   Form,
   AuthContainer,

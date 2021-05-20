@@ -1,16 +1,7 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import { Avatar, Button, Spinner } from '../../../packages/components';
+import { Avatar, Button } from '../../../packages/components';
 import { MessageProps, IChatBody } from './interfaces';
-
-const appearScroll = keyframes`
-  0%{
-    opacity: 0;
-  },
-  100% {
-    opacity: 1;
-  }
-`;
 
 const Chat = styled.div`
   display: flex;
@@ -68,7 +59,7 @@ const ChatAvatar = styled(Avatar)`
 const ChatBody = styled.div<IChatBody>`
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  padding: 5px;
   height: calc(100vh * 0.6);
   overflow: auto;
 
@@ -169,24 +160,6 @@ const MessageSendButton = styled(Button)`
   }
 `;
 
-const ChatSpinner = styled(Spinner)``;
-
-const ScrollToBottomBtn = styled.div`
-  opacity: 0.5;
-  transform: rotate(-90deg);
-  transform-origin: center;
-  position: absolute;
-  right: 0;
-  bottom: 20px;
-  cursor: pointer;
-  animation: ${appearScroll} 0.2s linear;
-  overflow: hidden;
-
-  & svg {
-    transform: translateX(25%);
-  }
-`;
-
 export const Styled = {
   MessageSend,
   Chat,
@@ -202,6 +175,4 @@ export const Styled = {
   MessageForm,
   MessageTextWrite,
   MessageSendButton,
-  ChatSpinner,
-  ScrollToBottomBtn,
 };

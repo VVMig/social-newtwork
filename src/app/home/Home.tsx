@@ -5,18 +5,17 @@ import { observer } from 'mobx-react-lite';
 import { Post, PostsList } from '../../packages/components';
 import { fetchNews, parseError } from '../helpers';
 import { store } from '../store';
-import { Styled } from './styled';
 
 export const Home = observer(() => {
-  const news = localStorage.getItem('news');
-  const [isLoading, setIsLoading] = useState(!news);
-  const [posts, setPosts] = useState<Post[]>(news ? JSON.parse(news) : []);
+  const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [page, setPage] = useState(0);
 
   const fetchHomePage = async () => {
     try {
-      const res = await fetchNews();
-      setPosts(res);
-      localStorage.setItem('news', JSON.stringify(res));
+      setIsLoading(true);
+      const res = await fetchNews(page);
+      setPosts(posts.concat(res));
     } catch (error) {
       store.setError(parseError(error));
     } finally {
@@ -25,10 +24,15 @@ export const Home = observer(() => {
   };
 
   useEffect(() => {
+    if (store.pageScrolling.isBottomPage) {
+      setPage((prev) => prev + 1);
+      fetchHomePage();
+    }
+  }, [store.pageScrolling.isBottomPage]);
+
+  useEffect(() => {
     fetchHomePage();
   }, []);
 
-  return (
-    <>{isLoading ? <Styled.HomeSpinner /> : <PostsList posts={posts} />}</>
-  );
+  return <PostsList posts={posts} isLoading={isLoading} />;
 });

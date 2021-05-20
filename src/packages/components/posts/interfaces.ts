@@ -12,6 +12,7 @@ export interface Post extends DefaultImageProps {
 
 export interface PostsListProps {
   posts: Post[];
+  isLoading?: boolean;
 }
 
 export interface HeaderProps {

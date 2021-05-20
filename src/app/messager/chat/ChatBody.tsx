@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 import { observer } from 'mobx-react-lite';
 
+import { ScrollArrow, Spinner } from '../../../packages/components';
 import { Icon } from '../../Icon';
 import { IconType } from '../../IconEnum';
 import { store } from '../../store';
@@ -56,7 +57,7 @@ export const ChatBody = observer(({ loading }: Props) => {
   return (
     <Styled.ChatBody padding={loading} ref={bodyRef} onScroll={scrollHanlder}>
       {loading ? (
-        <Styled.ChatSpinner />
+        <Spinner />
       ) : (
         store.dialog.messages.map((message) => (
           <Message
@@ -68,9 +69,10 @@ export const ChatBody = observer(({ loading }: Props) => {
         ))
       )}
       {!scrollToLastMessage && (
-        <Styled.ScrollToBottomBtn onClick={scrollToBottomBtnHandler}>
-          <Icon type={IconType.CloseArrow} />
-        </Styled.ScrollToBottomBtn>
+        <ScrollArrow
+          onClick={scrollToBottomBtnHandler}
+          icon={<Icon type={IconType.CloseArrow} />}
+        />
       )}
     </Styled.ChatBody>
   );

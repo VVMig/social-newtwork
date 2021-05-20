@@ -20,6 +20,7 @@ export const AuthContent: React.FC = observer(({ children }) => {
   const [showMenu, setShowMenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(true);
   const [canPlay, setCanPlay] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
   const { lastJsonMessage } = useWebSocket(wsUrl, {
     shouldReconnect: () => true,
   });
@@ -43,6 +44,14 @@ export const AuthContent: React.FC = observer(({ children }) => {
 
   const closeOutsideMenuHandler = () => {
     setShowMenu(false);
+  };
+
+  const scrollContentHandler = (e: React.UIEvent<HTMLDivElement>) => {
+    store.setScroll(
+      e.currentTarget.scrollHeight,
+      e.currentTarget.scrollTop,
+      e.currentTarget.clientHeight
+    );
   };
 
   useOutsideClick(ref, closeOutsideMenuHandler);
@@ -75,8 +84,9 @@ export const AuthContent: React.FC = observer(({ children }) => {
         showMenu={showMenu}
         menuRef={ref}
         showSidebar={showSidebar}
+        contentRef={contentRef}
       />
-      <Styled.Content auth>
+      <Styled.Content auth onScroll={scrollContentHandler} ref={contentRef}>
         <Header tabs={tabs} />
         <Styled.ContentWidth sidebar={showSidebar}>
           {children}
