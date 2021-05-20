@@ -140,7 +140,7 @@ const NotificationsList = styled.div`
 const ScrollToTop = styled.div`
   display: flex;
   justify-content: center;
-  background-color: ${(props) => props.theme.additionalLightBlue()};
+  background-color: ${(props) => props.theme.opacityLightBlue()};
   cursor: pointer;
   user-select: none;
   align-self: flex-end;

@@ -27,6 +27,8 @@ export const Content: React.FC<Props> = observer(({ contentRef }) => {
       <Transition
         in={store.pageScrolling.scrollTop > scrollLimit}
         timeout={scrollAnimationDuration}
+        mountOnEnter
+        unmountOnExit
       >
         {(state) => (
           <Styled.ScrollToTop className={state} onClick={toTopClickHandler}>

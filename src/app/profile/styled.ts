@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
-import { Avatar,ImageWrapper } from '../../packages/components';
+import { Avatar, ImageWrapper } from '../../packages/components';
 
 const imageSize = 300;
 const ProfileMainPadding = 20;
@@ -236,9 +236,8 @@ const AllItemsModal = styled.div`
   height: 100%;
 
   & ${Photo} {
-    width: 100%;
-    max-width: 200px;
-    height: 100%;
+    width: 300px;
+    height: 300px;
   }
 
   & ${Friend} {

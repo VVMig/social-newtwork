@@ -59,7 +59,7 @@ const ChatAvatar = styled(Avatar)`
 const ChatBody = styled.div<IChatBody>`
   display: flex;
   flex-direction: column;
-  padding-top: 10px;
+  padding: 5px;
   height: calc(100vh * 0.6);
   overflow: auto;
 
