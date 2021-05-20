@@ -20,17 +20,6 @@ const appearLeft = keyframes`
   }
 `;
 
-const disappearLeft = keyframes`
-  0%{
-    transform: translate(0);
-    opacity: 1;
-  }
-  100%{
-    transform: translate(-100%);
-    opacity: 0;
-  }
-`;
-
 const SidebarContainer = styled.div`
   max-width: ${sidebarInfoWidth}px;
   height: 100vh;
@@ -45,13 +34,13 @@ const SidebarContainer = styled.div`
     }
 
     &.entering {
-      animation: ${appearLeft} ${delay}ms linear;
+      animation: ${appearLeft} both ${delay}ms linear;
     }
     &.entered {
       transform: translate(0);
     }
     &.exiting {
-      animation: ${disappearLeft} ${delay}ms linear;
+      animation: ${appearLeft} reverse both ${delay}ms linear;
     }
   }
 `;

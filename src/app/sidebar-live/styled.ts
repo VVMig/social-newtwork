@@ -23,17 +23,6 @@ const appearRight = keyframes`
   }
 `;
 
-const disappearRight = keyframes`
-  0%{
-    transform: translate(0);
-    opacity: 1;
-  }
-  100%{
-    transform: translate(100%);
-    opacity: 0;
-  }
-`;
-
 const opacityAppear = keyframes`
   0%{
     opacity: 0;
@@ -65,7 +54,7 @@ const SidebarContainer = styled.div`
     }
 
     &.entering {
-      animation: ${appearRight} ${delay}ms linear;
+      animation: ${appearRight} both ${delay}ms linear;
     }
 
     &.entered {
@@ -73,7 +62,7 @@ const SidebarContainer = styled.div`
     }
 
     &.exiting {
-      animation: ${disappearRight} ${delay}ms linear;
+      animation: ${appearRight} reverse both ${delay}ms linear;
     }
   }
 `;
