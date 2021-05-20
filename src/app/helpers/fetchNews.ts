@@ -8,7 +8,7 @@ const apiClient = Axios.create(axiosNewsConfig);
 export const fetchNews = async (page = 0) => {
   const { data } = await apiClient.get('', {
     params: {
-      offset: 0 + page * newsLimit,
+      offset: page * newsLimit,
     },
   });
 
